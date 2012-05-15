@@ -7,5 +7,8 @@
 		<div align="center">
 			Copyright 2020, KR .Ltd All Rights Reserved
 		</div>
+		
+		
+		
 	</body>
 </html>
