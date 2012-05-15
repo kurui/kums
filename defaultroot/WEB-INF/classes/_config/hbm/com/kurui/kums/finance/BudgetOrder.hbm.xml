@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-12-2 4:17:10 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.finance.BudgetOrder"
+		table="BUDGET_ORDER">
+		<id name="id" type="long">
+			<column name="ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">seq_BUDGET_ORDER</param>
+			</generator>
+		</id>
+		<many-to-one name="budget" class="com.kurui.kums.finance.Budget"
+			fetch="select">
+			<column name="BUDGET_ID" precision="22" scale="0"
+				not-null="true" />
+		</many-to-one>
+		<property name="name" type="string">
+			<column name="NAME" length="100" />
+		</property>
+		<property name="budgetAmount" type="big_decimal">
+			<column name="BUDGET_AMOUNT" precision="15" />
+		</property>
+		<property name="budgeTime" type="java.sql.Timestamp">
+			<column name="BUDGE_TIME" length="7" />
+		</property>
+		<property name="statementAmount" type="big_decimal">
+			<column name="STATEMENT_AMOUNT" precision="15" />
+		</property>
+		<property name="statementTime" type="java.sql.Timestamp">
+			<column name="STATEMENT_TIME" length="7" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="100" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

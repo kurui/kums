@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-10-7 4:02:04 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.finance.Commission"
+		table="COMMISSION">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_Commission</param>
+			</generator>
+		</id>
+		<many-to-one name="financeOrder"
+			class="com.kurui.kums.finance.FinanceOrder">
+			<column name="ORDER_ID" precision="22" scale="0" />
+		</many-to-one>
+		<many-to-one name="crossAgent"
+			class="com.kurui.kums.agent.Agent">
+			<column name="CROSS_AGENT_ID" precision="22" scale="0" />
+		</many-to-one>
+		<property name="totalAmount" type="big_decimal">
+			<column name="TOTAL_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="100" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="CREATE_TIME" length="7" />
+		</property>
+	</class>
+</hibernate-mapping>

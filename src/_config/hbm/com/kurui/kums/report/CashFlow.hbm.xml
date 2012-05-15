@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-6 3:39:31 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.report.CashFlow" table="CASH_FLOW">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_cashflow</param>
+			</generator>
+		</id>
+		<property name="tranType" type="long">
+			<column name="tran_Type" precision="22" scale="0" />
+		</property>
+		<property name="itemName" type="string">
+			<column name="ITEM_NAME" length="50" />
+		</property>
+
+		<property name="businessTime" type="java.sql.Timestamp">
+			<column name="BUSINESS_TIME" length="7" />
+		</property>
+		<property name="businessNo" type="string">
+			<column name="BUSINESS_NO" length="50" />
+		</property>
+		<property name="summary" type="string">
+			<column name="SUMMARY" length="100" />
+		</property>
+
+		<property name="cussentCompanyId" type="long">
+			<column name="CUSSENT_COMPANY_ID" precision="22" scale="0" />
+		</property>
+		<property name="cussentCompany" type="string">
+			<column name="CUSSENT_COMPANY" length="50" />
+		</property>
+		
+		<property name="cussentAccountId" type="long">
+			<column name="CUSSENT_ACCOUNT_ID" precision="22" scale="0" />
+		</property>
+		<property name="cussentAccount" type="string">
+			<column name="CUSSENT_ACCOUNT" length="50" />
+		</property>
+
+		<property name="inAmount" type="big_decimal">
+			<column name="IN_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="outAmount" type="big_decimal">
+			<column name="OUT_AMOUNT" precision="15" scale="4" />
+		</property>
+
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="sessionId" type="string">
+			<column name="SESSION_ID" length="50" />
+		</property>
+	</class>
+</hibernate-mapping>

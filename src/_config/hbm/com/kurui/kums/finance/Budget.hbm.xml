@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-12-2 4:17:10 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.finance.Budget" table="BUDGET">
+		<id name="id" type="long">
+			<column name="ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">seq_BUDGET</param>
+			</generator>
+		</id>
+		<property name="no" type="string">
+			<column name="NO" length="20" />
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" length="50" />
+		</property>
+		<property name="beginTime" type="java.sql.Timestamp">
+			<column name="BEGIN_TIME" length="7" />
+		</property>
+		<property name="endTime" type="java.sql.Timestamp">
+			<column name="END_TIME" length="7" />
+		</property>
+		<property name="companyNo" type="string">
+			<column name="COMPANY_NO" length="50" />
+		</property>
+		<property name="entryOperator" type="string">
+			<column name="ENTRY_OPERATOR" length="50" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+
+		<property name="totalBudgetAmount" type="java.math.BigDecimal" 
+			formula="(select sum(t.budget_amount) from budget_order t where t.budget_id=id )"
+			unique="false" optimistic-lock="true" lazy="false"
+			generated="never">
+		</property>
+		<property name="totalStatementAmount" type="java.math.BigDecimal" 
+			formula="(select sum(t.statement_amount) from budget_order t where t.budget_id=id)"
+			unique="false" optimistic-lock="true" lazy="false"
+			generated="never">
+		</property>
+
+		<set name="budgetOrders" inverse="true">
+			<key>
+				<column name="BUDGET_ID" precision="22" scale="0"
+					not-null="true" />
+			</key>
+			<one-to-many class="com.kurui.kums.finance.BudgetOrder" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false" default-autowire="no"
+	default-dependency-check="none">
+
+	<!-- 物价指数 action  -->
+	<bean name="/market/priceIndexList"
+		class="com.kurui.kums.market.action.PriceIndexListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="priceIndexBiz">
+			<ref bean="priceIndexBiz" />
+		</property>
+		<property name="priceReferenceBiz">
+			<ref bean="priceReferenceBiz" />
+		</property>
+		<property name="companyBiz">
+			<ref bean="companyBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/priceIndex"
+		class="com.kurui.kums.market.action.PriceIndexAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="priceIndexBiz">
+			<ref bean="priceIndexBiz" />
+		</property>
+		<property name="priceReferenceBiz">
+			<ref bean="priceReferenceBiz" />
+		</property>
+		<property name="companyBiz">
+			<ref bean="companyBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/priceReferenceList"
+		class="com.kurui.kums.market.action.PriceReferenceListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="priceReferenceBiz">
+			<ref bean="priceReferenceBiz" />
+		</property>
+		<property name="priceIndexBiz">
+			<ref bean="priceIndexBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/priceReference"
+		class="com.kurui.kums.market.action.PriceReferenceAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="priceReferenceBiz">
+			<ref bean="priceReferenceBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/productList"
+		class="com.kurui.kums.market.action.ProductListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="productBiz">
+			<ref bean="productBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/product"
+		class="com.kurui.kums.market.action.ProductAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="productBiz">
+			<ref bean="productBiz" />
+		</property>
+		<property name="noUtil">
+			<ref bean="noUtil" />
+		</property>
+	</bean>
+
+	<bean name="/market/saleEventList"
+		class="com.kurui.kums.market.action.SaleEventListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="saleEventBiz">
+			<ref bean="saleEventBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/saleEvent"
+		class="com.kurui.kums.market.action.SaleEventAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="saleEventBiz">
+			<ref bean="saleEventBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/apartmentList"
+		class="com.kurui.kums.market.action.ApartmentListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="apartmentBiz">
+			<ref bean="apartmentBiz" />
+		</property>
+		<property name="estateDishBiz">
+			<ref bean="estateDishBiz" />
+		</property>
+
+	</bean>
+
+	<bean name="/market/apartment"
+		class="com.kurui.kums.market.action.ApartmentAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="apartmentBiz">
+			<ref bean="apartmentBiz" />
+		</property>
+		<property name="estateDishBiz">
+			<ref bean="estateDishBiz" />
+		</property>
+		<property name="noUtil">
+			<ref bean="noUtil" />
+		</property>
+	</bean>
+
+	<bean name="/market/estateDishList"
+		class="com.kurui.kums.market.action.EstateDishListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="estateDishBiz">
+			<ref bean="estateDishBiz" />
+		</property>
+		<property name="companyBiz">
+			<ref bean="companyBiz" />
+		</property>
+	</bean>
+
+	<bean name="/market/estateDish"
+		class="com.kurui.kums.market.action.EstateDishAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="estateDishBiz">
+			<ref bean="estateDishBiz" />
+		</property>
+		<property name="companyBiz">
+			<ref bean="companyBiz" />
+		</property>
+		<property name="noUtil">
+			<ref bean="noUtil" />
+		</property>
+	</bean>
+
+	<!-- 物价指数表 dao、biz -->
+	<bean id="priceIndexBiz"
+		class="com.kurui.kums.market.biz.PriceIndexBizImp">
+		<property name="priceIndexDAO">
+			<ref bean="priceIndexDAO" />
+		</property>
+		<property name="priceReferenceDAO">
+			<ref bean="priceReferenceDAO" />
+		</property>
+	</bean>
+	<bean id="priceIndexDAO"
+		class="com.kurui.kums.market.dao.PriceIndexDAOImp" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="priceReferenceBiz"
+		class="com.kurui.kums.market.biz.PriceReferenceBizImp">
+		<property name="priceReferenceDAO">
+			<ref bean="priceReferenceDAO" />
+		</property>
+	</bean>
+	<bean id="priceReferenceDAO"
+		class="com.kurui.kums.market.dao.PriceReferenceDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="productBiz"
+		class="com.kurui.kums.market.biz.ProductBizImp">
+		<property name="productDAO">
+			<ref bean="productDAO" />
+		</property>
+	</bean>
+	<bean id="productDAO"
+		class="com.kurui.kums.market.dao.ProductDAOImp" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="saleEventBiz"
+		class="com.kurui.kums.market.biz.SaleEventBizImp">
+		<property name="saleEventDAO">
+			<ref bean="saleEventDAO" />
+		</property>
+	</bean>
+	<bean id="saleEventDAO"
+		class="com.kurui.kums.market.dao.SaleEventDAOImp" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="apartmentBiz"
+		class="com.kurui.kums.market.biz.ApartmentBizImp">
+		<property name="apartmentDAO">
+			<ref bean="apartmentDAO" />
+		</property>
+	</bean>
+	<bean id="apartmentDAO"
+		class="com.kurui.kums.market.dao.ApartmentDAOImp" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="estateDishBiz"
+		class="com.kurui.kums.market.biz.EstateDishBizImp">
+		<property name="estateDishDAO">
+			<ref bean="estateDishDAO" />
+		</property>
+	</bean>
+	<bean id="estateDishDAO"
+		class="com.kurui.kums.market.dao.EstateDishDAOImp" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+</beans>

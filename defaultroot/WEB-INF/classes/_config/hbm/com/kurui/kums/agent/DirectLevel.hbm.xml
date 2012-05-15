@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-9-28 14:46:02 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.agent.DirectLevel"
+		table="DIRECT_LEVEL">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_directlevel</param>
+			</generator>
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="50" />
+		</property>
+		<property name="directDiscount" type="big_decimal">
+			<column name="DIRECT_DISCOUNT" precision="15" scale="4" />
+		</property>
+		<property name="normalDiscount" type="big_decimal">
+			<column name="NORMAL_DISCOUNT" precision="15" scale="4" />
+		</property>
+		<property name="directorDiscount" type="big_decimal">
+			<column name="DIRECTOR_DISCOUNT" precision="15" scale="4" />
+		</property>
+		<property name="managerDiscount" type="big_decimal">
+			<column name="MANAGER_DISCOUNT" precision="15" scale="4" />
+		</property>
+		<property name="adManagerDiscount" type="big_decimal">
+			<column name="AD_MANAGER_DISCOUNT" precision="15" scale="4" />
+		</property>
+		<property name="seqIndex" type="long">
+			<column name="SEQ_INDEX" precision="22" scale="0" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<set name="agents" inverse="true">
+			<key>
+				<column name="DIRECT_LEVEL_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.agent.Agent" />
+		</set>
+	</class>
+</hibernate-mapping>

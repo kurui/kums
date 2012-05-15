@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<type-mapping>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string" />
+		<sql-type jdbc-type="DATE" hibernate-type="java.sql.Timestamp" />
+		<sql-type jdbc-type="NUMERIC" precision="15" hibernate-type="big_decimal" />
+		<sql-type jdbc-type="NUMERIC" scale="0" hibernate-type="Long" />
+
+		<!-- 此句为何无效，奇怪 -->
+		<sql-type jdbc-type="INTEGER" hibernate-type="long" />
+	</type-mapping>
+	
+	<!-- 指定生成表 无法和oracle一样指定 原因不详-->
+
+
+
+</hibernate-reverse-engineering>

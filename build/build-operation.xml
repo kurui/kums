@@ -1,0 +1,77 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+<project name="build-operation" basedir="." default="stopTomcat">
+
+	<property name="app.name" value="kums" />
+	<property name="root.dir" location="E:/project/kums" />
+	<property name="app.dir" location="${root.dir}/defaultroot" />
+	<property name="generated.dir" location="${root.dir}/generated" />
+	<property name="build.classpath" location="D:/Program Files/Java/jdk1.5.0_03" />
+	<property name="webserver.home" location="D:/Program Files/apache-tomcat-5.5.33" />
+	<property name="webserver.deploy" location="${webserver.home}/webapps" />
+	<property name="src.dir" location="${root.dir}/src" />
+	<property name="class.dir" location="${app.dir}/WEB-INF/classes" />
+	<property name="lib.dir" location="${app.dir}/WEB-INF/lib" />
+	<property name="dist.dir" location="${root.dir}/dist" />
+	<property name="doc.dir" location="${root.dir}/api" />
+	<property name="build.dir" location="${root.dir}/build" />
+
+	<property name="packages" value="com.kurui.kums.*" />
+
+	<!-- 配置文件 -->
+	<property file="build-operation.properties" />
+
+
+	<!--启动 Tomcat -->
+	<target name="startTomcat">
+		<java classname="org.apache.catalina.startup.Bootstrap" fork="yes">
+			<jvmarg value="-Dcationlna.home=${webserver.home}" />
+			<arg value="start" />
+			<classpath>
+				<pathelement path="${build.classpath}/../lib/tools.jar" />
+				<fileset dir="${webserver.home}">
+					<include name="bin/bootstrap.jar" />
+					<include name="server/lib/catalina.jar" />
+					<include name="server/lib/tomcat-util.jar" />
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+
+	<!--关闭 Tomcat -->
+	<target name="stopTomcat">
+		<java classname="org.apache.catalina.startup.Bootstrap" fork="yes">
+			<jvmarg value="-Dcationlna.home=${webserver.home}" />
+			<arg value="stop" />
+			<classpath>
+				<pathelement path="${build.classpath}/../lib/tools.jar" />
+				<fileset dir="${webserver.home}">
+					<include name="bin/bootstrap.jar" />
+					<include name="server/lib/catalina.jar" />
+					<include name="server/lib/tomcat-util.jar" />
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+
+
+	<!-- ##################################### -->
+
+	<path id="antTomcatLib">
+		<fileset dir="${webserver.home}/server/lib" includes="catalina-ant*.jar">
+		</fileset>
+	</path>
+
+	<taskdef name="startTomcatTool" classname="org.apache.catalina.ant.StartTask" classpathref="antTomcatLib">
+
+	</taskdef>
+
+	<target name="startApplication">
+		<startTomcatTool url="${tomcat.manager.url}" username="${tomcat.username}" password="${tomcat.password}" path="/kums" />
+	</target>
+
+
+
+
+
+
+</project>

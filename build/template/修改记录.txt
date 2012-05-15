@@ -1,0 +1,46 @@
+﻿1.KumsPojo.ftl代替Pojo.ftl
+2.新增KumsPojoExtraCode.ftl,clone(),thisAction等
+3.KumsPojo.ftl 增加<#include "KumsPojoExtraCode.ftl"/>
+4.KumsPojo.ftl 用KumsPojoFields.ftl 取代PojoFields.ftl,  protected
+5.KumsPojo.ftl 用KumsPojoTypeDeclaration.ftl 取代 PojoTypeDeclaration.ftl ,类名加_前缀,直接写extend,implements
+6.KumsPojoFields.ftl 修改新增设置ID的type改Long 为long
+7.KumsPojoFields.ftl 新增属性serialVersionUID
+8.新增KumsPojoPropertyAccessors.ftl代替PojoPropertyAccessors.ftl,BigDecmal属性的Get方法，若为空，返回0
+
+9.修改id.hbm.ftl
+
+ <#if !c2h.isIdentifierGeneratorProperties(property)>
+	    <generator class="${property.value.identifierGeneratorStrategy}" />
+ <#else>
+	    <generator class="${property.value.identifierGeneratorStrategy}">
+        <#assign parameters = c2h.getIdentifierGeneratorProperties(property)>
+        <#foreach paramkey in c2h.getFilteredIdentifierGeneratorKeySet(property)>
+            <param name="${paramkey}">${parameters.get(paramkey)}</param>
+        </#foreach>
+		</generator>
+ </#if>
+
+修改为：
+ <generator class="sequence">
+            <param name="sequence">seq_${clazz.table.quotedName}</param>
+		</generator>
+
+
+#-----------------------待解决问题----------------------
+1.meta,主键生成策略,extends,implements等如何用属性设置，模版中都有，为何不起作用
+2.指定生成类到不同的包
+3.<sql-type jdbc-type="INTEGER" hibernate-type="long" /> 为何无效
+4.自动生成ActionForm,如Agent extends _Agent
+
+7.
+AgentAccount.java
+ 
+ <many-to-one name="account" class="com.kurui.kums._entity.Account" update="false" insert="false" fetch="select">
+            <column name="ACCOUNT_ID" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="agent" class="com.kurui.kums._entity.Agent" update="false" insert="false" fetch="select">
+            <column name="AGENT_ID" precision="22" scale="0" />
+        </many-to-one>
+
+ update="false" insert="false"  导致保存此对象时失败
+Finance_Order同样情况又不会出现，为什么

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-16 1:15:48 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.system.OperateLogDetail"
+		table="OPERATE_LOG_DETAIL">
+		<id name="id" type="long">
+			<column name="ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">seq_OPERATE_LOG_DETAIL</param>
+			</generator>
+		</id>
+
+		<property name="orderNo" type="string">
+			<column name="ORDER_NO" length="50" />
+		</property>
+		<property name="ip" type="string">
+			<column name="IP" length="15" />
+		</property>
+		<property name="content" type="string">
+			<column name="CONTENT" length="200" />
+		</property>
+
+		<set name="operateLogs" inverse="true">
+			<key>
+				<column name="OPERATE_LOG_DETAIL_ID" precision="22"
+					scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.system.OperateLog" />
+		</set>
+	</class>
+</hibernate-mapping>

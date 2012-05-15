@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [syncWithModel=true] -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.kurui.kums.finance.OrderGroup"
+		table="order_group">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_ordergroup</param>
+			</generator>
+		</id>
+
+		<property name="no" column="no" type="string" not-null="false"
+			insert="true" update="true">
+		</property>
+		<property name="firstTime" column="first_time"
+			type="java.sql.Timestamp" not-null="false" insert="true"
+			update="true">
+		</property>
+		<property name="lastTime" column="last_time"
+			type="java.sql.Timestamp" not-null="false" insert="true"
+			update="true">
+		</property>
+		<property name="status" column="status" type="java.lang.Long"
+			not-null="false" insert="true" update="true">
+		</property>
+
+		<set name="financeOrders" inverse="true"
+			cascade="all-delete-orphan">
+			<key>
+				<column name="group_id" />
+			</key>
+			<one-to-many class="com.kurui.kums.finance.FinanceOrder" />
+		</set>
+	</class>
+</hibernate-mapping>

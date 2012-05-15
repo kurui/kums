@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-6 3:39:31 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.report.CreditReport"
+		table="CREDIT_REPORT">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_creditreport</param>
+			</generator>
+		</id>
+		<property name="agentId" type="long">
+			<column name="AGENT_ID" precision="22" scale="0" />
+		</property>
+		<property name="agentName" type="string">
+			<column name="AGENT_NAME" length="50" />
+		</property>
+		<property name="beginAmount" type="big_decimal">
+			<column name="BEGIN_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="endAmount" type="big_decimal">
+			<column name="END_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="addAmount" type="big_decimal">
+			<column name="ADD_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="lessenAmount" type="big_decimal">
+			<column name="LESSEN_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="sessionId" type="string">
+			<column name="SESSION_ID" length="50" />
+		</property>
+	</class>
+</hibernate-mapping>

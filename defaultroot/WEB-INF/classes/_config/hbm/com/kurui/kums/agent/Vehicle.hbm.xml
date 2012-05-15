@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-15 23:04:29 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.agent.Vehicle" table="VEHICLE">
+		<id name="id" type="long">
+			<column name="ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">seq_VEHICLE</param>
+			</generator>
+		</id>
+		<property name="carNo" type="string">
+			<column name="CAR_NO" length="20" />
+		</property>
+		<property name="carType" type="string">
+			<column name="CAR_TYPE" length="20" />
+		</property>
+		<property name="engineNo" type="string">
+			<column name="ENGINE_NO" length="50" />
+		</property>
+		<property name="carcaseNo" type="string">
+			<column name="CARCASE_NO" length="50" />
+		</property>
+		<property name="seatCount" type="string">
+			<column name="SEAT_COUNT" length="10" />
+		</property>
+		<property name="color" type="string">
+			<column name="COLOR" length="10" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="200" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="UPDATE_TIME" length="7" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<many-to-one name="agent" class="com.kurui.kums.agent.Agent">
+			<column name="AGENT_ID" precision="22" scale="0" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

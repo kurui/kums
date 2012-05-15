@@ -1,0 +1,49 @@
+package com.kurui.kums.finance.dao;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.finance.Statement;
+import com.kurui.kums.finance.StatementListForm;
+
+public interface StatementDAO {
+	public void synStatementAmount(long orderId);
+
+	public void synOldStatementAmount(long orderId);
+
+	public Statement getStatementByOrderIdAndStatus(long orderid,
+			long orderSubtype, long statementStatus) throws AppException;
+
+	public BigDecimal getStatementAmount(long orderId, long orderSubtype,
+			long ticketType) throws AppException;
+
+	public List<Statement> listByStatementStatus(long orderid,
+			long orderSubtype, long status) throws AppException;
+
+	public List getStatementListByOrderSubType(long orderid, long orderSubtype,
+			long orderTable) throws AppException;
+
+	public List list(StatementListForm rlf) throws AppException;
+
+	public List list() throws AppException;
+
+	public List getStatementListByOrder(long orderid, long orderTable)
+			throws AppException;
+
+	public Statement getStatementByOrder(long orderid, long orderTable,
+			long statementType) throws AppException;
+
+	public List getStatementListByOrders(String orderid, long orderTable)
+			throws AppException;
+
+	public void delete(long id) throws AppException;
+
+	public long save(Statement statement) throws AppException;
+
+	public long update(Statement statement) throws AppException;
+
+	public long merge(Statement statement) throws AppException;
+
+	public Statement getStatementById(long id) throws AppException;
+}

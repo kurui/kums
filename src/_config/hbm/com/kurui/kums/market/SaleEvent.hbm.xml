@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-10-7 4:02:04 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.market.SaleEvent" table="SALE_EVENT">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_SaleEvent</param>
+			</generator>
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="100" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="500" />
+		</property>
+		<set name="commissions" inverse="true">
+			<key>
+				<column name="SALE_EVENT_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.finance.Commission" />
+		</set>
+	</class>
+</hibernate-mapping>
+                                                                                                                                                   

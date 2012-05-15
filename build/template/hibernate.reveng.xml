@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<type-mapping>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string" />
+		<sql-type jdbc-type="DATE" hibernate-type="java.sql.Timestamp" />
+		<sql-type jdbc-type="NUMERIC" precision="15" hibernate-type="big_decimal" />
+		<sql-type jdbc-type="NUMERIC" scale="0" hibernate-type="Long" />
+
+		<!-- 此句为何无效，奇怪 -->
+		<sql-type jdbc-type="INTEGER" hibernate-type="long" />
+	</type-mapping>
+	
+	<!-- 指定生成表 -->
+	<table-filter match-schema="KUMS" match-name="AGENT"
+		package="com.kurui.kums.agent._entity" />
+	<table-filter match-schema="mysql" match-name="vehicle"
+		package="com.kurui.kums.agent._entity" />
+
+	<!-- BIN$ is recycle bin tables in Oracle -->
+	<table-filter match-name="BIN$.*" exclude="true" />
+	<!-- Exclude DoNotWantIt from all catalogs/schemas -->
+	<table-filter match-name="DoNotWantIt" exclude="true" />
+	<!-- exclude all tables from the schema SCHEMA in catalog BAD. -->
+	<table-filter match-catalog="BAD" match-schema="SCHEMA"
+		match-name=".*" exclude="true" />
+
+
+<!-- 
+	<table schema="KUMS" name="FINANCE_ORDER">
+		<primary-key>
+			<generator class="sequence">
+				<param name="sequence">seq_FinanceOrder</param>
+			</generator>
+			<key-column name="ID" />
+		</primary-key>
+		<foreign-key constraint-name="ORDER_CUST">
+			<many-to-one property="customer" />
+			<set property="orders" />
+		</foreign-key>
+	</table>
+	-->
+</hibernate-reverse-engineering>
