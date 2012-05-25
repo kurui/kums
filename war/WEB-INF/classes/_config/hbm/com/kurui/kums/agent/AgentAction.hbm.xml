@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-9-24 12:56:35 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.agent.AgentAction"
+		table="AGENT_ACTION">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_agentaction</param>
+			</generator>
+		</id>
+		<property name="content" type="string">
+			<column name="CONTENT" length="500" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="7" />
+		</property>
+		<property name="userNo" type="string">
+			<column name="USER_NO" length="50" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<many-to-one name="agent" class="com.kurui.kums.agent.Agent"
+			fetch="select">
+			<column name="AGENT_ID" precision="22" scale="0" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

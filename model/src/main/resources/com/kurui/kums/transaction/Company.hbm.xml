@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [syncWithModel=true] -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.kurui.kums.transaction.Company" table="company">
+		<meta attribute="extends">
+			org.apache.struts.action.ActionForm implements Cloneable
+		</meta>
+		<meta attribute="class-code"><![CDATA[
+  public Object clone() {
+    Object o = null;
+    try {
+      o = super.clone();
+    }
+    catch (CloneNotSupportedException e)    {
+      e.printStackTrace();
+    }
+    return o;
+}
+
+private String thisAction="";
+ public String getThisAction() {
+     return thisAction;
+ }
+
+public void setThisAction(String thisAction) {
+     this.thisAction=thisAction;
+ }
+
+private int index=0;
+ public int getIndex() {
+     return index;
+ }
+
+public void setIndex(int index) {
+     this.index=index;
+ }
+]]></meta>
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_company</param>
+			</generator>
+		</id>
+		<property name="name" column="name" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="shortName" column="short_name" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="provideChain" column="provide_chain"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="revenueCode" column="revenue_code" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="deputy" column="deputy" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="registerType" column="register_type"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="registerAddress" column="register_address"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="entityAddress" column="entity_address"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="registerCode" column="register_code"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="corporationCode" column="corporation_code"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="registerCapital" column="register_capital"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="mainBusiness" column="main_business"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="sidelineBusiness" column="sideline_business"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="telephone" column="telephone" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="netAssetValue" type="big_decimal">
+			<column name="net_asset_value" precision="15" scale="4" />
+		</property>
+		<property name="registerDate" column="register_date"
+			type="string" not-null="false" insert="true" update="true">
+		</property>
+		<property name="type" column="type" type="java.lang.Long"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="status" column="status" type="java.lang.Long"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="updateTime" column="update_time"
+			type="java.sql.Timestamp" not-null="false" insert="true"
+			update="true">
+		</property>
+		<property name="userName" column="user_name" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="memo" column="memo" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<set name="financeOrders" inverse="true"
+			cascade="all-delete-orphan">
+			<key>
+				<column name="company_id" />
+			</key>
+			<one-to-many class="com.kurui.kums.finance.FinanceOrder" />
+		</set>
+		<set name="platComAccounts" inverse="true"
+			cascade="all-delete-orphan">
+			<key>
+				<column name="company_id" />
+			</key>
+			<one-to-many
+				class="com.kurui.kums.transaction.PlatComAccount" />
+		</set>
+		<set name="agents" inverse="true" cascade="all-delete-orphan">
+			<key>
+				<column name="company_id" />
+			</key>
+			<one-to-many class="com.kurui.kums.agent.Agent" />
+		</set>
+		<set name="companyAccounts" inverse="true">
+			<key>
+				<column name="COMPANY_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many
+				class="com.kurui.kums.transaction.CompanyAccount" />
+		</set>
+		<set name="shareHolders" inverse="true">
+			<key>
+				<column name="AGENT_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.agent.ShareHolder" />
+		</set>
+		<set name="estateDishs" inverse="true">
+			<key>
+				<column name="COMPANY_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.market.EstateDish" />
+		</set>
+	</class>
+</hibernate-mapping>

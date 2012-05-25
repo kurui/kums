@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-9-24 12:56:35 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.agent.AgentHabit" table="AGENT_HABIT">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_agentaction</param>
+			</generator>
+		</id>
+		<property name="airplaneSeat" type="long">
+			<column name="AIRPLANE_SEAT" precision="22" scale="0" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="7" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="travelAppoint" type="string">
+			<column name="TRAVEL_APPOINT" length="50" />
+		</property>
+		<property name="drink" type="string">
+			<column name="DRINK" length="50" />
+		</property>
+		<property name="flower" type="string">
+			<column name="FLOWER" length="50" />
+		</property>
+		<property name="scaredAnimal" type="string">
+			<column name="SCARED_ANIMAL" length="50" />
+		</property>
+		<property name="breedAnimal" type="string">
+			<column name="BREED_ANIMAL" length="50" />
+		</property>
+		<property name="filmType" type="string">
+			<column name="FILM_TYPE" length="50" />
+		</property>
+		<property name="sports" type="string">
+			<column name="SPORTS" length="50" />
+		</property>
+		<property name="oppositeSex" type="string">
+			<column name="OPPOSITE_SEX" length="50" />
+		</property>
+		<property name="homoSex" type="string">
+			<column name="HOMO_SEX" length="50" />
+		</property>
+
+		<property name="amuse" type="string">
+			<column name="AMUSE" length="50" />
+		</property>
+		<property name="reading" type="string">
+			<column name="READING" length="50" />
+		</property>
+		<property name="food" type="string">
+			<column name="FOOD" length="50" />
+		</property>
+		<property name="religion" type="string">
+			<column name="RELIGION" length="50" />
+		</property>
+		<property name="bigWish" type="string">
+			<column name="BIG_WISH" length="100" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="500" />
+		</property>
+		<set name="agents" inverse="true" cascade="all-delete-orphan">
+			<key>
+				<column name="agent_id" />
+			</key>
+			<one-to-many class="com.kurui.kums.agent.Agent" />
+		</set>
+	</class>
+</hibernate-mapping>

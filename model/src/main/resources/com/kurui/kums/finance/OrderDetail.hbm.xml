@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-9-30 2:40:46 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.finance.OrderDetail"
+		table="ORDER_DETAIL">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_OrderDetail</param>
+			</generator>
+		</id>
+		<many-to-one name="product"
+			class="com.kurui.kums.market.Product">
+			<column name="PRODUCT_ID" precision="22" scale="0" />
+		</many-to-one>
+		<many-to-one name="financeOrder"
+			class="com.kurui.kums.finance.FinanceOrder">
+			<column name="ORDER_ID" precision="22" scale="0" />
+		</many-to-one>
+		<property name="discountPrice" type="big_decimal">
+			<column name="DISCOUNT_PRICE" precision="15" scale="4" />
+		</property>
+		<property name="productCount" type="big_decimal">
+			<column name="PRODUCT_COUNT" precision="15" scale="4" />
+		</property>
+		<property name="detailAmount" type="big_decimal">
+			<column name="DETAIL_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="100" />
+		</property>
+	</class>
+</hibernate-mapping>

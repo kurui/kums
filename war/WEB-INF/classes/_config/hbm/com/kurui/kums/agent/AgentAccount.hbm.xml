@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-9-20 11:43:42 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.agent.AgentAccount"
+		table="AGENT_ACCOUNT">
+
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_agentaccount</param>
+			</generator>
+		</id>
+		
+		<many-to-one name="account"
+			class="com.kurui.kums.transaction.Account" not-null="false">
+			<column name="ACCOUNT_ID" />
+		</many-to-one>
+
+		<many-to-one name="agent" class="com.kurui.kums.agent.Agent"
+			not-null="false">
+			<column name="AGENT_ID" />
+		</many-to-one>
+
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-11 18:36:24 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.kurui.kums.market.EstateDish" table="ESTATE_DISH">
+         <id name="id" type="long" column="id">
+         	<generator class="sequence">
+            	<param name="sequence">seq_estatedish</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="company" class="com.kurui.kums.transaction.Company" fetch="select">
+            <column name="COMPANY_ID" precision="22" scale="0" />
+        </many-to-one>
+        <property name="no" type="string">
+            <column name="NO" length="20" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="50" />
+        </property>
+        <property name="beginTime" type="java.sql.Timestamp">
+            <column name="BEGIN_TIME" length="7" />
+        </property>
+         <property name="entranceTime" type="java.sql.Timestamp">
+            <column name="ENTRANCE_TIME" length="7" />
+        </property>
+         <property name="address" type="string">
+            <column name="Address" length="500" />
+        </property>
+        <property name="memo" type="string">
+            <column name="MEMO" length="500" />
+        </property>
+        <property name="type" type="long">
+            <column name="TYPE" precision="22" scale="0" />
+        </property>
+        <property name="status" type="long">
+            <column name="STATUS" precision="22" scale="0" />
+        </property>
+        <set name="apartments" inverse="true">
+            <key>
+                <column name="DISH_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.kurui.kums.market.Apartment" />
+        </set>
+    </class>
+</hibernate-mapping>

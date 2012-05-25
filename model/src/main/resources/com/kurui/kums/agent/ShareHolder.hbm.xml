@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-10-26 2:32:48 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.agent.ShareHolder"
+		table="SHARE_HOLDER">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_ShareHolder</param>
+			</generator>
+		</id>
+		<many-to-one name="company"
+			class="com.kurui.kums.transaction.Company">
+			<column name="COMPANYID" precision="22" scale="0" />
+		</many-to-one>
+		<many-to-one name="agent" class="com.kurui.kums.agent.Agent">
+			<column name="AGENT_ID" precision="22" scale="0" />
+		</many-to-one>
+		<property name="capitalAmount" type="big_decimal">
+			<column name="CAPITAL_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="controlType" type="long">
+			<column name="control_type" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="100" />
+		</property>
+	</class>
+</hibernate-mapping>

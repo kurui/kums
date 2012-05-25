@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-8-17 9:59:24 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.transaction.DataType"
+		table="Data_Type">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_DataType</param>
+			</generator>
+		</id>
+		<property name="no" type="string">
+			<column name="NO" length="50" />
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" length="50" />
+		</property>
+		<property name="superNo" type="string">
+			<column name="SUPER_NO" length="50" />
+		</property>
+		<property name="createTime" column="create_time"
+			type="java.sql.Timestamp" not-null="false" insert="true"
+			update="true">
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="100" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

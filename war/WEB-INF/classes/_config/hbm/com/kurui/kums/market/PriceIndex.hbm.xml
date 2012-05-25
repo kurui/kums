@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-8-17 9:59:24 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.market.PriceIndex"
+		table="PRICE_INDEX">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_PriceIndex</param>
+			</generator>
+		</id>
+		<many-to-one name="priceReference"
+			class="com.kurui.kums.market.PriceReference" fetch="select">
+			<column name="REFERENCE_ID" precision="22" scale="0" />
+		</many-to-one>
+		<many-to-one name="gatherCompany"
+			class="com.kurui.kums.transaction.Company" fetch="select">
+			<column name="gather_company" precision="22" scale="0" />
+		</many-to-one>
+		<property name="price" type="big_decimal">
+			<column name="PRICE" precision="15" />
+		</property>
+		<property name="maxPrice" type="big_decimal">
+			<column name="MAX_PRICE" precision="15" />
+		</property>
+		<property name="minPrice" type="big_decimal">
+			<column name="MIN_PRICE" precision="15" />
+		</property>
+		<property name="range" type="big_decimal">
+			<column name="RANGE" precision="15" />
+		</property>
+		<property name="snatchTime" type="java.sql.Timestamp">
+			<column name="SNATCH_TIME" length="7" />
+		</property>
+		<property name="entryOperator" type="string">
+			<column name="ENTRY_OPERATOR" length="50" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="100" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

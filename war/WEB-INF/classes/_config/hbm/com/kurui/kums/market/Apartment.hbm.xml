@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-11 18:36:24 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.market.Apartment" table="APARTMENT">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_apartment</param>
+			</generator>
+		</id>
+		<many-to-one name="estateDish"
+			class="com.kurui.kums.market.EstateDish" fetch="select">
+			<column name="DISH_ID" precision="22" scale="0" />
+		</many-to-one>
+		 <property name="no" type="string">
+            <column name="NO" length="20" />
+        </property>
+		<property name="name" type="string">
+			<column name="NAME" length="50" />
+		</property>
+		<property name="transactionType" type="long">
+			<column name="TRANSACTION_TYPE" precision="22" scale="0" />
+		</property>
+		<property name="businessType" type="long">
+			<column name="BUSINESS_TYPE" precision="22" scale="0" />
+		</property>
+		<property name="houseType" type="string">
+			<column name="HOUSE_TYPE" length="50" />
+		</property>
+		<property name="area" type="string">
+			<column name="AREA" length="20" />
+		</property>
+		<property name="owner" type="string">
+			<column name="OWNER" length="50" />
+		</property>
+		<property name="linkman" type="string">
+			<column name="LINKMAN" length="50" />
+		</property>
+		<property name="connection" type="string">
+			<column name="CONNECTION" length="50" />
+		</property>
+		<property name="snatchTime" type="java.sql.Timestamp">
+			<column name="SNATCH_TIME" length="7" />
+		</property>
+		<property name="quotePrice" type="big_decimal">
+			<column name="QUOTE_PRICE" precision="15" />
+		</property>
+		<property name="averageAreaPrice" type="big_decimal">
+			<column name="AVERAGE_AREA_PRICE" precision="15" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="200" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>
+                                                                                        

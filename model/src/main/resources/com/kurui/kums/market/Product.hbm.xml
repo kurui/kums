@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-9-29 4:06:38 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.market.Product" table="PRODUCT">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_Product</param>
+			</generator>
+		</id>
+		<property name="no" type="string">
+			<column name="NO" length="50" />
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" length="50" />
+		</property>
+		<property name="productType" type="string">
+			<column name="PRODUCT_TYPE" length="50" />
+		</property>
+		<property name="price" type="big_decimal">
+			<column name="PRICE" precision="15" scale="4" />
+		</property>
+		<property name="purchasePrice" type="big_decimal">
+			<column name="PURCHASE_PRICE" precision="15" scale="4" />
+		</property>
+		<property name="tradePrice" type="big_decimal">
+			<column name="TRADE_PRICE" precision="15" scale="4" />
+		</property>
+		<property name="stockCount" type="long">
+			<column name="STOCK_COUNT" precision="22" scale="0" />
+		</property>
+		<property name="classType" type="long">
+			<column name="CLASS_TYPE" precision="22" scale="0" />
+		</property>
+		<property name="standard" type="string">
+			<column name="STANDARD" length="50" />
+		</property>
+		<property name="proportion" type="big_decimal">
+			<column name="PROPORTION" precision="15" scale="4" />
+		</property>
+		<property name="memo" type="string">
+			<column name="memo" length="500" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+
+		<set name="orderDetails" inverse="true">
+			<key>
+				<column name="PRODUCT_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.finance.OrderDetail" />
+		</set>
+	</class>
+</hibernate-mapping>

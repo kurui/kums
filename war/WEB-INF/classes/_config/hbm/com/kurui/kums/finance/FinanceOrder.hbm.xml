@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [syncWithModel=true] -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.kurui.kums.finance.FinanceOrder"
+		table="finance_order">
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_financeorder</param>
+			</generator>
+		</id>
+		<property name="orderNo" type="string">
+			<column name="ORDER_NO" length="50" />
+		</property>
+		<property name="outOrderNo" type="string">
+			<column name="OUT_ORDER_NO" length="50" />
+		</property>
+		<property name="handlingCharge" type="big_decimal">
+			<column name="HANDLING_CHARGE" precision="15" />
+		</property>
+		<property name="entryOperator" type="string">
+			<column name="ENTRY_OPERATOR" length="50" />
+		</property>
+		<property name="tranType" type="long">
+			<column name="TRAN_TYPE" precision="22" scale="0" />
+		</property>
+		<property name="businessType" type="long">
+			<column name="BUSINESS_TYPE" precision="22" scale="0" />
+		</property>
+		<property name="businessTime" type="java.sql.Timestamp">
+			<column name="BUSINESS_TIME" length="7" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="100" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+		<property name="totalAmount" type="big_decimal">
+			<column name="TOTAL_AMOUNT" precision="15" scale="4" />
+		</property>
+		<property name="subGroupMarkNo" type="long">
+			<column name="SUB_GROUP_MARK_NO" precision="22" scale="0" />
+		</property>
+		<property name="createTime" type="java.sql.Timestamp">
+			<column name="CREATE_TIME" length="7" />
+		</property>
+		<property name="statementAmount" type="string">
+			<column name="STATEMENT_AMOUNT" length="50" />
+		</property>
+		<property name="maturityTime" type="java.sql.Timestamp">
+			<column name="MATURITY_TIME" length="7" />
+		</property>
+		<property name="warningDays" type="string">
+			<column name="WARNING_DAYS" length="50" />
+		</property>
+		
+		<many-to-one name="account"
+			class="com.kurui.kums.transaction.Account" not-null="false">
+			<column name="ACCOUNT_ID" />
+		</many-to-one>
+		<many-to-one name="company"
+			class="com.kurui.kums.transaction.Company" not-null="false">
+			<column name="COMPANY_ID" />
+		</many-to-one>
+		<many-to-one name="cussentCompany"
+			class="com.kurui.kums.transaction.Company" not-null="false">
+			<column name="CUSSENT_COMPANY_ID" />
+		</many-to-one>		
+		<many-to-one name="platform"
+			class="com.kurui.kums.transaction.Platform" not-null="false">
+			<column name="PLATFORM_ID" />
+		</many-to-one>
+		<many-to-one name="orderGroup"
+			class="com.kurui.kums.finance.OrderGroup" not-null="false">
+			<column name="GROUP_ID" />
+		</many-to-one>
+		<many-to-one name="agent" class="com.kurui.kums.agent.Agent"
+			not-null="false">
+			<column name="AGENT_ID" />
+		</many-to-one>
+
+		<set name="orderDetails" inverse="true">
+			<key>
+				<column name="ORDER_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.finance.OrderDetail" />
+		</set>
+		<set name="commissions" inverse="true">
+			<key>
+				<column name="ORDER_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.finance.Commission" />
+		</set>
+	</class>
+</hibernate-mapping>  

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-10-13 13:39:28 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.kurui.kums.agent.Coterie" table="COTERIE">
+        <id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_coterie</param>
+			</generator>
+		</id>
+        <many-to-one name="rootAgent" class="com.kurui.kums.agent.Agent" fetch="select">
+            <column name="ROOT_AGENT_ID" precision="22" scale="0" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="50" />
+        </property>
+        <property name="status" type="long">
+            <column name="STATUS" precision="22" scale="0" />
+        </property>
+        <property name="memo" type="string">
+            <column name="MEMO" length="100" />
+        </property>
+        <set name="agentCoteries" inverse="true">
+            <key>
+                <column name="ID" precision="22" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.kurui.kums.agent.AgentCoterie" />
+        </set>
+    </class>
+</hibernate-mapping>
