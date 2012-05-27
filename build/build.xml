@@ -2,7 +2,11 @@
 <project name="kums-Home" basedir="." default="dist">
 
 	<property name="app.name" value="kums" />
+	<!--
 	<property name="root.dir" location="F:/project/kums" />
+	-->
+	<property name="root.dir" location="D:/warRoot/kums" />
+		
 	<property name="app.dir" location="${root.dir}/defaultroot" />
 	<property name="generated.dir" location="${root.dir}/generated" />
 	<property name="build.classpath" location="D:/ServerRoot/Java/jdk1.5.0_03" />

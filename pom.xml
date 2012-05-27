@@ -13,11 +13,10 @@
 	</parent>
 
 	<properties>
-		<gwt.version>2.4.0</gwt.version>
-		<guice.version>3.0</guice.version>
-		<gin.version>1.5</gin.version>
 		<jxl.version>2.6.10</jxl.version>
 		<jersey.version>1.1.5</jersey.version>
+		
+		<slf4j.version>1.5.10</slf4j.version>
 		
 		<!-- Log4J Settings -->
 		<log4j.version>1.2.8</log4j.version>
