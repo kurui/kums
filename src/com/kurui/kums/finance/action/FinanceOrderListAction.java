@@ -60,6 +60,8 @@ public class FinanceOrderListAction extends BaseAction {
 				// tranTypeText = "机票销售";
 			} else if (ulfTranType == FinanceOrder.TRANTYPE_1580) {
 				// tranTypeText = "软件销售";
+			} else if (ulfTranType == FinanceOrder.TRANTYPE_1585) {
+				// tranTypeText = "软件劳务";
 			} else if (ulfTranType == FinanceOrder.TRANTYPE_1590) {
 				// tranTypeText = "金融衍生品销售";
 			}else if (ulfTranType == FinanceOrder.TRANTYPE_1591) {

@@ -75,6 +75,7 @@ public class FinanceOrder extends _FinanceOrder {
 	public static final long TRANTYPE_1565 = 1565;// 网购销售(实物)
 	public static final long TRANTYPE_1570 = 1570;// 机票销售
 	public static final long TRANTYPE_1580 = 1580;// 软件销售
+	public static final long TRANTYPE_1585 = 1585;// 软件销售
 	public static final long TRANTYPE_1590 = 1590;// 金融衍生品销售
 	public static final long TRANTYPE_1591 = 1591;// 保险销售
 

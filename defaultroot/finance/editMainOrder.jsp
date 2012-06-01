@@ -117,7 +117,7 @@
 											入账日期
 										</td>
 										<td style="text-align: left">
-											<html:text property="businessDate"
+											<html:text property="businessDate" name="financeOrder" 
 												value="${financeOrder.businessDate}"
 												styleClass="colorblue2 p_5" style="width:200px;"
 												onfocus="WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" />
@@ -177,12 +177,12 @@
 											分管部门
 										</td>
 										<td style="text-align: left">
-											<html:select property="companyId" styleId="companyObj"
+											<html:select property="companyId"  name="financeOrder"  styleId="companyObj"
 												styleClass="colorblue2 p_5" style="width:100px;">
 												<html:option value="0">-请选择-</html:option>
 											</html:select>
-											<html:select property="tranType"
-												value="${financeOrder.tranType}" name="financeOrder"
+											<html:select property="tranType"  name="financeOrder" 
+												value="${financeOrder.tranType}" 
 												styleClass="colorblue2 p_5" styleId="account_Id"
 												style="width:100px;">
 												<c:forEach items="${tranTypeList}" var="dataType">
@@ -205,7 +205,7 @@
 											说明
 										</td>
 										<td style="text-align: left">
-											<html:text property="memo" styleClass="colorblue2 p_5"
+											<html:text property="memo"  name="financeOrder"  styleClass="colorblue2 p_5"
 												style="width:200px;" ondblclick="this.value=''"
 												onkeypress="keypressCreateOrder();" />
 										</td>
