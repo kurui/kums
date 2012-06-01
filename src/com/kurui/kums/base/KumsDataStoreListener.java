@@ -43,7 +43,9 @@ public class KumsDataStoreListener implements Runnable {
 				sysInitBiz.updateProductStore();
 			} else if (dataName == "SysUser") {
 				sysInitBiz.updateUserStore();
-			} else {
+			} else if (dataName == "DataType") {
+				sysInitBiz.updateDataTypeStore();
+			}  else {
 				logger.info("未定义的监听类型");
 				return;
 			}

@@ -380,8 +380,10 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 			financeOrder.setStatementAmount(orderForm.getTotalAmount() + "");
 			financeOrder.setHandlingCharge(orderForm.getHandlingCharge());
 			financeOrder.setEntryOperator(userNo);
-			financeOrder.setBusinessTime(DateUtil.getTimestamp(orderForm
-					.getBusinessDate(), "yyyy-MM-dd"));
+			
+			Timestamp businessTime=DateUtil.getTimestamp(orderForm.getBusinessDate(), "yyyy-MM-dd");
+			financeOrder.setBusinessTime(businessTime);
+			
 			financeOrder.setMemo(orderForm.getMemo());
 			financeOrder
 					.setCreateTime(new Timestamp(System.currentTimeMillis()));

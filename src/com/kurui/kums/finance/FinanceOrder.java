@@ -224,11 +224,14 @@ public class FinanceOrder extends _FinanceOrder {
 
 	public String getBusinessDate() {
 		String mydate = "";
-		if (this.businessTime != null && "".equals(businessTime) == false) {
-			Date tempDate = new Date(businessTime.getTime());
-			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
-		}
-		return mydate;
+		
+			if (this.businessTime != null && "".equals(businessTime) == false) {
+				Date tempDate = new Date(businessTime.getTime());
+				mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+				return mydate;
+			}
+		
+		return this.businessDate;		
 	}
 
 	public void setBusinessDate(String businessDate) {
