@@ -36,12 +36,12 @@
 		</property>
 
 		<property name="totalBudgetAmount" type="java.math.BigDecimal" 
-			formula="(select sum(t.budget_amount) from budget_order t where t.budget_id=id )"
+			formula="(select sum(t.budget_amount) from budget_order t where t.budget_id=id and t.status in(1) )"
 			unique="false" optimistic-lock="true" lazy="false"
 			generated="never">
 		</property>
 		<property name="totalStatementAmount" type="java.math.BigDecimal" 
-			formula="(select sum(t.statement_amount) from budget_order t where t.budget_id=id)"
+			formula="(select sum(t.statement_amount) from budget_order t where t.budget_id=id and t.status in(21) )"
 			unique="false" optimistic-lock="true" lazy="false"
 			generated="never">
 		</property>

@@ -13,8 +13,14 @@ public class BudgetOrder extends _BudgetOrder {
 	public static final long TYPE_1 = 1;// 默认
 
 	// 状态
-	public static final long STATES_1 = 1;// 有效
+	
 	public static final long STATES_0 = 0;// 无效
+	
+	public static final long STATES_1 = 1;// 有效
+	
+	public static final long STATES_11 = 11;// 中止
+	
+	public static final long STATES_21 = 21;// 决算
 
 	// public String getTypeInfo() {
 	// if (this.getType() != null) {
@@ -35,7 +41,11 @@ public class BudgetOrder extends _BudgetOrder {
 				return "有效";
 			} else if (this.getStatus().intValue() == STATES_0) {
 				return "无效";
-			} else {
+			} else if (this.getStatus() == STATES_11) {
+				return "中止";
+			}else if (this.getStatus() == STATES_21) {
+				return "决算";
+			}else {
 				return null;
 			}
 		} else {

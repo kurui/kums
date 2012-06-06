@@ -11,6 +11,8 @@ public class BudgetOrderListForm extends ListActionForm {
 
 	private long id = Long.valueOf(0);
 	private Long budgetId = Long.valueOf(0);
+	
+	private String budgetNo="";
 
 	private String name = "";
 	private long type = Long.valueOf(0);
@@ -29,6 +31,16 @@ public class BudgetOrderListForm extends ListActionForm {
 
 	public void setBudgetId(Long budgetId) {
 		this.budgetId = budgetId;
+	}
+	
+	
+
+	public String getBudgetNo() {
+		return budgetNo;
+	}
+
+	public void setBudgetNo(String budgetNo) {
+		this.budgetNo = budgetNo;
 	}
 
 	public String getName() {

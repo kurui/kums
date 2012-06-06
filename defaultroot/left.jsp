@@ -40,6 +40,9 @@
 					<span class="title"><a
 						href="<%=path%>/finance/financeOrderList.do?thisAction=addLiveOrder"
 						target="mainFrame">管理费用入账</a> </span>
+					<span class="title">				
+							<a href="<%=path%>/finance/financeOrderList.do?thisAction=listLiveOrder" target="mainFrame">管理费用列表</a>
+					</span>
 				</div>
 			</div>
 			<div class="closeSiseBar">

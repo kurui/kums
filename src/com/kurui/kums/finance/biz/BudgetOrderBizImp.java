@@ -22,6 +22,12 @@ public class BudgetOrderBizImp implements BudgetOrderBiz {
 			e.printStackTrace();
 		}
 	}
+	
+	public void stopBudgetOrder(Long budgetOrderId) throws AppException {
+		BudgetOrder budgetOrder = getBudgetOrderById(budgetOrderId);
+		budgetOrder.setStatus(BudgetOrder.STATES_11);// 将状态变为中止
+		update(budgetOrder);
+	}
 
 	public void deleteBudgetOrder(Long budgetOrderId) throws AppException {
 		BudgetOrder budgetOrder = getBudgetOrderById(budgetOrderId);
