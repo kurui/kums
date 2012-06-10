@@ -32,7 +32,17 @@
 					formObj.thisAction.value=thisAction;
 			   		formObj.submit();
 				}
-			}							
+			}	
+			
+			function refactorDataType(){
+				var thisAction="refactorDataTypeTree";
+				var formObj=document.getElementById("refactorDataTypeForm");
+				if(formObj!=null){
+					formObj.thisAction.value=thisAction;
+			   		formObj.submit();
+				}
+			}	
+									
 		</script>
 	</head>
 	<body>
@@ -76,6 +86,13 @@
 											<html:hidden property="thisAction" ></html:hidden>
 											<input name="label" type="button" class="button2"
 												value="更新产品树" onclick="updateProductTree();" />
+										</html:form>
+									</td>
+										<td style="text-align: left">
+										<html:form styleId="refactorDataTypeForm" action="/transaction/dataTypeList.do">
+											<html:hidden property="thisAction" ></html:hidden>
+											<input name="label" type="button" class="button2"
+												value="重构Lft和rgt" onclick="refactorDataType();" />
 										</html:form>
 									</td>
 								</tr>

@@ -33,4 +33,6 @@ public interface DataTypeDAO {
 
 	public List<DataType> getValidDataTypeList() throws AppException;
 
+	public void refactorDataTypeTree() throws AppException;
+
 }

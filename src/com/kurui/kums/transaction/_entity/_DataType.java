@@ -21,9 +21,9 @@ public class _DataType extends org.apache.struts.action.ActionForm implements
 	protected String memo;
 	protected Long status;
 	
-	private int lft;
+	private Long lft;
 
-	private int rgt;
+	private Long rgt;
 
 	public long getId() {
 		return id;
@@ -83,19 +83,19 @@ public class _DataType extends org.apache.struts.action.ActionForm implements
 	
 	
 
-	public int getLft() {
+	public Long getLft() {
 		return lft;
 	}
 
-	public void setLft(int lft) {
+	public void setLft(Long lft) {
 		this.lft = lft;
 	}
 
-	public int getRgt() {
+	public Long getRgt() {
 		return rgt;
 	}
 
-	public void setRgt(int rgt) {
+	public void setRgt(Long rgt) {
 		this.rgt = rgt;
 	}
 

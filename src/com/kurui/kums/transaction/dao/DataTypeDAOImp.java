@@ -57,13 +57,19 @@ public class DataTypeDAOImp extends BaseDAOSupport implements DataTypeDAO {
 //		System.out.println(result);
 	}
 
+	public void refactorDataTypeTree()throws AppException{
+		DataType root=getDataTypeByNo("0");
+		List<DataType> childList=getSubDataTypeList("0");
+		refactorDataType(root, childList);
+		
+	}
 	
-	public int refactorDataType(DataType root, List<DataType> childList) throws AppException {
-		int thislft = root.getRgt() + 1;
+	public long refactorDataType(DataType root, List<DataType> childList) throws AppException {
+		long thislft = root.getRgt() + 1;
 		
 		
 		boolean isSuperRoot=false;
-		int index=root.getName().indexOf("ROOT_DEPT");
+		int index=root.getName().indexOf("ROOT_TAG");
 		if(index>-1){
 			isSuperRoot=true;
 		}

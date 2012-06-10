@@ -29,5 +29,12 @@
 		<property name="status" type="long">
 			<column name="STATUS" precision="22" scale="0" />
 		</property>
+		<property name="lft" type="long">
+			<column name="lft" precision="22" scale="0" />
+		</property>
+		<property name="rgt" type="long">
+			<column name="rgt"  precision="22" scale="0" />
+		</property>
+		
 	</class>
 </hibernate-mapping>

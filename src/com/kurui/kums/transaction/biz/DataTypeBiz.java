@@ -35,4 +35,6 @@ public interface DataTypeBiz {
 	public List<DataType> getSameLevelDataTypeList(long DataTypeNo)
 			throws AppException;
 
+	public void refactorDataTypeTree()throws AppException;
+
 }

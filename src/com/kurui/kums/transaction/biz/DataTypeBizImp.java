@@ -20,6 +20,10 @@ public class DataTypeBizImp implements DataTypeBiz {
 	public void buildProvideChainTree() throws AppException{
 		dataTypeDAO.buildProvideChainTree();
 	}
+	
+	public void refactorDataTypeTree() throws AppException{
+		dataTypeDAO.refactorDataTypeTree();
+	}
 
 	public void delete(long id) throws AppException {
 		try {
