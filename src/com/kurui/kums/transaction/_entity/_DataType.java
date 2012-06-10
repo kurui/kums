@@ -20,6 +20,10 @@ public class _DataType extends org.apache.struts.action.ActionForm implements
 	protected Timestamp createTime;
 	protected String memo;
 	protected Long status;
+	
+	private int lft;
+
+	private int rgt;
 
 	public long getId() {
 		return id;
@@ -75,6 +79,24 @@ public class _DataType extends org.apache.struts.action.ActionForm implements
 
 	public void setStatus(Long status) {
 		this.status = status;
+	}
+	
+	
+
+	public int getLft() {
+		return lft;
+	}
+
+	public void setLft(int lft) {
+		this.lft = lft;
+	}
+
+	public int getRgt() {
+		return rgt;
+	}
+
+	public void setRgt(int rgt) {
+		this.rgt = rgt;
 	}
 
 	// The following is extra code

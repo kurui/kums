@@ -2,14 +2,16 @@ package com.kurui.kums.transaction.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.Query;
 import org.jdom.Document;
 import org.jdom.Element;
+
+import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.database.BaseDAOSupport;
 import com.kurui.kums.base.database.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.file.XmlUtil_jdom;
-import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.DateUtil;
 import com.kurui.kums.transaction.DataType;
 import com.kurui.kums.transaction.DataTypeListForm;
@@ -55,6 +57,53 @@ public class DataTypeDAOImp extends BaseDAOSupport implements DataTypeDAO {
 //		System.out.println(result);
 	}
 
+	
+	public int refactorDataType(DataType root, List<DataType> childList) throws AppException {
+		int thislft = root.getRgt() + 1;
+		
+		
+		boolean isSuperRoot=false;
+		int index=root.getName().indexOf("ROOT_DEPT");
+		if(index>-1){
+			isSuperRoot=true;
+		}
+		
+		if(childList!=null&&childList.size()>0){
+			int childListsize=childList.size();
+			for (int i = 0; i < childList.size(); i++) {
+//				System.out.println("-------------for i:" + i);
+				DataType child = childList.get(i);
+
+				child.setLft(thislft);
+				child.setRgt(thislft + 1);
+//				child = update(child);
+				update(child);
+
+				thislft = thislft + 2;
+
+//				List<DataType> newchildList = findDepartmentsByParentId(child.getId());
+				List<DataType> newchildList = getSubDataTypeList(child.getNo());
+				
+
+				if (newchildList != null && newchildList.size() > 0) {
+					thislft=refactorDataType(child, newchildList);
+					child.setRgt(thislft);
+					update(child);
+					
+					thislft=thislft+1;
+					
+					
+				} 
+				
+				if(isSuperRoot&&i==childListsize-1){
+					root.setRgt(thislft);
+					update(root);
+				}
+			}
+		}
+		
+		return thislft;
+	}
 	public void delete(long id) throws AppException {
 		if (id > 0) {
 			DataType DataType = (DataType) this.getHibernateTemplate().get(
