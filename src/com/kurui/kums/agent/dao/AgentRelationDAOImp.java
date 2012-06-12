@@ -19,6 +19,7 @@ import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.file.XmlUtil_jdom;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.transaction.DataType;
 
 public class AgentRelationDAOImp extends BaseDAOSupport implements
 		AgentRelationDAO {
@@ -32,8 +33,13 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 			long agentId = agentRelationListForm.getAgentId();
 			Agent rootAgent = agentDAO.getAgentById(agentId);
 			request.setAttribute("rootAgent", rootAgent);
-			TreeUtil treeUtil = new TreeUtil();
-			request = treeUtil.buildAgentTree(rootAgent, lists, request);
+
+			String treeFileName = DateUtil
+					.getDateString("yyyyMMddHHmmss")
+					+ ".xml";
+			String treeFilePath = Constant.SERVLET_XML_PATH
+					+ treeFileName;
+			request = buildAgentTree(rootAgent,treeFileName,treeFilePath,true,request);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -221,7 +227,81 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 		}
 		return list;
 	}
+	
+	public HttpServletRequest buildAgentTree(Agent rootAgent ,
+			String treeFileName, String treeFilePath, boolean includeRoot,HttpServletRequest request)
+			throws AppException {
 
+		Element rootItem = new Element("tree");
+		rootItem.setAttribute("id", "0");
+		Document doc = new Document(rootItem);
+		rootItem = doc.getRootElement();
+
+		if (includeRoot) {
+			Element thisItem = createItem(rootAgent);
+
+			if (thisItem != null) {
+				rootItem.addContent(thisItem);
+				rootItem=thisItem;
+			}
+		}
+
+		List<Agent> childList = getSubAgentList(rootAgent.getId());
+
+		rootItem = setLevelAgentItem(rootItem, childList);
+
+		XmlUtil_jdom.saveToXmlFile(doc, treeFilePath);
+		return request;
+	}
+	
+	public Document buildAgentTree(Agent rootAgent ,
+			String treeFileName, String treeFilePath, boolean includeRoot)
+			throws AppException {
+
+		Element rootItem = new Element("tree");
+		rootItem.setAttribute("id", "0");
+		Document doc = new Document(rootItem);
+		rootItem = doc.getRootElement();
+
+		if (includeRoot) {
+			Element thisItem = createItem(rootAgent);
+
+			if (thisItem != null) {
+				rootItem.addContent(thisItem);
+				rootItem=thisItem;
+			}
+		}
+
+		List<Agent> childList = getSubAgentList(rootAgent.getId());
+
+		rootItem = setLevelAgentItem(rootItem, childList);
+
+		XmlUtil_jdom.saveToXmlFile(doc, treeFilePath);
+		return doc;
+	}
+
+	private Element setLevelAgentItem(Element rootItem,
+			List<Agent> childList) throws AppException {
+
+		for (int i = 0; i < childList.size(); i++) {
+			Agent tempRootAgent = childList.get(i);
+			if (tempRootAgent != null) {
+				Element thisItem = createItem(tempRootAgent);
+
+				if (thisItem != null) {
+					rootItem.addContent(thisItem);
+				}
+
+				List<Agent> tempChildList = getSubAgentList(tempRootAgent.getId());
+				if (tempChildList != null && tempChildList.size() > 0) {
+					rootItem = setLevelAgentItem(rootItem, tempChildList);
+				}
+			}
+
+		}
+		return rootItem;
+	}
+/*
 	public class TreeUtil {
 		private Element rootItem;
 		private ArrayList<Agent> rootAgentList;
@@ -389,7 +469,7 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 
 			return lists;
 		}
-
+*/
 		protected Element createItem(Agent agent) {
 			// System.out.println("--createItem:" + agent.getName());
 
@@ -405,7 +485,7 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 
 			return item;
 		}
-	}
+//	}
 
 	public void setAgentDAO(AgentDAO agentDAO) {
 		this.agentDAO = agentDAO;
