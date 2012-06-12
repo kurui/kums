@@ -192,7 +192,8 @@
 				tree.setDragHandler(tondrag);
 									
 										
-				var relationTreeFileName="<c:out value='${relationTreeFileName}' ></c:out>";																
+				var relationTreeFileName="<c:out value='${relationTreeFileName}' ></c:out>";	
+									//relationTreeFileName="20120612180420.xml";										
 				tree.loadXML("../_xml/"+relationTreeFileName);
 		</script>
 	</body>

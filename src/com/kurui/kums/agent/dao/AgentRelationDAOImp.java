@@ -10,16 +10,14 @@ import org.jdom.Document;
 import org.jdom.Element;
 
 import com.kurui.kums.agent.Agent;
-import com.kurui.kums.agent.AgentGroup;
 import com.kurui.kums.agent.AgentRelation;
 import com.kurui.kums.agent.AgentRelationListForm;
+import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.database.BaseDAOSupport;
 import com.kurui.kums.base.database.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.file.XmlUtil_jdom;
-import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.DateUtil;
-import com.kurui.kums.transaction.DataType;
 
 public class AgentRelationDAOImp extends BaseDAOSupport implements
 		AgentRelationDAO {
@@ -251,6 +249,8 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 		rootItem = setLevelAgentItem(rootItem, childList);
 
 		XmlUtil_jdom.saveToXmlFile(doc, treeFilePath);
+		
+		request.setAttribute("relationTreeFileName", treeFileName);
 		return request;
 	}
 	
@@ -277,6 +277,8 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 		rootItem = setLevelAgentItem(rootItem, childList);
 
 		XmlUtil_jdom.saveToXmlFile(doc, treeFilePath);
+		
+	
 		return doc;
 	}
 
@@ -294,7 +296,7 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 
 				List<Agent> tempChildList = getSubAgentList(tempRootAgent.getId());
 				if (tempChildList != null && tempChildList.size() > 0) {
-					rootItem = setLevelAgentItem(rootItem, tempChildList);
+					setLevelAgentItem(thisItem, tempChildList);
 				}
 			}
 

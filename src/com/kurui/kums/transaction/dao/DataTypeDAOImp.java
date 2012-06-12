@@ -339,7 +339,7 @@ public class DataTypeDAOImp extends BaseDAOSupport implements DataTypeDAO {
 
 				List<DataType> tempChildList = getSubDataTypeList(tempRootNo);
 				if (tempChildList != null && tempChildList.size() > 0) {
-					rootItem = setLevelDataTypeItem(rootItem, tempChildList);
+					setLevelDataTypeItem(thisItem, tempChildList);
 				}
 			}
 
