@@ -9,6 +9,7 @@ public interface DataTypeDAO {
 
 	public List list(DataTypeListForm tlf) throws AppException;
 
+	public void buildManageExpenseTree() throws AppException;
 	public void buildProductTree() throws AppException;
 	public void buildProvideChainTree() throws AppException;
 

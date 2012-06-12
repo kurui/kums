@@ -91,10 +91,8 @@ public class SysInitBizImp implements SysInitBiz {
 			updatePriceIndexStore();
 			new PerformListener("update priceIndexStore", g);
 
-			long h = System.currentTimeMillis();
-			buildProvideChainTree();
-			new PerformListener("update provideChainTree", h);
-
+			
+			
 			logger.info("init DataStore success! ");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -142,6 +140,10 @@ public class SysInitBizImp implements SysInitBiz {
 					.getDataTypeGroup("1300");
 
 			buildDataTypeTree();
+			
+			buildProvideChainTree();
+			
+			buildManageExpenseTree();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -174,6 +176,14 @@ public class SysInitBizImp implements SysInitBiz {
 	public void buildDataTypeTree() {
 		try {
 			dataTypeDAO.buildProductTree();
+		} catch (AppException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void buildManageExpenseTree() {
+		try {
+			dataTypeDAO.buildManageExpenseTree();
 		} catch (AppException e) {
 			e.printStackTrace();
 		}

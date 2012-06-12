@@ -43,6 +43,17 @@ public class DataTypeDAOImp extends BaseDAOSupport implements DataTypeDAO {
 		// String result = XmlUtil_jdom.getDocumentString(doc);
 		// System.out.println(result);
 	}
+	
+	public void buildManageExpenseTree() throws AppException {
+		String rootDataTypeNo = "1201";
+		String treeFileName = DateUtil.getDateString("yyyyMMddHHmmss") + ".xml";
+		treeFileName = "ManageExpenseTree.xml";
+		String treeFilePath = Constant.SERVLET_XML_PATH + treeFileName;
+		Document doc = buildDataTypeTree(rootDataTypeNo, treeFileName,
+				treeFilePath, true);
+		// String result = XmlUtil_jdom.getDocumentString(doc);
+		// System.out.println(result);
+	}
 
 	public void buildProvideChainTree() throws AppException {
 		String rootDataTypeNo = "51";

@@ -24,8 +24,7 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 	private Hql listHql(FinanceOrderListForm rlf, UserRightInfo uri)
 			throws AppException {
 		Hql hql = new Hql();
-		hql
-				.add(" from FinanceOrder b where exists(select distinct orderGroup.id ");
+		hql.add(" from FinanceOrder b where exists(select distinct orderGroup.id ");
 		hql.add(" from FinanceOrder a where 1=1 ");
 
 		// orderNO

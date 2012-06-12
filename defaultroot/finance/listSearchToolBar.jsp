@@ -2,6 +2,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/WEB-INF/tld/struts-html-el.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/c.tld" prefix="c"%>
+
+<link href="../_js/dhtmlxtree/dhtmlxtree.css" rel="stylesheet" type="text/css" />
+<script src="../_js/dhtmlxtree/dhtmlxcommon.js"></script>
+<script src="../_js/dhtmlxtree/dhtmlxtree.js"></script>
+
 <html>
 	<body>
 		<hr>
@@ -119,6 +124,12 @@
 							<html:option value="1300">债券</html:option>
 						</html:select>
 					</td>
+						<td>
+				<html:text property="tranTypeNames"  value="-选择项目-" styleClass="colorblue2 p_5" style="width: 150px;" onclick="displayObj('treeBox','');" />
+				<!-- onblur="displayObj('treeBox','none');" 缺陷, 展开树也会触发失去焦点 -->
+
+				<html:hidden property="tranTypeGroup" value="${ulf.tranTypeGroup}"></html:hidden>
+			</td>
 
 					<td>
 						<input type="submit" name="button" id="button" value="提交" class="submit greenBtn" />
@@ -130,6 +141,28 @@
 					</td>
 				</tr>
 			</table>
+			
+			<style>
+.referenceTypeDiv {
+	width: 250px;
+	height: 300 px;
+	background-color: #f5f5f5;
+	border: 1 px solid Silver;;
+	overflow: auto;
+	position: absolute;
+	z-index: 3;
+	top: 20%;
+	left:25%;
+}
+</style>
+
+<div id="treeBox" class="referenceTypeDiv" style="display: none">
+	<input type="button" class="colorblue2 p_5" onclick="openAllItems();" value="展开"></input>
+	<input type="button" class="colorblue2 p_5" onclick="closeAllItems();" value="折叠"></input>
+	<input type="button" class="colorblue2 p_5" onclick="confirmSelectReference();" value="确认"></input>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" class="colorblue2 p_5" onclick="displayObj('treeBox','none')" value="关闭"></input>
+</div>
 			<script>
     function selectRecent(){
         var tempDay="<c:out value='${param.recentlyDay}'/>";
@@ -175,6 +208,83 @@
       	}      	
       }
 </script>
+
+<script type="text/javascript">
+				function tonclick(id) {
+					//alert("Item " + tree.getItemText(id) + " was selected");
+				};
+				function tondblclick(id) {
+					//alert("Item " + tree.getItemText(id) + " was doubleclicked");
+				};
+				function tondrag(id, id2) {
+					return confirm("Do you want to move node " + tree.getItemText(id) + " to item " + tree.getItemText(id2) + "?");
+				};
+				function tonopen(id, mode) {
+					//return confirm("Do you want to " + (mode > 0 ? "close": "open") + " node " + tree.getItemText(id) + "?");
+					return true;
+				};
+				function toncheck(id, state) {
+				    //alert("Item " + tree.getItemText(id) + " was " + ((state) ? "checked": "unchecked"));
+				};			
+	</script>
+<script type="text/javascript">				
+					tree = new dhtmlXTreeObject("treeBox", "100%", "100%", 0);
+					tree.setSkin('dhx_skyblue');									
+					tree.setImagePath("../_js/dhtmlxtree/imgs/csh_bluebooks/");
+			    	tree.enableCheckBoxes(1);//显示复选框
+				    tree.enableThreeStateCheckboxes(true);//设置点根目录全选子目录					
+					tree.enableDragAndDrop(1);//设置借点可拖拽
+					//打开事件监听
+					tree.setOnOpenHandler(tonopen);
+					tree.setOnClickHandler(tonclick);
+					tree.setOnCheckHandler(toncheck);
+					tree.setOnDblClickHandler(tondblclick);
+					tree.setDragHandler(tondrag);
+					tree.loadXML("../_xml/ManageExpenseTree.xml");		
+				
+					
+		function closeAllItems(){
+			tree.closeAllItems(0);
+		}
+		
+		function openAllItems(){
+			tree.openAllItems(0);
+		}
+
+	function displayObj(objId,displayValue){
+		document.getElementById(objId).style.display=displayValue;
+		if(displayValue==""){
+			setCheckedTree();
+		}
+	}
+	
+	function setCheckedTree(){
+		var tranTypeGroup=document.forms[0].tranTypeGroup.value;	
+		//alert("setCheckedTree:"+tranTypeGroup);		
+			if(tranTypeGroup!=null){
+				var checkIds=tranTypeGroup.split(",");	
+					
+				var len=checkIds.length;
+				for(var i=0;i<len;i++){
+					var checkId=checkIds[i];
+					//alert("checkId:"+checkId);
+					tree.setCheck(checkId,true);						
+				}
+			}			
+	}
+	
+	function confirmSelectReference(){
+		displayObj("treeBox","none");
+		
+		var allCheckedItem=tree.getAllChecked();
+		//alert(allCheckedItem);
+		if(allCheckedItem!=null){
+			document.forms[0].tranTypeGroup.value=allCheckedItem;
+			document.forms[0].submit();
+		}		
+	}	
+</script>
+
 		</div>
 		<input type="button" id="showSearchBarObj" style="display: none; float: right" onclick="shrinkSearchBar()" value="高级搜索" />
 	</body>

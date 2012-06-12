@@ -45,19 +45,32 @@ public class FinanceOrderListForm extends ListActionForm {
 	private String memo = "";
 
 	private String showType = "listData";// listChart listData
+	
+	private String tranTypeGroup="";
 
 	public String getTranTypeGroup() {
-		if (this.orderType == Statement.ORDERTYPE_1201) {
-			return FinanceOrder.TRAN_TYPE_GROUP_1201;
-		} else if (this.orderType == Statement.ORDERTYPE_15) {
-			return FinanceOrder.TRAN_TYPE_GROUP_15;
-		} else if (this.orderType == Statement.ORDERTYPE_1400) {
-			return FinanceOrder.TRAN_TYPE_GROUP_1400;
-		} else if (this.orderType == Statement.ORDERTYPE_1300) {
-			return FinanceOrder.TRAN_TYPE_GROUP_1300;
+		if(this.tranTypeGroup!=null&&"".equals(tranTypeGroup)==false){
+			return tranTypeGroup;
+		}else{
+			if (this.orderType == Statement.ORDERTYPE_1201) {
+				return FinanceOrder.TRAN_TYPE_GROUP_1201;
+			} else if (this.orderType == Statement.ORDERTYPE_15) {
+				return FinanceOrder.TRAN_TYPE_GROUP_15;
+			} else if (this.orderType == Statement.ORDERTYPE_1400) {
+				return FinanceOrder.TRAN_TYPE_GROUP_1400;
+			} else if (this.orderType == Statement.ORDERTYPE_1300) {
+				return FinanceOrder.TRAN_TYPE_GROUP_1300;
+			}
 		}
+		
 		return "";
 	}
+
+	
+	public void setTranTypeGroup(String tranTypeGroup) {
+		this.tranTypeGroup = tranTypeGroup;
+	}
+
 
 	public String[] getDaysArray() {
 		String[] days = null;
