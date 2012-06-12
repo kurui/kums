@@ -5,7 +5,6 @@ import java.util.Date;
 
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.DateUtil;
-import com.kurui.kums.base.util.UnitConverter;
 import com.kurui.kums.market._entity._Apartment;
 
 /**

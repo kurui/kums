@@ -1,5 +1,6 @@
 package com.kurui.kums.agent.dao;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,13 +33,31 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 			Agent rootAgent = agentDAO.getAgentById(agentId);
 			request.setAttribute("rootAgent", rootAgent);
 
-			String treeFileName = DateUtil
-					.getDateString("yyyyMMddHHmmss")
-					+ ".xml";
-			String treeFilePath = Constant.SERVLET_XML_PATH
-					+ treeFileName;
-			request = buildAgentTree(rootAgent,treeFileName,treeFilePath,true,request);
+			if(rootAgent!=null){
+				String treeFileName=rootAgent.getTreeFileName();
+				
+				String treeFilePath = Constant.SERVLET_XML_PATH
+						+ treeFileName;
+				File treeFile=new File(treeFilePath);
+				boolean isExistFile=treeFile.isFile();
+				
+				if(treeFileName==null||isExistFile==false){
+					treeFileName = DateUtil
+							.getDateString("yyyyMMddHHmmss")
+							+ ".xml";
+					treeFilePath = Constant.SERVLET_XML_PATH
+							+ treeFileName;
+					buildAgentTree(rootAgent,treeFileName,treeFilePath,true);	
+					
+					rootAgent.setTreeFileName(treeFileName);
+					agentDAO.update(rootAgent);
+				}
+				
 
+				request.setAttribute("relationTreeFileName", treeFileName);
+			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -226,33 +245,7 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 		return list;
 	}
 	
-	public HttpServletRequest buildAgentTree(Agent rootAgent ,
-			String treeFileName, String treeFilePath, boolean includeRoot,HttpServletRequest request)
-			throws AppException {
 
-		Element rootItem = new Element("tree");
-		rootItem.setAttribute("id", "0");
-		Document doc = new Document(rootItem);
-		rootItem = doc.getRootElement();
-
-		if (includeRoot) {
-			Element thisItem = createItem(rootAgent);
-
-			if (thisItem != null) {
-				rootItem.addContent(thisItem);
-				rootItem=thisItem;
-			}
-		}
-
-		List<Agent> childList = getSubAgentList(rootAgent.getId());
-
-		rootItem = setLevelAgentItem(rootItem, childList);
-
-		XmlUtil_jdom.saveToXmlFile(doc, treeFilePath);
-		
-		request.setAttribute("relationTreeFileName", treeFileName);
-		return request;
-	}
 	
 	public Document buildAgentTree(Agent rootAgent ,
 			String treeFileName, String treeFilePath, boolean includeRoot)

@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -13,7 +15,6 @@ import org.apache.struts.action.ActionMapping;
 import com.kurui.kums.base.BaseAction;
 import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.util.ArrayUtil;
 import com.kurui.kums.base.util.CurrentDate;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.market.PriceIndex;

@@ -56,6 +56,8 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected Long friendIndex;
 	protected Long specialIndex;
 	protected Long tightIndex;
+	
+	protected String treeFileName;
 
 	protected com.kurui.kums.transaction.Company company;
 	protected com.kurui.kums.agent.DirectLevel directLevel;
@@ -303,6 +305,16 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 
 	public void setHealthInfo(String healthInfo) {
 		this.healthInfo = healthInfo;
+	}
+
+	
+	
+	public String getTreeFileName() {
+		return treeFileName;
+	}
+
+	public void setTreeFileName(String treeFileName) {
+		this.treeFileName = treeFileName;
 	}
 
 	public Object clone() {

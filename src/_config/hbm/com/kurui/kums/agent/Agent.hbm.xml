@@ -124,6 +124,10 @@
 		<property name="tightIndex" type="long">
 			<column name="TIGHT_INDEX" precision="22" scale="0" />
 		</property>
+		
+		<property name="treeFileName" type="string">
+			<column name="tree_file_name" length="50" />
+		</property>
 
 		<set name="relateAgents" inverse="true">
 			<key>

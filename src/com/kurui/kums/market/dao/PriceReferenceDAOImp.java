@@ -186,8 +186,6 @@ public class PriceReferenceDAOImp extends BaseDAOSupport implements
 	}
 
 	public class TreeUtil {
-		private int itemIndex = 0;
-
 		public Document buildPriceReferenceTree(String treeFileName,
 				String treeFilePath) throws AppException {
 			Element rootItem = new Element("tree");
