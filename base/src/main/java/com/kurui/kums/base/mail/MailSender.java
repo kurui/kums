@@ -1,6 +1,7 @@
 package com.kurui.kums.base.mail;
 
 import java.io.File;
+
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -41,8 +42,8 @@ public class MailSender {
 			helper.setText(body, true);
 			File file = null;
 			if (file != null) {
-				FileSystemResource fileSource = new FileSystemResource(file
-						.getPath());
+				FileSystemResource fileSource = new FileSystemResource(
+						file.getPath());
 				helper.addAttachment(file.getName(), file);
 			}
 			jmailSender.send(mailMessage);

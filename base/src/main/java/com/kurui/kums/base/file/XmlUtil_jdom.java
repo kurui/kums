@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jdom.Attribute;
@@ -299,7 +300,9 @@ public class XmlUtil_jdom {
 		final boolean NEW_LINES = true;
 
 		try {
-			XMLOutputter out = new XMLOutputter(INDENT, NEW_LINES, encoding);
+//			XMLOutputter out = new XMLOutputter(INDENT, NEW_LINES, encoding);
+			XMLOutputter out = new XMLOutputter();
+			
 			out.output(doc, stream);
 		} catch (Exception e) {
 			if (log.isErrorEnabled()) {
