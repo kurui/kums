@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.kurui</groupId>
@@ -13,30 +14,30 @@
 	<description>KUMS Application EAR</description>
 
 	<dependencies>
-
-		<!-- China Rewards Stuff STARTS -->
-		<!-- 
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-war</artifactId>
 			<version>2.1.0</version>
 			<type>war</type>
 		</dependency>
-		-->
+
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-core</artifactId>
 			<version>2.1.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-model</artifactId>
 			<version>2.1.0</version>
 		</dependency>
-		<!-- China Rewards Stuff ENDS -->
 
-
-		
+		<dependency>
+			<groupId>com.kurui</groupId>
+			<artifactId>kums-base</artifactId>
+			<version>2.1.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
@@ -55,23 +56,23 @@
 			<artifactId>slf4j-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- jexcelapi start which provides api to export excel -->
-			<dependency>
-				<groupId>net.sourceforge.jexcelapi</groupId>
-				<artifactId>jxl</artifactId>
-			</dependency>
-			<!-- jexcelapi end -->
-			
-		
-		
-		
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+		</dependency>
+		<!-- jexcelapi end -->
+
+
+
+
 		<dependency>
 			<groupId>jfree</groupId>
 			<artifactId>jfreechart</artifactId>
 		</dependency>
 
-		
+
 	</dependencies>
 	<organization>
 		<name>Kurui</name>
@@ -84,7 +85,8 @@
 				<artifactId>maven-ear-plugin</artifactId>
 				<configuration>
 					<defaultJavaBundleDir>lib/</defaultJavaBundleDir>
-					<modules> <!-- Configuring names of artifacts in EAR -->
+					<modules> 
+					<!-- Configuring names of artifacts in EAR -->
 						<webModule>
 							<groupId>com.kurui</groupId>
 							<artifactId>kums-war</artifactId>
@@ -92,7 +94,7 @@
 							<bundleFileName>kums-war.war</bundleFileName>
 						</webModule>
 					</modules>
-					
+
 				</configuration>
 			</plugin>
 		</plugins>
