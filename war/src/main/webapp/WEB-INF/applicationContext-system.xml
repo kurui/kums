@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false" default-autowire="no"
+	default-dependency-check="none">
+
+	<bean name="/information/newsList"
+		class="com.kurui.kums.system.action.NewsListAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="newsBiz">
+			<ref bean="newsBiz" />
+		</property>
+	</bean>
+	<bean name="/information/news"
+		class="com.kurui.kums.system.action.NewsAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="newsBiz">
+			<ref bean="newsBiz" />
+		</property>
+	</bean>
+	<bean id="newsBiz" class="com.kurui.kums.system.biz.NewsBizImp">
+		<property name="newsDAO">
+			<ref bean="newsDAO" />
+		</property>
+	</bean>
+	<bean id="newsDAO" class="com.kurui.kums.system.dao.NewsDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean name="sysInitBiz"
+		class="com.kurui.kums.system.biz.SysInitBizImp" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="platformDAO">
+			<ref bean="platformDAO" />
+		</property>
+		<property name="companyDAO">
+			<ref bean="companyDAO" />
+		</property>
+		<property name="accountDAO">
+			<ref bean="accountDAO" />
+		</property>
+		<property name="platComAccountDAO">
+			<ref bean="platComAccountDAO" />
+		</property>
+		<property name="paymentToolDAO">
+			<ref bean="paymentToolDAO" />
+		</property>
+		<property name="agentDAO">
+			<ref bean="agentDAO" />
+		</property>
+		<property name="userDAO">
+			<ref bean="userDAO" />
+		</property>
+		<property name="priceReferenceDAO">
+			<ref bean="priceReferenceDAO" />
+		</property>
+		<property name="dataTypeDAO">
+			<ref bean="dataTypeDAO" />
+		</property>
+		<property name="directLevelDAO">
+			<ref bean="directLevelDAO" />
+		</property>
+		<property name="productDAO">
+			<ref bean="productDAO" />
+		</property>
+	</bean>
+
+	<bean name="/system/loginloglist"
+		class="com.kurui.kums.system.action.LoginLogListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="loginlogBiz">
+			<ref bean="loginlogBiz" />
+		</property>
+	</bean>
+	<bean name="/system/operateLoglist"
+		class="com.kurui.kums.system.action.OperateLogListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operateLogBiz">
+			<ref bean="operateLogBiz" />
+		</property>
+	</bean>
+	<bean name="loginlogBiz"
+		class="com.kurui.kums.system.biz.LoginLogBizImp" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="loginlogDao">
+			<ref bean="loginlogDao" />
+		</property>
+	</bean>
+
+	<bean id="operateLogBiz"
+		class="com.kurui.kums.system.biz.OperateLogBizImp">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="operateLogDAO">
+			<ref bean="operateLogDAO" />
+		</property>
+	</bean>
+
+	<bean id="operateLogDetailBiz"
+		class="com.kurui.kums.system.biz.OperateLogDetailBizImp">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="operateLogDetailDAO">
+			<ref bean="operateLogDetailDAO" />
+		</property>
+	</bean>
+
+	<bean id="loginlogDao"
+		class="com.kurui.kums.system.dao.LoginLogDAOImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="operateLogDAO"
+		class="com.kurui.kums.system.dao.OperateLogDAOImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="operateLogDetailDAO"
+		class="com.kurui.kums.system.dao.OperateLogDetailDAOImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+</beans>

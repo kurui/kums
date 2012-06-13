@@ -178,7 +178,8 @@
 		<module>base</module>
 		<module>model</module>
 		<module>core</module>
-		<module>war</module>
+		<!-- 
+		<module>war</module> -->
 		<module>ear</module>
 	</modules>
 </project>

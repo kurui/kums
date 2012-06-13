@@ -1,0 +1,223 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by ccggyy2002 (Delphi) -->
+
+<struts-config>
+	<form-beans>
+		<form-bean name="priceReferenceListForm"
+			type="com.kurui.kums.market.PriceReferenceListForm">
+		</form-bean>
+		<form-bean name="priceReference"
+			type="com.kurui.kums.market.PriceReference">
+		</form-bean>
+		<form-bean name="priceIndexListForm"
+			type="com.kurui.kums.market.PriceIndexListForm">
+		</form-bean>
+		<form-bean name="priceIndex"
+			type="com.kurui.kums.market.PriceIndex">
+		</form-bean>
+
+		<form-bean name="productListForm"
+			type="com.kurui.kums.market.ProductListForm">
+		</form-bean>
+		<form-bean name="product"
+			type="com.kurui.kums.market.Product">
+		</form-bean>
+		<form-bean name="saleEventListForm"
+			type="com.kurui.kums.market.SaleEventListForm">
+		</form-bean>
+		<form-bean name="saleEvent"
+			type="com.kurui.kums.market.SaleEvent">
+		</form-bean>
+
+		<form-bean name="estateDishListForm"
+			type="com.kurui.kums.market.EstateDishListForm">
+		</form-bean>
+		<form-bean name="estateDish"
+			type="com.kurui.kums.market.EstateDish">
+		</form-bean>
+		<form-bean name="apartmentListForm"
+			type="com.kurui.kums.market.ApartmentListForm">
+		</form-bean>
+		<form-bean name="apartment"
+			type="com.kurui.kums.market.Apartment">
+		</form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<!-- 物价参照物表 List-->
+		<action name="priceReferenceListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/priceReferenceList" validate="false" scope="request">
+			<forward name="listPriceReference"
+				path="/market/listPriceReference.jsp" />
+			<forward name="editPriceReference"
+				path="/market/editPriceReference.jsp">
+			</forward>
+			<forward name="viewPriceReference"
+				path="/market/viewPriceReference.jsp">
+			</forward>
+
+			<forward name="listPriceIndexChart"
+				path="/market/listPriceIndexChart.jsp">
+			</forward>
+		</action>
+
+		<!-- 物价参照物表 -->
+		<action name="priceReference" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/priceReference" validate="false" scope="request">
+			<forward name="listPriceReference"
+				path="/market/listPriceReference.jsp" />
+			<forward name="viewPriceReference"
+				path="/market/viewPriceReference.jsp">
+			</forward>
+		</action>
+
+		<!-- 物价指数表 List-->
+		<action name="priceIndexListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/priceIndexList" validate="false" scope="request">
+			<forward name="listPriceIndex"
+				path="/market/listPriceIndex.jsp" />
+			<forward name="editPriceIndex"
+				path="/market/editPriceIndex.jsp">
+			</forward>
+			<forward name="editPriceIndexBatch"
+				path="/market/editPriceIndexBatch.jsp">
+			</forward>
+			<forward name="viewPriceIndex"
+				path="/market/viewPriceIndex.jsp">
+			</forward>
+
+			<forward name="listPriceIndexChart"
+				path="/market/listPriceIndexChart.jsp">
+			</forward>
+			<forward name="listPriceIndexByMonth"
+				path="/market/listPriceIndexByMonth.jsp">
+			</forward>
+		</action>
+
+		<!-- 物价指数表 -->
+		<action name="priceIndex" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/priceIndex" validate="false" scope="request">
+			<forward name="listPriceIndex"
+				path="/market/listPriceIndex.jsp">
+			</forward>
+			<forward name="viewPriceIndex"
+				path="/market/viewPriceIndex.jsp">
+			</forward>
+			<forward name="editPriceIndex"
+				path="/market/editPriceIndex.jsp">
+			</forward>
+
+			<forward name="editPriceIndexBatch"
+				path="/market/editPriceIndexBatch.jsp">
+			</forward>
+		</action>
+
+		<!-- 产品表 List-->
+		<action name="productListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/productList" validate="false" scope="request">
+			<forward name="listProduct" path="/market/listProduct.jsp" />
+			<forward name="listProductSelect"
+				path="/market/listProductSelect.jsp" />
+			<forward name="editProduct"
+				path="/market/editProduct.jsp">
+			</forward>
+			<forward name="viewProduct"
+				path="/market/viewProduct.jsp">
+			</forward>
+		</action>
+
+		<!-- 产品表 -->
+		<action name="product" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/product" validate="false" scope="request">
+			<forward name="listProduct"
+				path="/market/listProduct.jsp">
+			</forward>
+			<forward name="viewProduct"
+				path="/market/viewProduct.jsp">
+			</forward>
+		</action>
+
+		<!-- 销售活动表 List-->
+		<action name="saleEventListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/saleEventList" validate="false" scope="request">
+			<forward name="listSaleEvent"
+				path="/market/listSaleEvent.jsp" />
+
+			<forward name="editSaleEvent"
+				path="/market/editSaleEvent.jsp">
+			</forward>
+			<forward name="viewSaleEvent"
+				path="/market/viewSaleEvent.jsp">
+			</forward>
+		</action>
+
+		<action name="saleEvent" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/saleEvent" validate="false" scope="request">
+			<forward name="listSaleEvent"
+				path="/market/listSaleEvent.jsp">
+			</forward>
+			<forward name="viewSaleEvent"
+				path="/market/viewSaleEvent.jsp">
+			</forward>
+		</action>
+
+		<!-- 楼盘表 List-->
+		<action name="estateDishListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/estateDishList" validate="false" scope="request">
+			<forward name="listEstateDish"
+				path="/market/listEstateDish.jsp" />
+			<forward name="editEstateDish"
+				path="/market/editEstateDish.jsp">
+			</forward>
+			<forward name="viewEstateDish"
+				path="/market/viewEstateDish.jsp">
+			</forward>
+		</action>
+
+		<!-- 楼盘表 -->
+		<action name="estateDish" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/estateDish" validate="false" scope="request">
+			<forward name="listEstateDish"
+				path="/market/listEstateDish.jsp" />
+			<forward name="viewEstateDish"
+				path="/market/viewEstateDish.jsp">
+			</forward>
+		</action>
+
+		<!-- 物业单元表 List-->
+		<action name="apartmentListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/apartmentList" validate="false" scope="request">
+			<forward name="listApartment"
+				path="/market/listApartment.jsp" />
+			<forward name="editApartment"
+				path="/market/editApartment.jsp">
+			</forward>
+			<forward name="viewApartment"
+				path="/market/viewApartment.jsp">
+			</forward>
+		</action>
+
+		<!-- 物业单元表 -->
+		<action name="apartment" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/market/apartment" validate="false" scope="request">
+			<forward name="listApartment"
+				path="/market/listApartment.jsp">
+			</forward>
+			<forward name="viewApartment"
+				path="/market/viewApartment.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+</struts-config>

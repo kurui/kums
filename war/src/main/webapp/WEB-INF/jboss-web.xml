@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE jboss-web PUBLIC "-//JBoss//DTD Web Application 2.3V2//EN"  "http://www.jboss.org/j2ee/dtd/jboss-web_3_2.dtd">
+
+<jboss-web>
+	<context-root>/</context-root>
+	<virtual-host>localhost</virtual-host>
+	<virtual-host>192.168.150.1</virtual-host>
+</jboss-web>
+

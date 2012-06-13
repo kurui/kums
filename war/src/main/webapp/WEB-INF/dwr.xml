@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+   <allow> 
+	    <create javascript="platComAccountStore" creator="new">
+	    	<param name="class" value="com.kurui.kums.transaction.util.PlatComAccountStore"></param>
+	    </create>	  
+	    <create javascript="agentStore" creator="new">
+	    	<param name="class" value="com.kurui.kums.agent.util.AgentStore"></param>
+	    </create>	 
+	    <create javascript="productStore" creator="new">
+	    	<param name="class" value="com.kurui.kums.market.util.ProductStore"></param>
+	    </create>	  
+        <create creator="spring" javascript="financeOrderBiz">
+	      <param name="beanName" value="financeOrderBiz"/>
+	    </create>
+	    <create creator="spring" javascript="budgetOrderBiz">
+	      <param name="beanName" value="budgetOrderBiz"/>
+	    </create>	
+	    <create creator="spring" javascript="budgetBiz">
+	      <param name="beanName" value="budgetBiz"/>
+	    </create>		
+	      <create creator="spring" javascript="agentBiz">
+	      <param name="beanName" value="agentBiz"/>
+	    </create>	
+	     <create creator="spring" javascript="dataTypeBiz">
+	      <param name="beanName" value="dataTypeBiz"/>
+	    </create>	
+	    <create creator="spring" javascript="companyBiz">
+	      <param name="beanName" value="companyBiz"/>
+	    </create>	
+	    <create creator="spring" javascript="priceReferenceBiz">
+	      <param name="beanName" value="priceReferenceBiz"/>	      
+	    </create>	    
+	    <create creator="spring" javascript="productBiz">
+	      <param name="beanName" value="productBiz"/>	      
+	    </create>	
+	    
+	    <convert match="org.apache.struts.action.ActionServletWrapper"  converter="bean" />   	    
+	   
+	   	<convert match="com.kurui.kums.transaction.DataType" converter="hibernate3"></convert>	    
+	    <convert match="com.kurui.kums.transaction.util.PlatComAccount" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.transaction.Company" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.transaction.Platform" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.transaction.Account" converter="hibernate3"></convert>	
+	    <convert match="com.kurui.kums.transaction.PaymentTool" converter="hibernate3"></convert>	
+	    
+	    <convert match="com.kurui.kums.agent.Agent" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.agent.DirectLevel" converter="hibernate3"></convert>
+	    
+	    <convert match="com.kurui.kums.finance.Statement" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.finance.FinanceOrder" converter="hibernate3"></convert>	    
+	    <convert match="com.kurui.kums.finance.OrderGroup" converter="hibernate3"></convert>	
+	    <convert match="com.kurui.kums.finance.OrderDetail" converter="hibernate3"></convert>		     
+	    <convert match="com.kurui.kums.finance.Budget" converter="hibernate3"></convert>	
+	    <convert match="com.kurui.kums.finance.BudgetOrder" converter="hibernate3"></convert>	
+	       	    
+	    <convert match="com.kurui.kums.right.SysUser" converter="hibernate3"></convert>	   
+	     
+	    <convert match="com.kurui.kums.right.UserRightInfo" converter="hibernate3"></convert>	
+	    <convert match="com.kurui.kums.base.Operate" converter="hibernate3"></convert>		
+	    <convert match="com.kurui.kums.base.MyLabel" converter="hibernate3"></convert>	
+	    
+	    <convert match="com.kurui.kums.market.PriceReference" converter="hibernate3"></convert>	
+	    <convert match="com.kurui.kums.market.Product" converter="hibernate3"></convert>	
+  </allow>
+</dwr>
