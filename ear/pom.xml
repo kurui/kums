@@ -14,14 +14,14 @@
 	<description>KUMS Application EAR</description>
 
 	<dependencies>
-	<!-- 
+	<!--  -->
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-war</artifactId>
 			<version>2.1.0</version>
 			<type>war</type>
 		</dependency>
- -->
+
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-core</artifactId>
@@ -88,7 +88,7 @@
 					<defaultJavaBundleDir>lib/</defaultJavaBundleDir>
 					<modules> 
 					<!-- Configuring names of artifacts in EAR -->
-					<!-- 
+					<!-- -->
 						<webModule>
 							<groupId>com.kurui</groupId>
 							<artifactId>kums-war</artifactId>
@@ -97,7 +97,7 @@
 							<bundleFileName>kums-war.war</bundleFileName>
 							
 						</webModule>
-						 -->
+						 
 					</modules>
 
 				</configuration>
