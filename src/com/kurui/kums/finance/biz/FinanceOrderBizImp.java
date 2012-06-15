@@ -471,7 +471,9 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 			Long[] companyIds = form.getCompanyIds();
 			// Long[] cussentCompanyIds=form.getCussentCompanyIds();
 			String[] outOrderNos = form.getOutOrderNos();
-			Timestamp[] businessTimes = form.getBusinessTimes();
+//			Timestamp[] businessTimes = form.getBusinessTimes();
+			String[] businessDates = form.getBusinessDates();
+			
 			BigDecimal[] handlingCharges = form.getHandlingCharges();
 
 			if (financeOrderIds != null) {
@@ -504,12 +506,13 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 
 						order.setMemo(form.getMemo());
 
-						if (businessTimes != null && businessTimes[i] == null
-								|| "".equals(businessTimes[i])) {
+						if (businessDates != null && businessDates[i] == null
+								|| "".equals(businessDates[i])) {
 							order.setBusinessTime(new Timestamp(System
 									.currentTimeMillis()));
 						} else {
-							order.setBusinessTime(businessTimes[i]);
+							
+							order.setBusinessTime(DateUtil.getTimestamp(businessDates[i], "yyyy-MM-dd"));
 						}
 						updateOrderGroup(order);
 

@@ -1,0 +1,6 @@
+/.settings
+/target
+.classpath
+.project
+/.gwt
+/defaultroot/WEB-INF/classes

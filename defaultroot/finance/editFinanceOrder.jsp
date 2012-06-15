@@ -102,8 +102,8 @@
 								style="width:50px;" />
 						</td>
 						<td>
-							<html:text property="businessTimes" value="${order.businessDate}" styleId="entryOrderDate<c:out value='${status.count}'/>"
-								onfocus="WdatePicker({startDate:'%y-%M-%D 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})" styleClass="colorblue2 p_5" style="width: 140px;" />
+							<html:text property="businessDates" value="${order.businessDate}" styleId="entryOrderDate<c:out value='${status.count}'/>"
+								onfocus="WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" styleClass="colorblue2 p_5" style="width: 140px;" />
 						</td>
 						<td>
 							<html:text property="memo" value="${order.memo}" name="financeOrder" styleId="memo<c:out value='${status.count}'/>" styleClass="colorblue2 p_5" style="width:200px;" />
