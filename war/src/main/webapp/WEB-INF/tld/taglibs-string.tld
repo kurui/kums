@@ -702,7 +702,7 @@
 	<tag>
 		<name>join</name>
 		<tagclass>org.apache.taglibs.string.JoinTag</tagclass>
-		<bodycontent>EMPTY</bodycontent>
+		<bodycontent>empty</bodycontent>
 		<attribute>
 			<name>items</name>
 			<required>true</required>
