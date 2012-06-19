@@ -88,11 +88,11 @@ public class SysInitBizImp implements SysInitBiz {
 			new PerformListener("update datatype", f);
 
 			long g = System.currentTimeMillis();
-			updatePriceIndexStore();
+//			updatePriceIndexStore();
 			new PerformListener("update priceIndexStore", g);
 
 			long h = System.currentTimeMillis();
-			buildProvideChainTree();
+//			buildProvideChainTree();
 			new PerformListener("update provideChainTree", h);
 
 			logger.info("init DataStore success! ");

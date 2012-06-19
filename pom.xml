@@ -9,6 +9,10 @@
 	<!-- <parent> <artifactId>root</artifactId> <groupId>com.kurui</groupId> 
 		<version>2.1.0</version> </parent> -->
 	<properties>
+		<source.version>1.5</source.version>
+		<encoding>UTF-8</encoding>		
+		 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+	
 		<jxl.version>2.6.10</jxl.version>
 		<jersey.version>1.1.5</jersey.version>
 
@@ -21,9 +25,9 @@
 		<!-- Log4J Settings -->
 		<log4j.version>1.2.8</log4j.version>
 
-		<source.version>1.6</source.version>
+	
 
-		<encoding>UTF-8</encoding>
+	
 
 	</properties>
 
@@ -186,8 +190,11 @@
 		<module>base</module>
 		<module>model</module>
 		<module>core</module>
-		<!-- -->
+		
 		<module>war</module>
+		
+		<!-- 	-->
 		<module>ear</module>
+	
 	</modules>
 </project>
