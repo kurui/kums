@@ -12,6 +12,10 @@ public class DataTypeBizImp implements DataTypeBiz {
 	public List list(DataTypeListForm DataTypeForm) throws AppException {
 		return dataTypeDAO.list(DataTypeForm);
 	}
+	
+	public void buildManageExpenseTree() throws AppException {
+		dataTypeDAO.buildManageExpenseTree();
+	}
 
 	public void buildProductTree() throws AppException {
 		dataTypeDAO.buildProductTree();
@@ -19,6 +23,10 @@ public class DataTypeBizImp implements DataTypeBiz {
 	
 	public void buildProvideChainTree() throws AppException{
 		dataTypeDAO.buildProvideChainTree();
+	}
+	
+	public void refactorDataTypeTree() throws AppException{
+		dataTypeDAO.refactorDataTypeTree();
 	}
 
 	public void delete(long id) throws AppException {

@@ -69,7 +69,7 @@
 			<rtexprvalue>false</rtexprvalue>
 		</attribute>
 	</tag>
-<!---->
+
 	<tag>
 		<name>check</name>
 		<tag-class>com.kurui.kums.base.tag.URIRight</tag-class>

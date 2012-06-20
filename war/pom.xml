@@ -1,0 +1,143 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.kurui</groupId>
+		<artifactId>kums</artifactId>
+		<version>2.1.0</version>
+	</parent>
+	<groupId>com.kurui</groupId>
+	<artifactId>kums-war</artifactId>
+	<packaging>war</packaging>
+	<version>2.1.0</version>
+	<name>KUMS WAR</name>
+	<description>web user interface</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>struts-el</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts-legacy</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!-- -->
+
+		<dependency>
+			<groupId>com.kurui</groupId>
+			<artifactId>kums-core</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.kurui</groupId>
+			<artifactId>kums-model</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.kurui</groupId>
+			<artifactId>kums-base</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<organization>
+		<name>Kurui</name>
+		<url>http://www.kurui.com</url>
+	</organization>
+
+	<build>
+		<finalName>kums-war</finalName>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<!-- <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
+				</resource> -->
+		</resources>
+		<outputDirectory>war/WEB-INF/classes</outputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/java-user</source>
+								<source>src/main/java-rewards</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- If you want to use the target/web.xml file mergewebxml produces, 
+				tell the war plugin to use it. Also, exclude what you want from the final 
+				artifact here. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webappDirectory>war</webappDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+					<!-- <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> -->
+					<packagingExcludes>asm-1.5.3.jar,asm-attrs-1.5.3.jar,cglib-2.1_3.jar,icu*.jar,jdom-1.0.jar,jdom-1.1.jar</packagingExcludes>
+
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>war</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${source.version}</source>
+					<target>${source.version}</target>
+					<encoding>${encoding}</encoding>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

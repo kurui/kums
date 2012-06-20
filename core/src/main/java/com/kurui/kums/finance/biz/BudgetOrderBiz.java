@@ -12,6 +12,8 @@ public interface BudgetOrderBiz {
 	public void delete(long id) throws AppException;
 
 	public void deleteBudgetOrder(Long id) throws AppException;
+	
+	public void stopBudgetOrder(Long id) throws AppException;
 
 	public long save(BudgetOrder budgetOrder) throws AppException;
 

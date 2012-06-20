@@ -22,9 +22,17 @@
 		}		
 	</script>
 	<body>
+	<c:choose>
+      <c:when test="${budgetOrder.thisAction=='update'}">
+        <c:set var="title2" value="编辑预算明细"/>
+      </c:when>
+      <c:when test="${budgetOrder.thisAction=='settlement'}">
+        <c:set var="title2" value="決算"/>
+      </c:when>
+ </c:choose>
 		<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
 			<c:param name="title1" value="财务管理" />
-			<c:param name="title2" value="编辑预算明细" />
+			<c:param name="title2" value="${title2}" />
 		</c:import>
 		<html:form action="/finance/budgetOrder.do" method="post">
 			<div id="mainContainer">

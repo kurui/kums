@@ -1,8 +1,7 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html-el.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/c.tld" prefix="c"%>
-<%
-	String path = request.getContextPath();
+<%	String path = request.getContextPath();
 %>
 <html>
 	<head>
@@ -23,14 +22,27 @@
 	    	document.forms[0].submit();
 		}	
 		
-		function editBudgetOrder(id){			
+		function stopBudgetOrder(id){	
+			var budgetId=<c:out value="${budget.id}" />		
+	    	document.forms[1].action="<%=path%>/finance/budgetOrderList.do?thisAction=stop&budgetId="+budgetId+"&id="+id;
+	    	document.forms[1].submit();
+		}
+		
+		function affirmSettlementBudgetOrder(id){		
+			var budgetId=<c:out value="${budget.id}" />	
+	    	document.forms[1].action="<%=path%>/finance/budgetOrderList.do?thisAction=affirmSettlement&budgetId="+budgetId+"&id="+id;
+	    	document.forms[1].submit();
+		}
+		function editBudgetOrder(id){	
+		    var budgetId=<c:out value="${budget.id}" />			
 	    	document.forms[1].action="<%=path%>/finance/budgetOrderList.do?thisAction=edit&id="+id;
 	    	document.forms[1].submit();
 		}
 		
-		function deleteBudgetOrder(id)	{				
+		function deleteBudgetOrder(id)	{
+		    var budgetId=<c:out value="${budget.id}" />						
 		  if(confirm("您真的要删除吗？")){
-		   document.forms[1].action="<%=path%>/finance/budgetOrderList.do?thisAction=delete&id="+id;
+		   document.forms[1].action="<%=path%>/finance/budgetOrderList.do?thisAction=delete&budgetId="+budgetId+"&id="+id;
 	    	document.forms[1].submit();
 		  }
 		}
@@ -202,10 +214,21 @@
 												<c:out value="${budgetOrder.statusInfo}" />
 											</td>
 											<td>
+												<c:if test="${budgetOrder.status==1}" >
+												<a href="#"
+													onclick="stopBudgetOrder('<c:out value="${budgetOrder.id}" />')">中止</a>
+												
+												<a href="#"
+													onclick="affirmSettlementBudgetOrder('<c:out value="${budgetOrder.id}" />')">决算</a>
+												</c:if>
+												
+												<c:if test="${budgetOrder.status!=0}" >
 												<a href="#"
 													onclick="editBudgetOrder('<c:out value="${budgetOrder.id}" />')">编辑</a>
+													
 												<a href="#"
 													onclick="deleteBudgetOrder('<c:out value="${budgetOrder.id}" />')">删除</a>
+													</c:if>
 
 											</td>
 										</tr>

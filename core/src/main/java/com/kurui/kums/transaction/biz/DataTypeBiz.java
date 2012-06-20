@@ -10,8 +10,10 @@ public interface DataTypeBiz {
 
 	public List list(DataTypeListForm form) throws AppException;
 
+	public void buildManageExpenseTree() throws AppException;
 	public void buildProductTree() throws AppException;
 	public void buildProvideChainTree() throws AppException;
+	
 	public void delete(long id) throws AppException;
 
 	public void deleteDataType(Long id) throws AppException;
@@ -34,5 +36,7 @@ public interface DataTypeBiz {
 
 	public List<DataType> getSameLevelDataTypeList(long DataTypeNo)
 			throws AppException;
+
+	public void refactorDataTypeTree()throws AppException;
 
 }

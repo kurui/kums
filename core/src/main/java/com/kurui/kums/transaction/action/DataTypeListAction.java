@@ -225,6 +225,27 @@ public class DataTypeListAction extends BaseAction {
 		return mapping.findForward("listPriceReference");
 	}
 
+	public ActionForward refactorDataTypeTree(ActionMapping mapping,
+			ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws AppException {
+		DataTypeListForm dataTypeListForm = (DataTypeListForm) form;
+		Inform inf = new Inform();
+		if (dataTypeListForm == null) {
+			dataTypeListForm = new DataTypeListForm();
+		}
+		try {
+			DataTypeStore.dataTypeList = dataTypeBiz.getValidDataTypeList();
+			dataTypeBiz.refactorDataTypeTree();
+			inf.setMessage("更新成功");
+			return forwardInformPage(inf, mapping, request);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("dataTypeListForm", dataTypeListForm);
+		return mapping.findForward("listDataType");
+	}
+	
+	
 	public ActionForward delete(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {

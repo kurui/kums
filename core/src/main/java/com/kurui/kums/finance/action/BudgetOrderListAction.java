@@ -1,21 +1,24 @@
 package com.kurui.kums.finance.action;
 
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionRedirect;
 
 import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.Constant;
 import com.kurui.kums.finance.Budget;
 import com.kurui.kums.finance.BudgetOrder;
 import com.kurui.kums.finance.BudgetOrderListForm;
-import com.kurui.kums.finance.biz.BudgetOrderBiz;
 import com.kurui.kums.finance.biz.BudgetBiz;
+import com.kurui.kums.finance.biz.BudgetOrderBiz;
 
 public class BudgetOrderListAction extends BaseAction {
 	private BudgetOrderBiz budgetOrderBiz;
@@ -105,7 +108,67 @@ public class BudgetOrderListAction extends BaseAction {
 
 		return mapping.findForward("editBudgetOrder");
 	}
+	
+	
+	//决算
+	public ActionForward affirmSettlement(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		BudgetOrderListForm budgetOrderListForm = (BudgetOrderListForm) form;
 
+		long budgetOrderId = budgetOrderListForm.getId();
+		if (budgetOrderId < 1) {
+			budgetOrderId = budgetOrderListForm.getSelectedItems()[0];
+		}
+
+		if (budgetOrderId > 0) {
+			BudgetOrder budgetOrder = budgetOrderBiz
+					.getBudgetOrderById(budgetOrderId);
+			budgetOrder.setThisAction("settlement");
+			request.setAttribute("budgetOrder", budgetOrder);
+		} else {
+			request.setAttribute("budgetOrder", new BudgetOrder());
+		}
+
+		List<BudgetOrder> budgetOrderList = budgetOrderBiz
+				.getValidBudgetOrderList();
+		request.setAttribute("budgetOrderList", budgetOrderList);
+
+		return mapping.findForward("editBudgetOrder");
+	}
+	
+	//中止
+	public ActionForward stop(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		BudgetOrderListForm budgetOrderListForm = (BudgetOrderListForm) form;
+		// String forwardPage = "";
+		long id = 0;
+		Inform inf = new Inform();
+		try {
+			
+			id=budgetOrderListForm.getId();
+			if(id>0){
+				budgetOrderBiz.stopBudgetOrder(id);
+			}else{
+				for (int i = 0; i < budgetOrderListForm.getSelectedItems().length; i++) {
+					id = budgetOrderListForm.getSelectedItems()[i];
+					if (id > 0) {
+						budgetOrderBiz.stopBudgetOrder(id);
+					}
+				}
+			}			
+			
+			return new ActionRedirect(
+					"/finance/budgetList.do?thisAction=view&id="+budgetOrderListForm.getBudgetId());
+		} catch (Exception ex) {
+			inf.setMessage("中止失败" + ex.getMessage());
+		}
+		return forwardInformPage(inf, mapping, request);
+	}
+
+	
+	//删除
 	public ActionForward delete(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
@@ -114,13 +177,21 @@ public class BudgetOrderListAction extends BaseAction {
 		long id = 0;
 		Inform inf = new Inform();
 		try {
+			
+			id=budgetOrderListForm.getId();
+			if(id>0){
+				budgetOrderBiz.deleteBudgetOrder(id);
+			}else{
 			for (int i = 0; i < budgetOrderListForm.getSelectedItems().length; i++) {
 				id = budgetOrderListForm.getSelectedItems()[i];
 				if (id > 0) {
 					budgetOrderBiz.deleteBudgetOrder(id);
 				}
 			}
-			return list(mapping, form, request, response);
+//			return list(mapping, form, request, response);
+			}
+			return new ActionRedirect(
+					"/finance/budgetList.do?thisAction=view&id="+budgetOrderListForm.getBudgetId());
 		} catch (Exception ex) {
 			inf.setMessage("删除失败" + ex.getMessage());
 		}

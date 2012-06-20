@@ -25,8 +25,11 @@
 				<div class="sideBarItem webAdmin">
 					<span class="title"><a href="#" onClick="showUL('ulMainOrder')">销售管理</a> </span>
 					<ul id="ulMainOrder" class="contents">
+					<li>
+							<a href="../finance/financeOrderList.do?thisAction=addMainOrder&companyId=577&tranType=1591" target="mainFrame">保险销售入账</a>
+						</li>
 						<li>
-							<a href="../finance/financeOrderList.do?thisAction=addMainOrder&companyId=532&tranType=1591" target="mainFrame">保险销售入账</a>
+							<a href="../finance/financeOrderList.do?thisAction=addMainOrder&companyId=533&tranType=1585" target="mainFrame">软件开发劳务入账</a>
 						</li>
 						<li>
 							<a href="../finance/financeOrderList.do?thisAction=addMainOrder&companyId=532&tranType=1570" target="mainFrame">旅游事业部入账</a>

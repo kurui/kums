@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans default-lazy-init="false" default-autowire="no" default-dependency-check="none">
@@ -62,53 +62,53 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/kurui/kums/agent/Agent.hbm.xml</value>
-				<value>/com/kurui/kums/agent/AgentAccount.hbm.xml</value>
-				<value>/com/kurui/kums/agent/AgentAction.hbm.xml</value>
-				<value>/com/kurui/kums/agent/AgentCoterie.hbm.xml</value>
-				<value>/com/kurui/kums/agent/AgentHabit.hbm.xml</value>
-				<value>/com/kurui/kums/agent/AgentRelation.hbm.xml</value>
-				<value>/com/kurui/kums/agent/Coterie.hbm.xml</value>
-				<value>/com/kurui/kums/agent/DirectLevel.hbm.xml</value>
-				<value>/com/kurui/kums/agent/ShareHolder.hbm.xml</value>
-				<value>/com/kurui/kums/agent/Vehicle.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentAccount.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentAction.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentCoterie.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentHabit.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentRelation.hbm.xml</value>
+				<value>com/kurui/kums/agent/Coterie.hbm.xml</value>
+				<value>com/kurui/kums/agent/DirectLevel.hbm.xml</value>
+				<value>com/kurui/kums/agent/ShareHolder.hbm.xml</value>
+				<value>com/kurui/kums/agent/Vehicle.hbm.xml</value>
 
-				<value>/com/kurui/kums/finance/Budget.hbm.xml</value>
-				<value>/com/kurui/kums/finance/BudgetOrder.hbm.xml</value>
-				<value>/com/kurui/kums/finance/Commission.hbm.xml</value>
-				<value>/com/kurui/kums/finance/FinanceOrder.hbm.xml</value>
-				<value>/com/kurui/kums/finance/OrderDetail.hbm.xml</value>
-				<value>/com/kurui/kums/finance/OrderGroup.hbm.xml</value>
-				<value>/com/kurui/kums/finance/Statement.hbm.xml</value>
+				<value>com/kurui/kums/finance/Budget.hbm.xml</value>
+				<value>com/kurui/kums/finance/BudgetOrder.hbm.xml</value>
+				<value>com/kurui/kums/finance/Commission.hbm.xml</value>
+				<value>com/kurui/kums/finance/FinanceOrder.hbm.xml</value>
+				<value>com/kurui/kums/finance/OrderDetail.hbm.xml</value>
+				<value>com/kurui/kums/finance/OrderGroup.hbm.xml</value>
+				<value>com/kurui/kums/finance/Statement.hbm.xml</value>
 
-				<value>/com/kurui/kums/market/Apartment.hbm.xml</value>
-				<value>/com/kurui/kums/market/EstateDish.hbm.xml</value>
-				<value>/com/kurui/kums/market/PriceIndex.hbm.xml</value>
-				<value>/com/kurui/kums/market/PriceReference.hbm.xml</value>
-				<value>/com/kurui/kums/market/Product.hbm.xml</value>
-				<value>/com/kurui/kums/market/SaleEvent.hbm.xml</value>
+				<value>com/kurui/kums/market/Apartment.hbm.xml</value>
+				<value>com/kurui/kums/market/EstateDish.hbm.xml</value>
+				<value>com/kurui/kums/market/PriceIndex.hbm.xml</value>
+				<value>com/kurui/kums/market/PriceReference.hbm.xml</value>
+				<value>com/kurui/kums/market/Product.hbm.xml</value>
+				<value>com/kurui/kums/market/SaleEvent.hbm.xml</value>
 
-				<value>/com/kurui/kums/report/CashFlow.hbm.xml</value>
-				<value>/com/kurui/kums/report/CreditReport.hbm.xml</value>
+				<value>com/kurui/kums/report/CashFlow.hbm.xml</value>
+				<value>com/kurui/kums/report/CreditReport.hbm.xml</value>
 
-				<value>/com/kurui/kums/right/Role.hbm.xml</value>
-				<value>/com/kurui/kums/right/RoleRight.hbm.xml</value>
-				<value>/com/kurui/kums/right/SysUser.hbm.xml</value>
-				<value>/com/kurui/kums/right/UserRole.hbm.xml</value>
+				<value>com/kurui/kums/right/Role.hbm.xml</value>
+				<value>com/kurui/kums/right/RoleRight.hbm.xml</value>
+				<value>com/kurui/kums/right/SysUser.hbm.xml</value>
+				<value>com/kurui/kums/right/UserRole.hbm.xml</value>
 
-				<value>/com/kurui/kums/system/LoginLog.hbm.xml</value>
-				<value>/com/kurui/kums/system/News.hbm.xml</value>
-				<value>/com/kurui/kums/system/No.hbm.xml</value>
-				<value>/com/kurui/kums/system/OperateLog.hbm.xml</value>
-				<value>/com/kurui/kums/system/OperateLogDetail.hbm.xml</value>
+				<value>com/kurui/kums/system/LoginLog.hbm.xml</value>
+				<value>com/kurui/kums/system/News.hbm.xml</value>
+				<value>com/kurui/kums/system/No.hbm.xml</value>
+				<value>com/kurui/kums/system/OperateLog.hbm.xml</value>
+				<value>com/kurui/kums/system/OperateLogDetail.hbm.xml</value>
 
-				<value>/com/kurui/kums/transaction/Account.hbm.xml</value>
-				<value>/com/kurui/kums/transaction/AccountCheck.hbm.xml</value>
-				<value>/com/kurui/kums/transaction/Company.hbm.xml</value>
-				<value>/com/kurui/kums/transaction/CompanyAccount.hbm.xml</value>
-				<value>/com/kurui/kums/transaction/DataType.hbm.xml</value>
-				<value>/com/kurui/kums/transaction/PaymentTool.hbm.xml</value>
-				<value>/com/kurui/kums/transaction/PlatComAccount.hbm.xml</value>
-				<value>/com/kurui/kums/transaction/Platform.hbm.xml</value>
+				<value>com/kurui/kums/transaction/Account.hbm.xml</value>
+				<value>com/kurui/kums/transaction/AccountCheck.hbm.xml</value>
+				<value>com/kurui/kums/transaction/Company.hbm.xml</value>
+				<value>com/kurui/kums/transaction/CompanyAccount.hbm.xml</value>
+				<value>com/kurui/kums/transaction/DataType.hbm.xml</value>
+				<value>com/kurui/kums/transaction/PaymentTool.hbm.xml</value>
+				<value>com/kurui/kums/transaction/PlatComAccount.hbm.xml</value>
+				<value>com/kurui/kums/transaction/Platform.hbm.xml</value>
 			</list>
 		</property>
 

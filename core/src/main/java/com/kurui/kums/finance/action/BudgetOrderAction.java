@@ -84,6 +84,39 @@ public class BudgetOrderAction extends BaseAction {
 		}
 		return forwardInformPage(inf, mapping, request);
 	}
+	//决算
+	public ActionForward settlement(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		BudgetOrder pform = (BudgetOrder) form;
+		Inform inf = new Inform();
+//		UserRightInfo uri = (UserRightInfo) request.getSession().getAttribute(
+//				"URI");
+		try {
+			if (pform.getId() > 0) {
+				BudgetOrder budgetOrder = budgetOrderBiz
+						.getBudgetOrderById(pform.getId());
+				budgetOrder.setStatementAmount(pform.getBudgetAmount());
+				budgetOrder.setStatementTime(new Timestamp(System
+						.currentTimeMillis()));
+
+				budgetOrder.setMemo(pform.getMemo());
+				budgetOrder.setStatus(BudgetOrder.STATES_21);//决算
+				long flag = budgetOrderBiz.update(budgetOrder);
+
+				if (flag > 0) {
+					return redirectViewBudget(budgetOrder);
+				} else {
+					inf.setMessage("您修改预算明细失败！");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			inf.setMessage("异常:" + e.getMessage());
+		}
+		return forwardInformPage(inf, mapping, request);
+	}
+	
 
 	public ActionForward redirectList(BudgetOrder budgetOrder) {
 		ActionRedirect redirect = new ActionRedirect(
