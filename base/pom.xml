@@ -13,8 +13,8 @@
 	<description>Contains natural object.</description>
 	<properties>
 		<source.version>1.5</source.version>
-		<encoding>UTF-8</encoding>				
-		 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 	</properties>
 	<organization>
@@ -96,6 +96,14 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>net.sf</groupId>
+			<artifactId>asm-cglib-nodep</artifactId>
+			<version>2.1_3</version>
+		</dependency>
+
+
+
 		<!-- mail -->
 
 		<dependency>
@@ -125,8 +133,14 @@
 		<dependency>
 			<groupId>jdom</groupId>
 			<artifactId>jdom</artifactId>
-			<version>1.1</version>
+			<version>1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache</groupId>
+			<artifactId>xerces</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -154,21 +168,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
 		<!-- Testing STARTS -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
