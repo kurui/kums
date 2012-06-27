@@ -51,81 +51,54 @@
 			</plugin>
 
 
-<!--
-			<plugin>
-                <groupId>com.pyx4me</groupId>
-                <artifactId>proguard-maven-plugin</artifactId>
-                <executions>
-                   <execution>
-                       <phase>package</phase>
-                       <goals><goal>proguard</goal></goals>
-                   </execution>
-                </executions>
-                <configuration>
-                    <options>
-                        <option>-allowaccessmodification</option>
-                        <option>-dontoptimize</option>
-                        <option>-keep public class com.chinarewards.elt.util.* { *; }</option> 
-                        
-                    </options>
-                    <libs>
-                        <lib>${java.home}/lib/rt.jar</lib>
-                        <lib>${java.home}/lib/jsse.jar</lib>
-                    </libs>
-                </configuration>
-            </plugin>
+		
 
-  -->
+
+
 		</plugins>
 	</build>
 	<dependencies>
-		
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>2.6.1</version>
+			<scope>optional</scope>
+		</dependency>
+	
+
 		<!-- Hibernate STARTS -->
-		<!-- 
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-entitymanager</artifactId> 
+			<scope>provided</scope> </dependency> <dependency> <groupId>org.hibernate</groupId> 
+			<artifactId>hibernate-annotations</artifactId> <scope>provided</scope> </dependency> 
+			<dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> 
+			<scope>provided</scope> </dependency> -->
+
+		<!-- Charting -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>gnujaxp</groupId>
+			<artifactId>gnujaxp</artifactId>
+			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<scope>provided</scope>
+			<groupId>net.jmge</groupId>
+			<artifactId>gif89</artifactId>
+			<version>1.0</version>
 		</dependency>
-		
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<scope>provided</scope>
+			<groupId>com.gif4j</groupId>
+			<artifactId>gif4j</artifactId>
+			<version>1.0</version>
 		</dependency>
-		-->
-		
-			<!-- Charting -->
-			<dependency>
-				<groupId>jfree</groupId>
-				<artifactId>jfreechart</artifactId>
-				<version>1.0.11</version>
-			</dependency>
-			
-			<dependency>
-				<groupId>gnujaxp</groupId>
-				<artifactId>gnujaxp</artifactId>
-				<version>1.0.0</version>
-			</dependency>
-			
-			<dependency>
-				<groupId>net.jmge</groupId>
-				<artifactId>gif89</artifactId>
-				<version>1.0</version>
-			</dependency>
-		<dependency>
-				<groupId>com.gif4j</groupId>
-				<artifactId>gif4j</artifactId>
-				<version>1.0</version>
-			</dependency>
-			<!-- jfreechart -->
-		
+		<!-- jfreechart -->
+
 		<!-- Hibernate ENDS -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
@@ -136,9 +109,13 @@
 			<artifactId>aopalliance</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
-		<dependency><groupId>opensymphony</groupId><artifactId>quartz</artifactId><version>1.6.1</version></dependency>
-		
+
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>quartz</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
 		<!-- Logging STARTS -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -166,11 +143,7 @@
 			<artifactId>jaxen</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.2</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.apache.openejb</groupId>
 			<artifactId>javaee-api</artifactId>

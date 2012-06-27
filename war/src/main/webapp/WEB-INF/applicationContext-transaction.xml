@@ -227,6 +227,14 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	
+	<bean id="areaCodeDAO"
+		class="com.kurui.kums.transaction.dao.AreaCodeDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 	<bean name="paymentToolBiz"
 		class="com.kurui.kums.transaction.biz.PaymentToolBizImp"

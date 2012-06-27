@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>com.kurui</groupId>
 	<artifactId>kums-base</artifactId>
-	<name>KUM BASE Model</name>
+	<name>KUMS BASE Model</name>
 	<version>2.1.0</version>
 	<description>Contains natural object.</description>
 	<properties>
@@ -27,12 +27,121 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+
 				<configuration>
 					<source>${source.version}</source>
 					<target>${source.version}</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<!-- 
+				<plugin>
+				<groupId>com.pyx4me</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<options>
+						<option>-allowaccessmodification</option>
+						<option>-dontoptimize</option>
+						<option>-keep public class * extends java.applet.Applet
+							{ *; }</option>
+						<option>-keep public class * implements org.jdom.xpath.XPath
+							{ *; }</option>
+						<option>-dontskipnonpubliclibraryclasses</option>
+					</options>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/jsse.jar</lib>
+						<lib>${java.home}/lib/jce.jar</lib>
+						<lib>${basedir}/proguardlib/jdom.jar</lib>
+						<lib>${basedir}/proguardlib/mail.jar</lib>
+					</libs>
+				</configuration>
+			</plugin>
+			-->
+<!-- 
+			<plugin>
+				<groupId>com.pyx4me</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<options>
+						<option>-allowaccessmodification</option>
+						<option>-dontoptimize</option>
+						<option>-keep public class * extends java.applet.Applet
+							{ *; }</option>
+					</options>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/jsse.jar</lib>
+					</libs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.pyx4me</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<obfuscate>true</obfuscate>
+					<injar>${project.build.finalName}.jar</injar>
+					<outjar>${project.build.finalName}-small.jar</outjar>
+					<outputDirectory>${project.build.directory}</outputDirectory>
+					<proguardInclude>${basedir}/proguard.conf</proguardInclude>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/jsse.jar</lib>
+					</libs>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.pyx4me</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<options>
+						<option>-target 1.5</option>
+					</options>
+
+					<obfuscate>true</obfuscate>
+					<proguardInclude>${basedir}/proguard.pro</proguardInclude>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/jsse.jar</lib>
+						<lib>${java.home}/lib/jce.jar</lib>
+					</libs>
+				</configuration>
+			</plugin>
+			-->
 		</plugins>
 	</build>
 	<dependencies>
@@ -105,11 +214,11 @@
 
 
 		<!-- mail -->
-
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.2</version>
+			<scope>optional</scope>
 		</dependency>
 
 		<!-- jxl -->
@@ -133,7 +242,7 @@
 		<dependency>
 			<groupId>jdom</groupId>
 			<artifactId>jdom</artifactId>
-			<version>1.2</version>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache</groupId>

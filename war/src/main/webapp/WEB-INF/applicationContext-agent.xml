@@ -237,6 +237,9 @@
 		<property name="agentDAO">
 			<ref bean="agentDAO" />
 		</property>
+		<property name="areaCodeDAO">
+			<ref bean="areaCodeDAO"/>
+		</property>
 	</bean>
 
 	<bean id="agentDAO" class="com.kurui.kums.agent.dao.AgentDAOImp" lazy-init="default" autowire="default" dependency-check="default">

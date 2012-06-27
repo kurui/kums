@@ -43,6 +43,8 @@ public class AgentStore {
 //		System.out.println("result:"+blurAgentList.size());
 		return blurAgentList;
 	}
+	
+	
 
 	public static List<Agent> getVIPAgentList() {
 		List<Agent> agentList = getAgentListByType(Agent.TYPE_1);

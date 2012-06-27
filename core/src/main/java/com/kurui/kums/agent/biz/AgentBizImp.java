@@ -1,14 +1,19 @@
 package com.kurui.kums.agent.biz;
 
+import java.util.Date;
 import java.util.List;
-import com.kurui.kums.agent.biz.AgentBiz;
+
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentListForm;
 import com.kurui.kums.agent.dao.AgentDAO;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.IdCardUtil;
+import com.kurui.kums.transaction.dao.AreaCodeDAO;
 
 public class AgentBizImp implements AgentBiz {
 	private AgentDAO agentDAO;
+	private AreaCodeDAO areaCodeDAO;
 
 	public List list(AgentListForm agentListForm) throws AppException {
 		return agentDAO.list(agentListForm);
@@ -55,6 +60,27 @@ public class AgentBizImp implements AgentBiz {
 	public Agent getAgentById(long agentId) throws AppException {
 		return agentDAO.getAgentById(agentId);
 	}
+	
+	public Date getBirthDateByIdCard(String idCard)throws AppException{
+		return IdCardUtil.getBirthDateByIdCard(idCard);
+	}
+	
+	public String getBirthStrByIdCard(String idCard)throws AppException{
+		return DateUtil.getDateString(IdCardUtil.getBirthDateByIdCard(idCard),"yyyy-MM-dd");
+	}
+	
+	public long getSexByIdCard(String idCard)throws AppException{
+		return IdCardUtil.getSexByIdCard(idCard);
+	}
+	
+	public String getAreaCodeByIdCard(String idCard){
+		return IdCardUtil.getAreaCodeByIdCard(idCard);
+	}
+	
+	public String getAreaTextByCode(String idCard)throws AppException{
+		String areaCode= IdCardUtil.getAreaCodeByIdCard(idCard);
+		return areaCodeDAO.getAreaTextByCode(areaCode);
+	}
 
 	public List<Agent> getAgentList() throws AppException {
 		return agentDAO.getAgentList();
@@ -71,4 +97,10 @@ public class AgentBizImp implements AgentBiz {
 	public void setAgentDAO(AgentDAO agentDAO) {
 		this.agentDAO = agentDAO;
 	}
+
+	public void setAreaCodeDAO(AreaCodeDAO areaCodeDAO) {
+		this.areaCodeDAO = areaCodeDAO;
+	}
+	
+	
 }

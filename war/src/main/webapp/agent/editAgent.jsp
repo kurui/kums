@@ -10,6 +10,7 @@
 		<title>main</title>
 		<link href="../_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
+		<c:import url="../page/importDWR.jsp"></c:import>
 		<script src="../_js/prototype/common.js" type="text/javascript"></script>
 		<script src="../_js/base/FormUtil.js" type="text/javascript"></script>
 	</head>
@@ -24,6 +25,26 @@
 		    document.forms[0].action="<%=path%>/agent/agent.do?thisAction="+thisAction;
 		    document.forms[0].submit();
 		}		
+		
+			
+		function parseIdCard(){
+			var idCard=document.forms[0].cardNo.value;
+			
+			if(idCard!=""&&idCard.length>14){
+				agentBiz.getSexByIdCard(idCard,function(sex){
+					setRadioByValue(document.forms[0].sex,sexValue);
+				});
+				
+				agentBiz.getBirthStrByIdCard(idCard,function(birthday){
+					document.forms[0].birthday.value=birthday;
+				});
+				
+				agentBiz.getAreaTextByCode(idCard,function(areaText){
+					document.forms[0].nativeCountry.value=areaText
+				});
+				
+			}
+		}
 	</script>
 	<body>
 		<div id="mainContainer">
@@ -117,7 +138,7 @@
 												证件号
 											</td>
 											<td style="text-align: left">
-												<html:text property="cardNo" name="agent" value="${agent.cardNo}" styleClass="colorblue2 p_5" style="width:200px;"></html:text>
+												<html:text property="cardNo" name="agent" value="${agent.cardNo}" onkeyup="parseIdCard();" styleClass="colorblue2 p_5" style="width:200px;"></html:text>
 												生日:
 												<html:text property="birthday" name="agent" value="${agent.birthday}" styleClass="colorblue2 p_5" style="width:80px;"></html:text>
 											</td>

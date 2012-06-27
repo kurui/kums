@@ -1,10 +1,12 @@
 package com.kurui.kums.agent.biz;
 
+import java.util.Date;
 import java.util.List;
 
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentListForm;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.util.IdCardUtil;
 
 public interface AgentBiz {
 
@@ -25,6 +27,16 @@ public interface AgentBiz {
 	public long updateStatistic(long agentId) throws AppException;
 
 	public Agent getAgentById(long agentId) throws AppException;
+	
+	public Date getBirthDateByIdCard(String idCard)throws AppException;
+	
+	public String getBirthStrByIdCard(String idCard)throws AppException;
+	
+	public long getSexByIdCard(String idCard)throws AppException;
+	
+	public String getAreaCodeByIdCard(String idCard);
+	
+	public String getAreaTextByCode(String idCard)throws AppException;
 
 	public List<Agent> getAgentList() throws AppException;
 
