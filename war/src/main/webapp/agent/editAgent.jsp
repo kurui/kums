@@ -31,7 +31,7 @@
 			var idCard=document.forms[0].cardNo.value;
 			
 			if(idCard!=""&&idCard.length>14){
-				agentBiz.getSexByIdCard(idCard,function(sex){
+				agentBiz.getSexByIdCard(idCard,function(sexValue){
 					setRadioByValue(document.forms[0].sex,sexValue);
 				});
 				
