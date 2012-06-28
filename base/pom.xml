@@ -218,7 +218,8 @@
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.2</version>
-			<scope>optional</scope>
+			<!--  
+			<scope>optional</scope>-->
 		</dependency>
 
 		<!-- jxl -->

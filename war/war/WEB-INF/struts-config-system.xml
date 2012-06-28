@@ -1,0 +1,47 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by ccggyy2002 (Delphi) -->
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loginlogListForm"
+			type="com.kurui.kums.system.LoginLogListForm">
+		</form-bean>
+		<form-bean name="operateLogListForm"
+			type="com.kurui.kums.system.OperateLogListForm">
+		</form-bean>
+		<form-bean name="news" type="com.kurui.kums.system.News" />
+		<form-bean name="newsListForm"
+			type="com.kurui.kums.system.NewsListForm" />
+	</form-beans>
+
+	<action-mappings>
+		<action name="loginlogListForm" path="/system/loginloglist"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listclientloginlog"
+				path="/system/listClientLoginLog.jsp" />
+		</action>
+
+		<action name="operateLogListForm" path="/system/operateLoglist"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listOperateLog"
+				path="/system/listOperateLog.jsp" />
+		</action>
+
+		<action name="news" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/information/news" validate="false">
+		</action>
+		<action name="newsListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/information/newsList" validate="false">
+			<forward name="listNews" path="/system/listNews.jsp" />
+			<forward name="listNewsNotice" path="/system/listNewsNotice.jsp" />
+			<forward name="editNews" path="/system/editNews.jsp" />
+			<forward name="viewNews" path="/system/viewNews.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

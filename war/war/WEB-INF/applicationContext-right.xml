@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false" default-autowire="no"
+	default-dependency-check="none">
+
+	<bean name="/user/userlist"
+		class="com.kurui.kums.right.action.UserListAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="userBiz">
+			<ref bean="userBiz" />
+		</property>
+	</bean>
+	<bean name="/user/user"
+		class="com.kurui.kums.right.action.UserAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="userBiz">
+			<ref bean="userBiz" />
+		</property>
+		<property name="rightBiz">
+			<ref bean="rightBiz" />
+		</property>
+		<property name="loginlogBiz">
+			<ref bean="loginlogBiz" />
+		</property>
+		<property name="sysInitBiz">
+			<ref bean="sysInitBiz" />
+		</property>
+	</bean>
+
+	<bean name="/right/rolelist"
+		class="com.kurui.kums.right.action.RoleListAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+	</bean>
+
+	<bean name="/right/role"
+		class="com.kurui.kums.right.action.RoleAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+	</bean>
+
+	<bean name="/right/roleright"
+		class="com.kurui.kums.right.action.RoleRightAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+	</bean>
+
+	<bean id="userBiz" class="com.kurui.kums.right.biz.UserBizImp">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="userDAO">
+			<ref bean="userDAO" />
+		</property>
+	</bean>
+	<bean id="userDAO" class="com.kurui.kums.right.dao.UserDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="rightBiz" class="com.kurui.kums.right.biz.RightBizImp">
+		<property name="rightDAO">
+			<ref bean="rightDAO" />
+		</property>
+	</bean>
+
+	<bean id="rightDAO" class="com.kurui.kums.right.dao.RightDAOImp">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="baseRightInfo"
+		class="com.kurui.kums.base.right.BaseRightInfo">
+		<property name="list">
+			<list>
+				<value>agent*.b</value>
+				<value>user*.a</value>
+				<value>transaction*.c</value>
+				<value>system*.d</value>
+				<value>system*.a</value>
+			</list>
+		</property>
+	</bean>
+</beans>
