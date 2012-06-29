@@ -80,12 +80,14 @@
 			<version>1.0.11</version>
 		</dependency>
 
+<!--  
 		<dependency>
 			<groupId>gnujaxp</groupId>
 			<artifactId>gnujaxp</artifactId>
 			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
+-->
 
 		<dependency>
 			<groupId>net.jmge</groupId>

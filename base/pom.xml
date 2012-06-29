@@ -251,6 +251,11 @@
 			<version>1.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.saxpath</groupId>
+			<artifactId>kurui-saxpath</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>commons-dbcp</groupId>

@@ -106,9 +106,9 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<webappDirectory>war</webappDirectory>
-					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+					<webXml>war/WEB-INF/web.xml</webXml>
 					<!-- <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> -->
-					<packagingExcludes>asm-1.5.3.jar,asm-attrs-1.5.3.jar,cglib-2.1_3.jar,icu*.jar,jdom-1.0.jar,jdom-1.1.jar</packagingExcludes>
+					<packagingExcludes>asm-1.5.3.jar,asm-attrs-1.5.3.jar,cglib-2.1_3.jar,icu*.jar,jdom-1.0.jar,jdom-1.1.jar,gnujaxp-1.0.0.jar</packagingExcludes>
 
 					<archive>
 						<manifest>
@@ -123,7 +123,7 @@
 				<configuration>
 					<filesets>
 						<fileset>
-							<directory>war</directory>
+							<directory>war/WEB-INF/classes</directory>
 						</fileset>
 					</filesets>
 				</configuration>
