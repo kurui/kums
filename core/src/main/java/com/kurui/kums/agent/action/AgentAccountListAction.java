@@ -67,6 +67,8 @@ public class AgentAccountListAction extends BaseAction {
 		agentAccount.setAgent(agent);
 
 		Account account = new Account();
+		account.setBusinessType(Account.BUSINESS_TYPE_1);
+		account.setPersonalType(Account.PERSONAL_TYPE_1);
 		account.setTranType(Account.TRAN_TYPE_3);
 		account.setType(Account.TYPE_11);
 		account.setStatus(Account.STATES_1);

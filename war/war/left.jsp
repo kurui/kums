@@ -43,6 +43,10 @@
 					<span class="title">				
 							<a href="<%=path%>/finance/financeOrderList.do?thisAction=listLiveOrder" target="mainFrame">管理费用列表</a>
 					</span>
+					
+					<span class="title">	
+							<a href="<%=path%>/transaction/companyList.do?thisAction=list&type=2" target="mainFrame">客户公司列表</a>
+					</span>
 				</div>
 			</div>
 			<div class="closeSiseBar">

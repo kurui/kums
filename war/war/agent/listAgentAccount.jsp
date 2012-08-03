@@ -129,7 +129,11 @@
 											<td>
 												<c:out value="${agentAccount.agent.agentNo}" />
 												|
+												<a
+													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agentAccount.agent.id}" />">
+													
 												<c:out value="${agentAccount.agent.name}" />
+												</a>
 											</td>
 											<td>
 												<c:out value="${agentAccount.account.paymentTool.name}" />

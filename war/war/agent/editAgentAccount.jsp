@@ -97,7 +97,7 @@
 											开户行
 										</td>
 										<td style="text-align: left">
-											<html:text property="account" name="agentAccount"
+											<html:text property="accountAddress" name="agentAccount"
 												value="${companyAccount.account.accountAddress}"
 												styleClass="colorblue2 p_5" style="width:200px;"></html:text>
 										</td>

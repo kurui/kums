@@ -9,6 +9,7 @@ import com.kurui.kums.base.database.BaseDAOSupport;
 import com.kurui.kums.base.database.Hql;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.KumsNoUtil;
+import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.FinanceOrderListForm;
@@ -27,17 +28,26 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 		hql.add(" from FinanceOrder b where exists(select distinct orderGroup.id ");
 		hql.add(" from FinanceOrder a where 1=1 ");
 
-		// orderNO
-		if (!"".equals(Constant.toString(rlf.getOrderNo()))) {
-			hql.add(" and a.orderNo='" + Constant.toString(rlf.getOrderNo())
-					+ "'");
+		if (StringUtil.isEmpty(Constant.toString(rlf.getKeyWord())) == false) {
+			hql.add(" and ( ");
+			hql.add("  a.orderNo='" + Constant.toString(rlf.getKeyWord()) + "'");
+			hql.add(" or ");
+			hql.add("  a.memo like '%" + Constant.toString(rlf.getKeyWord())
+					+ "%'");
+			hql.add(" ) ");
 		}
 
-		// memo
-		if (!"".equals(Constant.toString(rlf.getMemo()))) {
-			hql.add(" and a.memo like '%" + Constant.toString(rlf.getMemo())
-					+ "%'");
-		}
+		// // orderNO
+		// if (!"".equals(Constant.toString(rlf.getOrderNo()))) {
+		// hql.add(" and a.orderNo='" + Constant.toString(rlf.getOrderNo())
+		// + "'");
+		// }
+		//
+		// // memo
+		// if (!"".equals(Constant.toString(rlf.getMemo()))) {
+		// hql.add(" and a.memo like '%" + Constant.toString(rlf.getMemo())
+		// + "%'");
+		// }
 
 		// 客户
 		if (Constant.toLong(rlf.getAgentId()) > 0) {
@@ -45,7 +55,7 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 		}
 
 		// 多个订单状态
-		if (!"".equals(Constant.toString(rlf.getStatusGroup()))) {
+		if (StringUtil.isEmpty(Constant.toString(rlf.getStatusGroup())) == false) {
 			hql.add(" and a.status  in (" + rlf.getStatusGroup() + ") ");
 		}
 
@@ -72,30 +82,32 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 					+ " and businessType=" + FinanceOrder.BUSINESSTYPE_1);
 		}
 
+		// 按日期搜索
+		String startDate = rlf.getStartDate();
+		String endDate = rlf.getEndDate();
+		if (StringUtil.isEmpty(startDate) == false
+				&& StringUtil.isEmpty(endDate) == false) {
+			hql.add(" and  a.businessTime  between to_date(?,'yyyy-mm-dd hh24:mi:ss') ");
+			hql.add(" and to_date(?,'yyyy-mm-dd hh24:mi:ss') ");
+			hql.addParamter(startDate);
+			hql.addParamter(endDate);
+			
+			rlf.setRecentlyDay(null);
+		}
+		
+
 		// 最近N天
 		if (rlf.getRecentlyDay() != null && rlf.getRecentlyDay().intValue() > 0) {
 			hql.add(" and  trunc(sysdate -to_date(a.businessTime))<= "
 					+ rlf.getRecentlyDay());
 		}
 
-		// 按日期搜索
-		String startDate = rlf.getStartDate();
-		String endDate = rlf.getEndDate();
-		if ("".equals(startDate) == false && "".equals(endDate) == false) {
-			hql
-					.add(" and  a.businessTime  between to_date(?,'yyyy-mm-dd hh24:mi:ss') ");
-			hql.add(" and to_date(?,'yyyy-mm-dd hh24:mi:ss') ");
-			hql.addParamter(startDate);
-			hql.addParamter(endDate);
-		}
-
 		// 多个 交易类型
-		if ("".equals(rlf.getTranTypeGroup()) == false) {
+		if (StringUtil.isEmpty(rlf.getTranTypeGroup()) == false) {
 			hql.add(" and a.tranType  in (" + rlf.getTranTypeGroup() + ")");
 		}
 
-		hql
-				.add(" and b.orderGroup.id=a.orderGroup.id and b.subGroupMarkNo=a.subGroupMarkNo )");
+		hql.add(" and b.orderGroup.id=a.orderGroup.id and b.subGroupMarkNo=a.subGroupMarkNo )");
 
 		hql.add(" and b.status not in (" + FinanceOrder.STATUS_88 + ") ");
 
@@ -107,7 +119,7 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 			hql.add(" order by  b.businessTime desc,b.orderGroup.id desc,b.subGroupMarkNo,b.tranType");
 		}
 
-//		logger.info("listHql:" + hql);
+		// logger.info("listHql:" + hql);
 		return hql;
 	}
 
@@ -163,9 +175,8 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 	public FinanceOrder getFinanceOrderByStatementId(long statementId)
 			throws AppException {
 		Hql hql = new Hql();
-		hql
-				.add("from FinanceOrder a,Statement s where a.id=s.orderId  and s.id="
-						+ statementId);
+		hql.add("from FinanceOrder a,Statement s where a.id=s.orderId  and s.id="
+				+ statementId);
 
 		Query query = this.getQuery(hql);
 		FinanceOrder financeOrder = null;

@@ -34,7 +34,6 @@ public class AgentAccountAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
 //		String forwardPage = "";
-		System.out.println("===================");
 		AgentAccount agentAccountForm = (AgentAccount) form;
 		Inform inf = new Inform();
 //		UserRightInfo uri = (UserRightInfo) request.getSession().getAttribute(
@@ -51,6 +50,8 @@ public class AgentAccountAction extends BaseAction {
 							.getPaymentToolById(paymentToolId);
 					account.setName(agentAccountForm.getAccountName());
 					account.setAccountNo(agentAccountForm.getAccountNo());
+					account.setAccountAddress(agentAccountForm.getAccountAddress());
+					
 					account.setBusinessType(agentAccountForm.getAccountBusinessType());
 					account.setPersonalType(agentAccountForm.getAccountPersonalType());
 					account.setTranType(agentAccountForm.getAccountTranType());

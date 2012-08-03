@@ -43,6 +43,7 @@ public class FinanceOrderListForm extends ListActionForm {
 	private String companyStatus = "";
 
 	private String memo = "";
+	private String keyWord="";
 
 	private String showType = "listData";// listChart listData
 	
@@ -297,5 +298,19 @@ public class FinanceOrderListForm extends ListActionForm {
 	public void setShowType(String showType) {
 		this.showType = showType;
 	}
+
+
+	public String getKeyWord() {
+		return keyWord;
+	}
+
+
+	public void setKeyWord(String keyWord) {
+		this.keyWord = keyWord;
+	}
+
+
+	
+	
 
 }

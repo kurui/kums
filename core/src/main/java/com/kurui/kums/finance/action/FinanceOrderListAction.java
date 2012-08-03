@@ -10,6 +10,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionRedirect;
+import org.hsqldb.lib.StringUtil;
+
 import com.kurui.kums.finance.biz.FinanceOrderBiz;
 import com.kurui.kums.finance.FinanceGroup;
 import com.kurui.kums.finance.FinanceOrder;
@@ -584,6 +586,19 @@ public class FinanceOrderListAction extends BaseAction {
 		} else {
 			request.getSession().setAttribute("orderType", alf.getOrderType());
 		}
+		
+		if (StringUtil.isEmpty(alf.getTranTypeGroup())) {
+			if (request.getSession().getAttribute("tranTypeGroup") == null) {
+				alf.setTranTypeGroup("");
+				request.getSession().setAttribute("tranTypeGroup",
+						alf.getTranTypeGroup());
+			} else {
+				alf.setTranTypeGroup((String) request.getSession().getAttribute(
+						"tranTypeGroup"));
+			}
+		} else {
+			request.getSession().setAttribute("tranTypeGroup", alf.getTranTypeGroup());
+		}
 
 		if (alf.getOrderNo() == null) {
 			if (request.getSession().getAttribute("orderNo") == null) {
@@ -594,7 +609,19 @@ public class FinanceOrderListAction extends BaseAction {
 						"orderNo"));
 			}
 		} else {
-			request.getSession().setAttribute("orderNo", alf.getOrderNo());
+			request.getSession().setAttribute("keyWord", alf.getOrderNo());
+		}
+		
+		if (alf.getKeyWord() == null) {
+			if (request.getSession().getAttribute("keyWord") == null) {
+				alf.setKeyWord("");
+				request.getSession().setAttribute("keyWord", alf.getKeyWord());
+			} else {
+				alf.setKeyWord((String) request.getSession().getAttribute(
+						"keyWord"));
+			}
+		} else {
+			request.getSession().setAttribute("keyWord", alf.getKeyWord());
 		}
 
 		if (alf.getStatusGroup() == null) {

@@ -35,6 +35,10 @@ public class StringUtil {
 //		str=null;
 		System.out.println(move(str,"type"));
 	}
+	
+	public static boolean isEmpty(String str) {
+		return str == null || "".equals(str) || "null".equals(str);
+	}
 
 	public static String[] getRightArrayByGroup(String rights) {
 		rights = getRightStrByGroup(rights);

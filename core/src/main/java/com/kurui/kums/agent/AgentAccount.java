@@ -12,6 +12,7 @@ public class AgentAccount extends _AgentAccount {
 	private long paymentToolId = Long.valueOf(0);
 	private String accountName="";
 	private String accountNo="";
+	private String accountAddress="";
 	private long accountBusinessType = Long.valueOf(0);
 	private long accountPersonalType = Long.valueOf(0);
 	private long accountTranType = Long.valueOf(0);
@@ -60,6 +61,16 @@ public class AgentAccount extends _AgentAccount {
 
 	public void setAccountNo(String accountNo) {
 		this.accountNo = accountNo;
+	}
+	
+	
+
+	public String getAccountAddress() {
+		return accountAddress;
+	}
+
+	public void setAccountAddress(String accountAddress) {
+		this.accountAddress = accountAddress;
 	}
 
 	public long getAgentId() {

@@ -70,4 +70,18 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="taskJob"
+		class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.kurui.kums.system.StatementTaskJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="statementBiz">
+					<ref bean="statementBiz" />
+				</entry>
+			</map>
+		</property>
+	</bean>
 </beans>
