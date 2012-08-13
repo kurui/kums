@@ -171,6 +171,7 @@
 		<property name="beanNames">
 			<list>
 				<value>*Biz</value>
+				
 			</list>
 		</property>
 		<property name="interceptorNames">

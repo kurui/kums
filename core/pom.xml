@@ -64,6 +64,13 @@
 			<version>2.6.1</version>
 			<scope>optional</scope>
 		</dependency>
+		
+			<dependency>
+			<groupId>gnujaxp</groupId>
+			<artifactId>gnujaxp</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
 	
 
 		<!-- Hibernate STARTS -->

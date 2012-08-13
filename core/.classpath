@@ -1,4 +1,6 @@
 <classpath>
+  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src/test/resources" output="target/test-classes" excluding="**/*.java"/>
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
@@ -48,8 +50,8 @@
   <classpathentry kind="var" path="M2_REPO/jfree/jfreechart/1.0.11/jfreechart-1.0.11.jar"/>
   <classpathentry kind="var" path="M2_REPO/junit/junit/3.7/junit-3.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/jexcelapi/jxl/2.4.2/jxl-2.4.2.jar"/>
-  <classpathentry kind="src" path="/kums-base"/>
-  <classpathentry kind="src" path="/kums-model"/>
+  <classpathentry kind="var" path="M2_REPO/com/kurui/kums-base/2.1.0/kums-base-2.1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/kurui/kums-model/2.1.0/kums-model-2.1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/saxpath/kurui-saxpath/1.0/kurui-saxpath-1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/mockito/mockito-all/1.8.1/mockito-all-1.8.1.jar"/>
