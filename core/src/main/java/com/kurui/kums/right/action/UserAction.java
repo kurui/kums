@@ -1,31 +1,29 @@
 package com.kurui.kums.right.action;
 
 import java.sql.Timestamp;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.KumsDataStoreListener;
 import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.MainTask;
 import com.kurui.kums.base.encrypt.MD5;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.right.SysUser;
 import com.kurui.kums.right.UserRightInfo;
-import com.kurui.kums.system.LoginLog;
-import com.kurui.kums.system.biz.LoginLogBiz;
-import com.kurui.kums.system.biz.SysInitBiz;
 import com.kurui.kums.right.biz.RightBiz;
 import com.kurui.kums.right.biz.UserBiz;
+import com.kurui.kums.system.LoginLog;
+import com.kurui.kums.system.biz.LoginLogBiz;
 
 public class UserAction extends BaseAction {
 	private UserBiz userBiz;
 	private LoginLogBiz loginlogBiz;
 	private RightBiz rightBiz;
-	private SysInitBiz sysInitBiz;
 
 	public ActionForward update(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -62,11 +60,7 @@ public class UserAction extends BaseAction {
 			inf.setParamId("thisAction");
 			inf.setParamValue("list");
 
-			// --更新静态库
-			KumsDataStoreListener listener = new KumsDataStoreListener(sysInitBiz,
-					"SysUser");
-			MainTask.put(listener);
-			// ---------
+
 			return forwardInformPageNoBack(inf, mapping, request);
 		} catch (Exception ex) {
 			inf.setMessage("更新用户资料出错！错误信息是：" + ex.getMessage());
@@ -191,11 +185,6 @@ public class UserAction extends BaseAction {
 			inf.setForwardPage("/user/user.do?thisAction=editPassword&userId="
 					+ tempUser.getUserId());
 
-			// --更新静态库
-			KumsDataStoreListener listener = new KumsDataStoreListener(sysInitBiz,
-					"SysUser");
-			MainTask.put(listener);
-			// ---------
 			return forwardInformPageNoBack(inf, mapping, request);
 		} catch (Exception ex) {
 			inf.setMessage("增加用户出错！错误信息是：" + ex.getMessage());
@@ -299,8 +288,5 @@ public class UserAction extends BaseAction {
 		this.rightBiz = rightBiz;
 	}
 
-	public void setSysInitBiz(SysInitBiz sysInitBiz) {
-		this.sysInitBiz = sysInitBiz;
-	}
 
 }

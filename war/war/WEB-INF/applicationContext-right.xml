@@ -23,9 +23,6 @@
 		<property name="loginlogBiz">
 			<ref bean="loginlogBiz" />
 		</property>
-		<property name="sysInitBiz">
-			<ref bean="sysInitBiz" />
-		</property>
 	</bean>
 
 	<bean name="/right/rolelist"

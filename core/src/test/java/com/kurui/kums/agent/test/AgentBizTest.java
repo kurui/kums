@@ -10,6 +10,13 @@ import com.kurui.kums.agent.dao.AgentDAO;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.test.commons.ApplicationContextFactory;
 
+
+/**
+ * @author Yanrui
+ * 
+ * 
+ * 
+ * */
 public class AgentBizTest extends TestCase {
 
 	private AgentDAO agentDAO;//项目设定*Biz 为事务提交，如需直接运行测试DAO，要在application-context.xml 加 *DAO
