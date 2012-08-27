@@ -1,8 +1,7 @@
 package com.kurui.kums.base.util;
 
-import com.kurui.kums.base.util.NoUtil;
 
-public class KumsNoUtil extends NoUtil {
+public class KumsNoUtil extends NoDBUtil {
 	public String getBudgetNo() {
 		return getNewNo("B", "yyyyMMdd", 4); // B
 	}
