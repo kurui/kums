@@ -9,9 +9,6 @@
 		</property>
 	</bean>
 	<bean id="noUtil" class="com.kurui.kums.base.util.KumsNoUtil">
-		<property name="hibernateTemplate">
-			<ref bean="hibernateTemplate" />
-		</property>
 	</bean>
 	<bean id="theFilter"
 		class="com.kurui.kums.base.filters.SetCharacterEncodingFilter">

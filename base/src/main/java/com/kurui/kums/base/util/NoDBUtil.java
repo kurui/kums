@@ -1,16 +1,9 @@
 package com.kurui.kums.base.util;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
-
 import com.kurui.kums.base.database.Hql;
 import com.kurui.kums.base.database.SelectDataBean;
 
 public class NoDBUtil extends NoUtil{
-	private HibernateTemplate hibernateTemplate;
-
-	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-		this.hibernateTemplate = hibernateTemplate;
-	}
 
 	public String getNewNo(String c, String pattern, int length) {
 
