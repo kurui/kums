@@ -81,7 +81,7 @@
 										</td>
 										<td style="text-align: left">
 											<html:text property="updateDate" name="agentAction"
-												value="${agentAction.formatUpdateTime}"
+												value="${agentAction.updateDate}"
 												styleClass="colorblue2 p_5" style="width:200px;"></html:text>
 										</td>
 									</tr>

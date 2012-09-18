@@ -32,7 +32,7 @@ public class AgentCoterie extends _AgentCoterie {
 		}
 	}
 
-	public String getCreateUpdate() {
+	public String getCreateDate() {
 		String mydate = "";
 		if (this.createTime != null && "".equals(createTime) == false) {
 			Date tempDate = new Date(createTime.getTime());

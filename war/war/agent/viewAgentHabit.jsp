@@ -214,7 +214,7 @@
 											更新时间
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentHabit.formatUpdateTime}" />
+											<c:out value="${agentHabit.updateDate}" />
 										</td>
 										<td class="lef">
 											状态

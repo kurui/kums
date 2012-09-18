@@ -71,7 +71,7 @@
 											处理时间
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.formatUpdateTime}" />
+											<c:out value="${agentAction.updateDate}" />
 										</td>
 									</tr>
 									<tr>

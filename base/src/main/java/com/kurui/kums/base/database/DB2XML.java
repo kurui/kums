@@ -1,13 +1,17 @@
 package com.kurui.kums.base.database;
 
-import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.digester.*;
 import java.io.FileOutputStream;
 import java.util.Vector;
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
+
+import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.digester.Field;
+import com.kurui.kums.base.digester.Table;
+import com.kurui.kums.base.digester.TableDigester;
 
 public class DB2XML {
 

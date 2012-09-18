@@ -71,7 +71,7 @@
 											结束时间
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentCoterie.formatExpireDate}" />
+											<c:out value="${agentCoterie.expireDate}" />
 										</td>
 									</tr>
 									<tr>

@@ -161,7 +161,7 @@
 												<c:out value="${agentAction.userName}" />
 											</td>
 											<td>
-												<c:out value="${agentAction.formatUpdateTime}" />
+												<c:out value="${agentAction.updateDate}" />
 											</td>
 											<td>
 												<c:out value="${agentAction.statusInfo}" />
