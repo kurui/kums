@@ -182,7 +182,7 @@
 	<description>KUMS Root Project</description>
 
 	<modules>
-		<module>base</module>
+		<!-- <module>base</module> -->
 		<module>model</module>
 		<module>core</module>
 
