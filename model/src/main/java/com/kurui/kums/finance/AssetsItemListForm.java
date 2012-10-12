@@ -12,6 +12,16 @@ public class AssetsItemListForm extends ListActionForm {
 	public long id = Long.valueOf(0);
 
 	public Long status = Long.valueOf(0);
+	
+	public String contactWay = "";
+	
+	public String getContactWay() {
+		return contactWay;
+	}
+
+	public void setContactWay(String contactWay) {
+		this.contactWay = contactWay;
+	}
 
 	public Long getStatus() {
 		return status;

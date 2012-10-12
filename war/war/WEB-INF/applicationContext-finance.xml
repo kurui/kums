@@ -171,6 +171,9 @@
 		<property name="assetsItemBiz">
 			<ref bean="assetsItemBiz" />
 		</property>
+		<property name="dataTypeBiz">
+			<ref bean="dataTypeBiz"/>
+		</property>
 	</bean>
 
 	<bean name="/finance/assetsItem"
@@ -179,6 +182,9 @@
 		dependency-check="default">
 		<property name="assetsItemBiz">
 			<ref bean="assetsItemBiz" />
+		</property>
+		<property name="noUtil">
+			<ref bean="noUtil" />
 		</property>
 	</bean>
 

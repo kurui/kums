@@ -34,60 +34,24 @@
 									class="dataList">
 									<tr>
 										<td class="lef">
-											<c:out value="${assetsItem.agent.agentNo}" />
+											<c:out value="${assetsItem.itemNo}" />
 										</td>
 										<td style="text-align: left">
-											<c:out value="${assetsItem.agent.name}" />
-											|
-											<c:out value="${assetsItem.agent.typeInfo}" />
+											<c:out value="${assetsItem.name}" />
 										</td>
 										<td class="lef">
+											资产类型
 										</td>
 										<td style="text-align: left">
-										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											号牌
-										</td>
-										<td style="text-align: left">
-											<c:out value="${assetsItem.carNo}" />
+											<c:out value="${assetsItem.itemType}" />
 										</td>
 										<td class="lef">
-											车型
+											数量
 										</td>
 										<td style="text-align: left">
-											<c:out value="${assetsItem.carType}" />
+											<c:out value="${assetsItem.itemCount}" />
 										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											发动机号
-										</td>
-										<td style="text-align: left">
-											<c:out value="${assetsItem.engineNo}" />
-										</td>
-										<td class="lef">
-											车架号
-										</td>
-										<td style="text-align: left">
-											<c:out value="${assetsItem.carcaseNo}" />
-										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											颜色
-										</td>
-										<td style="text-align: left">
-											<c:out value="${assetsItem.color}" />
-										</td>
-										<td class="lef">
-											座位人数
-										</td>
-										<td style="text-align: left">
-											<c:out value="${assetsItem.seatCount}" />
-										</td>
-									</tr>									
+									</tr>												
 									<tr>
 										<td class="lef">
 											更新时间
@@ -101,12 +65,17 @@
 										<td style="text-align: left">
 											<c:out value="${assetsItem.statusInfo}" />
 										</td>
+										<td class="lef">
+											
+										</td>
+										<td style="text-align: left">
+										</td>
 									</tr>
 									<tr>
 										<td class="lef">
 											备注
 										</td>
-										<td style="text-align: left" colspan="3">
+										<td style="text-align: left" colspan="5">
 											<c:out value="${assetsItem.memo}" />
 										</td>
 									</tr>

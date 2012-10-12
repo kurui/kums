@@ -72,6 +72,8 @@
 				<value>com/kurui/kums/agent/ShareHolder.hbm.xml</value>
 				<value>com/kurui/kums/agent/Vehicle.hbm.xml</value>
 
+					
+				<value>com/kurui/kums/finance/AssetsItem.hbm.xml</value>	
 				<value>com/kurui/kums/finance/Budget.hbm.xml</value>
 				<value>com/kurui/kums/finance/BudgetOrder.hbm.xml</value>
 				<value>com/kurui/kums/finance/Commission.hbm.xml</value>

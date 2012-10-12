@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2011-11-15 23:04:29 by Hibernate Tools 3.2.2.GA -->
 <hibernate-mapping>
-	<class name="com.kurui.kums.finance.AssetsItem" table="ASSETSITEM">
+	<class name="com.kurui.kums.finance.AssetsItem" table="ASSETS_ITEM">
 		<id name="id" type="long">
 			<column name="ID" precision="22" scale="0" />
 			<generator class="sequence">

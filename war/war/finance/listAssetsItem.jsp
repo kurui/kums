@@ -54,7 +54,6 @@
 					<html:hidden property="intPage" />
 					<html:hidden property="pageCount" />
 					
-					<html:hidden property="agentId" />
 					
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr>
@@ -74,9 +73,10 @@
 										class="searchPanel">
 										<tr>
 											<td>
-												客户(编号/姓名/QQ/EMail/TelPone)：
+												搜索(编号/名称)：
 											</td>
 											<td>
+											
 												<html:text property="contactWay" styleClass="colorblue2 p_5"
 													style="width:150px;" />
 											</td>
@@ -103,37 +103,27 @@
 										</th>
 										<th>
 											<div>
-												客户
+												项目编号
 											</div>
 										</th>
 										<th>
 											<div>
-												号牌
+												项目名称
 											</div>
 										</th>
 										<th>
 											<div>
-												车型
+												项目类型
 											</div>
 										</th>
 										<th>
 											<div>
-												发动机号
+												数量
 											</div>
-										</th>
+										</th>										
 										<th>
 											<div>
-												车架号
-											</div>
-										</th>
-										<th>
-											<div>
-												座位人数
-											</div>
-										</th>
-										<th>
-											<div>
-												颜色
+												备注
 											</div>
 										</th>
 										<th>
@@ -155,28 +145,21 @@
 											</td>
 											<td>
 												<a
-													href="<%=path%>/finance/agentList.do?thisAction=view&id=<c:out value="${assetsItem.agent.id}" />">
-													<c:out value="${assetsItem.agent.name}" /> </a>
-											</td>
-											<td style="text-align: left">
-												<a
 													href="<%=path%>/finance/assetsItemList.do?thisAction=view&id=<c:out value="${assetsItem.id}" />">
-													<c:out value="${assetsItem.carNo}" /> </a>
+													<c:out value="${assetsItem.itemNo}" /> </a>
+											</td>
+											
+											<td>
+												<c:out value="${assetsItem.name}" />
 											</td>
 											<td>
-												<c:out value="${assetsItem.carType}" />
+												<c:out value="${assetsItem.itemType}" />
 											</td>
 											<td>
-												<c:out value="${assetsItem.engineNo}" />
+												<c:out value="${assetsItem.itemCount}" />
 											</td>
 											<td>
-												<c:out value="${assetsItem.carcaseNo}" />
-											</td>
-											<td>
-												<c:out value="${assetsItem.seatCount}" />
-											</td>
-											<td>
-												<c:out value="${assetsItem.color}" />
+												<c:out value="${assetsItem.memo}" />
 											</td>
 											<td>
 												<c:out value="${assetsItem.statusInfo}" />

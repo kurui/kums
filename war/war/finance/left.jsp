@@ -65,6 +65,9 @@
 							<li>
 								<a href="<%=path%>/finance/financeOrderList.do?thisAction=listCreditOrder&orderType=1300" target="mainFrame">债权列表</a>
 							</li>
+							<li>
+								<a href="<%=path%>/finance/assetsItemList.do?thisAction=list" target="mainFrame">资产项目列表</a>
+							</li>
 						</ul>
 					</c:check>
 					<c:check code="sj20">

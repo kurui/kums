@@ -16,9 +16,12 @@ import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.AssetsItem;
 import com.kurui.kums.finance.AssetsItemListForm;
 import com.kurui.kums.finance.biz.AssetsItemBiz;
+import com.kurui.kums.transaction.DataType;
+import com.kurui.kums.transaction.biz.DataTypeBiz;
 
 public class AssetsItemListAction extends BaseAction {
 	private AssetsItemBiz assetsItemBiz;
+	private DataTypeBiz dataTypeBiz;
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -63,9 +66,13 @@ public class AssetsItemListAction extends BaseAction {
 			throws AppException {
 		AssetsItemListForm alf = (AssetsItemListForm) form;
 		AssetsItem assetsItem = new AssetsItem();
+		assetsItem.setItemCount(Long.valueOf(1));
 
 		assetsItem.setThisAction("insert");
 		request.setAttribute("assetsItem", assetsItem);
+		
+		List<DataType> itemTypeList=dataTypeBiz.getSubDataTypeList("55");//资产项目
+		request.setAttribute("itemTypeList", itemTypeList);
 
 		String forwardPage = "editAssetsItem";
 		return mapping.findForward(forwardPage);
@@ -86,8 +93,13 @@ public class AssetsItemListAction extends BaseAction {
 			AssetsItem assetsItem = assetsItemBiz
 					.getAssetsItemById(assetsItemId);
 			assetsItem.setThisAction("update");
+			
+			
 
 			request.setAttribute("assetsItem", assetsItem);
+			
+			List<DataType> itemTypeList=dataTypeBiz.getSubDataTypeList("55");//资产项目
+			request.setAttribute("itemTypeList", itemTypeList);
 		} else {
 			inf.setMessage("缺少assetsItemId");
 			return forwardInformPage(inf, mapping, request);
@@ -121,5 +133,10 @@ public class AssetsItemListAction extends BaseAction {
 	public void setAssetsItemBiz(AssetsItemBiz assetsItemBiz) {
 		this.assetsItemBiz = assetsItemBiz;
 	}
+
+	public void setDataTypeBiz(DataTypeBiz dataTypeBiz) {
+		this.dataTypeBiz = dataTypeBiz;
+	}
+
 
 }
