@@ -1,9 +1,7 @@
 <projectDescription>
   <name>kums-core</name>
   <comment>Core logic and EJB layer. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects>
-    <project>kums-model</project>
-  </projects>
+  <projects/>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

@@ -97,7 +97,7 @@
 											style="width:80px;">
 											<html:option value="">-资产项目-</html:option>
 											<c:forEach items="${itemTypeList}" var="itemType">
-												<html:option value="${itemType.id}">
+												<html:option value="${itemType.no}">
 													<c:out value="${itemType.name}" />
 												</html:option>
 											</c:forEach>

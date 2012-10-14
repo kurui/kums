@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import com.kurui.kums.base.database.BaseDAOSupport;
 import com.kurui.kums.base.database.Hql;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.finance.AssetsItem;
 import com.kurui.kums.finance.AssetsItemListForm;
 
@@ -16,9 +17,17 @@ public class AssetsItemDAOImp extends BaseDAOSupport implements AssetsItemDAO {
 	public List list(AssetsItemListForm vehicleListForm) throws AppException {
 		Hql hql = new Hql();
 		hql.add("from AssetsItem a where 1=1");
-//		if (Constant.toLong(vehicleListForm.getAgentId()) > 0) {
-//			hql.add(" and a.agent.id=" + vehicleListForm.getAgentId());
-//		}
+		if (StringUtil.isEmpty(vehicleListForm.getItemType())==false) {
+			hql.add(" and a.itemType=" + vehicleListForm.getItemType());
+		}
+		
+		if (StringUtil.isEmpty(vehicleListForm.getContactWay())==false) {
+			hql.add(" and ( ");
+			hql.add(" a.name like'%" + vehicleListForm.getContactWay()+"%' ");
+			hql.add(" or a.memo like'%" + vehicleListForm.getContactWay()+"%' ");
+			
+			hql.add(" ) "); 
+		}
 		
 	
 

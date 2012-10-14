@@ -43,7 +43,7 @@
 											资产类型
 										</td>
 										<td style="text-align: left">
-											<c:out value="${assetsItem.itemType}" />
+											<c:out value="${assetsItem.itemTypeName}" />
 										</td>
 										<td class="lef">
 											数量

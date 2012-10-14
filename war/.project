@@ -3,7 +3,6 @@
   <comment>web user interface. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
     <project>kums-core</project>
-    <project>kums-model</project>
   </projects>
   <buildSpec>
     <buildCommand>

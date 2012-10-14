@@ -36,6 +36,9 @@ public class AssetsItemListAction extends BaseAction {
 			assetsItemListForm.setList(assetsItemList);
 
 			request.setAttribute("assetsItemListForm", assetsItemListForm);
+			
+			List<DataType> itemTypeList=dataTypeBiz.getSubDataTypeList("55");//资产项目
+			request.setAttribute("itemTypeList", itemTypeList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

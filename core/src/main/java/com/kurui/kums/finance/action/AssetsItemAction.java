@@ -1,5 +1,7 @@
 package com.kurui.kums.finance.action;
 
+import java.sql.Timestamp;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,7 +40,7 @@ public class AssetsItemAction extends BaseAction {
 
 			assetsItem.setType(AssetsItem.TYPE_1);
 			assetsItem.setStatus(AssetsItem.STATES_1);
-
+			assetsItem.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 			long newAssetsItemId = assetsItemBiz.save(assetsItem);
 
 			if (newAssetsItemId > 0) {
@@ -74,6 +76,7 @@ public class AssetsItemAction extends BaseAction {
 				assetsItem.setType(AssetsItem.TYPE_1);
 				assetsItem.setStatus(AssetsItem.STATES_1);
 				assetsItem.setStatus(assetsItemForm.getStatus());
+				assetsItem.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 				long flag = assetsItemBiz.update(assetsItem);
 
 				if (flag > 0) {
