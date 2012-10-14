@@ -94,11 +94,11 @@
 									<td style="text-align: left"><html:select
 											property="itemType" value="${assetsItem.itemType}"
 											name="assetsItem" styleClass="colorblue2 p_5"
-											style="width:80px;">
+											style="width:100px;">
 											<html:option value="">-资产项目-</html:option>
 											<c:forEach items="${itemTypeList}" var="itemType">
 												<html:option value="${itemType.no}">
-													<c:out value="${itemType.name}" />
+													<c:out value="${itemType.showName}" />
 												</html:option>
 											</c:forEach>
 										</html:select> <html:select property="type" value="${assetsItem.type}"

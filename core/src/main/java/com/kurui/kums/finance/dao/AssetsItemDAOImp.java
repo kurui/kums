@@ -29,7 +29,7 @@ public class AssetsItemDAOImp extends BaseDAOSupport implements AssetsItemDAO {
 			hql.add(" ) "); 
 		}
 		
-	
+		hql.add(" order by a.itemType ");
 
 		return this.list(hql, vehicleListForm);
 	}
