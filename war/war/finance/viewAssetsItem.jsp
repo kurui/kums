@@ -40,16 +40,16 @@
 											<c:out value="${assetsItem.name}" />
 										</td>										
 										<td class="lef">
-											数量/估价
+											估价
 										</td>
 										<td style="text-align: left">
-											<c:out value="${assetsItem.itemCount}" />x<c:out value="${assetsItem.valuation}" />
+											<c:out value="${assetsItem.valuation}" />
 										</td>
 										<td class="lef">
 											资产类型
 										</td>
 										<td style="text-align: left">
-											<c:out value="${assetsItem.itemTypeName}" />
+											<c:out value="${assetsItem.itemTypeName}" />X<c:out value="${assetsItem.itemCount}" />
 										</td>
 									</tr>												
 									<tr>

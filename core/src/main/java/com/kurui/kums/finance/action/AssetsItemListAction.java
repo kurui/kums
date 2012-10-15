@@ -35,6 +35,8 @@ public class AssetsItemListAction extends BaseAction {
 			List<AssetsItem> assetsItemList = assetsItemBiz
 					.list(assetsItemListForm);
 			assetsItemListForm.setList(assetsItemList);
+			
+			assetsItemListForm.addSumField(1, "valuation");
 
 			request.setAttribute("assetsItemListForm", assetsItemListForm);
 			
@@ -59,6 +61,8 @@ public class AssetsItemListAction extends BaseAction {
 					.listSTA(assetsItemListForm);
 			assetsItemListForm.setList(assetsItemList);
 
+			assetsItemListForm.addSumField(1, "valuation");
+			
 			request.setAttribute("assetsItemListForm", assetsItemListForm);
 			
 			List<DataType> itemTypeList=dataTypeBiz.getSubDataTypeList("55");//资产项目

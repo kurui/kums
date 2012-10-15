@@ -76,6 +76,17 @@
 										<td><c:out value="${assetsItem.valuation}" /></td>
 									</tr>
 								</c:forEach>
+								<tr>
+										<td colspan="3">
+											<div align="center">
+												<font>合计</font>
+											</div>
+										</td>
+										<td style="text-align: right;">
+											<c:out value="${assetsItemListForm.totalValue1}" />
+											&nbsp;
+										</td>
+									</tr>
 							</table>
 							<table width="100%" style="margin-top: 5px;">
 								<tr>
