@@ -190,6 +190,8 @@
 		<action name="assetsItemListForm" parameter="thisAction"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			path="/finance/assetsItemList" validate="false" scope="request">
+			<forward name="listAssetsItemSTA"
+				path="/finance/listAssetsItemSTA.jsp" />
 			<forward name="listAssetsItem"
 				path="/finance/listAssetsItem.jsp" />
 			<forward name="editAssetsItem"

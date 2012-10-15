@@ -112,9 +112,19 @@
 									<td style="text-align: left"><html:text
 											property="itemCount" value="${assetsItem.itemCount}"
 											name="itemCount" styleClass="colorblue2 p_5"
-											style="width:30px;" /></td>
+											style="width:50px;" /></td>
+											<td class="lef">估价</td>
+									<td style="text-align: left"><html:text
+											property="valuation" value="${assetsItem.valuation}"
+											name="valuation" styleClass="colorblue2 p_5"
+											style="width:50px;" /></td>
 								</tr>
 								<tr>
+										<td class="lef">地点</td>
+									<td style="text-align: left"><html:text
+											property="areaCode" value="${assetsItem.areaCode}"
+											name="areaCode" styleClass="colorblue2 p_5"
+											style="width:50px;" /></td>
 									<td class="lef">状态</td>
 									<td style="text-align: left"><html:select
 											property="status" value="${assetsItem.status}"

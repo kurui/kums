@@ -1,5 +1,6 @@
 package com.kurui.kums.finance.action;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,29 @@ public class AssetsItemListAction extends BaseAction {
 		request.setAttribute("assetsItemListForm", assetsItemListForm);
 		return mapping.findForward("listAssetsItem");
 	}
+	
+	public ActionForward listSTA(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		AssetsItemListForm assetsItemListForm = (AssetsItemListForm) form;
+		if (assetsItemListForm == null) {
+			assetsItemListForm = new AssetsItemListForm();
+		}
+		try {
+			List<AssetsItem> assetsItemList = assetsItemBiz
+					.listSTA(assetsItemListForm);
+			assetsItemListForm.setList(assetsItemList);
+
+			request.setAttribute("assetsItemListForm", assetsItemListForm);
+			
+			List<DataType> itemTypeList=dataTypeBiz.getSubDataTypeList("55");//资产项目
+			request.setAttribute("itemTypeList", itemTypeList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("assetsItemListForm", assetsItemListForm);
+		return mapping.findForward("listAssetsItemSTA");
+	}
 
 	public ActionForward view(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -70,6 +94,9 @@ public class AssetsItemListAction extends BaseAction {
 		AssetsItemListForm alf = (AssetsItemListForm) form;
 		AssetsItem assetsItem = new AssetsItem();
 		assetsItem.setItemCount(Long.valueOf(1));
+		assetsItem.setValuation(BigDecimal.ZERO);
+		assetsItem.setAreaCode("珠海");
+		
 
 		assetsItem.setThisAction("insert");
 		request.setAttribute("assetsItem", assetsItem);

@@ -38,6 +38,12 @@
 										</td>
 										<td style="text-align: left">
 											<c:out value="${assetsItem.name}" />
+										</td>										
+										<td class="lef">
+											数量/估价
+										</td>
+										<td style="text-align: left">
+											<c:out value="${assetsItem.itemCount}" />x<c:out value="${assetsItem.valuation}" />
 										</td>
 										<td class="lef">
 											资产类型
@@ -45,14 +51,14 @@
 										<td style="text-align: left">
 											<c:out value="${assetsItem.itemTypeName}" />
 										</td>
-										<td class="lef">
-											数量
-										</td>
-										<td style="text-align: left">
-											<c:out value="${assetsItem.itemCount}" />
-										</td>
 									</tr>												
 									<tr>
+										<td class="lef">
+											最近折旧
+										</td>
+										<td style="text-align: left">
+											<c:out value="${assetsItem.lastDeprecDate}" />
+										</td>
 										<td class="lef">
 											更新时间
 										</td>
@@ -60,16 +66,12 @@
 											<c:out value="${assetsItem.updateDate}" />
 										</td>
 										<td class="lef">
-											状态
+											地点/状态
 										</td>
 										<td style="text-align: left">
+										<c:out value="${assetsItem.areaCode}" />|
 											<c:out value="${assetsItem.statusInfo}" />
-										</td>
-										<td class="lef">
-											
-										</td>
-										<td style="text-align: left">
-										</td>
+										</td>										
 									</tr>
 									<tr>
 										<td class="lef">

@@ -1,6 +1,7 @@
 package com.kurui.kums.finance._entity;
 
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -17,6 +18,9 @@ public class _AssetsItem extends org.apache.struts.action.ActionForm implements
 	protected String name;
 	protected String itemType;
 	protected Long itemCount;
+	protected BigDecimal valuation;
+	protected String areaCode;
+	protected Timestamp lastDeprecTime;
 	protected String memo;
 	protected Timestamp updateTime;
 	protected Long type;
@@ -56,11 +60,43 @@ public class _AssetsItem extends org.apache.struts.action.ActionForm implements
 	}
 
 	public Long getItemCount() {
+		if (itemCount==null) {
+			return Long.valueOf(1);
+		}
 		return itemCount;
 	}
 
 	public void setItemCount(Long itemCount) {
 		this.itemCount = itemCount;
+	}
+	
+	
+
+	public BigDecimal getValuation() {
+		if (valuation==null) {
+			return BigDecimal.ZERO;
+		}
+		return valuation;
+	}
+
+	public void setValuation(BigDecimal valuation) {
+		this.valuation = valuation;
+	}
+
+	public String getAreaCode() {
+		return areaCode;
+	}
+
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
+	}
+
+	public Timestamp getLastDeprecTime() {
+		return lastDeprecTime;
+	}
+
+	public void setLastDeprecTime(Timestamp lastDeprecTime) {
+		this.lastDeprecTime = lastDeprecTime;
 	}
 
 	public Timestamp getUpdateTime() {

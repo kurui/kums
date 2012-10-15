@@ -90,6 +90,7 @@
 
 										<td><input type="submit" name="button" id="button"
 											value="提交" class="submit greenBtn" /></td>
+											<td><a href="../finance/assetsItemList.do?thisAction=listSTA">统计</a></td>
 									</tr>
 								</table>
 							</div>
@@ -115,7 +116,16 @@
 										<div>数量</div>
 									</th>
 									<th>
+										<div>估价</div>
+									</th>
+									<th>
+										<div>地点</div>
+									</th>									
+									<th>
 										<div>备注</div>
+									</th>
+									<th>
+										<div>最后折旧</div>
 									</th>
 									<th>
 										<div>状态</div>
@@ -137,7 +147,11 @@
 										<td><c:out value="${assetsItem.name}" /></td>
 										<td><c:out value="${assetsItem.itemTypeName}" /></td>
 										<td><c:out value="${assetsItem.itemCount}" /></td>
+										<td><c:out value="${assetsItem.valuation}" /></td>
+										<td><c:out value="${assetsItem.areaCode}" /></td>
+										
 										<td><c:out value="${assetsItem.memo}" /></td>
+										<td><c:out value="${assetsItem.lastDeprecDate}" /></td>
 										<td><c:out value="${assetsItem.statusInfo}" /></td>
 									</tr>
 								</c:forEach>

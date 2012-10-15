@@ -8,6 +8,7 @@ import com.kurui.kums.finance.AssetsItemListForm;
 
 public interface AssetsItemDAO {
 	public List list(AssetsItemListForm agentListForm) throws AppException;
+	public List listSTA(AssetsItemListForm assetsItemListForm)throws AppException;
 
 	public void delete(long id) throws AppException;
 
@@ -22,4 +23,6 @@ public interface AssetsItemDAO {
 	public List<AssetsItem> getAssetsItemList(Long type) throws AppException;
 
 	public List<AssetsItem> getValidAssetsItemList() throws AppException;
+
+	
 }

@@ -20,9 +20,20 @@
 			<column name="item_type" length="50" />
 		</property>
 		<property name="itemCount" type="long">
-			<column name="Item_COUNT"  precision="22" scale="0"/>
+			<column name="Item_COUNT" precision="22" scale="0" />
 		</property>
-		
+		<property name="valuation" type="big_decimal">
+			<column name="VALUATION" precision="15" scale="2" />
+		</property>
+
+		<property name="lastDeprecTime" type="java.sql.Timestamp">
+			<column name="LAST_DEPREC_TIME" length="7" />
+		</property>
+
+		<property name="areaCode" type="string">
+			<column name="AREA_CODE" length="20" />
+		</property>
+
 		<property name="memo" type="string">
 			<column name="MEMO" length="200" />
 		</property>

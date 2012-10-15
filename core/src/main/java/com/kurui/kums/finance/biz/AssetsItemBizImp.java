@@ -13,6 +13,10 @@ public class AssetsItemBizImp implements AssetsItemBiz {
 	public List list(AssetsItemListForm assetsItemListForm) throws AppException {
 		return assetsItemDAO.list(assetsItemListForm);
 	}
+	
+	public List listSTA(AssetsItemListForm assetsItemListForm) throws AppException {
+		return assetsItemDAO.listSTA(assetsItemListForm);
+	}
 
 	public long delete(long id) throws AppException {
 		try {

@@ -35,12 +35,15 @@ public class AssetsItemAction extends BaseAction {
 			assetsItem.setItemNo(noUtil.getAssetsItemNo());
 			assetsItem.setItemType(assetsItemForm.getItemType());
 			assetsItem.setItemCount(assetsItemForm.getItemCount());
+			assetsItem.setValuation(assetsItemForm.getValuation());
+			assetsItem.setAreaCode(assetsItemForm.getAreaCode());
 
 			assetsItem.setMemo(assetsItemForm.getMemo());
 
 			assetsItem.setType(AssetsItem.TYPE_1);
 			assetsItem.setStatus(AssetsItem.STATES_1);
 			assetsItem.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+			assetsItem.setLastDeprecTime(assetsItem.getUpdateTime());
 			long newAssetsItemId = assetsItemBiz.save(assetsItem);
 
 			if (newAssetsItemId > 0) {
@@ -70,6 +73,8 @@ public class AssetsItemAction extends BaseAction {
 				assetsItem.setName(assetsItemForm.getName());
 				assetsItem.setItemType(assetsItemForm.getItemType());
 				assetsItem.setItemCount(assetsItemForm.getItemCount());
+				assetsItem.setValuation(assetsItemForm.getValuation());
+				assetsItem.setAreaCode(assetsItemForm.getAreaCode());
 
 				assetsItem.setMemo(assetsItemForm.getMemo());
 
@@ -77,6 +82,7 @@ public class AssetsItemAction extends BaseAction {
 				assetsItem.setStatus(AssetsItem.STATES_1);
 				assetsItem.setStatus(assetsItemForm.getStatus());
 				assetsItem.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+				
 				long flag = assetsItemBiz.update(assetsItem);
 
 				if (flag > 0) {

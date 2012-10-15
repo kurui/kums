@@ -1,5 +1,6 @@
 package com.kurui.kums.finance;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import com.kurui.kums.base.util.DateUtil;
@@ -17,6 +18,17 @@ public class AssetsItem extends _AssetsItem {
 	// 状态
 	public static final long STATES_1 = 1;// 有效
 	public static final long STATES_0 = 0;// 无效
+	
+	public AssetsItem(){
+		
+	}
+	
+	public AssetsItem(String itemType/*,String itemTypeName*/,Long itemCount,BigDecimal itemValuation){
+		this.itemType=itemType;
+		this.itemCount=itemCount;
+		this.valuation=itemValuation;
+		
+	}
 	
 	public String getItemTypeName() {
 		if (this.getItemType() != null) {
@@ -51,6 +63,14 @@ public class AssetsItem extends _AssetsItem {
 		} else {
 			return null;
 		}
+	}
+	public String getLastDeprecDate() {
+		String mydate = "";
+		if (this.lastDeprecTime != null && "".equals(lastDeprecTime) == false) {
+			Date tempDate = new Date(lastDeprecTime.getTime());
+			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+		}
+		return mydate;
 	}
 
 	public String getUpdateDate() {

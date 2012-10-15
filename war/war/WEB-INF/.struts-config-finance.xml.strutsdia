@@ -276,6 +276,9 @@
   <PROCESS-ITEM-OUTPUT ID="viewAssetsItem" NAME="forward2"
    PATH="/finance/viewAssetsItem.jsp" TARGET="page35"
    TITLE="viewAssetsItem" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAssetsItemSTA" NAME="forward3"
+   PATH="/finance/listAssetsItemSTA.jsp" TARGET="page36"
+   TITLE="listAssetsItemSTA" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM ID="#finance#assetsItem" NAME="action13"
   PATH="/finance/assetsItem" SHAPE="32,5457,0,0" TITLE="assetsItem"
@@ -295,5 +298,8 @@
   TYPE="page" model-entity="StrutsProcessItem"/>
  <PROCESS-ITEM NAME="page35" PATH="/finance/viewAssetsItem.jsp"
   SHAPE="448,5457,0,0" SUBTYPE="jsp" TITLE="viewAssetsItem.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page36" PATH="/finance/listAssetsItemSTA.jsp"
+  SHAPE="240,5681,0,0" SUBTYPE="jsp" TITLE="listAssetsItemSTA.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>
 </PROCESS>

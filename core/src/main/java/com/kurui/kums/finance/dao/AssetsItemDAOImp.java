@@ -33,6 +33,21 @@ public class AssetsItemDAOImp extends BaseDAOSupport implements AssetsItemDAO {
 
 		return this.list(hql, vehicleListForm);
 	}
+	
+	public List listSTA(AssetsItemListForm vehicleListForm) throws AppException {
+		Hql hql = new Hql();
+		
+		
+		hql.add(" select new AssetsItem(a.itemType,");
+//		hql.add(" (select name from dataType where no= a.itemType),");
+		hql.add(" sum(a.itemCount),");
+		hql.add(" sum(a.valuation) )");
+		hql.add(" from AssetsItem a  where 1=1 group by a.itemType ");		
+
+		Query query = this.getQuery(hql);
+		List list = query.list();
+		return list;
+	}
 
 	public void delete(long id) throws AppException {
 		if (id > 0) {
