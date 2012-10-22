@@ -331,6 +331,28 @@ public class FinanceOrderListAction extends BaseAction {
 		request.setAttribute("ulf", ulf);
 		return (mapping.findForward(forwardPage));
 	}
+	
+	//从日记账中选择资产录入
+	public ActionForward listFinanceForAssetsItem(ActionMapping mapping,
+			ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws AppException {
+		String forwardPage = "";
+		FinanceOrderListForm ulf = (FinanceOrderListForm) form;
+		if (ulf == null) {
+			ulf = new FinanceOrderListForm();
+		}
+		try {
+			List<FinanceOrder> orderList = financeOrderBiz.listFinanceForAssetsItem(ulf);
+			ulf.setList(orderList);
+			forwardPage = "listFinanceForAssetsItem";
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			ulf.setList(new ArrayList());
+		}
+		request.setAttribute("ulf", ulf);
+		return (mapping.findForward(forwardPage));
+	}
+
 
 	private HttpServletRequest setSearchToolBar(HttpServletRequest request,
 			FinanceOrderListForm ulf) throws AppException {

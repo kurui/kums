@@ -904,6 +904,11 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 			throws AppException {
 		return financeOrderDAO.listData(rlf, uri);
 	}
+	
+	public List<FinanceOrder> listFinanceForAssetsItem(FinanceOrderListForm ulf)
+			throws AppException{
+		return financeOrderDAO.listFinanceForAssetsItem(ulf);
+	}
 
 	public List list() throws AppException {
 		return financeOrderDAO.list();

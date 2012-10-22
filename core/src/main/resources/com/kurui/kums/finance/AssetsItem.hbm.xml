@@ -33,7 +33,9 @@
 		<property name="areaCode" type="string">
 			<column name="AREA_CODE" length="20" />
 		</property>
-
+		<property name="financeOrderId" type="long">
+			<column name="FINANCE_ORDER_ID" precision="22" scale="0" />
+		</property>
 		<property name="memo" type="string">
 			<column name="MEMO" length="200" />
 		</property>

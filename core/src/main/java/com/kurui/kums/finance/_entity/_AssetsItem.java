@@ -21,6 +21,15 @@ public class _AssetsItem extends org.apache.struts.action.ActionForm implements
 	protected BigDecimal valuation;
 	protected String areaCode;
 	protected Timestamp lastDeprecTime;
+	protected long financeOrderId;
+	public long getFinanceOrderId() {
+		return financeOrderId;
+	}
+
+	public void setFinanceOrderId(long financeOrderId) {
+		this.financeOrderId = financeOrderId;
+	}
+
 	protected String memo;
 	protected Timestamp updateTime;
 	protected Long type;

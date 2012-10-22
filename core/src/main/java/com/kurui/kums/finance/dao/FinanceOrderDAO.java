@@ -52,6 +52,9 @@ public interface FinanceOrderDAO extends BaseDAO {
 
 	public List<FinanceOrder> listByTranType(String tranType)
 			throws AppException;
+	
+	public List<FinanceOrder> listFinanceForAssetsItem(FinanceOrderListForm ulf)
+			throws AppException;
 
 	public void delete(long id) throws AppException;
 

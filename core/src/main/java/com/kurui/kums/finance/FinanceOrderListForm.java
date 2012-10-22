@@ -20,6 +20,7 @@ public class FinanceOrderListForm extends ListActionForm {
 	private long companyId = Long.valueOf(0);
 
 	private long tranType = Long.valueOf(0);// 交易类型
+	private String tranTypes="";
 
 	private String statusGroup;
 
@@ -281,6 +282,15 @@ public class FinanceOrderListForm extends ListActionForm {
 
 	public void setRecentlyDay(Long recentlyDay) {
 		this.recentlyDay = recentlyDay;
+	}
+	
+	public String getTranTypes() {
+		return tranTypes;
+	}
+
+
+	public void setTranTypes(String tranTypes) {
+		this.tranTypes = tranTypes;
 	}
 
 	public String getStatusGroup() {

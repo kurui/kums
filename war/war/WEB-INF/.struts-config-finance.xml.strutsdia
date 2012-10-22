@@ -101,6 +101,9 @@
   <PROCESS-ITEM-OUTPUT ID="editRepayCreditOrder" NAME="forward12"
    PATH="/finance/editRepayCreditOrder.jsp" TARGET="page22"
    TITLE="editRepayCreditOrder" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listFinanceForAssetsItem" NAME="forward13"
+   PATH="/finance/listFinanceForAssetsItem.jsp" TARGET="page37"
+   TITLE="listFinanceForAssetsItem" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM ID="#finance#statementList" NAME="action6"
   PATH="/finance/statementList" SHAPE="32,3217,0,0"
@@ -302,4 +305,7 @@
  <PROCESS-ITEM NAME="page36" PATH="/finance/listAssetsItemSTA.jsp"
   SHAPE="240,5681,0,0" SUBTYPE="jsp" TITLE="listAssetsItemSTA.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page37"
+  PATH="/finance/listFinanceForAssetsItem.jsp" SHAPE="240,1937,0,0"
+  SUBTYPE="jsp" TITLE="listFinanceForAssetsItem.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
 </PROCESS>

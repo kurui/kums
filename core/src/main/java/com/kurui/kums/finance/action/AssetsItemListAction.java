@@ -16,6 +16,7 @@ import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.AssetsItem;
 import com.kurui.kums.finance.AssetsItemListForm;
+import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.biz.AssetsItemBiz;
 import com.kurui.kums.transaction.DataType;
 import com.kurui.kums.transaction.biz.DataTypeBiz;
@@ -73,6 +74,8 @@ public class AssetsItemListAction extends BaseAction {
 		request.setAttribute("assetsItemListForm", assetsItemListForm);
 		return mapping.findForward("listAssetsItemSTA");
 	}
+	
+	
 
 	public ActionForward view(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)

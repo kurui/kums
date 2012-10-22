@@ -44,6 +44,17 @@
 	    document.forms[0].submit();
 	 }
 	}	
+	
+	function listFinanceForAssetsItem(){
+			openWindow(800,600,'../finance/financeOrderList.do?thisAction=listFinanceForAssetsItem&tranTypes=120121,120131,120135');
+								  	
+		}
+		
+	function addFinanceOrderId(financeOrderId){	
+			alert("financeOrderId:"+financeOrderId);		
+			//document.forms[0].financeOrderId.value=financeOrderId;	
+			
+		}	
 	</script>
 </head>
 <body>
@@ -77,8 +88,7 @@
 										<td><html:text property="contactWay"
 												styleClass="colorblue2 p_5" style="width:150px;"></html:text>
 										</td>
-										<td><html:select property="itemType"
-												value="${itemType}" 
+										<td><html:select property="itemType" value="${itemType}"
 												styleClass="colorblue2 p_5" style="width:80px;">
 												<html:option value="">-资产项目-</html:option>
 												<c:forEach items="${itemTypeList}" var="itemType">
@@ -90,7 +100,8 @@
 
 										<td><input type="submit" name="button" id="button"
 											value="提交" class="submit greenBtn" /></td>
-											<td><a href="../finance/assetsItemList.do?thisAction=listSTA">统计</a></td>
+										<td><a
+											href="../finance/assetsItemList.do?thisAction=listSTA">统计</a></td>
 									</tr>
 								</table>
 							</div>
@@ -120,7 +131,7 @@
 									</th>
 									<th>
 										<div>地点</div>
-									</th>									
+									</th>
 									<th>
 										<div>备注</div>
 									</th>
@@ -149,28 +160,24 @@
 										<td><c:out value="${assetsItem.itemCount}" /></td>
 										<td><c:out value="${assetsItem.valuation}" /></td>
 										<td><c:out value="${assetsItem.areaCode}" /></td>
-										
+
 										<td><c:out value="${assetsItem.memo}" /></td>
 										<td><c:out value="${assetsItem.lastDeprecDate}" /></td>
 										<td><c:out value="${assetsItem.statusInfo}" /></td>
 									</tr>
 								</c:forEach>
 								<tr>
-										<td colspan="6">
-											<div align="center">
-												<font>合计</font>
-											</div>
-										</td>
-										<td style="text-align: right;">
-											<c:out value="${assetsItemListForm.totalValue1}" />
-											&nbsp;
-										</td>
-										<td colspan="4">
-											<div align="center">
-												
-											</div>
-										</td>
-									</tr>
+									<td colspan="6">
+										<div align="center">
+											<font>合计</font>
+										</div>
+									</td>
+									<td style="text-align: right;"><c:out
+											value="${assetsItemListForm.totalValue1}" /> &nbsp;</td>
+									<td colspan="4">
+										<div align="center"></div>
+									</td>
+								</tr>
 							</table>
 							<table width="100%" style="margin-top: 5px;">
 								<tr>
@@ -178,7 +185,9 @@
 										value="新 增" onclick="add();"> <input name="label"
 										type="button" class="button1" value="编 辑" onclick="edit();">
 										<input name="label" type="button" class="button1" value="删 除"
-										onclick="del();"></td>
+										onclick="del();"><input name="label" type="button"
+										class="button2" value="从日记账中选择"
+										onclick="listFinanceForAssetsItem();"> </td>
 									<td align="right">
 										<div>
 											共有记录&nbsp;
@@ -207,6 +216,7 @@
 					</tr>
 				</table>
 			</html:form>
+			
 		</div>
 	</div>
 </body>
