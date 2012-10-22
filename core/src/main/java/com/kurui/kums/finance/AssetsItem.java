@@ -12,6 +12,7 @@ public class AssetsItem extends _AssetsItem {
 	private static final long serialVersionUID = 1L;
 
 	private long agentId = Long.valueOf(0);
+	private String financeOrderIdGroup="";
 
 	public static final long TYPE_1 = 1;// 默认
 
@@ -89,5 +90,15 @@ public class AssetsItem extends _AssetsItem {
 	public void setAgentId(long agentId) {
 		this.agentId = agentId;
 	}
+
+	public String getFinanceOrderIdGroup() {
+		return financeOrderIdGroup;
+	}
+
+	public void setFinanceOrderIdGroup(String financeOrderIdGroup) {
+		this.financeOrderIdGroup = financeOrderIdGroup;
+	}
+	
+	
 
 }

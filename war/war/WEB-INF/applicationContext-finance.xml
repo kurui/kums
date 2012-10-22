@@ -183,6 +183,9 @@
 		<property name="assetsItemBiz">
 			<ref bean="assetsItemBiz" />
 		</property>
+		<property name="financeOrderBiz">
+			<ref bean="financeOrderBiz"/>
+		</property>
 		<property name="noUtil">
 			<ref bean="noUtil" />
 		</property>

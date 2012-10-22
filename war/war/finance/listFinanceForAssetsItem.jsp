@@ -69,7 +69,9 @@
 			if(values.indexOf(",", values.length-1)>1){				
 				values=values.substring(0,values.length-1);
 			}			
-			opener.addFinanceOrderId(values);
+			
+			openWindow(800,600,'../finance/assetsItem.do?thisAction=insertAsFinance&financeOrderIdGroup='+values);
+			
     		window.close();
 		}   
 </script>

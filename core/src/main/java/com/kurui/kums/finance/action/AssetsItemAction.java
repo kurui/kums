@@ -14,14 +14,74 @@ import com.kurui.kums.base.BaseAction;
 import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.util.KumsNoUtil;
+import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.finance.AssetsItem;
+import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.biz.AssetsItemBiz;
-import com.kurui.kums.transaction.biz.DataTypeBiz;
+import com.kurui.kums.finance.biz.FinanceOrderBiz;
 
 public class AssetsItemAction extends BaseAction {
 	private AssetsItemBiz assetsItemBiz;
+	private FinanceOrderBiz financeOrderBiz;
 	private KumsNoUtil noUtil;
-	private DataTypeBiz dataTypeBiz;
+
+	public ActionForward insertAsFinance(ActionMapping mapping,
+			ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws AppException {
+		AssetsItem assetsItemForm = (AssetsItem) form;
+		Inform inf = new Inform();
+
+		try {
+
+			String financeOrderIdGroup = assetsItemForm
+					.getFinanceOrderIdGroup();
+
+			if (StringUtil.isEmpty(financeOrderIdGroup) == false) {
+				String[] financeOrderIds = StringUtil.getSplitString(
+						financeOrderIdGroup, ",");
+				if (financeOrderIds != null && financeOrderIds.length > 0) {
+					for (int i = 0; i < financeOrderIds.length; i++) {
+						long financeOrderId = Long
+								.parseLong(financeOrderIds[i]);
+						FinanceOrder financeOrder = financeOrderBiz
+								.getFinanceOrderById(financeOrderId);
+
+						if (financeOrder != null) {
+							AssetsItem assetsItem = new AssetsItem();
+							assetsItem.setName(financeOrder.getMemo());
+							assetsItem.setItemNo(noUtil.getAssetsItemNo());
+							assetsItem.setItemType(null);
+							assetsItem.setItemCount(Long.valueOf(1));
+							assetsItem.setValuation(financeOrder
+									.getTotalAmount());
+							assetsItem.setAreaCode("珠海");
+							assetsItem.setMemo(financeOrder.getTranTypeText()
+									+ "," + financeOrder.getMemo());
+
+							assetsItem.setType(AssetsItem.TYPE_1);
+							assetsItem.setStatus(AssetsItem.STATES_1);
+							assetsItem.setUpdateTime(new Timestamp(System
+									.currentTimeMillis()));
+							assetsItem.setLastDeprecTime(assetsItem
+									.getUpdateTime());
+							assetsItemBiz.save(assetsItem);
+						}
+
+					}
+				}
+
+			}
+
+			inf.setMessage("转存资产项目成功");
+			inf.setForwardPage("/finance/assetsItemList.do");
+			inf.setClose(true);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			inf.setMessage("增加资产项目：" + e.getMessage());
+		}
+		return forwardInformPage(inf, mapping, request);
+	}
 
 	public ActionForward insert(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -81,8 +141,9 @@ public class AssetsItemAction extends BaseAction {
 				assetsItem.setType(AssetsItem.TYPE_1);
 				assetsItem.setStatus(AssetsItem.STATES_1);
 				assetsItem.setStatus(assetsItemForm.getStatus());
-				assetsItem.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-				
+				assetsItem.setUpdateTime(new Timestamp(System
+						.currentTimeMillis()));
+
 				long flag = assetsItemBiz.update(assetsItem);
 
 				if (flag > 0) {
@@ -112,15 +173,13 @@ public class AssetsItemAction extends BaseAction {
 	public void setAssetsItemBiz(AssetsItemBiz assetsItemBiz) {
 		this.assetsItemBiz = assetsItemBiz;
 	}
-	
+
 	public void setNoUtil(KumsNoUtil noUtil) {
 		this.noUtil = noUtil;
 	}
 
-	public void setDataTypeBiz(DataTypeBiz dataTypeBiz) {
-		this.dataTypeBiz = dataTypeBiz;
+	public void setFinanceOrderBiz(FinanceOrderBiz financeOrderBiz) {
+		this.financeOrderBiz = financeOrderBiz;
 	}
-	
-	
 
 }
