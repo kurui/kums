@@ -18,7 +18,11 @@ public class AssetsItemDAOImp extends BaseDAOSupport implements AssetsItemDAO {
 		Hql hql = new Hql();
 		hql.add("from AssetsItem a where 1=1");
 		if (StringUtil.isEmpty(vehicleListForm.getItemType())==false) {
-			hql.add(" and a.itemType=" + vehicleListForm.getItemType());
+			if("NONE".equals(vehicleListForm.getItemType().trim())){
+				hql.add(" and a.itemType=null ");
+			}else{
+				hql.add(" and a.itemType=" + vehicleListForm.getItemType());
+			}			
 		}
 		
 		if (StringUtil.isEmpty(vehicleListForm.getContactWay())==false) {

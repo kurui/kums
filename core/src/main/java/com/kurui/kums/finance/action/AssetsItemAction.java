@@ -48,6 +48,7 @@ public class AssetsItemAction extends BaseAction {
 
 						if (financeOrder != null) {
 							AssetsItem assetsItem = new AssetsItem();
+							assetsItem.setFinanceOrderId(financeOrderId);
 							assetsItem.setName(financeOrder.getMemo());
 							assetsItem.setItemNo(noUtil.getAssetsItemNo());
 							assetsItem.setItemType(null);
@@ -74,6 +75,8 @@ public class AssetsItemAction extends BaseAction {
 
 			inf.setMessage("转存资产项目成功");
 			inf.setForwardPage("/finance/assetsItemList.do");
+			inf.setParamId("thisAction");
+			inf.setParamValue("list");
 			inf.setClose(true);
 
 		} catch (Exception e) {

@@ -476,7 +476,7 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 
 		hql.add(" and f.status not in(" + FinanceOrder.STATUS_88 + " ) ");
 		
-		hql.add(" order by f.tranType ");
+		hql.add(" order by f.totalAmount,f.tranType desc");
 		
 	
 		return this.list(hql, ulf);

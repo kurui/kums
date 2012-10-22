@@ -91,6 +91,7 @@
 										<td><html:select property="itemType" value="${itemType}"
 												styleClass="colorblue2 p_5" style="width:80px;">
 												<html:option value="">-资产项目-</html:option>
+												<html:option value="NONE">-未定义-</html:option>
 												<c:forEach items="${itemTypeList}" var="itemType">
 													<html:option value="${itemType.no}">
 														<c:out value="${itemType.name}" />
