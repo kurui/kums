@@ -107,6 +107,33 @@ function checkItem(e, allName) {
 		all.checked = true;
 	}
 }
+
+
+function getSelectedItemIds(selectedItems){
+	var values="";			
+	//var selectedItems=document.forms[0].selectedItems;
+	var chklength=selectedItems.length;
+	
+	if(chklength>1){				
+		for(var i=0;i<chklength;i++){
+			var chk=document.forms[0].selectedItems[i];
+			if(chk.checked){
+				values += chk.value+",";
+			}				
+		}	
+	}else{
+		if(selectedItems!=null){
+			values=selectedItems.value;
+		}					
+	}
+			
+	if(values.indexOf(",", values.length-1)>1){				
+		values=values.substring(0,values.length-1);
+	}	
+	
+	return values;
+}
+
 function showElement(ulId) {
 	var selectedUL = document.getElementById(ulId);
 	if (selectedUL.style.display == "") {

@@ -14,6 +14,7 @@
 <script type="text/javascript" language="javascript"
 	src="../_js/jquery-1.3.2.min.js"></script>
 <script src="../_js/prototype/common.js" type="text/javascript"></script>
+<script src="../_js/base/FormUtil.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	function add(){
@@ -52,9 +53,19 @@
 		
 	function addFinanceOrderId(financeOrderId){	
 			alert("financeOrderId:"+financeOrderId);		
-			//document.forms[0].financeOrderId.value=financeOrderId;	
+			//document.forms[0].financeOrderId.value=financeOrderId;
 			
 		}	
+		
+	function batchReset(){
+		var selectedItems=document.forms[0].selectedItems;
+		var selectedItemIds=getSelectedItemIds(selectedItems);
+		if(selectedItemIds==null&selectedItemIds==""){
+			alert("请选择明细");
+		}else{
+			openWindow(800,600,'../finance/assetsItemList.do?thisAction=batchReset&assetsItemIdGroup='+selectedItemIds);
+		}
+	}
 	</script>
 </head>
 <body>
@@ -88,7 +99,7 @@
 										<td><html:text property="contactWay"
 												styleClass="colorblue2 p_5" style="width:150px;"></html:text>
 										</td>
-										<td><html:select property="itemType" value="${itemType}"
+										<td><html:select property="itemType" 
 												styleClass="colorblue2 p_5" style="width:80px;">
 												<html:option value="">-资产项目-</html:option>
 												<html:option value="NONE">-未定义-</html:option>
@@ -98,6 +109,13 @@
 													</html:option>
 												</c:forEach>
 											</html:select></td>
+											<td>
+												状态:
+												<html:select property="status" styleClass="colorblue2 p_5" style="width:80px;">
+													<html:option value="1">有效</html:option>
+													<html:option value="0">无效</html:option>
+												</html:select>
+											</td>
 
 										<td><input type="submit" name="button" id="button"
 											value="提交" class="submit greenBtn" /></td>
@@ -109,8 +127,11 @@
 							<table width="100%" cellpadding="0" cellspacing="0" border="0"
 								class="dataList">
 								<tr>
-									<th width="60">
-										<div>&nbsp;请选择</div>
+									<th>
+										<div
+											style="height: 100%; width: 100%; vertical-align: center; padding-top: 7px;">
+											<input type="checkbox"
+												onclick="checkAll(this, 'selectedItems')" name="sele" />									</div>
 									</th>
 									<th width="35">
 										<div>&nbsp;序号</div>
@@ -147,7 +168,7 @@
 									varStatus="status">
 									<tr>
 										<td><html:multibox property="selectedItems"
-												value="${assetsItem.id}"></html:multibox></td>
+												value="${assetsItem.id}" onclick="checkItem(this, 'sele')"></html:multibox></td>
 										<td><c:out
 												value="${status.count+(assetsItemListForm.intPage-1)*assetsItemListForm.perPageNum}" />
 										</td>
@@ -186,9 +207,11 @@
 										value="新 增" onclick="add();"> <input name="label"
 										type="button" class="button1" value="编 辑" onclick="edit();">
 										<input name="label" type="button" class="button1" value="删 除"
-										onclick="del();"><input name="label" type="button"
-										class="button2" value="从日记账中选择"
-										onclick="listFinanceForAssetsItem();"> </td>
+										onclick="del();"> <input name="label" type="button"
+										class="button3" value="从日记账中选择"
+										onclick="listFinanceForAssetsItem();"> <input name="label" type="button"
+										class="button1" value="批量设置"
+										onclick="batchReset();"></td>
 									<td align="right">
 										<div>
 											共有记录&nbsp;

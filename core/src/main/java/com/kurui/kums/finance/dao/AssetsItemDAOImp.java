@@ -14,31 +14,33 @@ import com.kurui.kums.finance.AssetsItemListForm;
 
 public class AssetsItemDAOImp extends BaseDAOSupport implements AssetsItemDAO {
 
-	public List list(AssetsItemListForm vehicleListForm) throws AppException {
+	public List list(AssetsItemListForm assetsItemListForm) throws AppException {
 		Hql hql = new Hql();
 		hql.add("from AssetsItem a where 1=1");
-		if (StringUtil.isEmpty(vehicleListForm.getItemType())==false) {
-			if("NONE".equals(vehicleListForm.getItemType().trim())){
+		if (StringUtil.isEmpty(assetsItemListForm.getItemType())==false) {
+			if("NONE".equals(assetsItemListForm.getItemType().trim())){
 				hql.add(" and a.itemType=null ");
 			}else{
-				hql.add(" and a.itemType=" + vehicleListForm.getItemType());
+				hql.add(" and a.itemType=" + assetsItemListForm.getItemType());
 			}			
 		}
 		
-		if (StringUtil.isEmpty(vehicleListForm.getContactWay())==false) {
+		if (StringUtil.isEmpty(assetsItemListForm.getContactWay())==false) {
 			hql.add(" and ( ");
-			hql.add(" a.name like'%" + vehicleListForm.getContactWay()+"%' ");
-			hql.add(" or a.memo like'%" + vehicleListForm.getContactWay()+"%' ");
+			hql.add(" a.name like'%" + assetsItemListForm.getContactWay()+"%' ");
+			hql.add(" or a.memo like'%" + assetsItemListForm.getContactWay()+"%' ");
 			
 			hql.add(" ) "); 
 		}
 		
+		hql.add("and a.status="+assetsItemListForm.getStatus());
+		
 		hql.add(" order by a.itemType ");
 
-		return this.list(hql, vehicleListForm);
+		return this.list(hql, assetsItemListForm);
 	}
 	
-	public List listSTA(AssetsItemListForm vehicleListForm) throws AppException {
+	public List listSTA(AssetsItemListForm assetsItemListForm) throws AppException {
 		Hql hql = new Hql();
 		
 		

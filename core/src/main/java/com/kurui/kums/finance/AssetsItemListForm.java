@@ -15,6 +15,7 @@ public class AssetsItemListForm extends ListActionForm {
 	
 	
 	public String itemType="";
+	public String assetsItemIdGroup="";
 	
 	public String contactWay = "";
 	
@@ -27,6 +28,14 @@ public class AssetsItemListForm extends ListActionForm {
 	}
 	
 	
+
+	public String getAssetsItemIdGroup() {
+		return assetsItemIdGroup;
+	}
+
+	public void setAssetsItemIdGroup(String assetsItemIdGroup) {
+		this.assetsItemIdGroup = assetsItemIdGroup;
+	}
 
 	public String getItemType() {
 		return itemType;

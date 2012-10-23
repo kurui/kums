@@ -16,7 +16,6 @@ import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.AssetsItem;
 import com.kurui.kums.finance.AssetsItemListForm;
-import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.biz.AssetsItemBiz;
 import com.kurui.kums.transaction.DataType;
 import com.kurui.kums.transaction.biz.DataTypeBiz;
@@ -75,6 +74,26 @@ public class AssetsItemListAction extends BaseAction {
 		return mapping.findForward("listAssetsItemSTA");
 	}
 	
+	public ActionForward batchReset(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		AssetsItemListForm alf = (AssetsItemListForm) form;
+		AssetsItem assetsItem = new AssetsItem();
+//		assetsItem.setItemCount(Long.valueOf(1));
+		assetsItem.setValuation(BigDecimal.ZERO);
+		assetsItem.setAreaCode("珠海");
+		assetsItem.setAssetsItemIdGroup(alf.getAssetsItemIdGroup());
+
+		assetsItem.setThisAction("editBatchReset");
+		request.setAttribute("assetsItem", assetsItem);
+		
+		List<DataType> itemTypeList=dataTypeBiz.getSubDataTypeList("55");//资产项目
+		request.setAttribute("itemTypeList", itemTypeList);
+
+		String forwardPage = "editAssetsItemBatchReset";
+		return mapping.findForward(forwardPage);
+	}
+	
 	
 
 	public ActionForward view(ActionMapping mapping, ActionForm form,
@@ -114,6 +133,8 @@ public class AssetsItemListAction extends BaseAction {
 		String forwardPage = "editAssetsItem";
 		return mapping.findForward(forwardPage);
 	}
+	
+	
 
 	public ActionForward edit(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)

@@ -24,6 +24,57 @@ public class AssetsItemAction extends BaseAction {
 	private AssetsItemBiz assetsItemBiz;
 	private FinanceOrderBiz financeOrderBiz;
 	private KumsNoUtil noUtil;
+	
+	public ActionForward editBatchReset(ActionMapping mapping,
+			ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws AppException {
+		AssetsItem assetsItemForm = (AssetsItem) form;
+		Inform inf = new Inform();
+
+		try {
+			String assetsItemIdGroup = assetsItemForm.getAssetsItemIdGroup();
+
+			if (StringUtil.isEmpty(assetsItemIdGroup) == false) {
+				String[] assetsItemIds = StringUtil.getSplitString(
+						assetsItemIdGroup, ",");
+				
+				if (assetsItemIds != null && assetsItemIds.length > 0) {
+					for (int i = 0; i < assetsItemIds.length; i++) {
+						long assetsItemId = Long.parseLong(assetsItemIds[i]);
+						AssetsItem assetsItem=assetsItemBiz.getAssetsItemById(assetsItemId);
+
+						if (assetsItem != null) {
+							assetsItem.setItemType(assetsItemForm.getItemType());
+							assetsItem.setAreaCode(assetsItemForm.getAreaCode());
+							assetsItem.setMemo(assetsItem.getMemo()+assetsItemForm.getMemo());//追加Memo
+
+							assetsItem.setType(assetsItemForm.getType());
+							assetsItem.setStatus(assetsItemForm.getStatus());
+							assetsItem.setUpdateTime(new Timestamp(System
+									.currentTimeMillis()));
+							assetsItemBiz.update(assetsItem);
+						}
+
+					}
+				}
+
+			}
+
+			inf.setMessage("设置资产项目成功");
+			inf.setForwardPage("/finance/assetsItemList.do");
+			inf.setParamId("thisAction");
+			inf.setParamValue("list");
+			inf.setParamId("status");
+			inf.setParamValue(AssetsItem.STATES_1+"");
+			inf.setClose(true);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			inf.setMessage("增加资产项目：" + e.getMessage());
+		}
+		return forwardInformPage(inf, mapping, request);
+	}
+
 
 	public ActionForward insertAsFinance(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,

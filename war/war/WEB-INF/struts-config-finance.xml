@@ -199,6 +199,9 @@
 			<forward name="editAssetsItem"
 				path="/finance/editAssetsItem.jsp">
 			</forward>
+			<forward name="editAssetsItemBatchReset"
+				path="/finance/editAssetsItemBatchReset.jsp">
+			</forward>
 			<forward name="viewAssetsItem"
 				path="/finance/viewAssetsItem.jsp">
 			</forward>

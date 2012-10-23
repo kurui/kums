@@ -13,6 +13,8 @@ public class AssetsItem extends _AssetsItem {
 
 	private long agentId = Long.valueOf(0);
 	private String financeOrderIdGroup="";
+	private String assetsItemIdGroup="";
+
 
 	public static final long TYPE_1 = 1;// 默认
 
@@ -100,5 +102,12 @@ public class AssetsItem extends _AssetsItem {
 	}
 	
 	
+	public String getAssetsItemIdGroup() {
+		return assetsItemIdGroup;
+	}
+
+	public void setAssetsItemIdGroup(String assetsItemIdGroup) {
+		this.assetsItemIdGroup = assetsItemIdGroup;
+	}
 
 }
