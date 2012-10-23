@@ -1,12 +1,8 @@
 package com.kurui.kums.agent;
 
-import java.util.Date;
+import com.kurui.kums.agent._entity._AgentContact;
 
-import com.kurui.kums.agent._entity._AgentEvent;
-import com.kurui.kums.base.util.DateUtil;
-import com.kurui.kums.right.UserStore;
-
-public class AgentEvent extends _AgentEvent {
+public class AgentContact extends _AgentContact {
 
 	private static final long serialVersionUID = 1L;
 
@@ -46,23 +42,7 @@ public class AgentEvent extends _AgentEvent {
 		}
 	}
 	
-	public String getUserName() {
-		if (userNo != null && "".equals(userNo.trim()) == false) {
-			return UserStore.getUserNameByNo(userNo);
-		} else {
-			return "";
-		}
-	}
 	
-	public String getUpdateDate() {
-		String mydate = "";
-		if (this.updateTime != null && "".equals(updateTime) == false) {
-			Date tempDate = new Date(updateTime.getTime());
-			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
-		}
-		return mydate;
-	}
-
 	public long getAgentId() {
 		return agentId;
 	}

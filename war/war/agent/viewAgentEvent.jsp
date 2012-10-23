@@ -15,7 +15,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/agent/agentAcountList.do">
+				<html:form action="/agent/agentEventList.do">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td width="10" height="10" class="tblt"></td>

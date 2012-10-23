@@ -3,11 +3,11 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2011-9-24 12:56:35 by Hibernate Tools 3.2.2.GA -->
 <hibernate-mapping>
-	<class name="com.kurui.kums.agent.AgentAction"
-		table="AGENT_ACTION">
+	<class name="com.kurui.kums.agent.AgentEvent"
+		table="AGENT_EVENT">
 		<id name="id" type="long" column="id">
 			<generator class="sequence">
-				<param name="sequence">seq_agentaction</param>
+				<param name="sequence">seq_agentevent</param>
 			</generator>
 		</id>
 		<property name="content" type="string">

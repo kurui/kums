@@ -178,17 +178,17 @@
 		</property>
 	</bean>
 
-	<bean name="/agent/agentActionList" class="com.kurui.kums.agent.action.AgentActionListAction" singleton="false" lazy-init="default"
+	<bean name="/agent/agentEventList" class="com.kurui.kums.agent.action.AgentEventListAction" singleton="false" lazy-init="default"
 		autowire="default" dependency-check="default">
-		<property name="agentActionBiz">
-			<ref bean="agentActionBiz" />
+		<property name="agentEventBiz">
+			<ref bean="agentEventBiz" />
 		</property>
 	</bean>
 
-	<bean name="/agent/agentAction" class="com.kurui.kums.agent.action.AgentActionAction" singleton="false" lazy-init="default" autowire="default"
+	<bean name="/agent/agentEvent" class="com.kurui.kums.agent.action.AgentEventAction" singleton="false" lazy-init="default" autowire="default"
 		dependency-check="default">
-		<property name="agentActionBiz">
-			<ref bean="agentActionBiz" />
+		<property name="agentEventBiz">
+			<ref bean="agentEventBiz" />
 		</property>
 		<property name="agentBiz">
 			<ref bean="agentBiz" />
@@ -268,13 +268,13 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 
-	<bean name="agentActionBiz" class="com.kurui.kums.agent.biz.AgentActionBizImp" singleton="false" lazy-init="default" autowire="default"
+	<bean name="agentEventBiz" class="com.kurui.kums.agent.biz.AgentEventBizImp" singleton="false" lazy-init="default" autowire="default"
 		dependency-check="default">
-		<property name="agentActionDAO">
-			<ref bean="agentActionDAO" />
+		<property name="agentEventDAO">
+			<ref bean="agentEventDAO" />
 		</property>
 	</bean>
-	<bean id="agentActionDAO" class="com.kurui.kums.agent.dao.AgentActionDAOImp" lazy-init="default" autowire="default" dependency-check="default">
+	<bean id="agentEventDAO" class="com.kurui.kums.agent.dao.AgentEventDAOImp" lazy-init="default" autowire="default" dependency-check="default">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 

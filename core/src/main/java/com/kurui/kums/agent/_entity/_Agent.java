@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.kurui.kums.agent.AgentContact;
+import com.kurui.kums.agent.AgentEvent;
+import com.kurui.kums.agent.AgentResume;
 import com.kurui.kums.agent.ShareHolder;
 
 /**
@@ -65,21 +68,22 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 
 	protected java.util.Set financeOrders = new java.util.HashSet(0);
 	protected java.util.Set agentAccounts = new java.util.HashSet(0);
-	protected java.util.Set agentActions = new java.util.HashSet(0);
 	protected java.util.Set vehicles = new java.util.HashSet(0);
 	protected java.util.Set rootAgents = new java.util.HashSet(0);
 	protected java.util.Set relateAgents = new java.util.HashSet(0);
-	protected Set crossAgents = new HashSet(0);
-	protected Set agentCoteries = new HashSet(0);
-	protected Set<ShareHolder> shareHolders = new HashSet<ShareHolder>(0);
+	protected java.util.Set crossAgents = new HashSet(0);
+	protected java.util.Set agentCoteries = new HashSet(0);
+	protected java.util.Set shareHolders = new HashSet<ShareHolder>(0);
+	protected java.util.Set agentContacts = new HashSet<AgentContact>(0);
+	protected java.util.Set agentEvents = new HashSet<AgentEvent>(0);
+	protected java.util.Set agentResumes = new HashSet<AgentResume>(0);
 
 	// Constructors
 
 	// Property accessors
+	
+	
 
-	public java.util.Set getAgentActions() {
-		return agentActions;
-	}
 
 	public java.util.Set getRootAgents() {
 		return rootAgents;
@@ -459,9 +463,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.creditAmount = creditAmount;
 	}
 
-	public void setAgentActions(java.util.Set agentActions) {
-		this.agentActions = agentActions;
-	}
 
 	public void setRootAgents(java.util.Set rootAgents) {
 		this.rootAgents = rootAgents;
@@ -482,6 +483,40 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	public void setCrossAgents(Set crossAgents) {
 		this.crossAgents = crossAgents;
 	}
+	
+	
+
+	public java.util.Set getAgentContacts() {
+		return agentContacts;
+	}
+
+	public void setAgentContacts(java.util.Set agentContacts) {
+		this.agentContacts = agentContacts;
+	}
+
+	public java.util.Set getAgentEvents() {
+		return agentEvents;
+	}
+
+	public void setAgentEvents(java.util.Set agentEvents) {
+		this.agentEvents = agentEvents;
+	}
+
+	public java.util.Set getAgentResumes() {
+		return agentResumes;
+	}
+
+	public void setAgentResumes(java.util.Set agentResumes) {
+		this.agentResumes = agentResumes;
+	}
+	
+	public Set<ShareHolder> getShareHolders() {
+		return shareHolders;
+	}
+
+	public void setShareHolders(java.util.Set shareHolders) {
+		this.shareHolders = shareHolders;
+	}
 
 	public String getCardNo() {
 		return cardNo;
@@ -499,13 +534,8 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.agentCoteries = agentCoteries;
 	}
 
-	public Set<ShareHolder> getShareHolders() {
-		return shareHolders;
-	}
 
-	public void setShareHolders(Set<ShareHolder> shareHolders) {
-		this.shareHolders = shareHolders;
-	}
+
 
 	public java.util.Set getVehicles() {
 		return vehicles;
