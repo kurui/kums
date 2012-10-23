@@ -15,16 +15,16 @@
 	<script type="text/javascript">	
 		function add(){	
 			var thisAction =document.forms[0].thisAction.value;			   
-		    document.forms[0].action="<%=path%>/agent/agentAction.do?thisAction="+thisAction;
+		    document.forms[0].action="<%=path%>/agent/agentEvent.do?thisAction="+thisAction;
 		    document.forms[0].submit();
 		}
 	</script>
 	<body>
 		<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
 			<c:param name="title1" value="客户管理" />
-			<c:param name="title2" value="编辑客户行为" />
+			<c:param name="title2" value="编辑客户事件" />
 		</c:import>
-		<html:form action="/agent/agentAction.do" method="post">
+		<html:form action="/agent/agentEvent.do" method="post">
 			<div id="mainContainer">
 				<div id="container">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -44,11 +44,11 @@
 											客户
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.agent.agentNo}"></c:out>
+											<c:out value="${agentEvent.agent.agentNo}"></c:out>
 											|
-											<c:out value="${agentAction.agent.name}"></c:out>
+											<c:out value="${agentEvent.agent.name}"></c:out>
 											<html:hidden property="agentId"
-												value="${agentAction.agent.id}" name="agentAction" />
+												value="${agentEvent.agent.id}" name="agentEvent" />
 										</td>
 									</tr>
 									<tr>
@@ -56,8 +56,8 @@
 											内容
 										</td>
 										<td style="text-align: left">
-											<html:text property="content" name="agentAction"
-												value="${agentAction.content}" styleClass="colorblue2 p_5"
+											<html:text property="content" name="agentEvent"
+												value="${agentEvent.content}" styleClass="colorblue2 p_5"
 												style="width:200px;"></html:text>
 										</td>
 									</tr>
@@ -66,8 +66,8 @@
 											类型
 										</td>
 										<td style="text-align: left">
-											<html:select property="type" value="${agentAction.type}"
-												name="agentAction" styleClass="colorblue2 p_5"
+											<html:select property="type" value="${agentEvent.type}"
+												name="agentEvent" styleClass="colorblue2 p_5"
 												style="width:100px;">
 												<html:option value="0">-请选择-</html:option>
 												<html:option value="1">test1</html:option>
@@ -80,8 +80,8 @@
 											处理时间
 										</td>
 										<td style="text-align: left">
-											<html:text property="updateDate" name="agentAction"
-												value="${agentAction.updateDate}"
+											<html:text property="updateDate" name="agentEvent"
+												value="${agentEvent.updateDate}"
 												styleClass="colorblue2 p_5" style="width:200px;"></html:text>
 										</td>
 									</tr>
@@ -91,7 +91,7 @@
 										</td>
 										<td style="text-align: left">
 											<html:select property="accountStatus"
-												value="${agentAction.status}" name="agentAction"
+												value="${agentEvent.status}" name="agentEvent"
 												styleClass="colorblue2 p_5" style="width:50px;">
 												<html:option value="1">有效</html:option>
 												<html:option value="0">无效</html:option>
@@ -102,7 +102,7 @@
 								<table width="100%" style="margin-top: 5px;">
 									<tr>
 										<td>
-											<html:hidden property="thisAction" name="agentAction" />
+											<html:hidden property="thisAction" name="agentEvent" />
 											
 											<input name="label" type="button" class="button1" value="返 回"
 												onclick="window.history.back();">

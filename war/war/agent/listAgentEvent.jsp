@@ -47,7 +47,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/agent/agentActionList.do">
+				<html:form action="/agent/agentEventList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -63,7 +63,7 @@
 							<td valign="top" class="body">
 								<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
 									<c:param name="title1" value="客户管理" />
-									<c:param name="title2" value="客户行为列表" />
+									<c:param name="title2" value="客户事件列表" />
 								</c:import>
 								<div class="searchBar">
 									<table cellpadding="0" cellspacing="0" border="0" class="searchPanel">
@@ -137,37 +137,37 @@
 											</div>
 										</th>
 									</tr>
-									<c:forEach var="agentAction" items="${agentActionListForm.list}" varStatus="status">
+									<c:forEach var="agentEvent" items="${agentEventListForm.list}" varStatus="status">
 										<tr>
 											<td>
-												<html:multibox property="selectedItems" value="${agentAction.id}"></html:multibox>
+												<html:multibox property="selectedItems" value="${agentEvent.id}"></html:multibox>
 											</td>
 											<td>
-												<c:out value="${status.count+(agentActionListForm.intPage-1)*agentActionListForm.perPageNum}" />
+												<c:out value="${status.count+(agentEventListForm.intPage-1)*agentEventListForm.perPageNum}" />
 											</td>
 											<td>
-												<c:out value="${agentAction.agent.agentNo}" />
+												<c:out value="${agentEvent.agent.agentNo}" />
 												|
-												<c:out value="${agentAction.agent.name}" />
+												<c:out value="${agentEvent.agent.name}" />
 											</td>
 											<td>
-												<c:out value="${agentAction.typeInfo}" />
+												<c:out value="${agentEvent.typeInfo}" />
 											</td>
 											<td>
-												<c:out value="${agentAction.content}" />
+												<c:out value="${agentEvent.content}" />
 
 											</td>
 											<td>
-												<c:out value="${agentAction.userName}" />
+												<c:out value="${agentEvent.userName}" />
 											</td>
 											<td>
-												<c:out value="${agentAction.updateDate}" />
+												<c:out value="${agentEvent.updateDate}" />
 											</td>
 											<td>
-												<c:out value="${agentAction.statusInfo}" />
+												<c:out value="${agentEvent.statusInfo}" />
 											</td>
 											<td>
-												<a href="<%=path%>/agent/agentActionList.do?thisAction=view&id=<c:out value="${agentAction.id}" />"> 查看</a>
+												<a href="<%=path%>/agent/agentEventList.do?thisAction=view&id=<c:out value="${agentEvent.id}" />"> 查看</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -180,15 +180,15 @@
 										<td align="right">
 											<div>
 												共有记录&nbsp;
-												<c:out value="${agentActionListForm.totalRowCount}"></c:out>
+												<c:out value="${agentEventListForm.totalRowCount}"></c:out>
 												&nbsp;条&nbsp;&nbsp;&nbsp;&nbsp; [
 												<a href="JavaScript:turnToPage(document.forms[0],0)">首页</a> |
 												<a href="JavaScript:turnToPage(document.forms[0],1)">上一页</a> |
 												<a href="JavaScript:turnToPage(document.forms[0],2)">下一页</a> |
 												<a href="JavaScript:turnToPage(document.forms[0],3)"> 末页</a>] 页数:
-												<c:out value="${agentActionListForm.intPage}" />
+												<c:out value="${agentEventListForm.intPage}" />
 												/
-												<c:out value="${agentActionListForm.pageCount}" />
+												<c:out value="${agentEventListForm.pageCount}" />
 												]
 											</div>
 										</td>

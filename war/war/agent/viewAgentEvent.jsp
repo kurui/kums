@@ -27,19 +27,19 @@
 							<td valign="top" class="body">
 								<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
 									<c:param name="title1" value="客户管理" />
-									<c:param name="title2" value="查看客户行为" />
+									<c:param name="title2" value="查看客户事件" />
 								</c:import>
 								<hr>
 								<table width="100%" cellpadding="0" cellspacing="0" border="0"
 									class="dataList">
 									<tr>
 										<td class="lef">
-											<c:out value="${agentAction.agent.agentNo}" />
+											<c:out value="${agentEvent.agent.agentNo}" />
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.agent.name}" />
+											<c:out value="${agentEvent.agent.name}" />
 											|
-											<c:out value="${agentAction.agent.typeInfo}" />
+											<c:out value="${agentEvent.agent.typeInfo}" />
 										</td>
 									</tr>
 									<tr>
@@ -47,7 +47,7 @@
 											类型
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.typeInfo}" />
+											<c:out value="${agentEvent.typeInfo}" />
 										</td>
 									</tr>
 									<tr>
@@ -55,7 +55,7 @@
 											内容
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.content}" />
+											<c:out value="${agentEvent.content}" />
 										</td>
 									</tr>
 									<tr>
@@ -63,7 +63,7 @@
 											处理人
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.userName}" />
+											<c:out value="${agentEvent.userName}" />
 										</td>
 									</tr>
 									<tr>
@@ -71,7 +71,7 @@
 											处理时间
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.updateDate}" />
+											<c:out value="${agentEvent.updateDate}" />
 										</td>
 									</tr>
 									<tr>
@@ -79,7 +79,7 @@
 											状态
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentAction.statusInfo}" />
+											<c:out value="${agentEvent.statusInfo}" />
 										</td>
 									</tr>
 								</table>
@@ -89,7 +89,7 @@
 											<input name="label" type="button" class="button1" value="返 回"
 												onclick="window.history.back();">
 											<input name="label" type="button" class="button1" value="编 辑"
-												onclick="edit(<c:out value='${agentAction.id}' />);">
+												onclick="edit(<c:out value='${agentEvent.id}' />);">
 											
 										</td>
 									</tr>
@@ -109,7 +109,7 @@
 		</div>
 		<script type="text/javascript">
 		function edit(id){
-   			 var url="../agent/agentActionList.do?thisAction=edit&id="+id;
+   			 var url="../agent/agentEventList.do?thisAction=edit&id="+id;
     		 window.location.href=url;
  		}
 		</script>

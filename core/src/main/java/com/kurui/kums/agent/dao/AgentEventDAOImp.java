@@ -2,20 +2,22 @@ package com.kurui.kums.agent.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.Query;
-import com.kurui.kums.agent.AgentAction;
-import com.kurui.kums.agent.AgentActionListForm;
+
+import com.kurui.kums.agent.AgentEvent;
+import com.kurui.kums.agent.AgentEventListForm;
+import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.database.BaseDAOSupport;
 import com.kurui.kums.base.database.Hql;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.Constant;
 
-public class AgentActionDAOImp extends BaseDAOSupport implements AgentActionDAO {
+public class AgentEventDAOImp extends BaseDAOSupport implements AgentEventDAO {
 
-	public List list(AgentActionListForm agentActionListForm)
+	public List list(AgentEventListForm agentActionListForm)
 			throws AppException {
 		Hql hql = new Hql();
-		hql.add("from AgentAction a where 1=1");
+		hql.add("from AgentEvent a where 1=1");
 		if (Constant.toLong(agentActionListForm.getAgentId()) > 0) {
 			hql.add(" and a.agent.id=" + agentActionListForm.getAgentId());
 		}
@@ -38,18 +40,18 @@ public class AgentActionDAOImp extends BaseDAOSupport implements AgentActionDAO 
 
 	public void delete(long id) throws AppException {
 		if (id > 0) {
-			AgentAction agent = (AgentAction) this.getHibernateTemplate().get(
-					AgentAction.class, new Long(id));
+			AgentEvent agent = (AgentEvent) this.getHibernateTemplate().get(
+					AgentEvent.class, new Long(id));
 			this.getHibernateTemplate().delete(agent);
 		}
 	}
 
-	public long save(AgentAction agent) throws AppException {
+	public long save(AgentEvent agent) throws AppException {
 		this.getHibernateTemplate().save(agent);
 		return agent.getId();
 	}
 
-	public long update(AgentAction agent) throws AppException {
+	public long update(AgentEvent agent) throws AppException {
 		if (agent.getId() > 0) {
 			this.getHibernateTemplate().update(agent);
 			return agent.getId();
@@ -57,33 +59,33 @@ public class AgentActionDAOImp extends BaseDAOSupport implements AgentActionDAO 
 			throw new IllegalArgumentException("id isn't a valid argument.");
 	}
 
-	public AgentAction getAgentActionById(long id) throws AppException {
+	public AgentEvent getAgentEventById(long id) throws AppException {
 		Hql hql = new Hql();
-		hql.add("from AgentAction a where a.id=" + id);
+		hql.add("from AgentEvent a where a.id=" + id);
 		Query query = this.getQuery(hql);
-		AgentAction agent = null;
+		AgentEvent agent = null;
 		if (query != null && query.list() != null && query.list().size() > 0) {
-			agent = (AgentAction) query.list().get(0);
+			agent = (AgentEvent) query.list().get(0);
 		}
 		return agent;
 	}
 
-	public AgentAction getAgentActionByAgentId(long agentId)
+	public AgentEvent getAgentEventByAgentId(long agentId)
 			throws AppException {
 		Hql hql = new Hql();
-		hql.add("from AgentAction a where a.agent.id=" + agentId);
+		hql.add("from AgentEvent a where a.agent.id=" + agentId);
 		Query query = this.getQuery(hql);
-		AgentAction agent = null;
+		AgentEvent agent = null;
 		if (query != null && query.list() != null && query.list().size() > 0) {
-			agent = (AgentAction) query.list().get(0);
+			agent = (AgentEvent) query.list().get(0);
 		}
 		return agent;
 	}
 
-	public List<AgentAction> getAgentActionList() throws AppException {
-		List<AgentAction> list = new ArrayList<AgentAction>();
+	public List<AgentEvent> getAgentEventList() throws AppException {
+		List<AgentEvent> list = new ArrayList<AgentEvent>();
 		Hql hql = new Hql();
-		hql.add("from AgentAction");
+		hql.add("from AgentEvent");
 		Query query = this.getQuery(hql);
 		if (query != null) {
 			list = query.list();
@@ -94,10 +96,10 @@ public class AgentActionDAOImp extends BaseDAOSupport implements AgentActionDAO 
 		return list;
 	}
 
-	public List<AgentAction> getAgentActionList(Long type) throws AppException {
-		List<AgentAction> list = new ArrayList<AgentAction>();
+	public List<AgentEvent> getAgentEventList(Long type) throws AppException {
+		List<AgentEvent> list = new ArrayList<AgentEvent>();
 		Hql hql = new Hql();
-		hql.add("from AgentAction a where a.type=" + type);
+		hql.add("from AgentEvent a where a.type=" + type);
 		Query query = this.getQuery(hql);
 		if (query != null) {
 			list = query.list();
@@ -108,11 +110,11 @@ public class AgentActionDAOImp extends BaseDAOSupport implements AgentActionDAO 
 		return list;
 	}
 
-	public List<AgentAction> getValidAgentActionList() throws AppException {
-		List<AgentAction> list = new ArrayList<AgentAction>();
+	public List<AgentEvent> getValidAgentEventList() throws AppException {
+		List<AgentEvent> list = new ArrayList<AgentEvent>();
 		Hql hql = new Hql();
-		hql.add("from AgentAction a where 1=1 ");
-		hql.add("and a.status= " + AgentAction.STATES_1);
+		hql.add("from AgentEvent a where 1=1 ");
+		hql.add("and a.status= " + AgentEvent.STATES_1);
 		// hql.add(" order by a.name ");
 		Query query = this.getQuery(hql);
 		if (query != null) {

@@ -2,11 +2,11 @@ package com.kurui.kums.agent;
 
 import java.util.Date;
 
-import com.kurui.kums.agent._entity._AgentAction;
+import com.kurui.kums.agent._entity._AgentEvent;
 import com.kurui.kums.base.util.DateUtil;
 import com.kurui.kums.right.UserStore;
 
-public class AgentAction extends _AgentAction {
+public class AgentEvent extends _AgentEvent {
 
 	private static final long serialVersionUID = 1L;
 

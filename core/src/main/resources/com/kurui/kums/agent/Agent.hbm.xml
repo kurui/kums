@@ -149,13 +149,24 @@
 			<one-to-many class="com.kurui.kums.finance.Commission" />
 		</set>
 
-		<set name="agentActions" inverse="true">
-			<key>
-				<column name="AGENT_ID" precision="22" scale="0" />
-			</key>
-			<one-to-many class="com.kurui.kums.agent.AgentAction" />
-		</set>
-
+		<set name="agentContacts" inverse="true">
+            <key>
+                <column name="AGENT_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.kurui.kums.agent.AgentContact" />
+        </set>
+        <set name="agentEvents" inverse="true">
+            <key>
+                <column name="AGENT_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.kurui.kums.agent.AgentEvent" />
+        </set>
+        <set name="agentResumes" inverse="true">
+            <key>
+                <column name="AGENT_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.kurui.kums.agent.AgentResume" />
+        </set>
 
 		<set name="vehicles" inverse="true">
 			<key>

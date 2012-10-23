@@ -2,23 +2,25 @@ package com.kurui.kums.agent.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionRedirect;
+
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentAccount;
-import com.kurui.kums.agent.AgentAction;
-import com.kurui.kums.agent.biz.AgentActionBiz;
+import com.kurui.kums.agent.AgentEvent;
 import com.kurui.kums.agent.biz.AgentBiz;
+import com.kurui.kums.agent.biz.AgentEventBiz;
 import com.kurui.kums.base.BaseAction;
 import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.right.UserRightInfo;
 
-public class AgentActionAction extends BaseAction {
+public class AgentEventAction extends BaseAction {
 	private AgentBiz agentBiz;
-	private AgentActionBiz agentActionBiz;
+	private AgentEventBiz agentEventBiz;
 
 	public ActionForward insert(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -47,25 +49,25 @@ public class AgentActionAction extends BaseAction {
 	public ActionForward update(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
-		AgentAction agentActionForm = (AgentAction) form;
+		AgentEvent agentEventForm = (AgentEvent) form;
 		Inform inf = new Inform();
 		UserRightInfo uri = (UserRightInfo) request.getSession().getAttribute(
 				"URI");
 		try {
-			if (agentActionForm.getId() > 0) {
-				AgentAction agentAction = agentActionBiz
-						.getAgentActionById(agentActionForm.getId());
+			if (agentEventForm.getId() > 0) {
+				AgentEvent agentEvent = agentEventBiz
+						.getAgentEventById(agentEventForm.getId());
 
-				long flag = agentActionBiz.update(agentAction);
+				long flag = agentEventBiz.update(agentEvent);
 
 				if (flag > 0) {
 					return new ActionRedirect(
-							"/agent/agentActionList.do?thisAction=list");
+							"/agent/agentEventList.do?thisAction=list");
 				} else {
 					inf.setMessage("修改客户数据异常!");
 				}
 			}else {
-				inf.setMessage("缺少agentActionId");
+				inf.setMessage("缺少agentEventId");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,8 +80,8 @@ public class AgentActionAction extends BaseAction {
 		this.agentBiz = agentBiz;
 	}
 
-	public void setAgentActionBiz(AgentActionBiz agentActionBiz) {
-		this.agentActionBiz = agentActionBiz;
+	public void setAgentEventBiz(AgentEventBiz agentEventBiz) {
+		this.agentEventBiz = agentEventBiz;
 	}
 
 }

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 import com.kurui.kums.base.ListActionForm;
 
-public class AgentActionListForm extends ListActionForm {
+public class AgentEventListForm extends ListActionForm {
 
 	/**
 	 * 
