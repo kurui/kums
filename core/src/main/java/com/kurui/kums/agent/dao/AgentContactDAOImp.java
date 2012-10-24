@@ -35,6 +35,7 @@ public class AgentContactDAOImp extends BaseDAOSupport implements AgentContactDA
 					+ agentActionListForm.getContactWay().trim() + "%'");
 			hql.add(" ) ");
 		}
+		hql.add(" order by a.agent.type,a.agent.id ");
 		return this.list(hql, agentActionListForm);
 	}
 
@@ -109,6 +110,20 @@ public class AgentContactDAOImp extends BaseDAOSupport implements AgentContactDA
 		}
 		return list;
 	}
+	
+	public List<AgentContact> getAgentContactListByAgent(Long agentId) {
+		List<AgentContact> list = new ArrayList<AgentContact>();
+		Hql hql = new Hql();
+		hql.add("from AgentContact a where a.agent.id=" + agentId);
+		Query query = this.getQuery(hql);
+		if (query != null) {
+			list = query.list();
+			if (list != null && list.size() > 0) {
+				return list;
+			}
+		}
+		return list;
+	}
 
 	public List<AgentContact> getValidAgentContactList() throws AppException {
 		List<AgentContact> list = new ArrayList<AgentContact>();
@@ -125,5 +140,7 @@ public class AgentContactDAOImp extends BaseDAOSupport implements AgentContactDA
 		}
 		return list;
 	}
+
+	
 
 }

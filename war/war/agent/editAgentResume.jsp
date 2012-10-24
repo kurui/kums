@@ -11,6 +11,12 @@
 		<link href="<%=path%>/_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="<%=path%>/_css/global.css" rel="stylesheet"
 			type="text/css" />
+				<c:import url="../page/importDWR.jsp"></c:import>
+		<script type="text/javascript" src="<%=path%>/_js/prototype/common.js"></script>
+		<script type="text/javascript" src="<%=path%>/_js/jquery-1.3.2.min.js"></script>
+			<script type="text/javascript" src="<%=path%>/_js/base/FormUtil.js"></script>
+		<script type="text/javascript"
+			src="<%=path%>/_js/calendar/WdatePicker.js"></script>
 	</head>
 	<script type="text/javascript">	
 		function add(){	
@@ -77,11 +83,14 @@
 									</tr>
 									<tr>
 										<td class="lef">
-											处理时间
+											时间
 										</td>
 										<td style="text-align: left">
-											<html:text property="updateDate" name="agentResume"
-												value="${agentResume.updateDate}"
+											<html:text property="beginDate" name="agentResume"
+												value="${agentResume.beginDate}"
+												styleClass="colorblue2 p_5" style="width:200px;"></html:text>
+												--<html:text property="endDate" name="agentResume"
+												value="${agentResume.endDate}"
 												styleClass="colorblue2 p_5" style="width:200px;"></html:text>
 										</td>
 									</tr>

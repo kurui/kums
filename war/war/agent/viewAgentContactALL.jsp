@@ -32,48 +32,41 @@
 								<hr>
 								<table width="100%" cellpadding="0" cellspacing="0" border="0"
 									class="dataList">
-									<tr>
-										<td class="lef">
-											<c:out value="${agentContact.agent.agentNo}" />
-										</td>
-										<td style="text-align: left">
-											<c:out value="${agentContact.agent.name}" />
-											|
-											<c:out value="${agentContact.agent.typeInfo}" />
-										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											类型
-										</td>
-										<td style="text-align: left">
-											<c:out value="${agentContact.typeInfo}" />
-										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											内容
-										</td>
-										<td style="text-align: left">
-											<c:out value="${agentContact.content}" />
-										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											更新时间
-										</td>
-										<td style="text-align: left">
-											<c:out value="${agentContact.updateDate}" />
-										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											状态
-										</td>
-										<td style="text-align: left">
-											<c:out value="${agentContact.statusInfo}" />
-										</td>
-									</tr>
+									<c:forEach var="agentContact" items="${agentContactList}" varStatus="status">
+										<tr>
+											<td>
+												<html:multibox property="selectedItems" value="${agentContact.id}"></html:multibox>
+											</td>
+											<td>
+												<c:out value="${status.count}" />
+											</td>
+											<td>
+												<c:out value="${agentContact.agent.agentNo}" />
+												|
+												<c:out value="${agentContact.agent.name}" />
+											</td>
+											<td>
+												<c:out value="${agentContact.typeInfo}" />
+											</td>
+											<td>
+												<c:out value="${agentContact.content}" />
+											</td>
+											<td>
+												<c:out value="${agentContact.tag}" />
+											</td>
+											<td>
+												<c:out value="${agentContact.updateDate}" />
+											</td>
+											<td>
+												<c:out value="${agentContact.statusInfo}" />
+											</td>
+											<td>
+												<a href="<%=path%>/agent/agentContactList.do?thisAction=view&id=<c:out value="${agentContact.id}" />"> 查看</a>
+												<a href="<%=path%>/agent/agentContactList.do?thisAction=edit&id=<c:out value="${agentContact.id}" />"> 编辑</a>
+											
+											</td>
+										</tr>
+									</c:forEach>
 								</table>
 								<table width="100%" style="margin-top: 5px;">
 									<tr>

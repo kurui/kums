@@ -58,6 +58,24 @@ public class AgentContactListAction extends BaseAction {
 		forwardPage = "viewAgentContact";
 		return mapping.findForward(forwardPage);
 	}
+	
+	public ActionForward viewALL(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		String forwardPage = "";
+		AgentContactListForm agentContactListForm = (AgentContactListForm) form;
+		try {
+			Long agentId = agentContactListForm.getAgentId();
+			List<AgentContact> agentContactList	=agentContactBiz.getAgentContactListByAgent(agentId);
+			
+			request.setAttribute("agentContactList", agentContactList);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		forwardPage = "viewAgentContactALL";
+		return mapping.findForward(forwardPage);
+	}
 
 	public ActionForward save(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)

@@ -51,6 +51,10 @@ public class AgentContactBizImp implements AgentContactBiz {
 	public List<AgentContact> getAgentContactList(Long type) throws AppException {
 		return agentContactDAO.getAgentContactList(type);
 	}
+	
+	public List<AgentContact> getAgentContactListByAgent(Long agentId) throws AppException {
+		return agentContactDAO.getAgentContactListByAgent(agentId);
+	}
 
 	public void setAgentContactDAO(AgentContactDAO agentContactDAO) {
 		this.agentContactDAO = agentContactDAO;

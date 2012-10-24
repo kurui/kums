@@ -116,6 +116,8 @@
 				path="/agent/listDirectAgent.jsp" />
 			<forward name="viewAgentSpeed"
 				path="/agent/viewAgentSpeed.jsp" />
+			<forward name="viewAgentContactALL"
+				path="/agent/viewAgentContactALL.jsp" />
 		</action>
 
 		<action name="agentAccountListForm"
@@ -139,6 +141,9 @@
 				path="/agent/editAgentAccount.jsp" />
 			<forward name="viewAgentAccount"
 				path="/agent/viewAgentAccount.jsp" />
+				
+				<forward name="viewAgentContactALL"
+				path="/agent/viewAgentContactALL.jsp" />
 		</action>
 
 		<action name="agentAccount" path="/agent/agentAccount"
@@ -216,6 +221,8 @@
 				path="/agent/listAgentContact.jsp" />
 			<forward name="editAgentContact"
 				path="/agent/editAgentContact.jsp" />
+			<forward name="viewAgentContactALL"
+				path="/agent/viewAgentContactALL.jsp" />
 		</action>
 		
 		<action name="agentContactListForm" path="/agent/agentContactList"
@@ -228,6 +235,8 @@
 				path="/agent/editAgentContact.jsp" />
 			<forward name="viewAgentContact"
 				path="/agent/viewAgentContact.jsp" />
+			<forward name="viewAgentContactALL"
+				path="/agent/viewAgentContactALL.jsp" />
 		</action>
 
 			<action name="agentResume" path="/agent/agentResume"

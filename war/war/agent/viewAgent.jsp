@@ -116,6 +116,9 @@
 										</td>
 										<td style="text-align: left" colspan="3">
 											<c:out value="${agent.mobilePhone}" />
+											
+												<a href="<%=path%>/agent/agentContactList.do?thisAction=viewALL&agentId=<c:out value="${agent.id}" />" onclick="showElement('contactWayBody')">联系方式</a>
+										
 										</td>
 									</tr>
 									<tbody id="contactWayBody" style="display: none">

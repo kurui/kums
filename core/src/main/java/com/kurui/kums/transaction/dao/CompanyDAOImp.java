@@ -44,7 +44,7 @@ public class CompanyDAOImp extends BaseDAOSupport implements CompanyDAO {
 
 		hql.add("and c.status not in(" + Company.STATES_0 + ")");// 过滤无效
 
-		hql.add(" order by c.financeCount,c.type,provideChain,updateTime desc");
+		hql.add(" order by c.financeCount desc,c.type,provideChain,updateTime desc");
 
 		return this.list(hql, form);
 	}

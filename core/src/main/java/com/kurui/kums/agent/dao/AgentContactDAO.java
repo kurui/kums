@@ -24,4 +24,6 @@ public interface AgentContactDAO {
 	public List<AgentContact> getAgentContactList(Long type) throws AppException;
 
 	public List<AgentContact> getValidAgentContactList() throws AppException;
+
+	public List<AgentContact> getAgentContactListByAgent(Long agentId);
 }

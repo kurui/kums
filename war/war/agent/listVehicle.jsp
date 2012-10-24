@@ -156,7 +156,8 @@
 												<c:out
 													value="${status.count+(vehicleListForm.intPage-1)*vehicleListForm.perPageNum}" />
 											</td>
-											<td>
+											<td  style="text-align: left">
+											<c:out value="${vehicle.agent.agentNo}" /> |
 												<a
 													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${vehicle.agent.id}" />">
 													<c:out value="${vehicle.agent.name}" /> </a>

@@ -134,7 +134,7 @@
 											状态
 										</td>
 										<td style="text-align: left">
-											<html:select property="accountStatus"
+											<html:select property="status"
 												value="${agentContact.status}" name="agentContact"
 												styleClass="colorblue2 p_5" style="width:50px;">
 												<html:option value="1">有效</html:option>
@@ -146,6 +146,7 @@
 								<table width="100%" style="margin-top: 5px;">
 									<tr>
 										<td>
+											<html:hidden property="id" name="agentContact" />
 											<html:hidden property="thisAction" name="agentContact" />
 											
 											<input name="label" type="button" class="button1" value="返 回"

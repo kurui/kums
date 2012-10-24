@@ -142,6 +142,11 @@
 												状态
 											</div>
 										</th>
+										<th>
+											<div>
+												操作
+											</div>
+										</th>
 									</tr>
 									<c:forEach var="agentContact" items="${agentContactListForm.list}" varStatus="status">
 										<tr>
@@ -151,16 +156,21 @@
 											<td>
 												<c:out value="${status.count+(agentContactListForm.intPage-1)*agentContactListForm.perPageNum}" />
 											</td>
-											<td>
+											<td  style="text-align: left">
 												<c:out value="${agentContact.agent.agentNo}" />
-												|
-												<c:out value="${agentContact.agent.name}" />
+												|<a
+													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agentContact.agent.id}" />">
+													
+												<c:out value="${agentContact.agent.name}" /></a>
 											</td>
 											<td>
 												<c:out value="${agentContact.typeInfo}" />
 											</td>
 											<td>
 												<c:out value="${agentContact.content}" />
+											</td>
+											<td>
+												<c:out value="${agentContact.tag}" />
 											</td>
 											<td>
 												<c:out value="${agentContact.updateDate}" />
@@ -170,6 +180,7 @@
 											</td>
 											<td>
 												<a href="<%=path%>/agent/agentContactList.do?thisAction=view&id=<c:out value="${agentContact.id}" />"> 查看</a>
+												<a href="<%=path%>/agent/agentContactList.do?thisAction=viewALL&agentId=<c:out value="${agentContact.agent.id}" />">个人全部</a>
 											</td>
 										</tr>
 									</c:forEach>

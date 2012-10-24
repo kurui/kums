@@ -23,5 +23,5 @@ public interface AgentContactBiz {
 	public List<AgentContact> getAgentContactList() throws AppException;
 
 	public List<AgentContact> getAgentContactList(Long type) throws AppException;
-
+	public List<AgentContact> getAgentContactListByAgent(Long agentId) throws AppException;
 }
