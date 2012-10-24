@@ -1,12 +1,16 @@
 package com.kurui.kums.agent;
 
+import java.util.Date;
+
 import com.kurui.kums.agent._entity._AgentContact;
+import com.kurui.kums.base.util.DateUtil;
 
 public class AgentContact extends _AgentContact {
 
 	private static final long serialVersionUID = 1L;
 
 	private long agentId = Long.valueOf(0);
+	private String agentNo="";
 	
 	// 類型
 	public static final long TYPE_1 = 1;// 默認
@@ -42,6 +46,20 @@ public class AgentContact extends _AgentContact {
 		}
 	}
 	
+	private String updateDate="";
+	
+	public String getUpdateDate() {
+		String mydate = "";
+		if (this.updateTime != null && "".equals(updateTime) == false) {
+			Date tempDate = new Date(updateTime.getTime());
+			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
+		}
+		return mydate;
+	}
+
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
+	}
 	
 	public long getAgentId() {
 		return agentId;
@@ -50,5 +68,14 @@ public class AgentContact extends _AgentContact {
 	public void setAgentId(long agentId) {
 		this.agentId = agentId;
 	}
+
+	public String getAgentNo() {
+		return agentNo;
+	}
+
+	public void setAgentNo(String agentNo) {
+		this.agentNo = agentNo;
+	}
+
 
 }

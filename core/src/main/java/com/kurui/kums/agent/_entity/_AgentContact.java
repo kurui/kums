@@ -1,5 +1,7 @@
 package com.kurui.kums.agent._entity;
 
+import java.sql.Timestamp;
+
 import com.kurui.kums.agent.Agent;
 
 /**
@@ -15,6 +17,7 @@ public class _AgentContact extends org.apache.struts.action.ActionForm
 	protected Agent agent;
 	protected String tag;
 	protected String content;
+	protected Timestamp updateTime;
 	protected Long type;
 	protected Long status;
 
@@ -73,6 +76,14 @@ public class _AgentContact extends org.apache.struts.action.ActionForm
 
 	public void setStatus(Long status) {
 		this.status = status;
+	}
+	
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	// The following is extra code

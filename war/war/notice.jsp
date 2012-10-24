@@ -18,8 +18,11 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-			
+		<!--  
 			<iframe src="http://192.168.150.10:8080/kums/information/newsList.do?thisAction=listNotice" frameborder="0" scrolling="none" ALIGN="left" width="300px;" height="151px;"></iframe>
+		-->	
+		<iframe src="http://localhost:8080/kums/information/newsList.do?thisAction=listNotice" frameborder="0" scrolling="none" ALIGN="left" width="300px;" height="151px;"></iframe>
+		
 			</div>
 		</div>
 	</body>

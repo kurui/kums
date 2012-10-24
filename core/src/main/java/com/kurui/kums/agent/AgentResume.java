@@ -4,13 +4,13 @@ import java.util.Date;
 
 import com.kurui.kums.agent._entity._AgentResume;
 import com.kurui.kums.base.util.DateUtil;
-import com.kurui.kums.right.UserStore;
 
 public class AgentResume extends _AgentResume {
 
 	private static final long serialVersionUID = 1L;
 
 	private long agentId = Long.valueOf(0);
+	private String agentNo="";
 	
 	// 類型
 	public static final long TYPE_1 = 1;// 默認
@@ -46,6 +46,8 @@ public class AgentResume extends _AgentResume {
 		}
 	}
 	
+private String beginDate="";
+private String endDate="";
 
 	
 	public String getBeginDate() {
@@ -66,12 +68,29 @@ public class AgentResume extends _AgentResume {
 		return mydate;
 	}
 
+	
+	public void setBeginDate(String beginDate) {
+		this.beginDate = beginDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
 	public long getAgentId() {
 		return agentId;
 	}
 
 	public void setAgentId(long agentId) {
 		this.agentId = agentId;
+	}
+
+	public String getAgentNo() {
+		return agentNo;
+	}
+
+	public void setAgentNo(String agentNo) {
+		this.agentNo = agentNo;
 	}
 
 }

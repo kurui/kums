@@ -1,0 +1,129 @@
+package com.kurui.kums.agent.action;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+import com.kurui.kums.agent.AgentContact;
+import com.kurui.kums.agent.AgentContactListForm;
+import com.kurui.kums.agent.biz.AgentContactBiz;
+import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.transaction.util.PlatComAccountStore;
+
+public class AgentContactListAction extends BaseAction {
+	private AgentContactBiz agentContactBiz;
+
+	public ActionForward list(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		AgentContactListForm agentContactListForm = (AgentContactListForm) form;
+		if (agentContactListForm == null) {
+			agentContactListForm = new AgentContactListForm();
+		}
+		try {
+			List<AgentContact> agentContactList = agentContactBiz
+					.list(agentContactListForm);
+			agentContactListForm.setList(agentContactList);
+
+			request.setAttribute("agentContactListForm", agentContactListForm);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("agentContactListForm", agentContactListForm);
+		return mapping.findForward("listAgentContact");
+	}
+
+	public ActionForward view(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		String forwardPage = "";
+		AgentContactListForm agentContactListForm = (AgentContactListForm) form;
+		try {
+			long agentContactId = Constant.toLong(agentContactListForm.getId());
+			AgentContact agentContact = agentContactBiz
+					.getAgentContactById(agentContactId);
+			request.setAttribute("agentContact", agentContact);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		forwardPage = "viewAgentContact";
+		return mapping.findForward(forwardPage);
+	}
+
+	public ActionForward save(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		AgentContactListForm alf = (AgentContactListForm) form;
+		AgentContact agentContact = new AgentContact();
+		request.setAttribute("companyList", PlatComAccountStore
+				.getGroupCompnayList());
+		agentContact.setThisAction("insert");
+
+		request.setAttribute("agentContact", agentContact);
+		String forwardPage = "editAgentContact";
+		return mapping.findForward(forwardPage);
+	}
+
+	public ActionForward edit(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		Inform inf = new Inform();
+		AgentContactListForm agentContactListForm = (AgentContactListForm) form;
+
+		long agentContactId = agentContactListForm.getId();
+		if (agentContactId < 1) {
+			agentContactId = agentContactListForm.getSelectedItems()[0];
+		}
+
+		if (agentContactId > 0) {
+			AgentContact agentContact = agentContactBiz
+					.getAgentContactById(agentContactId);
+			agentContact.setThisAction("update");
+
+			request.setAttribute("agentContact", agentContact);
+		} else {
+			inf.setMessage("缺少agentContactId");
+			return forwardInformPage(inf, mapping, request);
+		}
+		request.setAttribute("companyList", PlatComAccountStore
+				.getGroupCompnayList());
+		return mapping.findForward("editAgentContact");
+	}
+
+	public ActionForward delete(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		AgentContactListForm agentContactListForm = (AgentContactListForm) form;
+		String forwardPage = "";
+		long id = 0;
+		Inform inf = new Inform();
+		int message = 0;
+		try {
+			for (int i = 0; i < agentContactListForm.getSelectedItems().length; i++) {
+				id = agentContactListForm.getSelectedItems()[i];
+				if (id > 0) {
+					agentContactBiz.deleteAgentContact(id);
+				}
+			}
+			return list(mapping, form, request, response);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			inf.setMessage("删除失败" + ex.getMessage());
+		}
+		return forwardInformPage(inf, mapping, request);
+	}
+
+	public void setAgentContactBiz(AgentContactBiz agentContactBiz) {
+		this.agentContactBiz = agentContactBiz;
+	}
+
+}

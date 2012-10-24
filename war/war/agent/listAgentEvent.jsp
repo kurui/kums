@@ -136,6 +136,11 @@
 												状态
 											</div>
 										</th>
+										<th>
+											<div>
+												操作
+											</div>
+										</th>
 									</tr>
 									<c:forEach var="agentEvent" items="${agentEventListForm.list}" varStatus="status">
 										<tr>
@@ -175,7 +180,11 @@
 								<table width="100%" style="margin-top: 5px;">
 									<tr>
 										<td>
-											<input name="label" type="button" class="button1" value="删 除" onclick="del();">
+										<input name="label" type="button" class="button1" value="新 增"
+										onclick="add();"> 
+										<input name="label" type="button"
+										class="button1" value="编 辑" onclick="edit();"> 
+										<input name="label" type="button" class="button1" value="删 除" onclick="del();">
 										</td>
 										<td align="right">
 											<div>

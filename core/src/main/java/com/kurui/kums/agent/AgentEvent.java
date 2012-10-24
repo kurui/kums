@@ -11,6 +11,7 @@ public class AgentEvent extends _AgentEvent {
 	private static final long serialVersionUID = 1L;
 
 	private long agentId = Long.valueOf(0);
+	private String agentNo="";
 	
 	// 類型
 	public static final long TYPE_1 = 1;// 默認
@@ -54,6 +55,8 @@ public class AgentEvent extends _AgentEvent {
 		}
 	}
 	
+	private String updateDate="";
+	
 	public String getUpdateDate() {
 		String mydate = "";
 		if (this.updateTime != null && "".equals(updateTime) == false) {
@@ -61,6 +64,10 @@ public class AgentEvent extends _AgentEvent {
 			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
 		}
 		return mydate;
+	}
+
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
 	}
 
 	public long getAgentId() {
@@ -71,4 +78,13 @@ public class AgentEvent extends _AgentEvent {
 		this.agentId = agentId;
 	}
 
+	public String getAgentNo() {
+		return agentNo;
+	}
+
+	public void setAgentNo(String agentNo) {
+		this.agentNo = agentNo;
+	}
+
+	
 }

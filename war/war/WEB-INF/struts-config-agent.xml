@@ -22,11 +22,25 @@
 			type="com.kurui.kums.agent.ShareHolder">
 		</form-bean>
 
-		<form-bean name="agentActionListForm"
-			type="com.kurui.kums.agent.AgentActionListForm">
+		<form-bean name="agentEventListForm"
+			type="com.kurui.kums.agent.AgentEventListForm">
 		</form-bean>
-		<form-bean name="agentAction"
-			type="com.kurui.kums.agent.AgentAction">
+		<form-bean name="agentEvent"
+			type="com.kurui.kums.agent.AgentEvent">
+		</form-bean>
+		
+		<form-bean name="agentContactListForm"
+			type="com.kurui.kums.agent.AgentContactListForm">
+		</form-bean>
+		<form-bean name="agentContact"
+			type="com.kurui.kums.agent.AgentContact">
+		</form-bean>
+		
+		<form-bean name="agentResumeListForm"
+			type="com.kurui.kums.agent.AgentResumeListForm">
+		</form-bean>
+		<form-bean name="agentResume"
+			type="com.kurui.kums.agent.AgentResume">
 		</form-bean>
 
 		<form-bean name="agentHabitListForm"
@@ -172,26 +186,70 @@
 				path="/agent/viewShareHolder.jsp" />
 		</action>
 
-		<action name="agentActionListForm" path="/agent/agentActionList"
+		<action name="agentEventListForm" path="/agent/agentEventList"
 			parameter="thisAction"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			validate="false" scope="request">
-			<forward name="listAgentAction"
-				path="/agent/listAgentAction.jsp" />
-			<forward name="editAgentAction"
-				path="/agent/editAgentAction.jsp" />
-			<forward name="viewAgentAction"
-				path="/agent/viewAgentAction.jsp" />
+			<forward name="listAgentEvent"
+				path="/agent/listAgentEvent.jsp" />
+			<forward name="editAgentEvent"
+				path="/agent/editAgentEvent.jsp" />
+			<forward name="viewAgentEvent"
+				path="/agent/viewAgentEvent.jsp" />
 		</action>
 
-		<action name="agentAction" path="/agent/agentAction"
+		<action name="agentEvent" path="/agent/agentEvent"
 			parameter="thisAction"
 			type="org.springframework.web.struts.DelegatingActionProxy"
 			validate="false" scope="request">
-			<forward name="listAgentAction"
-				path="/agent/listAgentAction.jsp" />
-			<forward name="editAgentAction"
-				path="/agent/editAgentAction.jsp" />
+			<forward name="listAgentEvent"
+				path="/agent/listAgentEvent.jsp" />
+			<forward name="editAgentEvent"
+				path="/agent/editAgentEvent.jsp" />
+		</action>
+
+		<action name="agentContact" path="/agent/agentContact"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listAgentContact"
+				path="/agent/listAgentContact.jsp" />
+			<forward name="editAgentContact"
+				path="/agent/editAgentContact.jsp" />
+		</action>
+		
+		<action name="agentContactListForm" path="/agent/agentContactList"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listAgentContact"
+				path="/agent/listAgentContact.jsp" />
+			<forward name="editAgentContact"
+				path="/agent/editAgentContact.jsp" />
+			<forward name="viewAgentContact"
+				path="/agent/viewAgentContact.jsp" />
+		</action>
+
+			<action name="agentResume" path="/agent/agentResume"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listAgentResume"
+				path="/agent/listAgentResume.jsp" />
+			<forward name="editAgentResume"
+				path="/agent/editAgentResume.jsp" />
+		</action>
+		
+		<action name="agentResumeListForm" path="/agent/agentResumeList"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listAgentResume"
+				path="/agent/listAgentResume.jsp" />
+			<forward name="editAgentResume"
+				path="/agent/editAgentResume.jsp" />
+			<forward name="viewAgentResume"
+				path="/agent/viewAgentResume.jsp" />
 		</action>
 
 		<action name="agentHabitListForm" path="/agent/agentHabitList"

@@ -11,6 +11,13 @@
 		<link href="<%=path%>/_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="<%=path%>/_css/global.css" rel="stylesheet"
 			type="text/css" />
+			
+		<c:import url="../page/importDWR.jsp"></c:import>
+		<script type="text/javascript" src="<%=path%>/_js/prototype/common.js"></script>
+		<script type="text/javascript" src="<%=path%>/_js/jquery-1.3.2.min.js"></script>
+			<script type="text/javascript" src="<%=path%>/_js/base/FormUtil.js"></script>
+		<script type="text/javascript"
+			src="<%=path%>/_js/calendar/WdatePicker.js"></script>
 	</head>
 	<script type="text/javascript">	
 		function add(){	
@@ -18,7 +25,37 @@
 		    document.forms[0].action="<%=path%>/agent/agentEvent.do?thisAction="+thisAction;
 		    document.forms[0].submit();
 		}
+		
+		function addAgentId(agentId){	
+			//alert("agentId:"+agentId);		
+			//document.forms[0].agentId.value=agentId;	
+			if(agentId!=null){
+				document.forms[0].agentId.value=agentId;	
+				agentBiz.getAgentById(agentId,function(agent){
+					if(agent!=null){
+						document.forms[0].agentNo.value=agent.agentNo+"|"+agent.name;	
+					}					
+				});
+		    }
+		}	
+		
+		function addAgentSpeed(){
+			openWindow(800,600,'../agent/agentList.do?thisAction=saveSpeed');		
+		}
 	</script>
+			<style>
+.agentBoxDiv {
+	width: 150px;
+	height: 250 px;
+	background-color: #f5f5f5;
+	border: 1 px solid Silver;;
+	overflow: auto;
+	position: absolute;
+	z-index: 3;
+	top: 12%;
+	left: 20%; /*IE*/
+}
+</style>
 	<body>
 		<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
 			<c:param name="title1" value="客户管理" />
@@ -44,24 +81,55 @@
 											客户
 										</td>
 										<td style="text-align: left">
-											<c:out value="${agentEvent.agent.agentNo}"></c:out>
-											|
-											<c:out value="${agentEvent.agent.name}"></c:out>
 											<html:hidden property="agentId"
 												value="${agentEvent.agent.id}" name="agentEvent" />
+											<html:text property="agentNo" name="agentEvent" 
+											value="${agentEvent.agent.agentNo}|${agentEvent.agent.name}"
+												styleClass="colorblue2 p_5" style="width:200px;"
+												ondblclick="this.value='';" onkeyup="onChangeSelectAgent();" />
+
+											<input name="label" type="button" class="button1"
+												value="选择客户" onclick="selectAgent();">
+											<input name="label" type="button" class="button1"
+												value="快速建档" onclick="addAgentSpeed();">
+											<div id="agentBox" class="agentBoxDiv" style="display: none">
+												<table id="tableBlurAgent" cellpadding="0" cellspacing="0"
+													border="0" class="dataList" width="80%">
+												</table>
+											</div>
+										</td>
+										<td class="lef">
+											状态
+										</td>
+										<td style="text-align: left">
+											<html:select property="status" value="${agentEvent.status}"
+												name="agentEvent" styleClass="colorblue2 p_5"
+												style="width:80px;">
+												<html:option value="1">有效</html:option>
+												<html:option value="0">无效</html:option>
+											</html:select>
 										</td>
 									</tr>
 									<tr>
 										<td class="lef">
 											内容
 										</td>
-										<td style="text-align: left">
+										<td style="text-align: left" colspan="3" >
 											<html:text property="content" name="agentEvent"
 												value="${agentEvent.content}" styleClass="colorblue2 p_5"
-												style="width:200px;"></html:text>
+												style="width:800px;"></html:text>
 										</td>
 									</tr>
 									<tr>
+									<td class="lef">
+											处理时间
+										</td>
+										<td style="text-align: left">
+											<html:text property="updateDate" name="agentEvent"
+												value="${agentEvent.updateDate}"
+												styleClass="colorblue2 p_5" style="width:200px;"
+												onfocus="WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})"></html:text>
+										</td>
 										<td class="lef">
 											类型
 										</td>
@@ -70,38 +138,16 @@
 												name="agentEvent" styleClass="colorblue2 p_5"
 												style="width:100px;">
 												<html:option value="0">-请选择-</html:option>
-												<html:option value="1">test1</html:option>
-												<html:option value="2">test2</html:option>
+												<html:option value="1">默认</html:option>
 											</html:select>
 										</td>
 									</tr>
-									<tr>
-										<td class="lef">
-											处理时间
-										</td>
-										<td style="text-align: left">
-											<html:text property="updateDate" name="agentEvent"
-												value="${agentEvent.updateDate}"
-												styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											状态
-										</td>
-										<td style="text-align: left">
-											<html:select property="accountStatus"
-												value="${agentEvent.status}" name="agentEvent"
-												styleClass="colorblue2 p_5" style="width:50px;">
-												<html:option value="1">有效</html:option>
-												<html:option value="0">无效</html:option>
-											</html:select>
-										</td>
-									</tr>
+									
 								</table>
 								<table width="100%" style="margin-top: 5px;">
 									<tr>
 										<td>
+											<html:hidden property="id" name="agentEvent"></html:hidden>
 											<html:hidden property="thisAction" name="agentEvent" />
 											
 											<input name="label" type="button" class="button1" value="返 回"
@@ -128,4 +174,42 @@
 			</div>
 		</html:form>
 	</body>
+	<script>
+			
+		//====================onChange Agent begin=========
+		function onChangeSelectAgent(){
+			$("#tableBlurAgent").empty();
+			displayObj("agentBox","");		
+			var agentNo=document.forms[0].agentNo.value;
+			if(agentNo!=null){
+				agentStore.getBlurAgentList(agentNo,function(blurAgentList){
+					//alert("blurAgentList:"+blurAgentList);
+					if(blurAgentList!=null){
+						for(var i=0;i<blurAgentList.length;i++){
+							var agent=blurAgentList[i];
+							if(agent!=null){					
+								var info="<a href='#' onclick='confirmSelectAgent("+agent.id+");'>"+agent.agentNo+"</a><br/>";
+								info=info+agent.name+"|"+agent.typeInfo;
+								addBlurAgentRow('tableBlurAgent',info,i);
+							}							
+						}						
+					}				
+				});
+			}
+		}
+		
+		function addBlurAgentRow(tableId,info,maxRow){
+			var tableObj= $("#"+tableId);
+			var rowHtml="";		
+			rowHtml+="<tr id='row"+maxRow+"' >";
+			rowHtml+="<td>"+info+"</td>";	
+			rowHtml+="</tr>";
+			tableObj.append(rowHtml);  		
+		}
+		
+	function confirmSelectAgent(agentId){
+		displayObj("agentBox","none");	
+		addAgentId(agentId);	
+	}
+	</script>
 </html>

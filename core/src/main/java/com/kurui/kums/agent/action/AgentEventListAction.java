@@ -1,5 +1,6 @@
 package com.kurui.kums.agent.action;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,8 +65,8 @@ public class AgentEventListAction extends BaseAction {
 			throws AppException {
 		AgentEventListForm alf = (AgentEventListForm) form;
 		AgentEvent agentEvent = new AgentEvent();
-		request.setAttribute("companyList", PlatComAccountStore
-				.getGroupCompnayList());
+		agentEvent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+
 		agentEvent.setThisAction("insert");
 
 		request.setAttribute("agentEvent", agentEvent);
