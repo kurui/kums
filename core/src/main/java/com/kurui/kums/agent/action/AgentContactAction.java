@@ -1,5 +1,7 @@
 package com.kurui.kums.agent.action;
 
+import java.sql.Timestamp;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,6 +36,19 @@ public class AgentContactAction extends BaseAction {
 
 			if (agentId > 0) {
 				Agent agent = agentBiz.getAgentById(agentId);
+				
+				AgentContact agentContact=new AgentContact();
+				agentContact.setAgent(agent);
+				
+				agentContact.setTag(agentContactForm.getTag());				
+				agentContact.setContent(agentContactForm.getContent());
+				
+				agentContact.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+
+				agentContact.setStatus(agentContactForm.getStatus());
+				agentContact.setType(agentContactForm.getType());
+				
+				agentContactBiz.save(agentContact);
 
 			} else {
 				inf.setMessage("客户ID不能为空");
@@ -56,8 +71,19 @@ public class AgentContactAction extends BaseAction {
 			if (agentContactForm.getId() > 0) {
 				AgentContact agentContact = agentContactBiz
 						.getAgentContactById(agentContactForm.getId());
+				
+				agentContact.setTag(agentContactForm.getTag());				
+				agentContact.setContent(agentContactForm.getContent());
+				
+				agentContact.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
+				agentContact.setStatus(agentContactForm.getStatus());
+				agentContact.setType(agentContactForm.getType());
+				
+				agentContactBiz.save(agentContact);
+				
 				long flag = agentContactBiz.update(agentContact);
+				
 
 				if (flag > 0) {
 					return new ActionRedirect(

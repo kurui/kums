@@ -65,6 +65,7 @@ public class AgentEventListAction extends BaseAction {
 			throws AppException {
 		AgentEventListForm alf = (AgentEventListForm) form;
 		AgentEvent agentEvent = new AgentEvent();
+		agentEvent.setAgentNo("");
 		agentEvent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
 		agentEvent.setThisAction("insert");

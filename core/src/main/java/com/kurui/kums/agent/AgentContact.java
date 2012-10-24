@@ -12,8 +12,16 @@ public class AgentContact extends _AgentContact {
 	private long agentId = Long.valueOf(0);
 	private String agentNo="";
 	
-	// 類型
-	public static final long TYPE_1 = 1;// 默認
+
+	public static final long TYPE_1 = 1;// 手机
+	public static final long TYPE_2 = 2;//固定电话
+	public static final long TYPE_11 = 11;//EMAIL
+	public static final long TYPE_12 = 12;//QQ
+	public static final long TYPE_15 = 15;//网址	
+	public static final long TYPE_21 = 21;//祖籍
+	public static final long TYPE_31 = 31;//收货地址
+	
+	
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
@@ -21,10 +29,23 @@ public class AgentContact extends _AgentContact {
 	
 	public String getTypeInfo() {
 		if (this.getType() != null) {
-			if (this.getType() == STATES_1) {
-				return "默認";
-			} else {
-				return null;
+			if (this.getType() == TYPE_1) {
+				return "手机";
+			} else if (this.getType() == TYPE_2) {
+				return "固定电话";
+			}else if (this.getType() == TYPE_11) {
+				return "EMAIL";
+			}else if (this.getType() == TYPE_12) {
+				return "QQ";
+			}else if (this.getType() == TYPE_15) {
+				return "网址";
+			}else if (this.getType() == TYPE_21) {
+				return "祖籍";
+			}else if (this.getType() == TYPE_31) {
+				return "收货地址";
+			}
+			else{
+				return "未定义";
 			}
 		} else {
 			return null;

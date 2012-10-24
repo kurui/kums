@@ -10,15 +10,15 @@ public class AgentResume extends _AgentResume {
 	private static final long serialVersionUID = 1L;
 
 	private long agentId = Long.valueOf(0);
-	private String agentNo="";
-	
+	private String agentNo = "";
+
 	// 類型
 	public static final long TYPE_1 = 1;// 默認
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
 	public static final long STATES_0 = 0;// 无效
-	
+
 	public String getTypeInfo() {
 		if (this.getType() != null) {
 			if (this.getType() == STATES_1) {
@@ -45,11 +45,10 @@ public class AgentResume extends _AgentResume {
 			return null;
 		}
 	}
-	
-private String beginDate="";
-private String endDate="";
 
-	
+	private String beginDate = "";
+	private String endDate = "";
+
 	public String getBeginDate() {
 		String mydate = "";
 		if (this.beginTime != null && "".equals(beginTime) == false) {
@@ -58,7 +57,7 @@ private String endDate="";
 		}
 		return mydate;
 	}
-	
+
 	public String getEndDate() {
 		String mydate = "";
 		if (this.endTime != null && "".equals(endTime) == false) {
@@ -68,7 +67,6 @@ private String endDate="";
 		return mydate;
 	}
 
-	
 	public void setBeginDate(String beginDate) {
 		this.beginDate = beginDate;
 	}

@@ -134,12 +134,7 @@
 										</th>
 										<th>
 											<div>
-												处理人
-											</div>
-										</th>
-										<th>
-											<div>
-												处理时间
+												更新时间
 											</div>
 										</th>
 										<th>
@@ -166,10 +161,6 @@
 											</td>
 											<td>
 												<c:out value="${agentContact.content}" />
-
-											</td>
-											<td>
-												<c:out value="${agentContact.userName}" />
 											</td>
 											<td>
 												<c:out value="${agentContact.updateDate}" />

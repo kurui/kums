@@ -64,8 +64,7 @@ public class AgentContactListAction extends BaseAction {
 			throws AppException {
 		AgentContactListForm alf = (AgentContactListForm) form;
 		AgentContact agentContact = new AgentContact();
-		request.setAttribute("companyList", PlatComAccountStore
-				.getGroupCompnayList());
+		agentContact.setAgentNo("");
 		agentContact.setThisAction("insert");
 
 		request.setAttribute("agentContact", agentContact);
