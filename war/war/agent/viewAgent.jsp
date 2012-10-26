@@ -155,7 +155,10 @@
 										<td class="lef">
 											<a href="#" onclick="showElement('workInfoBody')">职业信息</a>
 										</td>
-										<td style="text-align: left" colspan="3"></td>
+										<td style="text-align: left" colspan="3">
+											<a href="<%=path%>/agent/agentResumeList.do?thisAction=viewALL&agentId=<c:out value="${agent.id}" />" >简历信息</a>
+										
+										</td>
 									</tr>
 									<tbody id="workInfoBody" style="display: none">
 										<tr>

@@ -24,4 +24,6 @@ public interface AgentResumeBiz {
 
 	public List<AgentResume> getAgentResumeList(Long type) throws AppException;
 
+	public List<AgentResume> getAgentResumeListByAgent(Long agentId)throws AppException;
+
 }

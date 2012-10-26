@@ -9,8 +9,11 @@ public class AgentResume extends _AgentResume {
 
 	private static final long serialVersionUID = 1L;
 
-	private long agentId = Long.valueOf(0);
+	private long agentId = Long.valueOf(0);	
 	private String agentNo = "";
+	
+	private long companyId = Long.valueOf(0);
+	
 
 	// 類型
 	public static final long TYPE_1 = 1;// 默認
@@ -81,6 +84,16 @@ public class AgentResume extends _AgentResume {
 
 	public void setAgentId(long agentId) {
 		this.agentId = agentId;
+	}
+	
+	
+
+	public long getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(long companyId) {
+		this.companyId = companyId;
 	}
 
 	public String getAgentNo() {

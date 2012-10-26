@@ -1,5 +1,7 @@
 package com.kurui.kums.agent.action;
 
+import java.sql.Timestamp;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +17,10 @@ import com.kurui.kums.agent.biz.AgentResumeBiz;
 import com.kurui.kums.base.BaseAction;
 import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.util.DateUtil;
 import com.kurui.kums.right.UserRightInfo;
+import com.kurui.kums.transaction.Company;
+import com.kurui.kums.transaction.util.PlatComAccountStore;
 
 public class AgentResumeAction extends BaseAction {
 	private AgentBiz agentBiz;
@@ -31,9 +36,40 @@ public class AgentResumeAction extends BaseAction {
 				"URI");
 		try {
 			long agentId = agentResumeForm.getAgentId();
+			long companyId=agentResumeForm.getCompanyId();
 
 			if (agentId > 0) {
+				AgentResume agentResume = new AgentResume();
+				
 				Agent agent = agentBiz.getAgentById(agentId);
+				agentResume.setAgent(agent);
+				
+				if(companyId>0){
+					Company company=PlatComAccountStore.getCompanyById(companyId);
+					agentResume.setCompany(company);
+				}			
+
+				agentResume.setPosition(agentResumeForm.getPosition());
+				agentResume.setContent(agentResumeForm.getContent());
+
+				Timestamp beginTime=DateUtil.getTimestamp(agentResumeForm.getBeginDate(), "yyyy-MM-dd");
+				agentResume.setBeginTime(beginTime);
+				
+				Timestamp endTime=DateUtil.getTimestamp(agentResumeForm.getEndDate(), "yyyy-MM-dd");
+				agentResume.setEndTime(endTime);
+
+				agentResume.setStatus(agentResumeForm.getStatus());
+				agentResume.setType(agentResumeForm.getType());
+
+				long flag = agentResumeBiz.save(agentResume);
+
+				if (flag > 0) {
+					return new ActionRedirect(
+							"/agent/agentResumeList.do?thisAction=viewALL&agentId="
+									+ agentResume.getAgent().getId());
+				} else {
+					inf.setMessage("修改客户数据异常!");
+				}
 
 			} else {
 				inf.setMessage("客户ID不能为空");
@@ -56,6 +92,24 @@ public class AgentResumeAction extends BaseAction {
 			if (agentResumeForm.getId() > 0) {
 				AgentResume agentResume = agentResumeBiz
 						.getAgentResumeById(agentResumeForm.getId());
+				
+				long companyId=agentResumeForm.getCompanyId();
+				if(companyId>0){
+					Company company=PlatComAccountStore.getCompanyById(companyId);
+					agentResume.setCompany(company);
+				}			
+
+				agentResume.setPosition(agentResumeForm.getPosition());
+				agentResume.setContent(agentResumeForm.getContent());
+
+				Timestamp beginTime=DateUtil.getTimestamp(agentResumeForm.getBeginDate(), "yyyy-MM-dd");
+				agentResume.setBeginTime(beginTime);
+				
+				Timestamp endTime=DateUtil.getTimestamp(agentResumeForm.getEndDate(), "yyyy-MM-dd");
+				agentResume.setEndTime(endTime);
+
+				agentResume.setStatus(agentResumeForm.getStatus());
+				agentResume.setType(agentResumeForm.getType());
 
 				long flag = agentResumeBiz.update(agentResume);
 
@@ -65,12 +119,12 @@ public class AgentResumeAction extends BaseAction {
 				} else {
 					inf.setMessage("修改客户数据异常!");
 				}
-			}else {
+			} else {
 				inf.setMessage("缺少agentResumeId");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			inf.setMessage("异常:"+e.getMessage());
+			inf.setMessage("异常:" + e.getMessage());
 		}
 		return forwardInformPage(inf, mapping, request);
 	}

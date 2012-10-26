@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionRedirect;
 
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentContact;
@@ -92,7 +93,7 @@ public class AgentContactListAction extends BaseAction {
 
 		request.setAttribute("agentContact", agentContact);
 		String forwardPage = "editAgentContact";
-		forwardPage = "viewAgentContactALL";
+	
 		return mapping.findForward(forwardPage);
 	}
 
@@ -126,7 +127,6 @@ public class AgentContactListAction extends BaseAction {
 		request.setAttribute("companyList", PlatComAccountStore
 				.getGroupCompnayList());
 		String forwardPage="editAgentContact";
-		forwardPage = "viewAgentContactALL";
 		return mapping.findForward("editAgentContact");
 	}
 
@@ -143,9 +143,19 @@ public class AgentContactListAction extends BaseAction {
 				id = agentContactListForm.getSelectedItems()[i];
 				if (id > 0) {
 					agentContactBiz.deleteAgentContact(id);
+					
+					AgentContact agentContact=agentContactBiz.getAgentContactById(id);
+					
+					
+					if (agentContact!=null) {
+						return new ActionRedirect(
+								"/agent/agentContactList.do?thisAction=viewALL&agentId="+agentContact.getAgent().getId());
+					} 
 				}
 			}
 			return list(mapping, form, request, response);
+			
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			inf.setMessage("删除失败" + ex.getMessage());

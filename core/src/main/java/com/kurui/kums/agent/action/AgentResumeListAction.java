@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionRedirect;
 
+import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentResume;
 import com.kurui.kums.agent.AgentResumeListForm;
 import com.kurui.kums.agent.biz.AgentBiz;
@@ -60,6 +62,29 @@ public class AgentResumeListAction extends BaseAction {
 		forwardPage = "viewAgentResume";
 		return mapping.findForward(forwardPage);
 	}
+	
+	public ActionForward viewALL(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		String forwardPage = "";
+		AgentResumeListForm agentResumeListForm = (AgentResumeListForm) form;
+		try {
+			Long agentId = agentResumeListForm.getAgentId();
+			Agent agent=agentBiz.getAgentById(agentId);
+			List<AgentResume> agentResumeList	=agentResumeBiz.getAgentResumeListByAgent(agentId);
+			
+			request.setAttribute("agent", agent);
+			request.setAttribute("agentResumeList", agentResumeList);
+			
+			request.setAttribute("companyList", PlatComAccountStore
+					.getGroupCompnayList());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		forwardPage = "viewAgentResumeALL";
+		return mapping.findForward(forwardPage);
+	}
 
 	public ActionForward save(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -92,12 +117,13 @@ public class AgentResumeListAction extends BaseAction {
 			agentResume.setThisAction("update");
 
 			request.setAttribute("agentResume", agentResume);
+			
+			request.setAttribute("companyList", PlatComAccountStore
+					.getGroupCompnayList());
 		} else {
 			inf.setMessage("缺少agentResumeId");
 			return forwardInformPage(inf, mapping, request);
 		}
-		request.setAttribute("companyList", PlatComAccountStore
-				.getGroupCompnayList());
 		return mapping.findForward("editAgentResume");
 	}
 
@@ -114,6 +140,15 @@ public class AgentResumeListAction extends BaseAction {
 				id = agentResumeListForm.getSelectedItems()[i];
 				if (id > 0) {
 					agentResumeBiz.deleteAgentResume(id);
+					
+					AgentResume agentResume=agentResumeBiz.getAgentResumeById(id);
+					
+					
+					if (agentResume!=null) {
+						return new ActionRedirect(
+								"/agent/agentResumeList.do?thisAction=viewALL&agentId="
+										+ agentResume.getAgent().getId());
+					} 
 				}
 			}
 			return list(mapping, form, request, response);

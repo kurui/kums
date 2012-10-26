@@ -48,7 +48,14 @@ public class AgentContactAction extends BaseAction {
 				agentContact.setStatus(agentContactForm.getStatus());
 				agentContact.setType(agentContactForm.getType());
 				
-				agentContactBiz.save(agentContact);
+				long flag=agentContactBiz.save(agentContact);
+				
+				if (flag > 0) {
+					return new ActionRedirect(
+							"/agent/agentContactList.do?thisAction=viewALL&agentId="+agentContact.getAgent().getId());
+				} else {
+					inf.setMessage("修改客户数据异常!");
+				}
 
 			} else {
 				inf.setMessage("客户ID不能为空");

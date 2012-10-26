@@ -17,11 +17,12 @@ public interface AgentResumeDAO {
 
 	public AgentResume getAgentResumeById(long id) throws AppException;
 
-	public AgentResume getAgentResumeByAgentId(long agentId) throws AppException;
 
 	public List<AgentResume> getAgentResumeList() throws AppException;
 
 	public List<AgentResume> getAgentResumeList(Long type) throws AppException;
 
 	public List<AgentResume> getValidAgentResumeList() throws AppException;
+
+	public List<AgentResume> getAgentResumeListByAgent(Long agentId) throws AppException;
 }

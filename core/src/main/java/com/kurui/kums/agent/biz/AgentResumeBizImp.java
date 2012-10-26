@@ -54,4 +54,8 @@ public class AgentResumeBizImp implements AgentResumeBiz {
 	public void setAgentResumeDAO(AgentResumeDAO agentResumeDAO) {
 		this.agentResumeDAO = agentResumeDAO;
 	}
+
+	public List<AgentResume> getAgentResumeListByAgent(Long agentId) throws AppException{
+		return agentResumeDAO.getAgentResumeListByAgent(agentId);
+	}
 }

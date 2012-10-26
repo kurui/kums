@@ -445,6 +445,9 @@
   <PROCESS-ITEM-OUTPUT ID="editAgentResume" NAME="forward1"
    PATH="/agent/editAgentResume.jsp" TARGET="page43"
    TITLE="editAgentResume" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentResumeALL" NAME="forward2"
+   PATH="/agent/viewAgentResumeALL.jsp" TARGET="page46"
+   TITLE="viewAgentResumeALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM ID="#agent#agentResumeList" NAME="action23"
   PATH="/agent/agentResumeList" SHAPE="32,9489,0,0"
@@ -458,6 +461,9 @@
   <PROCESS-ITEM-OUTPUT ID="viewAgentResume" NAME="forward0"
    PATH="/agent/viewAgentResume.jsp" TARGET="page44"
    TITLE="viewAgentResume" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentResumeALL" NAME="forward3"
+   PATH="/agent/viewAgentResumeALL.jsp" TARGET="page46"
+   TITLE="viewAgentResumeALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page16" PATH="/agent/listAgentContact.jsp"
   SHAPE="480,9217,0,0" SUBTYPE="jsp" TITLE="listAgentContact.jsp"
@@ -479,5 +485,8 @@
   TYPE="page" model-entity="StrutsProcessItem"/>
  <PROCESS-ITEM NAME="page45" PATH="/agent/viewAgentContactALL.jsp"
   SHAPE="912,9217,0,0" SUBTYPE="jsp" TITLE="viewAgentContactALL.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page46" PATH="/agent/viewAgentResumeALL.jsp"
+  SHAPE="512,9553,0,0" SUBTYPE="jsp" TITLE="viewAgentResumeALL.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>
 </PROCESS>
