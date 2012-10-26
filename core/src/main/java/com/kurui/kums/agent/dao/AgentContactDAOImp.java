@@ -21,18 +21,15 @@ public class AgentContactDAOImp extends BaseDAOSupport implements AgentContactDA
 		if (Constant.toLong(agentActionListForm.getAgentId()) > 0) {
 			hql.add(" and a.agent.id=" + agentActionListForm.getAgentId());
 		}
-		if (Constant.toString(agentActionListForm.getContactWay()) != "") {
+		if (Constant.toString(agentActionListForm.getKeywords()) != "") {
 			hql.add(" and( ");
 			hql.add(" a.agent.name like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
+					+ agentActionListForm.getKeywords().trim() + "%'");
 			hql.add(" or a.agent.agentNo like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.qqCode like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.email like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.mobilePhone like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
+					+ agentActionListForm.getKeywords().trim() + "%'");
+			hql.add(" or a.content like '%"
+					+ agentActionListForm.getKeywords().trim() + "%'");
+			
 			hql.add(" ) ");
 		}
 		hql.add(" order by a.agent.type,a.agent.id ");

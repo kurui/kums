@@ -72,7 +72,7 @@
 												客户(编号/姓名/QQ/EMail/TelPone)：
 											</td>
 											<td>
-												<html:text property="contactWay" styleClass="colorblue2 p_5" style="width:150px;" />
+												<html:text property="keywords" styleClass="colorblue2 p_5" style="width:150px;" />
 											</td>
 											<td>
 												类型：
@@ -158,7 +158,7 @@
 											<td>
 												<c:out value="${status.count+(agentResumeListForm.intPage-1)*agentResumeListForm.perPageNum}" />
 											</td>
-											<td>
+												<td  style="text-align: left">
 												<c:out value="${agentResume.agent.agentNo}" />
 												|<a href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agentResume.agent.id}"/>">
 												<c:out value="${agentResume.agent.name}" /></a>

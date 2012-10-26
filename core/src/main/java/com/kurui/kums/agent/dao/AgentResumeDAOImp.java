@@ -14,28 +14,40 @@ import com.kurui.kums.base.exception.AppException;
 
 public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO {
 
-	public List list(AgentResumeListForm agentActionListForm)
+	public List list(AgentResumeListForm agentResumeListForm)
 			throws AppException {
 		Hql hql = new Hql();
-		hql.add("from AgentResume a where 1=1");
-		if (Constant.toLong(agentActionListForm.getAgentId()) > 0) {
-			hql.add(" and a.agent.id=" + agentActionListForm.getAgentId());
+		hql.add("from AgentResume r where 1=1 ");
+		if (Constant.toLong(agentResumeListForm.getAgentId()) > 0) {
+			hql.add(" and a.agent.id=" + agentResumeListForm.getAgentId());
 		}
-		if (Constant.toString(agentActionListForm.getContactWay()) != "") {
+		if (Constant.toString(agentResumeListForm.getKeywords()) != "") {
+			if (Constant.toString(agentResumeListForm.getKeywords()) != "") {
+				hql.add(" and( ");
+				hql.add(" a.agent.name like '%"
+						+ agentResumeListForm.getKeywords().trim() + "%'");
+				hql.add(" or a.agent.agentNo like '%"
+						+ agentResumeListForm.getKeywords().trim() + "%'");
+				hql.add(" or a.content like '%"
+						+ agentResumeListForm.getKeywords().trim() + "%'");
+				
+				hql.add(" ) ");
+			}
+		}
+		hql.add(" ) ");
+		
+		hql.add(" or r.company.id in(select a.id from Company a where 1=1  ");
+		if (Constant.toString(agentResumeListForm.getKeywords()) != "") {
 			hql.add(" and( ");
-			hql.add(" a.agent.name like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.agentNo like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.qqCode like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.email like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.mobilePhone like '%"
-					+ agentActionListForm.getContactWay().trim() + "%'");
+			hql.add(" a.name like '%"
+					+ agentResumeListForm.getKeywords().trim() + "%'");	
 			hql.add(" ) ");
 		}
-		return this.list(hql, agentActionListForm);
+		hql.add(" ) ");
+		hql.add(" or  r.content like '%"+ agentResumeListForm.getKeywords().trim() + "%'");
+		
+		System.out.println(hql);
+		return this.list(hql, agentResumeListForm);
 	}
 
 	public void delete(long id) throws AppException {

@@ -72,7 +72,7 @@
 												客户(编号/姓名/QQ/EMail/TelPone)：
 											</td>
 											<td>
-												<html:text property="contactWay" styleClass="colorblue2 p_5" style="width:150px;" />
+												<html:text property="keywords" styleClass="colorblue2 p_5" style="width:150px;" />
 											</td>
 											<td>
 												类型：

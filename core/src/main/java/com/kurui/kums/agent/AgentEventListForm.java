@@ -13,7 +13,6 @@ public class AgentEventListForm extends ListActionForm {
 	public long id = Long.valueOf(0);
 	public long agentId = Long.valueOf(0);
 
-	public String contactWay = "";
 
 	public String content= "";
 	public Timestamp updateDate;
@@ -21,12 +20,14 @@ public class AgentEventListForm extends ListActionForm {
 	public Long type=Long.valueOf(0);
 	public Long status=Long.valueOf(0);
 
-	public String getContactWay() {
-		return contactWay;
+	public String keywords = "";
+
+	public String getKeywords() {
+		return keywords;
 	}
 
-	public void setContactWay(String contactWay) {
-		this.contactWay = contactWay;
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 
 	public long getAgentId() {
