@@ -131,11 +131,6 @@
 										</th>
 										<th>
 											<div>
-												联系方式
-											</div>
-										</th>
-										<th>
-											<div>
 												类型
 											</div>
 										</th>
@@ -163,9 +158,6 @@
 											</td>
 											<td>
 												<c:out value="${info.name}" />
-											</td>
-											<td>
-												<c:out value="${info.mobilePhone}" />
 											</td>
 											<td>
 												<c:out value="${info.typeInfo}" />

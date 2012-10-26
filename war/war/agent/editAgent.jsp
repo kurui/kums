@@ -158,8 +158,6 @@
 											</td>
 											<td style="text-align: left">
 												<html:text property="people" name="agent" value="${agent.people}" styleClass="colorblue2 p_5" style="width:50px;"></html:text>
-												祖籍:
-												<html:text property="nativeCountry" name="agent" value="${agent.nativeCountry}" styleClass="colorblue2 p_5" style="width:100px;"></html:text>
 											</td>
 											<td class="lef">
 												关系特征
@@ -172,58 +170,11 @@
 									</tbody>
 									<tr>
 										<td class="lef">
-											<a href="#" onclick="showElement('contactWayBody')">联系方式</a>
-										</td>
-										<td style="text-align: left" colspan="3">
-											<c:out value="${agent.mobilePhone}"></c:out>
-										</td>
-									</tr>
-									<tbody id="contactWayBody" style="display: ''">
-										<tr>
-											<td class="lef">
-												QQ
-											</td>
-											<td style="text-align: left">
-												<html:text property="qqCode" name="agent" value="${agent.qqCode}" styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-												EMail:
-												<html:text property="email" name="agent" value="${agent.email}" styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-											</td>
-											<td class="lef">
-												手机号码
-											</td>
-											<td style="text-align: left">
-												<html:text property="mobilePhone" name="agent" value="${agent.mobilePhone}" styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-											</td>
-										<tr>
-											<td class="lef">
-												收货地址
-											</td>
-											<td style="text-align: left" colspan="3">
-												<html:text property="address" name="agent" value="${agent.address}" styleClass="colorblue2 p_5" style="width:800px;"></html:text>
-											</td>
-										</tr>
-									</tbody>
-									<tr>
-										<td class="lef">
 											<a href="#" onclick="showElement('workInfoBody')">职业信息</a>
 										</td>
 										<td style="text-align: left" colspan="3">
 									</tr>
-									<tbody id="workInfoBody" style="display: none">
-										<tr>
-											<td class="lef">
-												工作单位
-											</td>
-											<td style="text-align: left">
-												<html:text property="workPlace" name="agent" value="${agent.workPlace}" styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-											</td>
-											<td class="lef">
-												职位
-											</td>
-											<td style="text-align: left">
-												<html:text property="position" name="agent" styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-											</td>
-										</tr>
+									<tbody id="workInfoBody" >
 										<tr>
 											<td class="lef">
 												特长
@@ -283,7 +234,7 @@
 									</tr>
 									<tr>
 										<td class="lef">
-											分管部门|客户来源
+											分管部门
 										</td>
 										<td style="text-align: left">
 											<html:select property="companyId" name="agent" styleClass="colorblue2 p_5" style="width:120px;">
@@ -293,8 +244,6 @@
 													</html:option>
 												</c:forEach>
 											</html:select>
-											|
-											<html:text property="knowPlace" name="agent" value="${agent.knowPlace}" styleClass="colorblue2 p_5" style="width:100px;"></html:text>
 										</td>
 										<td class="lef">
 											状态
