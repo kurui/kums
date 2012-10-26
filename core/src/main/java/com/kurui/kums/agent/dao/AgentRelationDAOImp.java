@@ -25,11 +25,11 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 	private AgentDAO agentDAO;
 
 	public HttpServletRequest listAgentGroup(
-			AgentRelationListForm agentRelationListForm,
+			AgentRelationListForm alf,
 			HttpServletRequest request) {
 		ArrayList<ArrayList<Agent>> lists = new ArrayList<ArrayList<Agent>>();
 		try {
-			long agentId = agentRelationListForm.getAgentId();
+			long agentId = alf.getAgentId();
 			Agent rootAgent = agentDAO.getAgentById(agentId);
 			request.setAttribute("rootAgent", rootAgent);
 
@@ -110,41 +110,27 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 		return list;
 	}
 
-	public List list(AgentRelationListForm agentRelationListForm)
+	public List list(AgentRelationListForm alf)
 			throws AppException {
 		Hql hql = new Hql();
 		hql.add("from AgentRelation a where 1=1");
-		if (Constant.toLong(agentRelationListForm.getAgentId()) > 0) {
-			hql.add(" and a.agent.id=" + agentRelationListForm.getAgentId());
+		if (Constant.toLong(alf.getAgentId()) > 0) {
+			hql.add(" and a.agent.id=" + alf.getAgentId());
 		}
 
-		if (Constant.toString(agentRelationListForm.getContactWay()) != "") {
+		if (Constant.toString(alf.getContactWay()) != "") {
 			hql.add(" and (");
 			hql.add(" ( ");
 			hql.add(" a.rootAgent.name like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.rootAgent.agentNo like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.rootAgent.qqCode like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.rootAgent.email like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.rootAgent.mobilePhone like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
+					+ alf.getContactWay().trim() + "%'");
+			hql.add(" or a.rootAgent.agentNo like '%"	+ alf.getContactWay().trim() + "%'");
 			hql.add(" ) ");
 
 			hql.add(" or ");
 			hql.add(" ( ");
 			hql.add(" a.relateAgent.name like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.relateAgent.agentNo like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.relateAgent.qqCode like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.relateAgent.email like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.relateAgent.mobilePhone like '%"
-					+ agentRelationListForm.getContactWay().trim() + "%'");
+					+ alf.getContactWay().trim() + "%'");
+			hql.add(" or a.relateAgent.agentNo like '%"	+ alf.getContactWay().trim() + "%'");
 			hql.add(" ) ");
 			hql.add(" ) ");
 		}
@@ -153,7 +139,7 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 
 		// System.out.println(hql);
 
-		return this.list(hql, agentRelationListForm);
+		return this.list(hql, alf);
 	}
 
 	public void delete(long id) throws AppException {

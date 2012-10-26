@@ -25,14 +25,10 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected String agentNo;
 	protected String cardNo;
 	protected String name;
-	protected String qqCode;
-	protected String address;
 	protected String stampGroup;
 	protected Long type;
 	protected String memo;
 	protected Long status;
-	protected String mobilePhone;
-	protected String position;
 	protected BigDecimal physicalAmount;
 	protected BigDecimal virtualAmount;
 	protected BigDecimal totalIntegral;
@@ -43,12 +39,8 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected String birthday;
 	protected String nativeCountry;
 	protected String marriage;
-	protected String knowPlace;
 	protected String people;
-	protected String reside;
-	protected String workPlace;
 	protected String language;
-	protected String email;
 	protected String strongSuit;
 	protected String assetInfo;
 	protected String creditInfo;
@@ -121,22 +113,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.name = name;
 	}
 
-	public String getQqCode() {
-		return qqCode;
-	}
-
-	public void setQqCode(String qqCode) {
-		this.qqCode = qqCode;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public String getStampGroup() {
 		return stampGroup;
 	}
@@ -169,21 +145,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.status = status;
 	}
 
-	public String getMobilePhone() {
-		return mobilePhone;
-	}
-
-	public void setMobilePhone(String mobilePhone) {
-		this.mobilePhone = mobilePhone;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
+	
 
 	public BigDecimal getPhysicalAmount() {
 		return physicalAmount;
@@ -383,14 +345,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.marriage = marriage;
 	}
 
-	public String getKnowPlace() {
-		return knowPlace;
-	}
-
-	public void setKnowPlace(String knowPlace) {
-		this.knowPlace = knowPlace;
-	}
-
 	public String getPeople() {
 		return people;
 	}
@@ -399,21 +353,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.people = people;
 	}
 
-	public String getReside() {
-		return reside;
-	}
-
-	public void setReside(String reside) {
-		this.reside = reside;
-	}
-
-	public String getWorkPlace() {
-		return workPlace;
-	}
-
-	public void setWorkPlace(String workPlace) {
-		this.workPlace = workPlace;
-	}
 
 	public String getLanguage() {
 		return language;
@@ -421,14 +360,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 
 	public void setLanguage(String language) {
 		this.language = language;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getStrongSuit() {

@@ -174,18 +174,6 @@ public class Agent extends _Agent {
 		this.updateDate = updateDate;
 	}
 
-	public String getShortAddress() {
-		if (address != null) {
-			if (address.length() > 15) {
-				return address.substring(0, 10);
-			} else {
-				return address;
-			}
-
-		}
-		return address;
-	}
-
 	public long getDirectLevelId() {
 		return directLevelId;
 	}

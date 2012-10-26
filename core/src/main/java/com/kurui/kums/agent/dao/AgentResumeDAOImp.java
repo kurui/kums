@@ -14,40 +14,41 @@ import com.kurui.kums.base.exception.AppException;
 
 public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO {
 
-	public List list(AgentResumeListForm agentResumeListForm)
-			throws AppException {
+	public List list(AgentResumeListForm alf) throws AppException {
 		Hql hql = new Hql();
 		hql.add("from AgentResume r where 1=1 ");
-		if (Constant.toLong(agentResumeListForm.getAgentId()) > 0) {
-			hql.add(" and a.agent.id=" + agentResumeListForm.getAgentId());
+		if (Constant.toLong(alf.getAgentId()) > 0) {
+			hql.add(" and a.agent.id=" + alf.getAgentId());
 		}
-		if (Constant.toString(agentResumeListForm.getKeywords()) != "") {
-			if (Constant.toString(agentResumeListForm.getKeywords()) != "") {
+		if (Constant.toString(alf.getKeywords()) != "") {
+			if (Constant.toString(alf.getKeywords()) != "") {
 				hql.add(" and( ");
-				hql.add(" a.agent.name like '%"
-						+ agentResumeListForm.getKeywords().trim() + "%'");
+				hql.add(" a.agent.name like '%" + alf.getKeywords().trim()
+						+ "%'");
 				hql.add(" or a.agent.agentNo like '%"
-						+ agentResumeListForm.getKeywords().trim() + "%'");
-				hql.add(" or a.content like '%"
-						+ agentResumeListForm.getKeywords().trim() + "%'");
-				
+						+ alf.getKeywords().trim() + "%'");
+				hql.add(" or a.content like '%" + alf.getKeywords().trim()
+						+ "%'");
+
 				hql.add(" ) ");
 			}
 		}
 		hql.add(" ) ");
-		
+
 		hql.add(" or r.company.id in(select a.id from Company a where 1=1  ");
-		if (Constant.toString(agentResumeListForm.getKeywords()) != "") {
+		if (Constant.toString(alf.getKeywords()) != "") {
 			hql.add(" and( ");
-			hql.add(" a.name like '%"
-					+ agentResumeListForm.getKeywords().trim() + "%'");	
+			hql.add(" a.name like '%" + alf.getKeywords().trim() + "%'");
 			hql.add(" ) ");
 		}
 		hql.add(" ) ");
-		hql.add(" or  r.content like '%"+ agentResumeListForm.getKeywords().trim() + "%'");
-		
+		hql.add(" or  r.content like '%" + alf.getKeywords().trim() + "%'");
+
+		hql.add(" and r.type=" + alf.getType());
+		hql.add(" and r.status=" + alf.getStatus());
+
 		System.out.println(hql);
-		return this.list(hql, agentResumeListForm);
+		return this.list(hql, alf);
 	}
 
 	public void delete(long id) throws AppException {
@@ -88,8 +89,8 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		List<AgentResume> list = new ArrayList<AgentResume>();
 		Hql hql = new Hql();
 		hql.add("from AgentResume a where 1=1 and a.agent.id=" + agentId);
-		hql.add(" and a.status not in("+AgentResume.STATES_0+")");
-		
+		hql.add(" and a.status not in(" + AgentResume.STATES_0 + ")");
+
 		Query query = this.getQuery(hql);
 		if (query != null) {
 			list = query.list();

@@ -24,7 +24,7 @@ public class AgentResume extends _AgentResume {
 	public String getTypeInfo() {
 		if (this.getType() != null) {
 			if (this.getType() == STATES_1) {
-				return "默認";
+				return "默认";
 			} else {
 				return null;
 			}

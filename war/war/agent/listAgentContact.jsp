@@ -69,7 +69,7 @@
 									<table cellpadding="0" cellspacing="0" border="0" class="searchPanel">
 										<tr>
 											<td>
-												客户(编号/姓名/QQ/EMail/TelPone)：
+												关键字：
 											</td>
 											<td>
 												<html:text property="keywords" styleClass="colorblue2 p_5" style="width:150px;" />
@@ -79,14 +79,28 @@
 											</td>
 											<td>
 												<html:select property="type" styleClass="colorblue2 p_5" style="width:80px;">
+													<html:option value="0">-请选择-</html:option>
+												<html:option value="1">S-手机</html:option>
+												<html:option value="2">G-固定电话</html:option>
+												<html:option value="11">EMAIL</html:option>
+												<html:option value="12">QQ</html:option>
+												<html:option value="21">Z-祖籍</html:option>
+												<html:option value="31">S-收货地址</html:option>
+												</html:select>
+											</td>
+											<td>
+												状态：
+											</td>
+											<td>
+												<html:select property="status" styleClass="colorblue2 p_5" style="width:80px;">
 													<html:option value="">
 														请选择
 													</html:option>
 													<html:option value="1">
-														VIP客户
+														有效
 													</html:option>
-													<html:option value="2">
-														主要客户
+													<html:option value="0">
+														无效
 													</html:option>
 												</html:select>
 											</td>

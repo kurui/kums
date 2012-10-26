@@ -14,22 +14,24 @@ import com.kurui.kums.base.exception.AppException;
 
 public class AgentEventDAOImp extends BaseDAOSupport implements AgentEventDAO {
 
-	public List list(AgentEventListForm agentActionListForm)
-			throws AppException {
+	public List list(AgentEventListForm alf) throws AppException {
 		Hql hql = new Hql();
 		hql.add("from AgentEvent a where 1=1");
-		if (Constant.toLong(agentActionListForm.getAgentId()) > 0) {
-			hql.add(" and a.agent.id=" + agentActionListForm.getAgentId());
+		if (Constant.toLong(alf.getAgentId()) > 0) {
+			hql.add(" and a.agent.id=" + alf.getAgentId());
 		}
-		if (Constant.toString(agentActionListForm.getKeywords()) != "") {
+		if (Constant.toString(alf.getKeywords()) != "") {
 			hql.add(" and( ");
-			hql.add(" a.agent.name like '%"
-					+ agentActionListForm.getKeywords().trim() + "%'");
-			hql.add(" or a.agent.agentNo like '%"
-					+ agentActionListForm.getKeywords().trim() + "%'");
+			hql.add(" a.agent.name like '%" + alf.getKeywords().trim() + "%'");
+			hql.add(" or a.agent.agentNo like '%" + alf.getKeywords().trim()
+					+ "%'");
 			hql.add(" ) ");
 		}
-		return this.list(hql, agentActionListForm);
+
+		hql.add(" and a.type=" + alf.getType());
+		hql.add(" and a.status=" + alf.getStatus());
+
+		return this.list(hql, alf);
 	}
 
 	public void delete(long id) throws AppException {
@@ -64,8 +66,7 @@ public class AgentEventDAOImp extends BaseDAOSupport implements AgentEventDAO {
 		return agent;
 	}
 
-	public AgentEvent getAgentEventByAgentId(long agentId)
-			throws AppException {
+	public AgentEvent getAgentEventByAgentId(long agentId) throws AppException {
 		Hql hql = new Hql();
 		hql.add("from AgentEvent a where a.agent.id=" + agentId);
 		Query query = this.getQuery(hql);

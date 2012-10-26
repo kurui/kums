@@ -69,7 +69,7 @@
 									<table cellpadding="0" cellspacing="0" border="0" class="searchPanel">
 										<tr>
 											<td>
-												客户(编号/姓名/QQ/EMail/TelPone)：
+												关键字：
 											</td>
 											<td>
 												<html:text property="keywords" styleClass="colorblue2 p_5" style="width:150px;" />
@@ -83,10 +83,23 @@
 														请选择
 													</html:option>
 													<html:option value="1">
-														VIP客户
+														默认
 													</html:option>
-													<html:option value="2">
-														主要客户
+												</html:select>
+											</td>
+											<td>
+												状态：
+											</td>
+											<td>
+												<html:select property="status" styleClass="colorblue2 p_5" style="width:80px;">
+													<html:option value="">
+														请选择
+													</html:option>
+													<html:option value="1">
+														有效
+													</html:option>
+													<html:option value="0">
+														无效
 													</html:option>
 												</html:select>
 											</td>
@@ -150,10 +163,12 @@
 											<td>
 												<c:out value="${status.count+(agentEventListForm.intPage-1)*agentEventListForm.perPageNum}" />
 											</td>
-											<td>
+											<td style="text-align: left">
 												<c:out value="${agentEvent.agent.agentNo}" />
-												|
-												<c:out value="${agentEvent.agent.name}" />
+												|<a
+													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agentContact.agent.id}" />">
+													
+												<c:out value="${agentEvent.agent.name}" /></a>
 											</td>
 											<td>
 												<c:out value="${agentEvent.typeInfo}" />

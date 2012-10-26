@@ -54,10 +54,6 @@ public class AgentAction extends BaseAction {
 				String stampGroup = StringUtil.getStringByArray(agentForm
 						.getStampGroupItem(), ",");
 				agent.setStampGroup(stampGroup);
-				agent.setQqCode(agentForm.getQqCode());
-				agent.setEmail(agentForm.getEmail());
-				agent.setMobilePhone(agentForm.getMobilePhone());
-				agent.setAddress(agentForm.getAddress());
 
 				agent.setType(agentForm.getType());
 				agent.setLoyalIndex(agentForm.getLoyalIndex());
@@ -91,11 +87,7 @@ public class AgentAction extends BaseAction {
 				agent.setBirthday(agentForm.getBirthday());
 				agent.setNativeCountry(agentForm.getNativeCountry());
 				agent.setMarriage(agentForm.getMarriage());
-				agent.setKnowPlace(agentForm.getKnowPlace());
 				agent.setPeople(agentForm.getPeople());
-				agent.setReside(agentForm.getReside());
-				agent.setWorkPlace(agentForm.getWorkPlace());
-				agent.setPosition(agentForm.getPosition());
 				agent.setLanguage(agentForm.getLanguage());
 				agent.setStrongSuit(agentForm.getStrongSuit());
 				agent.setAssetInfo(agentForm.getAssetInfo());
@@ -152,10 +144,6 @@ public class AgentAction extends BaseAction {
 					String stampGroup = StringUtil.getStringByArray(agentForm
 							.getStampGroupItem(), ",");
 					agent.setStampGroup(stampGroup);
-					agent.setQqCode(agentForm.getQqCode());
-					agent.setEmail(agentForm.getEmail());
-					agent.setMobilePhone(agentForm.getMobilePhone());
-					agent.setAddress(agentForm.getAddress());
 
 					agent.setType(agentForm.getType());
 					agent.setLoyalIndex(agentForm.getLoyalIndex());
@@ -190,11 +178,7 @@ public class AgentAction extends BaseAction {
 					agent.setBirthday(agentForm.getBirthday());
 					agent.setNativeCountry(agentForm.getNativeCountry());
 					agent.setMarriage(agentForm.getMarriage());
-					agent.setKnowPlace(agentForm.getKnowPlace());
 					agent.setPeople(agentForm.getPeople());
-					agent.setReside(agentForm.getReside());
-					agent.setWorkPlace(agentForm.getWorkPlace());
-					agent.setPosition(agentForm.getPosition());
 					agent.setLanguage(agentForm.getLanguage());
 					agent.setStrongSuit(agentForm.getStrongSuit());
 					agent.setAssetInfo(agentForm.getAssetInfo());
@@ -271,10 +255,6 @@ public class AgentAction extends BaseAction {
 			if (agentForm.getId() > 0) {
 				Agent agent = agentBiz.getAgentById(agentForm.getId());
 
-				agent.setPosition(agentForm.getPosition());
-				agent.setQqCode(agentForm.getQqCode());
-				agent.setMobilePhone(agentForm.getMobilePhone());
-//				agent.setMemo(agentForm.getMemo());
 
 				agent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
