@@ -87,7 +87,7 @@ public class AgentContactAction extends BaseAction {
 
 				if (flag > 0) {
 					return new ActionRedirect(
-							"/agent/agentContactList.do?thisAction=list");
+							"/agent/agentContactList.do?thisAction=viewALL&agentId="+agentContact.getAgent().getId());
 				} else {
 					inf.setMessage("修改客户数据异常!");
 				}

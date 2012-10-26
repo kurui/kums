@@ -12,7 +12,7 @@
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" language="javascript" src="../_js/jquery-1.3.2.min.js"></script>
 		<script src="../_js/prototype/common.js" type="text/javascript"></script>
-
+<script src="../_js/base/FormUtil.js" type="text/javascript"></script>
 		<script type="text/javascript">
 	function add(){
 	    document.forms[0].thisAction.value="save";
@@ -102,11 +102,12 @@
 								</div>
 								<table width="100%" cellpadding="0" cellspacing="0" border="0" class="dataList">
 									<tr>
-										<th width="60">
-											<div>
-												&nbsp;请选择
-											</div>
-										</th>
+										<th>
+										<div
+											style="height: 100%; width: 100%; vertical-align: center; padding-top: 7px;">
+											<input type="checkbox"
+												onclick="checkAll(this, 'selectedItems')" name="sele" />									</div>
+									</th>
 										<th width="35">
 											<div>
 												&nbsp;序号
@@ -151,7 +152,7 @@
 									<c:forEach var="agentContact" items="${agentContactListForm.list}" varStatus="status">
 										<tr>
 											<td>
-												<html:multibox property="selectedItems" value="${agentContact.id}"></html:multibox>
+												<html:multibox property="selectedItems" value="${agentContact.id}"  onclick="checkItem(this, 'sele')"></html:multibox>
 											</td>
 											<td>
 												<c:out value="${status.count+(agentContactListForm.intPage-1)*agentContactListForm.perPageNum}" />

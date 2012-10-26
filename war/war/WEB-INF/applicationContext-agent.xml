@@ -201,6 +201,9 @@
 		<property name="agentResumeBiz">
 			<ref bean="agentResumeBiz" />
 		</property>
+			<property name="agentBiz">
+			<ref bean="agentBiz" />
+		</property>
 	</bean>
 
 	<bean name="/agent/agentResume" class="com.kurui.kums.agent.action.AgentResumeAction" singleton="false" lazy-init="default" autowire="default"
@@ -213,10 +216,13 @@
 		</property>
 	</bean>
 	
-		<bean name="/agent/agentContactList" class="com.kurui.kums.agent.action.AgentContactListAction" singleton="false" lazy-init="default"
+	<bean name="/agent/agentContactList" class="com.kurui.kums.agent.action.AgentContactListAction" singleton="false" lazy-init="default"
 		autowire="default" dependency-check="default">
 		<property name="agentContactBiz">
 			<ref bean="agentContactBiz" />
+		</property>
+			<property name="agentBiz">
+			<ref bean="agentBiz" />
 		</property>
 	</bean>
 

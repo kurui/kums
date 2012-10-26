@@ -9,6 +9,8 @@
 <script type='text/javascript' src='<%=path%>/dwr/interface/agentStore.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/productStore.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/agentBiz.js'></script>
+<script type='text/javascript' src='<%=path%>/dwr/interface/agentContactBiz.js'></script>
+<script type='text/javascript' src='<%=path%>/dwr/interface/agentResumeBiz.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/dataTypeBiz.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/priceReferenceBiz.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/companyBiz.js'></script>

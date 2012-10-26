@@ -57,7 +57,7 @@ public class AgentContact extends _AgentContact {
 		if (this.getStatus() != null) {
 			if (this.getStatus() == STATES_1) {
 				return "有效";
-			} else if (this.getStatus().intValue() == STATES_0) {
+			}else if (this.getStatus().intValue() == STATES_0) {
 				return "无效";
 			} else {
 				return null;

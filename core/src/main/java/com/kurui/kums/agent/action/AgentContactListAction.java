@@ -9,8 +9,10 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentContact;
 import com.kurui.kums.agent.AgentContactListForm;
+import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentContactBiz;
 import com.kurui.kums.base.BaseAction;
 import com.kurui.kums.base.Constant;
@@ -20,6 +22,7 @@ import com.kurui.kums.transaction.util.PlatComAccountStore;
 
 public class AgentContactListAction extends BaseAction {
 	private AgentContactBiz agentContactBiz;
+	private AgentBiz agentBiz;
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -66,8 +69,10 @@ public class AgentContactListAction extends BaseAction {
 		AgentContactListForm agentContactListForm = (AgentContactListForm) form;
 		try {
 			Long agentId = agentContactListForm.getAgentId();
+			Agent agent=agentBiz.getAgentById(agentId);
 			List<AgentContact> agentContactList	=agentContactBiz.getAgentContactListByAgent(agentId);
 			
+			request.setAttribute("agent", agent);
 			request.setAttribute("agentContactList", agentContactList);
 
 		} catch (Exception e) {
@@ -87,6 +92,7 @@ public class AgentContactListAction extends BaseAction {
 
 		request.setAttribute("agentContact", agentContact);
 		String forwardPage = "editAgentContact";
+		forwardPage = "viewAgentContactALL";
 		return mapping.findForward(forwardPage);
 	}
 
@@ -98,7 +104,13 @@ public class AgentContactListAction extends BaseAction {
 
 		long agentContactId = agentContactListForm.getId();
 		if (agentContactId < 1) {
-			agentContactId = agentContactListForm.getSelectedItems()[0];
+			if(agentContactListForm.getSelectedItems()!=null&&agentContactListForm.getSelectedItems().length>0){
+				agentContactId = agentContactListForm.getSelectedItems()[0];
+			}else{
+				inf.setMessage("请选择需要修改的明细");
+				return forwardInformPage(inf, mapping, request);
+			}
+			
 		}
 
 		if (agentContactId > 0) {
@@ -113,6 +125,8 @@ public class AgentContactListAction extends BaseAction {
 		}
 		request.setAttribute("companyList", PlatComAccountStore
 				.getGroupCompnayList());
+		String forwardPage="editAgentContact";
+		forwardPage = "viewAgentContactALL";
 		return mapping.findForward("editAgentContact");
 	}
 
@@ -142,5 +156,11 @@ public class AgentContactListAction extends BaseAction {
 	public void setAgentContactBiz(AgentContactBiz agentContactBiz) {
 		this.agentContactBiz = agentContactBiz;
 	}
+
+	public void setAgentBiz(AgentBiz agentBiz) {
+		this.agentBiz = agentBiz;
+	}
+	
+	
 
 }

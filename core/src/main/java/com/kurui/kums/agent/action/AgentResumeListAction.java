@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.kurui.kums.agent.AgentResume;
 import com.kurui.kums.agent.AgentResumeListForm;
+import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentResumeBiz;
 import com.kurui.kums.base.BaseAction;
 import com.kurui.kums.base.Constant;
@@ -20,6 +21,7 @@ import com.kurui.kums.transaction.util.PlatComAccountStore;
 
 public class AgentResumeListAction extends BaseAction {
 	private AgentResumeBiz agentResumeBiz;
+	private AgentBiz agentBiz;
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -126,4 +128,9 @@ public class AgentResumeListAction extends BaseAction {
 		this.agentResumeBiz = agentResumeBiz;
 	}
 
+	public void setAgentBiz(AgentBiz agentBiz) {
+		this.agentBiz = agentBiz;
+	}
+
+	
 }

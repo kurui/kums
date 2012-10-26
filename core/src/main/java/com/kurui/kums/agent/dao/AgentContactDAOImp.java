@@ -114,7 +114,9 @@ public class AgentContactDAOImp extends BaseDAOSupport implements AgentContactDA
 	public List<AgentContact> getAgentContactListByAgent(Long agentId) {
 		List<AgentContact> list = new ArrayList<AgentContact>();
 		Hql hql = new Hql();
-		hql.add("from AgentContact a where a.agent.id=" + agentId);
+		hql.add("from AgentContact a where 1=1 and a.agent.id=" + agentId);
+		
+		hql.add(" and a.status not in("+AgentContact.STATES_0+")");
 		Query query = this.getQuery(hql);
 		if (query != null) {
 			list = query.list();
