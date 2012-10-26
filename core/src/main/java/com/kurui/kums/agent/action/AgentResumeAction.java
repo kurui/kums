@@ -113,9 +113,11 @@ public class AgentResumeAction extends BaseAction {
 
 				long flag = agentResumeBiz.update(agentResume);
 
+
 				if (flag > 0) {
 					return new ActionRedirect(
-							"/agent/agentResumeList.do?thisAction=list");
+							"/agent/agentResumeList.do?thisAction=viewALL&agentId="
+									+ agentResume.getAgent().getId());
 				} else {
 					inf.setMessage("修改客户数据异常!");
 				}

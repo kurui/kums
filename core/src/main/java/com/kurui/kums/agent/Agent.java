@@ -45,6 +45,7 @@ public class Agent extends _Agent {
 	// 状态
 	public static final long STATES_1 = 1;// 有效
 	public static final long STATES_0 = 0;// 无效
+
 	// private String charSet = "GBK";
 
 	public String getStampTypeInfo() {
@@ -104,25 +105,24 @@ public class Agent extends _Agent {
 	}
 
 	public String getLoyalIndexInfo() {
-		return DataTypeStore.getDataTypeNameByNo(loyalIndex+"");
+		return DataTypeStore.getDataTypeNameByNo(loyalIndex + "");
 	}
 
 	public String getAssetIndexInfo() {
-		return DataTypeStore.getDataTypeNameByNo(assetIndex+"");
+		return DataTypeStore.getDataTypeNameByNo(assetIndex + "");
 	}
 
 	public String getFriendIndexInfo() {
-		return DataTypeStore.getDataTypeNameByNo(friendIndex+"");
+		return DataTypeStore.getDataTypeNameByNo(friendIndex + "");
 	}
 
 	public String getSpecialIndexInfo() {
-		return DataTypeStore.getDataTypeNameByNo(specialIndex+"");
-	}
-	
-	public String getTightIndexInfo() {
-		return DataTypeStore.getDataTypeNameByNo(tightIndex+"");
+		return DataTypeStore.getDataTypeNameByNo(specialIndex + "");
 	}
 
+	public String getTightIndexInfo() {
+		return DataTypeStore.getDataTypeNameByNo(tightIndex + "");
+	}
 
 	public String getSexInfo() {
 		if (this.getSex() != null) {
@@ -155,29 +155,33 @@ public class Agent extends _Agent {
 		}
 	}
 
-	private String updateDate="";
+	private String updateDate = "";
+
 	public String getUpdateDate() {
 		String mydate = "";
-		if (this.updateTime != null && "".equals(updateTime) == false) {
-			Date tempDate = new Date(updateTime.getTime());
-			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+		if (updateDate == "") {
+			return updateDate;
+		} else {
+			if (this.updateTime != null && "".equals(updateTime) == false) {
+				Date tempDate = new Date(updateTime.getTime());
+				mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+			}
 		}
 		return mydate;
 	}
 
-	
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
 	}
 
 	public String getShortAddress() {
-		if(address!=null){
-			if(address.length()>15){
+		if (address != null) {
+			if (address.length() > 15) {
 				return address.substring(0, 10);
-			}else{
+			} else {
 				return address;
 			}
-			
+
 		}
 		return address;
 	}

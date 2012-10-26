@@ -71,10 +71,13 @@ public class AgentContact extends _AgentContact {
 	
 	public String getUpdateDate() {
 		String mydate = "";
+		if (updateDate == "") {
+			return updateDate;
+		} else {
 		if (this.updateTime != null && "".equals(updateTime) == false) {
 			Date tempDate = new Date(updateTime.getTime());
 			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
-		}
+		}}
 		return mydate;
 	}
 

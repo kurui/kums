@@ -83,10 +83,7 @@
 														请选择
 													</html:option>
 													<html:option value="1">
-														VIP客户
-													</html:option>
-													<html:option value="2">
-														主要客户
+														默认
 													</html:option>
 												</html:select>
 											</td>
@@ -117,6 +114,26 @@
 												客户
 											</div>
 										</th>
+										<th colspan="2">
+											<div>
+												时间
+											</div>
+										</th>
+										<th>
+											<div>
+												公司
+											</div>
+										</th>
+										<th>
+											<div>
+												职务
+											</div>
+										</th>
+										<th>
+											<div>
+												说明
+											</div>
+										</th>
 										<th>
 											<div>
 												类型
@@ -124,20 +141,12 @@
 										</th>
 										<th>
 											<div>
-												内容
-											</div>
-										</th>
-										<th>
-											<div>
-												处理人
-											</div>
-										</th>
-										<th>
-											处理时间
-										</th>
-										<th>
-											<div>
 												状态
+											</div>
+										</th>
+										<th>
+											<div>
+												操作
 											</div>
 										</th>
 									</tr>
@@ -151,27 +160,41 @@
 											</td>
 											<td>
 												<c:out value="${agentResume.agent.agentNo}" />
-												|
-												<c:out value="${agentResume.agent.name}" />
+												|<a href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agentResume.agent.id}"/>">
+												<c:out value="${agentResume.agent.name}" /></a>
+											</td>
+											
+											
+											<td>
+												<c:out value="${agentResume.beginDate}" />
+											</td>
+											
+											<td>
+												<c:out value="${agentResume.endDate}" />
 											</td>
 											<td>
-												<c:out value="${agentResume.typeInfo}" />
+											<a href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${agentResume.company.id}"/>">
+												<c:out value="${agentResume.company.name}" /></a>
+											</td>											
+											
+											
+											<td>
+												<c:out value="${agentResume.position}" />
 											</td>
 											<td>
 												<c:out value="${agentResume.content}" />
-
 											</td>
+											
 											<td>
-												<c:out value="${agentResume.userName}" />
-											</td>
-											<td>
-												<c:out value="${agentResume.updateDate}" />
+												<c:out value="${agentResume.typeInfo}" />
 											</td>
 											<td>
 												<c:out value="${agentResume.statusInfo}" />
 											</td>
 											<td>
 												<a href="<%=path%>/agent/agentResumeList.do?thisAction=view&id=<c:out value="${agentResume.id}" />"> 查看</a>
+												<a href="<%=path%>/agent/agentResumeList.do?thisAction=viewALL&agentId=<c:out value="${agentResume.agent.id}" />"> 个人全部</a>
+											
 											</td>
 										</tr>
 									</c:forEach>

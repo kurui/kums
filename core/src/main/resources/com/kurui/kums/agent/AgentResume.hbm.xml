@@ -13,9 +13,9 @@
         <many-to-one name="agent" class="com.kurui.kums.agent.Agent" fetch="select">
             <column name="AGENT_ID" precision="22" scale="0" />
         </many-to-one>
-        <property name="companyId" type="long">
-            <column name="COMPANY_ID" precision="22" scale="0" />
-        </property>
+         <many-to-one name="company" class="com.kurui.kums.transaction.Company" fetch="select">
+            <column name="Company_ID" precision="22" scale="0" />
+        </many-to-one>
         <property name="content" type="string">
             <column name="CONTENT" length="100" />
         </property>

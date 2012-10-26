@@ -9,11 +9,10 @@ public class AgentResume extends _AgentResume {
 
 	private static final long serialVersionUID = 1L;
 
-	private long agentId = Long.valueOf(0);	
+	private long agentId = Long.valueOf(0);
 	private String agentNo = "";
-	
+
 	private long companyId = Long.valueOf(0);
-	
 
 	// 類型
 	public static final long TYPE_1 = 1;// 默認
@@ -54,19 +53,28 @@ public class AgentResume extends _AgentResume {
 
 	public String getBeginDate() {
 		String mydate = "";
-		if (this.beginTime != null && "".equals(beginTime) == false) {
-			Date tempDate = new Date(beginTime.getTime());
-			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+		if (beginDate == "") {
+			if (this.beginTime != null && "".equals(beginTime) == false) {
+				Date tempDate = new Date(beginTime.getTime());
+				return DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+			}
+		} else {
+			return beginDate;
 		}
 		return mydate;
 	}
 
 	public String getEndDate() {
 		String mydate = "";
-		if (this.endTime != null && "".equals(endTime) == false) {
-			Date tempDate = new Date(endTime.getTime());
-			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+		if (endDate == "") {
+			if (this.endTime != null && "".equals(endTime) == false) {
+				Date tempDate = new Date(endTime.getTime());
+				return DateUtil.getDateString(tempDate, "yyyy-MM-dd");
+			}
+		} else {
+			return endDate;
 		}
+
 		return mydate;
 	}
 
@@ -85,8 +93,6 @@ public class AgentResume extends _AgentResume {
 	public void setAgentId(long agentId) {
 		this.agentId = agentId;
 	}
-	
-	
 
 	public long getCompanyId() {
 		return companyId;

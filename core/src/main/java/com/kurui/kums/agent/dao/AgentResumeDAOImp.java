@@ -63,11 +63,12 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		Hql hql = new Hql();
 		hql.add("from AgentResume a where a.id=" + id);
 		Query query = this.getQuery(hql);
-		AgentResume agent = null;
+		AgentResume agentResume = null;
 		if (query != null && query.list() != null && query.list().size() > 0) {
-			agent = (AgentResume) query.list().get(0);
+			agentResume = (AgentResume) query.list().get(0);
+			agentResume.setCompanyId(agentResume.getCompany().getId());
 		}
-		return agent;
+		return agentResume;
 	}
 
 	public List<AgentResume> getAgentResumeListByAgent(Long agentId)
@@ -75,6 +76,7 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		List<AgentResume> list = new ArrayList<AgentResume>();
 		Hql hql = new Hql();
 		hql.add("from AgentResume a where 1=1 and a.agent.id=" + agentId);
+		hql.add(" and a.status not in("+AgentResume.STATES_0+")");
 		
 		Query query = this.getQuery(hql);
 		if (query != null) {

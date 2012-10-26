@@ -76,8 +76,7 @@ public class AgentResumeListAction extends BaseAction {
 			request.setAttribute("agent", agent);
 			request.setAttribute("agentResumeList", agentResumeList);
 			
-			request.setAttribute("companyList", PlatComAccountStore
-					.getGroupCompnayList());
+			request.setAttribute("companyList", PlatComAccountStore.getAgentCompnayList());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -92,7 +91,7 @@ public class AgentResumeListAction extends BaseAction {
 		AgentResumeListForm alf = (AgentResumeListForm) form;
 		AgentResume agentResume = new AgentResume();
 		request.setAttribute("companyList", PlatComAccountStore
-				.getGroupCompnayList());
+				.getAgentCompnayList());
 		agentResume.setThisAction("insert");
 
 		request.setAttribute("agentResume", agentResume);
@@ -119,7 +118,7 @@ public class AgentResumeListAction extends BaseAction {
 			request.setAttribute("agentResume", agentResume);
 			
 			request.setAttribute("companyList", PlatComAccountStore
-					.getGroupCompnayList());
+					.getAgentCompnayList());
 		} else {
 			inf.setMessage("缺少agentResumeId");
 			return forwardInformPage(inf, mapping, request);
