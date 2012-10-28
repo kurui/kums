@@ -199,6 +199,11 @@
 												备注
 											</div>
 										</th>
+											<th>
+											<div>
+												交易次数/关联客户
+											</div>
+										</th>
 										<th>
 											<div>
 												状态
@@ -235,6 +240,9 @@
 											</td>
 											<td>
 												<c:out value="${company.memo}" />
+											</td>
+												<td>
+												<c:out value="${company.financeCount}" />--	<c:out value="${company.agentCount}" />
 											</td>
 											<td>
 												<c:out value="${company.statusInfo}" />

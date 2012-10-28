@@ -79,7 +79,10 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		AgentResume agentResume = null;
 		if (query != null && query.list() != null && query.list().size() > 0) {
 			agentResume = (AgentResume) query.list().get(0);
-			agentResume.setCompanyId(agentResume.getCompany().getId());
+			if(agentResume.getCompany()!=null){
+				agentResume.setCompanyId(agentResume.getCompany().getId());
+			}
+		
 		}
 		return agentResume;
 	}

@@ -38,6 +38,9 @@ public class AgentResumeListAction extends BaseAction {
 			agentResumeListForm.setList(agentResumeList);
 
 			request.setAttribute("agentResumeListForm", agentResumeListForm);
+			
+			request.setAttribute("companyList", PlatComAccountStore.getAgentCompnayList());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

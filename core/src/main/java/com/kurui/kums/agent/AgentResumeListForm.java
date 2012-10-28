@@ -12,12 +12,14 @@ public class AgentResumeListForm extends ListActionForm {
 	private static final long serialVersionUID = 1L;
 	public long id = Long.valueOf(0);
 	public long agentId = Long.valueOf(0);
+	
+	public long companyId=Long.valueOf(0);
 
 	public String content= "";
 	public Timestamp updateDate;
 	public String userNo= "";
-	public Long type=Long.valueOf(0);
-	public Long status=Long.valueOf(0);
+	public Long type=Long.valueOf(1);
+	public Long status=Long.valueOf(1);
 
 	public String keywords = "";
 
@@ -35,6 +37,16 @@ public class AgentResumeListForm extends ListActionForm {
 
 	public void setAgentId(long agentId) {
 		this.agentId = agentId;
+	}
+	
+	
+
+	public long getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(long companyId) {
+		this.companyId = companyId;
 	}
 
 	public long getId() {

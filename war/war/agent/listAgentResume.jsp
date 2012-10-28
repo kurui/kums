@@ -11,8 +11,13 @@
 		<link href="../_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" language="javascript" src="../_js/jquery-1.3.2.min.js"></script>
-		<script src="../_js/prototype/common.js" type="text/javascript"></script>
-
+		<c:import url="../page/importDWR.jsp"></c:import>
+<script type="text/javascript" src="<%=path%>/_js/prototype/common.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/base/FormUtil.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/base/select.js"></script>
+<script type="text/javascript"
+			src="<%=path%>/_js/calendar/WdatePicker.js"></script>
 		<script type="text/javascript">
 	function add(){
 	    document.forms[0].thisAction.value="save";
@@ -41,12 +46,47 @@
 	    document.forms[0].thisAction.value="delete";
 	    document.forms[0].submit();
 	 }
-	}	
+	}
+	
+		function editAgentResumeForm(id){
+			if(id!=null&&id>0){
+				agentResumeBiz.getAgentResumeById(id,function(agentResumeObj){
+					if(agentResumeObj!=null){
+						document.forms["editAgentResumeForm"].id.value=agentResumeObj.id;
+						document.forms["editAgentResumeForm"].position.value=agentResumeObj.position;
+						document.forms["editAgentResumeForm"].content.value=agentResumeObj.content;
+								
+							//dwr agentResume.agent 未能加载			
+						//if(agentResumeObj.company!=null){
+							//js.select.markSelected(document.forms["editAgentResumeForm"].companyId,agentResumeObj.company.id);	
+					//	}
+							js.select.markSelected(document.forms["editAgentResumeForm"].companyId,agentResumeObj.companyId);	
+						
+						
+						js.select.markSelected(document.forms["editAgentResumeForm"].type,agentResumeObj.type);
+						js.select.markSelected(document.forms["editAgentResumeForm"].status,agentResumeObj.status);	
+						
+						document.forms["editAgentResumeForm"].thisAction.value="update";
+						document.getElementById("editAgentResumeTable").style.display="";
+					}
+				});
+			}				
+		}
+		
+		function updateAgentResume(){		
+			document.forms["editAgentResumeForm"].submit();
+		}
+		
+		function cancelEditAgentResume(){
+			document.getElementById('editAgentResumeTable').style.display='none'
+		}
+			
 	</script>
 	</head>
 	<body>
 		<div id="mainContainer">
 			<div id="container">
+				
 				<html:form action="/agent/agentResumeList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
@@ -74,6 +114,18 @@
 											<td>
 												<html:text property="keywords" styleClass="colorblue2 p_5" style="width:150px;" />
 											</td>
+											<td style="text-align: left"><html:select
+								property="companyId" styleClass="colorblue2 p_5"
+								styleId="companyId" style="width:120px;">
+								<html:option value="0">
+										请选择
+									</html:option>
+								<c:forEach items="${companyList}" var="company">
+									<html:option value="${company.id}">
+										<c:out value="${company.showName}" />
+									</html:option>
+								</c:forEach>
+							</html:select></td>
 											<td>
 												类型：
 											</td>
@@ -210,6 +262,8 @@
 											<td>
 												<a href="<%=path%>/agent/agentResumeList.do?thisAction=view&id=<c:out value="${agentResume.id}" />"> 查看</a>
 												<a href="<%=path%>/agent/agentResumeList.do?thisAction=viewALL&agentId=<c:out value="${agentResume.agent.id}" />"> 个人全部</a>
+											<a href="#"
+											onclick="editAgentResumeForm('<c:out value="${agentResume.id}"/>')">编辑</a>
 											
 											</td>
 										</tr>
@@ -253,6 +307,80 @@
 						</tr>
 					</table>
 				</html:form>
+				<html:form action="/agent/agentResume.do"
+				styleId="editAgentResumeForm">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0"
+					class="dataList" id="editAgentResumeTable" style="display: none">
+					<th>
+						<div>时间</div>
+					</th>
+					<th>
+						<div>公司/组织</div>
+					</th>
+					<th>
+						<div>职务</div>
+					</th>
+					<th>
+						<div>说明</div>
+					</th>
+					<th>
+						<div>状态</div>
+					</th>
+					<th>
+						<div>操作</div>
+					</th>
+
+
+					<tr>
+						<td style="text-align: left"><html:hidden property="id"></html:hidden>
+							<html:hidden property="thisAction" /> <html:hidden
+								property="agentId"></html:hidden> <html:text
+								property="beginDate" styleClass="colorblue2 p_5"
+								style="width:100px;"
+								onfocus="WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" />
+							- <html:text property="endDate" styleClass="colorblue2 p_5"
+								style="width:100px;"
+								onfocus="WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" />
+
+						</td>
+						<td style="text-align: left"><html:select
+								property="companyId" styleClass="colorblue2 p_5"
+								styleId="companyId" style="width:120px;">
+								<html:option value="0">
+										请选择
+									</html:option>
+								<c:forEach items="${companyList}" var="company">
+									<html:option value="${company.id}">
+										<c:out value="${company.showName}" />
+									</html:option>
+								</c:forEach>
+							</html:select></td>
+						<td style="text-align: left"><html:text property="position"
+								name="agentResume" value="${agentResume.position}"
+								styleClass="colorblue2 p_5" style="width:150px;"></html:text></td>
+
+						<td style="text-align: left"><html:text property="content"
+								name="agentResume" value="${agentResume.content}"
+								styleClass="colorblue2 p_5" style="width:220px;"></html:text></td>
+
+						<td style="text-align: left"><html:select property="type"
+								name="agentResume" styleClass="colorblue2 p_5"
+								style="width:50px;">
+								<html:option value="0">-请选择-</html:option>
+								<html:option value="1">默认</html:option>
+							</html:select> <html:select property="status" value="${agentResume.status}"
+								name="agentResume" styleClass="colorblue2 p_5"
+								style="width:50px;">
+								<html:option value="1">有效</html:option>
+								<html:option value="0">无效</html:option>
+							</html:select></td>
+						<td><input name="label" type="button" class="button1"
+							value="保存" onclick="updateAgentResume();"> <input
+							name="label" type="button" class="button1" value="取消"
+							onclick="cancelEditAgentResume();"></td>
+					</tr>
+				</table>
+			</html:form>
 			</div>
 		</div>
 	</body>
