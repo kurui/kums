@@ -20,6 +20,37 @@ public class AgentResume extends _AgentResume {
 	// 状态
 	public static final long STATES_1 = 1;// 有效
 	public static final long STATES_0 = 0;// 无效
+	
+	public String lastAction="";
+	public int intPage;
+	public int pageCount;
+	
+
+	public String getLastAction() {
+		return lastAction;
+	}
+
+	public void setLastAction(String lastAction) {
+		this.lastAction = lastAction;
+	}
+	
+	
+
+	public int getIntPage() {
+		return intPage;
+	}
+
+	public void setIntPage(int intPage) {
+		this.intPage = intPage;
+	}
+
+	public int getPageCount() {
+		return pageCount;
+	}
+
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
 
 	public String getTypeInfo() {
 		if (this.getType() != null) {

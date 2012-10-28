@@ -59,7 +59,9 @@
 			}				
 		}
 		
-		function updateAgentResume(){		
+		function updateAgentResume(){	
+			alert("====1");
+			document.forms["editAgentResumeForm"].lastAction="viewALL";	
 			document.forms["editAgentResumeForm"].submit();
 		}
 		
@@ -195,7 +197,7 @@
 
 					<tr>
 						<td style="text-align: left"><html:hidden property="id"></html:hidden>
-							<html:hidden property="thisAction" /> <html:hidden
+							<html:hidden property="thisAction" /> <html:hidden property="lastAction" /><html:hidden
 								property="agentId"></html:hidden> <html:text
 								property="beginDate" styleClass="colorblue2 p_5"
 								style="width:100px;"

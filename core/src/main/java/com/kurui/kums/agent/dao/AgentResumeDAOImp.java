@@ -18,16 +18,19 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		Hql hql = new Hql();
 		hql.add("from AgentResume r where 1=1 ");
 		if (Constant.toLong(alf.getAgentId()) > 0) {
-			hql.add(" and a.agent.id=" + alf.getAgentId());
+			hql.add(" and r.agent.id=" + alf.getAgentId());
+		}
+		if (Constant.toLong(alf.getCompanyId()) > 0) {
+			hql.add(" and r.company.id=" + alf.getCompanyId());
 		}
 		if (Constant.toString(alf.getKeywords()) != "") {
 			if (Constant.toString(alf.getKeywords()) != "") {
 				hql.add(" and( ");
-				hql.add(" a.agent.name like '%" + alf.getKeywords().trim()
+				hql.add(" r.agent.name like '%" + alf.getKeywords().trim()
 						+ "%'");
-				hql.add(" or a.agent.agentNo like '%"
+				hql.add(" or r.agent.agentNo like '%"
 						+ alf.getKeywords().trim() + "%'");
-				hql.add(" or a.content like '%" + alf.getKeywords().trim()
+				hql.add(" or r.content like '%" + alf.getKeywords().trim()
 						+ "%'");
 
 				hql.add(" ) ");

@@ -115,9 +115,24 @@ public class AgentResumeAction extends BaseAction {
 
 
 				if (flag > 0) {
-					return new ActionRedirect(
-							"/agent/agentResumeList.do?thisAction=viewALL&agentId="
-									+ agentResume.getAgent().getId());
+					String forwardUrl="/agent/agentResumeList.do?thisAction=list";
+					
+					if(agentResumeForm.getLastAction()!=""){
+						if("viewALL".equals(agentResumeForm.getLastAction())){
+							forwardUrl="/agent/agentResumeList.do?thisAction=viewALL&agentId="
+									+ agentResume.getAgent().getId();
+							return new ActionRedirect(forwardUrl);
+						}else if("list".equals(agentResumeForm.getLastAction())){
+							forwardUrl+="&intPage="+agentResumeForm.getIntPage();
+							forwardUrl+="&pageCount="+agentResumeForm.getPageCount();
+							
+						}else{
+							return new ActionRedirect(forwardUrl);
+						}
+					}else{
+						return new ActionRedirect(forwardUrl);
+					}
+					
 				} else {
 					inf.setMessage("修改客户数据异常!");
 				}
