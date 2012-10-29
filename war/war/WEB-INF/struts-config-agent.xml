@@ -68,7 +68,6 @@
 			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
 			scope="request">
 			<forward name="listAgent" path="/agent/listAgent.jsp" />
-			<forward name="listAddress" path="/agent/listAgentAddress.jsp" />
 			<forward name="listGrade" path="/agent/listAgentGrade.jsp" />
 			<forward name="listDirectAgent" path="/agent/listDirectAgent.jsp" />
 			<forward name="editAgent" path="/agent/editAgent.jsp" />

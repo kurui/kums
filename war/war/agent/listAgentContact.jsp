@@ -76,8 +76,8 @@
 		
 		function updateAgentContact(){		
 			document.forms["editAgentResumeForm"].lastAction.value="list";
-			document.forms["editAgentResumeForm"].intPage.value=<c:out value="${agentResumeListForm.intPage}" />;
-			document.forms["editAgentResumeForm"].pageCount.value=<c:out value="${agentResumeListForm.pageCount}" />;
+			document.forms["editAgentResumeForm"].intPage.value="<c:out value="${agentResumeListForm.intPage}" />";
+			document.forms["editAgentResumeForm"].pageCount.value="<c:out value="${agentResumeListForm.pageCount}" />";
 
 			trim(document.forms["editAgentContactForm"]);
 			document.forms["editAgentContactForm"].submit();
@@ -123,7 +123,7 @@
 												类型：
 											</td>
 											<td>
-												<html:select property="type" styleClass="colorblue2 p_5" style="width:80px;">
+												<html:select property="type" styleClass="colorblue2 p_5" style="width:80px;"  onchange="javascript:document.forms[0].submit();">
 													<html:option value="0">-请选择-</html:option>
 												<html:option value="1">S-手机</html:option>
 												<html:option value="2">G-固定电话</html:option>
@@ -144,6 +144,8 @@
 													<html:option value="1">
 														有效
 													</html:option>
+													
+								<html:option value="2">历史</html:option>	
 													<html:option value="0">
 														无效
 													</html:option>
@@ -329,7 +331,8 @@
 											<html:select property="status"
 												value="${agentContact.status}" name="agentContact"
 												styleClass="colorblue2 p_5" style="width:50px;">
-												<html:option value="1">有效</html:option>
+												<html:option value="1">有效</html:option>												
+												<html:option value="2">历史</html:option>	
 												<html:option value="0">无效</html:option>
 											</html:select>
 										</td>

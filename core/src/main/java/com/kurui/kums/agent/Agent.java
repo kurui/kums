@@ -159,7 +159,7 @@ public class Agent extends _Agent {
 
 	public String getUpdateDate() {
 		String mydate = "";
-		if (updateDate == "") {
+		if (updateDate != "") {
 			return updateDate;
 		} else {
 			if (this.updateTime != null && "".equals(updateTime) == false) {

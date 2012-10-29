@@ -93,6 +93,7 @@ public class AgentResumeListAction extends BaseAction {
 			throws AppException {
 		AgentResumeListForm alf = (AgentResumeListForm) form;
 		AgentResume agentResume = new AgentResume();
+		
 		request.setAttribute("companyList", PlatComAccountStore
 				.getAgentCompnayList());
 		agentResume.setThisAction("insert");

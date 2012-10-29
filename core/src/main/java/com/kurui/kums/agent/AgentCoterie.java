@@ -33,7 +33,7 @@ public class AgentCoterie extends _AgentCoterie {
 private String createDate="";
 	public String getCreateDate() {
 		String mydate = "";
-		if (createDate == "") {
+		if (createDate  != "") {
 			return createDate;
 		} else {
 		if (this.createTime != null && "".equals(createTime) == false) {
@@ -45,7 +45,7 @@ private String createDate="";
 private String fromDate="";
 	public String getFromDate() {
 		String mydate = "";
-		if (fromDate == "") {
+		if (fromDate  != "") {
 			return fromDate;
 		} else {
 		if (this.fromTime != null && "".equals(fromTime) == false) {
@@ -57,7 +57,7 @@ private String fromDate="";
 private String expireDate="";
 	public String getExpireDate() {
 		String mydate = "";
-		if (expireDate == "") {
+		if (expireDate  != "") {
 			return expireDate;
 		} else {
 		if (this.expireTime != null && "".equals(expireTime) == false) {

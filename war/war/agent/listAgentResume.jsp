@@ -113,12 +113,12 @@
 												styleClass="colorblue2 p_5" style="width:150px;" /></td>
 										<td style="text-align: left"><html:select
 												property="companyId" styleClass="colorblue2 p_5"
-												styleId="companyId" style="width:120px;">
+												styleId="companyId" style="width:120px;" onchange="javascript:document.forms[0].submit();">
 												<html:option value="0">
 										请选择
 									</html:option>
-												<c:forEach items="${companyList}" var="company">
-													<html:option value="${company.id}">
+												<c:forEach items="${companyList}" var="company" >
+													<html:option value="${company.id}" >
 														<c:out value="${company.showName}" />
 													</html:option>
 												</c:forEach>

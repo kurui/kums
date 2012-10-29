@@ -43,12 +43,16 @@ public class Vehicle extends _Vehicle {
 		}
 	}
 
+	private String updateDate="";
 	public String getUpdateDate() {
 		String mydate = "";
+		if (updateDate  != "") {
+			return updateDate;
+		} else {
 		if (this.updateTime != null && "".equals(updateTime) == false) {
 			Date tempDate = new Date(updateTime.getTime());
 			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
-		}
+		}}
 		return mydate;
 	}
 

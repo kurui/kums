@@ -57,6 +57,8 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		hql.add(" and a.status="+alf.getStatus());
 		}
 
+		hql.add(" order by a.type,a.status ");
+		
 		System.out.println(hql);
 		return this.list(hql, alf);
 	}
@@ -103,6 +105,7 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		Hql hql = new Hql();
 		hql.add("from AgentResume a where 1=1 and a.agent.id=" + agentId);
 		hql.add(" and a.status not in(" + AgentResume.STATES_0 + ")");
+		hql.add(" order by a.type,a.status ");
 
 		Query query = this.getQuery(hql);
 		if (query != null) {

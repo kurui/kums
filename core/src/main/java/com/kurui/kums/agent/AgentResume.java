@@ -15,7 +15,8 @@ public class AgentResume extends _AgentResume {
 	private long companyId = Long.valueOf(0);
 
 	// 類型
-	public static final long TYPE_1 = 1;// 默認
+	public static final long TYPE_1 = 1;// 当前
+	public static final long TYPE_2 = 2;// 历史
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
@@ -23,9 +24,11 @@ public class AgentResume extends _AgentResume {
 	
 	public String getTypeInfo() {
 		if (this.getType() != null) {
-			if (this.getType() == STATES_1) {
-				return "默认";
-			} else {
+			if (this.getType() == TYPE_1) {
+				return "当前";
+			} else if (this.getType() == TYPE_2) {
+				return "历史";
+			}else {
 				return null;
 			}
 		} else {
@@ -53,27 +56,27 @@ public class AgentResume extends _AgentResume {
 
 	public String getBeginDate() {
 		String mydate = "";
-		if (beginDate == "") {
+		if (beginDate != "") {
+			return beginDate;
+		}else{
 			if (this.beginTime != null && "".equals(beginTime) == false) {
 				Date tempDate = new Date(beginTime.getTime());
 				return DateUtil.getDateString(tempDate, "yyyy-MM-dd");
 			}
-		} else {
-			return beginDate;
 		}
 		return mydate;
 	}
 
 	public String getEndDate() {
 		String mydate = "";
-		if (endDate == "") {
+		if (endDate != "") {
+			return endDate;
+		}else{
 			if (this.endTime != null && "".equals(endTime) == false) {
 				Date tempDate = new Date(endTime.getTime());
 				return DateUtil.getDateString(tempDate, "yyyy-MM-dd");
 			}
-		} else {
-			return endDate;
-		}
+		} 
 
 		return mydate;
 	}

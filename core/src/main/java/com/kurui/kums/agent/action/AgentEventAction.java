@@ -50,7 +50,8 @@ public class AgentEventAction extends BaseAction {
 				agentEvent.setType(agentEventForm.getType());
 				
 				agentEventBiz.save(agentEvent);
-				
+				return new ActionRedirect(
+						"/agent/agentEventList.do?thisAction=list");
 			} else {
 				inf.setMessage("客户ID不能为空");
 			}

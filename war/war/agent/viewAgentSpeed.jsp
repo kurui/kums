@@ -58,46 +58,13 @@
 									</td>
 								</tr>
 
+								
 								<tr>
 									<td class="lef">
-										QQ
-									</td>
-									<td style="text-align: left">
-										<c:out value="${agent.qqCode}" />
-									</td>
-								</tr>
-								<tr>
-									<td class="lef">
-										Email
-									</td>
-									<td style="text-align: left">
-										<c:out value="${agent.email}" />
-									</td>
-								</tr>
-								<tr>
-									<td class="lef">
-										手机
-									</td>
-									<td style="text-align: left">
-										<c:out value="${agent.mobilePhone}" />
-									</td>
-								</tr>
-								<tr>
-									<td class="lef">
-										收货地址
-									</td>
-									<td style="text-align: left">
-										<c:out value="${agent.address}" />
-									</td>
-								</tr>
-								<tr>
-									<td class="lef">
-										分管部门|创建地
+										分管部门
 									</td>
 									<td style="text-align: left">
 										<c:out value="${agent.company.name}" />
-										|
-										<c:out value="${agent.knowPlace}" />
 									</td>
 								</tr>
 								<tr>

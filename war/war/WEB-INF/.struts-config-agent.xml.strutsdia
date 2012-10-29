@@ -132,9 +132,6 @@
   <PROCESS-ITEM-OUTPUT ID="editAgent" NAME="forward7"
    PATH="/agent/editAgent.jsp" TARGET="page27" TITLE="editAgent"
    TYPE="forward" model-entity="StrutsProcessItemOutput"/>
-  <PROCESS-ITEM-OUTPUT ID="listAddress" NAME="forward8"
-   PATH="/agent/listAgentAddress.jsp" TARGET="page28"
-   TITLE="listAddress" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
   <PROCESS-ITEM-OUTPUT ID="listDirectAgent" NAME="forward9"
    PATH="/agent/listDirectAgent.jsp" TARGET="page8"
    TITLE="listDirectAgent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
@@ -342,9 +339,6 @@
   SHAPE="304,2946,0,0" SUBTYPE="jsp" TITLE="viewAgent.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
  <PROCESS-ITEM NAME="page27" PATH="/agent/editAgent.jsp"
   SHAPE="304,3058,0,0" SUBTYPE="jsp" TITLE="editAgent.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
- <PROCESS-ITEM NAME="page28" PATH="/agent/listAgentAddress.jsp"
-  SHAPE="304,3282,0,0" SUBTYPE="jsp" TITLE="listAgentAddress.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
  <PROCESS-ITEM NAME="page29" PATH="/agent/viewDirectLevel.jsp"
   SHAPE="272,5634,0,0" SUBTYPE="jsp" TITLE="viewDirectLevel.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>

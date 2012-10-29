@@ -17,8 +17,8 @@ public class AgentEventListForm extends ListActionForm {
 	public String content= "";
 	public Timestamp updateDate;
 	public String userNo= "";
-	public Long type=Long.valueOf(0);
-	public Long status=Long.valueOf(0);
+	public Long type=Long.valueOf(1);
+	public Long status=Long.valueOf(1);
 
 	public String keywords = "";
 

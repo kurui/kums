@@ -166,7 +166,7 @@
 											<td style="text-align: left">
 												<c:out value="${agentEvent.agent.agentNo}" />
 												|<a
-													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agentContact.agent.id}" />">
+													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agentEvent.agent.id}" />">
 													
 												<c:out value="${agentEvent.agent.name}" /></a>
 											</td>

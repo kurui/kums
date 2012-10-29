@@ -68,6 +68,17 @@
 			    document.forms[0].submit();
 			 }
 	}
+	
+			function openResume(agentId){
+			var url="../agent/agentResumeList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
+		
+		function openContact(agentId){
+			var url="../agent/agentContactList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
+		
 
 	</script>
 	</head>
@@ -101,7 +112,9 @@
 									
 										</td>
 										<td colspan="7">
-											<c:out value="${agent.agentNo}" />|<c:out value="${agent.name}" />
+											<c:out value="${agent.agentNo}" />|<a
+										href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agent.id}"/>">
+											<c:out value="${agent.name}" /></a> <a href="#"  onclick="openResume(<c:out value="${agent.id}" />)">简历</a>
 										</td>
 									</tr>
 									<c:forEach var="agentContact" items="${agentContactList}" varStatus="status">
@@ -188,7 +201,7 @@
 											
 											<html:text property="tag" name="agentContact"
 												value="${agentContact.tag}" styleClass="colorblue2 p_5"
-												style="width:200px;"></html:text>备注
+												style="width:100px;"></html:text>备注
 										</td>
 										<td class="lef">
 											内容
@@ -196,7 +209,7 @@
 										<td style="text-align: left">
 											<html:text property="content" name="agentContact"
 												value="${agentContact.content}" styleClass="colorblue2 p_5"
-												style="width:200px;"></html:text>
+												style="width:300px;"></html:text>
 										</td>
 											<td class="lef">
 											状态

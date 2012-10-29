@@ -28,8 +28,12 @@ public class AgentEventDAOImp extends BaseDAOSupport implements AgentEventDAO {
 			hql.add(" ) ");
 		}
 
-		hql.add(" and a.type=" + alf.getType());
-		hql.add(" and a.status=" + alf.getStatus());
+		if (Constant.toLong(alf.getType()) >0) {
+			hql.add(" and a.type="+alf.getType());
+		}
+		if (Constant.toLong(alf.getStatus()) >0) {
+		hql.add(" and a.status="+alf.getStatus());
+		}
 
 		return this.list(hql, alf);
 	}

@@ -24,8 +24,6 @@ public class AgentStore {
 					if (agent != null) {
 						String name = Constant.toString(agent.getName());
 						String agentNo = Constant.toString(agent.getAgentNo());
-//						String mobilePhone = Constant.toString(agent
-//								.getMobilePhone());
 
 						if (name.indexOf(blur) > -1) {
 							blurAgentList.add(agent);

@@ -11,19 +11,19 @@ public class AgentEvent extends _AgentEvent {
 	private static final long serialVersionUID = 1L;
 
 	private long agentId = Long.valueOf(0);
-	private String agentNo="";
-	
+	private String agentNo = "";
+
 	// 類型
 	public static final long TYPE_1 = 1;// 默認
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
 	public static final long STATES_0 = 0;// 无效
-	
+
 	public String getTypeInfo() {
 		if (this.getType() != null) {
 			if (this.getType() == STATES_1) {
-				return "默認";
+				return "默认";
 			} else {
 				return null;
 			}
@@ -46,7 +46,7 @@ public class AgentEvent extends _AgentEvent {
 			return null;
 		}
 	}
-	
+
 	public String getUserName() {
 		if (userNo != null && "".equals(userNo.trim()) == false) {
 			return UserStore.getUserNameByNo(userNo);
@@ -54,18 +54,20 @@ public class AgentEvent extends _AgentEvent {
 			return "";
 		}
 	}
-	
-	private String updateDate="";
-	
+
+	private String updateDate = "";
+
 	public String getUpdateDate() {
 		String mydate = "";
-		if (updateDate == "") {
+		if (updateDate != "") {
 			return updateDate;
 		} else {
-		if (this.updateTime != null && "".equals(updateTime) == false) {
-			Date tempDate = new Date(updateTime.getTime());
-			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
-		}}
+			if (this.updateTime != null && "".equals(updateTime) == false) {
+				Date tempDate = new Date(updateTime.getTime());
+				mydate = DateUtil
+						.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
+			}
+		}
 		return mydate;
 	}
 
@@ -89,5 +91,4 @@ public class AgentEvent extends _AgentEvent {
 		this.agentNo = agentNo;
 	}
 
-	
 }

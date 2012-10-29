@@ -25,7 +25,7 @@
 				document.forms["editAgentResumeForm"].position.value="";
 				document.forms["editAgentResumeForm"].content.value="";	
 				
-				js.select.markSelected(document.forms["editAgentResumeForm"].type,1);	
+				js.select.markSelected(document.forms["editAgentResumeForm"].type,2);	
 				js.select.markSelected(document.forms["editAgentResumeForm"].status,1);	
 						
 				document.forms["editAgentResumeForm"].thisAction.value="insert";
@@ -80,6 +80,17 @@
    			 var url="../transaction/companyList.do?thisAction=list&type=2";
     		 openWindow(800,600,url);
  		}
+ 		
+ 		function openResume(agentId){
+			var url="../agent/agentResumeList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
+		
+		function openContact(agentId){
+			var url="../agent/agentContactList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
+		
 
 	</script>
 </head>
@@ -116,7 +127,7 @@
 									</td>
 									<td colspan="9"><c:out value="${agent.agentNo}" />|<a
 										href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agent.id}"/>">
-											<c:out value="${agent.name}" />
+											<c:out value="${agent.name}" /> </a> &nbsp;	<a href="#"  onclick="openContact(<c:out value="${agent.id}" />)">联系信息</a>
 									</a></td>
 								</tr>
 								<c:forEach var="agentResume" items="${agentResumeList}"
@@ -225,7 +236,8 @@
 						<td style="text-align: left"><html:select property="type"
 								styleClass="colorblue2 p_5" style="width:50px;">
 								<html:option value="0">-请选择-</html:option>
-								<html:option value="1">默认</html:option>
+								<html:option value="1">当前</html:option>
+								<html:option value="2">历史</html:option>								
 							</html:select> <html:select property="status" styleClass="colorblue2 p_5"
 								style="width:50px;">
 								<html:option value="1">有效</html:option>

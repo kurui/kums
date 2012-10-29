@@ -34,9 +34,6 @@
 							<a href="<%=path%>/agent/agentList.do?thisAction=list&companyId=530" target="mainFrame">网购客户列表</a>
 						</li>
 						<li>
-							<a href="<%=path%>/agent/agentList.do?thisAction=listAddress" target="mainFrame">通讯录</a>
-						</li>
-						<li>
 							<a href="<%=path%>/agent/agentList.do?thisAction=listGrade" target="mainFrame">客户评级</a>
 						</li>
 						<li>
@@ -92,6 +89,13 @@
 						</li>
 						<li>
 							<a href="<%=path%>/agent/agentHabitList.do?thisAction=list" target="mainFrame">客户习性列表</a>
+						</li>
+					</ul>
+					
+					<span class="title" onClick="showUL('ulCompany')"><a href="<%=path%>/transaction/companyList.do?thisAction=list&type=2" target="mainFrame">供应链管理</a> </span>
+					<ul id="ulCompany" class="contents" style="">
+						<li>
+							<a href="<%=path%>/transaction/companyList.do?thisAction=list&type=2" target="mainFrame">客户公司列表</a>
 						</li>
 					</ul>
 

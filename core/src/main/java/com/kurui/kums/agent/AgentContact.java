@@ -25,6 +25,8 @@ public class AgentContact extends _AgentContact {
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
+	public static final long STATES_2 = 2;// 历史
+	
 	public static final long STATES_0 = 0;// 无效
 	
 	public String getTypeInfo() {
@@ -57,9 +59,11 @@ public class AgentContact extends _AgentContact {
 		if (this.getStatus() != null) {
 			if (this.getStatus() == STATES_1) {
 				return "有效";
-			}else if (this.getStatus().intValue() == STATES_0) {
+			}else if (this.getStatus().intValue() == STATES_2) {
+				return "历史";
+			} else if (this.getStatus().intValue() == STATES_0) {
 				return "无效";
-			} else {
+			}else {
 				return null;
 			}
 		} else {
@@ -71,7 +75,7 @@ public class AgentContact extends _AgentContact {
 	
 	public String getUpdateDate() {
 		String mydate = "";
-		if (updateDate == "") {
+		if (updateDate  != "") {
 			return updateDate;
 		} else {
 		if (this.updateTime != null && "".equals(updateTime) == false) {
