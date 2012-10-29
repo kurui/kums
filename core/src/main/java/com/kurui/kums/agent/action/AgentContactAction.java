@@ -93,9 +93,19 @@ public class AgentContactAction extends BaseAction {
 				
 
 				if (flag > 0) {
-					return new ActionRedirect(
-							"/agent/agentContactList.do?thisAction=viewALL&agentId="+agentContact.getAgent().getId());
-				} else {
+						String forwardUrl="/agent/agentResumeList.do?thisAction=list";
+					
+					if(agentContactForm.getLastAction()!=""){
+						if("viewALL".equals(agentContactForm.getLastAction())){
+							forwardUrl="/agent/agentContactList.do?thisAction=viewALL&agentId="
+									+ agentContact.getAgent().getId();
+						}else if("list".equals(agentContactForm.getLastAction())){
+							forwardUrl+="&intPage="+agentContactForm.getIntPage();
+							forwardUrl+="&pageCount="+agentContactForm.getPageCount();
+						}
+					}
+					
+					return new ActionRedirect(forwardUrl);} else {
 					inf.setMessage("修改客户数据异常!");
 				}
 			}else {

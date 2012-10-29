@@ -19,8 +19,8 @@ public class _AgentResume extends org.apache.struts.action.ActionForm implements
 	protected long id;
 	protected Agent agent;
 	protected Company company;
-	protected String content;
-	protected String position;
+	protected String content="";
+	protected String position="";
 	protected Timestamp beginTime;
 	protected Timestamp endTime;
 	protected Long type;
@@ -140,6 +140,36 @@ public class _AgentResume extends org.apache.struts.action.ActionForm implements
 
 	public void setIndex(int index) {
 		this.index = index;
+	}
+	
+	public String lastAction="";
+	public int intPage;
+	public int pageCount;
+	
+	public String getLastAction() {
+		return lastAction;
+	}
+
+	public void setLastAction(String lastAction) {
+		this.lastAction = lastAction;
+	}
+	
+	
+
+	public int getIntPage() {
+		return intPage;
+	}
+
+	public void setIntPage(int intPage) {
+		this.intPage = intPage;
+	}
+
+	public int getPageCount() {
+		return pageCount;
+	}
+
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
 	}
 
 	// end of extra code

@@ -116,6 +116,36 @@ public class _AgentContact extends org.apache.struts.action.ActionForm
 	public void setIndex(int index) {
 		this.index = index;
 	}
+	
+	public String lastAction="";
+	public int intPage;
+	public int pageCount;
+	
+	public String getLastAction() {
+		return lastAction;
+	}
+
+	public void setLastAction(String lastAction) {
+		this.lastAction = lastAction;
+	}
+	
+	
+
+	public int getIntPage() {
+		return intPage;
+	}
+
+	public void setIntPage(int intPage) {
+		this.intPage = intPage;
+	}
+
+	public int getPageCount() {
+		return pageCount;
+	}
+
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
 
 	// end of extra code
 

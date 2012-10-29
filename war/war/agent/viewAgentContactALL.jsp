@@ -28,7 +28,7 @@
 				document.getElementById("editAgentContactTable").style.display="";			
 		}
 		
-		function editAgentContactForm(id){
+		function editAgentContact(id){
 			if(id!=null&&id>0){
 				agentContactBiz.getAgentContactById(id,function(agentContactObj){
 					if(agentContactObj!=null){
@@ -47,6 +47,9 @@
 		}
 		
 		function updateAgentContact(){		
+			document.forms["editAgentContactForm"].lastAction.value="viewALL";
+			
+			trim(document.forms["editAgentContactForm"]);
 			document.forms["editAgentContactForm"].submit();
 		}
 		
@@ -127,7 +130,7 @@
 											<td>
 												<a href="<%=path%>/agent/agentContactList.do?thisAction=view&id=<c:out value="${agentContact.id}" />">查看</a>
 											<!-- 	<a href="<%=path%>/agent/agentContactList.do?thisAction=edit&id=<c:out value="${agentContact.id}" />">编辑</a>
-											 -->	<a href="#" onclick="editAgentContactForm('<c:out value="${agentContact.id}"/>')">编辑</a>
+											 -->	<a href="#" onclick="editAgentContact('<c:out value="${agentContact.id}"/>')">编辑</a>
 											
 											</td>
 										</tr>
@@ -163,9 +166,8 @@
 									class="dataList" id="editAgentContactTable" style="display: none">
 									<tr>
 										<td style="text-align: left" colspan="3">
-											<html:hidden property="id"></html:hidden>
-											<html:hidden property="thisAction" />
-											<html:hidden property="agentId"></html:hidden>
+											<html:hidden property="id" />
+											<html:hidden property="agentId" />
 										</td>
 										<td class="lef">
 											类型
@@ -208,6 +210,8 @@
 											</html:select>
 										</td>
 										<td>
+												<html:hidden property="thisAction" value="" />
+												<html:hidden property="lastAction" value="" />
 											<input name="label" type="button" class="button1" value="保存"
 												onclick="updateAgentContact();">
 											<input name="label" type="button" class="button1" value="取消"

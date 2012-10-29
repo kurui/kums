@@ -32,10 +32,12 @@ public class AgentContactDAOImp extends BaseDAOSupport implements AgentContactDA
 			
 			hql.add(" ) ");
 		}
-		
-		hql.add(" and a.type="+alf.getType());
+		if (Constant.toLong(alf.getType()) >0) {
+			hql.add(" and a.type="+alf.getType());
+		}
+		if (Constant.toLong(alf.getStatus()) >0) {
 		hql.add(" and a.status="+alf.getStatus());
-		
+		}
 		hql.add(" order by a.agent.type,a.agent.id ");
 		System.out.println(hql);
 		return this.list(hql, alf);

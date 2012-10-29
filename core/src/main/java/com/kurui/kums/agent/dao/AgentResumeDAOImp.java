@@ -45,10 +45,17 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 			hql.add(" ) ");
 		}
 		hql.add(" ) ");
-		hql.add(" or  r.content like '%" + alf.getKeywords().trim() + "%'");
-
-		hql.add(" and r.type=" + alf.getType());
-		hql.add(" and r.status=" + alf.getStatus());
+		
+		if (Constant.toString(alf.getKeywords()) != "") {
+			hql.add(" or  r.content like '%" + alf.getKeywords().trim() + "%'");
+		}
+		
+		if (Constant.toLong(alf.getType()) >0) {
+			hql.add(" and a.type="+alf.getType());
+		}
+		if (Constant.toLong(alf.getStatus()) >0) {
+		hql.add(" and a.status="+alf.getStatus());
+		}
 
 		System.out.println(hql);
 		return this.list(hql, alf);
