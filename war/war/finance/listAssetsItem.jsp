@@ -11,10 +11,11 @@
 <head>
 <link href="../_css/reset.css" rel="stylesheet" type="text/css" />
 <link href="../_css/global.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" language="javascript"
-	src="../_js/jquery-1.3.2.min.js"></script>
-<script src="../_js/prototype/common.js" type="text/javascript"></script>
-<script src="../_js/base/FormUtil.js" type="text/javascript"></script>
+<c:import url="../page/importDWR.jsp"></c:import>
+<script type="text/javascript" src="<%=path%>/_js/prototype/common.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/base/FormUtil.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/base/select.js"></script>
 
 <script type="text/javascript">
 	function add(){
@@ -66,12 +67,48 @@
 			openWindow(800,600,'../finance/assetsItemList.do?thisAction=batchReset&assetsItemIdGroup='+selectedItemIds);
 		}
 	}
+	
+		function editAssetsItem(id){
+			if(id!=null&&id>0){
+				assetsItemBiz.getAssetsItemById(id,function(assetsItemObj){
+					if(assetsItemObj!=null){
+						document.forms["editAssetsItemForm"].id.value=assetsItemObj.id;
+						document.forms["editAssetsItemForm"].name.value=assetsItemObj.name;
+						document.forms["editAssetsItemForm"].memo.value=assetsItemObj.memo;
+						document.forms["editAssetsItemForm"].itemCount.value=assetsItemObj.itemCount;
+						document.forms["editAssetsItemForm"].valuation.value=assetsItemObj.valuation;
+						document.forms["editAssetsItemForm"].areaCode.value=assetsItemObj.areaCode;					
+						
+						
+						js.select.markSelected(document.forms["editAssetsItemForm"].itemType,assetsItemObj.itemType);	
+						js.select.markSelected(document.forms["editAssetsItemForm"].type,assetsItemObj.type);
+						js.select.markSelected(document.forms["editAssetsItemForm"].status,assetsItemObj.status);	
+						
+						document.forms["editAssetsItemForm"].thisAction.value="update";
+						document.getElementById("editAssetsItemTable").style.display="";
+					}
+				});
+			}				
+		}
+		
+		function updateAssetsItem(){	
+			document.forms["editAssetsItemForm"].lastAction.value="list";
+			document.forms["editAssetsItemForm"].intPage.value=<c:out value="${assetsItemListForm.intPage}" />;
+			document.forms["editAssetsItemForm"].pageCount.value=<c:out value="${assetsItemListForm.pageCount}" />;
+			trim(document.forms["editAssetsItemForm"]);
+			document.forms["editAssetsItemForm"].submit();
+		}
+		
+		function cancelEditAssetsItem(){
+			document.getElementById('editAssetsItemTable').style.display='none'
+		}
 	</script>
 </head>
 <body>
 	<div id="mainContainer">
 		<div id="container">
-			<html:form action="/finance/assetsItemList.do">
+		
+			<html:form action="/finance/assetsItemList.do" styleId="listAssetsItemForm">
 				<html:hidden property="thisAction" />
 				<html:hidden property="lastAction" />
 				<html:hidden property="intPage" />
@@ -99,7 +136,7 @@
 										<td><html:text property="contactWay"
 												styleClass="colorblue2 p_5" style="width:150px;"></html:text>
 										</td>
-										<td><html:select property="itemType" 
+										<td><html:select property="itemType"
 												styleClass="colorblue2 p_5" style="width:80px;">
 												<html:option value="">-资产项目-</html:option>
 												<html:option value="NONE">-未定义-</html:option>
@@ -109,13 +146,12 @@
 													</html:option>
 												</c:forEach>
 											</html:select></td>
-											<td>
-												状态:
-												<html:select property="status" styleClass="colorblue2 p_5" style="width:80px;">
-													<html:option value="1">有效</html:option>
-													<html:option value="0">无效</html:option>
-												</html:select>
-											</td>
+										<td>状态: <html:select property="status"
+												styleClass="colorblue2 p_5" style="width:80px;">
+												<html:option value="1">有效</html:option>
+												<html:option value="0">无效</html:option>
+											</html:select>
+										</td>
 
 										<td><input type="submit" name="button" id="button"
 											value="提交" class="submit greenBtn" /></td>
@@ -131,7 +167,8 @@
 										<div
 											style="height: 100%; width: 100%; vertical-align: center; padding-top: 7px;">
 											<input type="checkbox"
-												onclick="checkAll(this, 'selectedItems')" name="sele" />									</div>
+												onclick="checkAll(this, 'selectedItems')" name="sele" />
+										</div>
 									</th>
 									<th width="35">
 										<div>&nbsp;序号</div>
@@ -163,6 +200,9 @@
 									<th>
 										<div>状态</div>
 									</th>
+									<th>
+										<div>操作</div>
+									</th>
 								</tr>
 								<c:forEach var="assetsItem" items="${assetsItemListForm.list}"
 									varStatus="status">
@@ -186,6 +226,9 @@
 										<td><c:out value="${assetsItem.memo}" /></td>
 										<td><c:out value="${assetsItem.lastDeprecDate}" /></td>
 										<td><c:out value="${assetsItem.statusInfo}" /></td>
+										<td><a href="#"
+											onclick="editAssetsItem('<c:out value="${assetsItem.id}"/>')">编辑</a>
+										</td>
 									</tr>
 								</c:forEach>
 								<tr>
@@ -209,8 +252,8 @@
 										<input name="label" type="button" class="button1" value="删 除"
 										onclick="del();"> <input name="label" type="button"
 										class="button3" value="从日记账中选择"
-										onclick="listFinanceForAssetsItem();"> <input name="label" type="button"
-										class="button1" value="批量设置"
+										onclick="listFinanceForAssetsItem();"> <input
+										name="label" type="button" class="button1" value="批量设置"
 										onclick="batchReset();"></td>
 									<td align="right">
 										<div>
@@ -240,7 +283,78 @@
 					</tr>
 				</table>
 			</html:form>
-			
+			<html:form action="/finance/assetsItem.do"
+				styleId="editAssetsItemForm">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0"
+					class="dataList" id="editAssetsItemTable" style="display: none">
+					<th>
+						<div>项目</div>
+					</th>
+					<th>
+						<div>资产类型</div>
+					</th>
+					<th>
+						<div>数量</div>
+					</th>
+					<th>
+						<div>估价</div>
+					</th>
+					<th>
+						<div>地点</div>
+					</th>
+					<th>
+						<div>备注</div>
+					</th>
+
+					<th>
+						<div>状态</div>
+					</th>
+					<th>
+						<div>操作</div>
+					</th>
+					<tr>
+						<td style="text-align: left"><html:hidden property="id"
+								value="" />
+							<html:text property="name" name="assetsItem"
+								styleClass="colorblue2 p_5" style="width:200px;"></html:text></td>
+						<td><html:select property="itemType"
+								styleClass="colorblue2 p_5" style="width:80px;">
+								<html:option value="">-资产项目-</html:option>
+								<html:option value="NONE">-未定义-</html:option>
+								<c:forEach items="${itemTypeList}" var="itemType">
+									<html:option value="${itemType.no}">
+										<c:out value="${itemType.name}" />
+									</html:option>
+								</c:forEach>
+							</html:select><td>数量：<html:text property="itemCount"
+								styleClass="colorblue2 p_5" style="width:30px;"></html:text>
+						</td><td><html:text property="valuation"
+								styleClass="colorblue2 p_5" style="width:50px;"></html:text></td>
+						<td><html:text property="areaCode"
+								styleClass="colorblue2 p_5" style="width:50px;"></html:text></td>
+						<td><html:text property="memo" styleClass="colorblue2 p_5"
+								style="width:200px;" ondblclick="this.value='';"></html:text></td>
+
+
+						<td><html:select property="type" styleClass="colorblue2 p_5"
+								style="width:50px;">
+								<html:option value="1">默认</html:option>
+							</html:select><html:select property="status" styleClass="colorblue2 p_5"
+								style="width:50px;">
+								<html:option value="1">有效</html:option>
+								<html:option value="0">无效</html:option>
+							</html:select></td>
+						<td><html:hidden property="thisAction" value="" /> <html:hidden
+								property="lastAction" value="" /> <html:hidden
+								property="intPage" value="" /> <html:hidden
+								property="pageCount" value="" /> <input name="label"
+							type="button" class="button1" value="保存"
+							onclick="updateAssetsItem();"> <input name="label"
+							type="button" class="button1" value="取消"
+							onclick="cancelEditAssetsItem();"></td>
+					</tr>
+				</table>
+			</html:form>
 		</div>
 	</div>
 </body>

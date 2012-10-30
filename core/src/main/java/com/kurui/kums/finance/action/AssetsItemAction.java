@@ -24,10 +24,10 @@ public class AssetsItemAction extends BaseAction {
 	private AssetsItemBiz assetsItemBiz;
 	private FinanceOrderBiz financeOrderBiz;
 	private KumsNoUtil noUtil;
-	
-	public ActionForward editBatchReset(ActionMapping mapping,
-			ActionForm form, HttpServletRequest request,
-			HttpServletResponse response) throws AppException {
+
+	public ActionForward editBatchReset(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
 		AssetsItem assetsItemForm = (AssetsItem) form;
 		Inform inf = new Inform();
 
@@ -37,16 +37,20 @@ public class AssetsItemAction extends BaseAction {
 			if (StringUtil.isEmpty(assetsItemIdGroup) == false) {
 				String[] assetsItemIds = StringUtil.getSplitString(
 						assetsItemIdGroup, ",");
-				
+
 				if (assetsItemIds != null && assetsItemIds.length > 0) {
 					for (int i = 0; i < assetsItemIds.length; i++) {
 						long assetsItemId = Long.parseLong(assetsItemIds[i]);
-						AssetsItem assetsItem=assetsItemBiz.getAssetsItemById(assetsItemId);
+						AssetsItem assetsItem = assetsItemBiz
+								.getAssetsItemById(assetsItemId);
 
 						if (assetsItem != null) {
-							assetsItem.setItemType(assetsItemForm.getItemType());
-							assetsItem.setAreaCode(assetsItemForm.getAreaCode());
-							assetsItem.setMemo(assetsItem.getMemo()+assetsItemForm.getMemo());//追加Memo
+							assetsItem
+									.setItemType(assetsItemForm.getItemType());
+							assetsItem
+									.setAreaCode(assetsItemForm.getAreaCode());
+							assetsItem.setMemo(assetsItem.getMemo()
+									+ assetsItemForm.getMemo());// 追加Memo
 
 							assetsItem.setType(assetsItemForm.getType());
 							assetsItem.setStatus(assetsItemForm.getStatus());
@@ -65,7 +69,7 @@ public class AssetsItemAction extends BaseAction {
 			inf.setParamId("thisAction");
 			inf.setParamValue("list");
 			inf.setParamId("status");
-			inf.setParamValue(AssetsItem.STATES_1+"");
+			inf.setParamValue(AssetsItem.STATES_1 + "");
 			inf.setClose(true);
 
 		} catch (Exception e) {
@@ -74,7 +78,6 @@ public class AssetsItemAction extends BaseAction {
 		}
 		return forwardInformPage(inf, mapping, request);
 	}
-
 
 	public ActionForward insertAsFinance(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
@@ -201,7 +204,25 @@ public class AssetsItemAction extends BaseAction {
 				long flag = assetsItemBiz.update(assetsItem);
 
 				if (flag > 0) {
-					return redirect(assetsItem);
+					// return redirect(assetsItem);
+
+					String forwardUrl = "/finance/assetsItemList.do?thisAction=list";
+
+					if (assetsItemForm.getLastAction() != "") {
+						if ("viewALL".equals(assetsItemForm.getLastAction())) {
+							forwardUrl = "/agent/assetsItemList.do?thisAction=view&id="
+									+ assetsItem.getId();
+						} else if ("list"
+								.equals(assetsItemForm.getLastAction())) {
+							forwardUrl += "&intPage="
+									+ assetsItemForm.getIntPage();
+							forwardUrl += "&pageCount="
+									+ assetsItemForm.getPageCount();
+						}
+					}
+
+					return new ActionRedirect(forwardUrl);
+
 				} else {
 					inf.setMessage("修改资产项目异常!");
 				}

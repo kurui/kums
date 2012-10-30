@@ -55,6 +55,9 @@
 				agentResumeBiz.getAgentResumeById(id,function(agentResumeObj){
 					if(agentResumeObj!=null){
 						document.forms["editAgentResumeForm"].id.value=agentResumeObj.id;
+						document.forms["editAgentResumeForm"].beginDate.value=agentResumeObj.beginDate;
+						document.forms["editAgentResumeForm"].endDate.value=agentResumeObj.endDate;
+						
 						document.forms["editAgentResumeForm"].position.value=agentResumeObj.position;
 						document.forms["editAgentResumeForm"].content.value=agentResumeObj.content;
 						js.select.markSelected(document.forms["editAgentResumeForm"].companyId,agentResumeObj.companyId);	
@@ -318,7 +321,8 @@
 						<td style="text-align: left"><html:select property="type"styleClass="colorblue2 p_5"
 								style="width:50px;">
 								<html:option value="0">-请选择-</html:option>
-								<html:option value="1">默认</html:option>
+								<html:option value="2">历史</html:option>
+								<html:option value="1">当前</html:option>
 							</html:select> <html:select property="status" styleClass="colorblue2 p_5"
 								style="width:50px;">
 								<html:option value="1">有效</html:option>

@@ -42,6 +42,9 @@
 	    <create creator="spring" javascript="productBiz">
 	      <param name="beanName" value="productBiz"/>	      
 	    </create>	
+	     <create creator="spring" javascript="assetsItemBiz">
+	      <param name="beanName" value="assetsItemBiz"/>	      
+	    </create>	
 	    
 	    <convert match="org.apache.struts.action.ActionServletWrapper"  converter="bean" />   	    
 	   
@@ -64,6 +67,7 @@
 	    <convert match="com.kurui.kums.finance.OrderDetail" converter="hibernate3"></convert>		     
 	    <convert match="com.kurui.kums.finance.Budget" converter="hibernate3"></convert>	
 	    <convert match="com.kurui.kums.finance.BudgetOrder" converter="hibernate3"></convert>	
+	    <convert match="com.kurui.kums.finance.AssetsItem" converter="hibernate3"></convert>	
 	       	    
 	    <convert match="com.kurui.kums.right.SysUser" converter="hibernate3"></convert>	   
 	     

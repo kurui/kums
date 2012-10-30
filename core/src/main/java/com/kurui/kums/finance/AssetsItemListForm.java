@@ -11,7 +11,7 @@ public class AssetsItemListForm extends ListActionForm {
 
 	public long id = Long.valueOf(0);
 
-	public Long status = Long.valueOf(0);
+	public Long status = Long.valueOf(1);
 	
 	
 	public String itemType="";

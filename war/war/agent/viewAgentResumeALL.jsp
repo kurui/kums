@@ -39,6 +39,9 @@
 				agentResumeBiz.getAgentResumeById(id,function(agentResumeObj){
 					if(agentResumeObj!=null){
 						document.forms["editAgentResumeForm"].id.value=agentResumeObj.id;
+						
+						document.forms["editAgentResumeForm"].beginDate.value=agentResumeObj.beginDate;
+						document.forms["editAgentResumeForm"].endDate.value=agentResumeObj.endDate;
 						document.forms["editAgentResumeForm"].position.value=agentResumeObj.position;
 						document.forms["editAgentResumeForm"].content.value=agentResumeObj.content;
 						

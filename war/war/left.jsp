@@ -42,7 +42,7 @@
 					href="<%=path%>/transaction/companyList.do?thisAction=list&type=2"
 					target="mainFrame">客户公司列表</a>
 				</span> <span class="title"> <a
-					href="<%=path%>/finance/assetsItemList.do?thisAction=list"
+					href="<%=path%>/finance/assetsItemList.do?thisAction=list&status=1"
 					target="mainFrame">资产项目列表</a>
 
 				</span>
