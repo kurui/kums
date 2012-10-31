@@ -14,6 +14,7 @@ public class AgentResumeListForm extends ListActionForm {
 	public long agentId = Long.valueOf(0);
 	
 	public long companyId=Long.valueOf(0);
+	public String companyNo="";
 
 	public String content= "";
 	public Timestamp updateDate;
@@ -47,6 +48,16 @@ public class AgentResumeListForm extends ListActionForm {
 
 	public void setCompanyId(long companyId) {
 		this.companyId = companyId;
+	}
+	
+	
+
+	public String getCompanyNo() {
+		return companyNo;
+	}
+
+	public void setCompanyNo(String companyNo) {
+		this.companyNo = companyNo;
 	}
 
 	public long getId() {

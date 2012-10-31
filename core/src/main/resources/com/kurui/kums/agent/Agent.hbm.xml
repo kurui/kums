@@ -58,9 +58,6 @@
 		<property name="birthday" type="string">
 			<column name="BIRTHDAY" length="50" />
 		</property>
-		<property name="nativeCountry" type="string">
-			<column name="NATIVE_COUNTRY" length="50" />
-		</property>
 		<property name="marriage" type="string">
 			<column name="MARRIAGE" length="50" />
 		</property>

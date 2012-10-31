@@ -43,13 +43,13 @@
 							<a href="<%=path%>/agent/vehicleList.do?thisAction=list" target="mainFrame">车主列表</a>
 						</li>
 						<li>
-							<a href="<%=path%>/agent/agentEventList.do?thisAction=list" target="mainFrame">事件列表</a>
+							<a href="<%=path%>/agent/agentEventList.do?thisAction=list&type=1&status=1" target="mainFrame">事件列表</a>
 						</li>
 						<li>
-							<a href="<%=path%>/agent/agentResumeList.do?thisAction=list" target="mainFrame">简历列表</a>
+							<a href="<%=path%>/agent/agentResumeList.do?thisAction=list&type=1&status=1" target="mainFrame">简历列表</a>
 						</li>
 						<li>
-							<a href="<%=path%>/agent/agentContactList.do?thisAction=list" target="mainFrame">联系信息列表</a>
+							<a href="<%=path%>/agent/agentContactList.do?thisAction=list&type=1&status=1" target="mainFrame">联系信息列表</a>
 						</li>
 						
 						
