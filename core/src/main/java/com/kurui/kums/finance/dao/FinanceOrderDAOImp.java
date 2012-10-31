@@ -53,6 +53,11 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 		if (Constant.toLong(rlf.getAgentId()) > 0) {
 			hql.add(" and a.agent.id=" + rlf.getAgentId());
 		}
+		
+		// 公司
+		if (Constant.toLong(rlf.getCompanyId()) > 0) {
+			hql.add(" and a.cussentCompany.id=" + rlf.getCompanyId());
+		}
 
 		// 多个订单状态
 		if (StringUtil.isEmpty(Constant.toString(rlf.getStatusGroup())) == false) {

@@ -23,6 +23,7 @@ public class FinanceOrder extends _FinanceOrder {
 	private Long platComAccountId = Long.valueOf(0);
 	private Long platformId = Long.valueOf(0);
 	private Long companyId = Long.valueOf(0);
+	private String companyNo="";
 	private Long accountId = Long.valueOf(0);
 	private Long agentId = Long.valueOf(0);
 	private String agentNo = "";
@@ -509,6 +510,16 @@ public class FinanceOrder extends _FinanceOrder {
 			return "FF";
 		else
 			return this.orderGroup.getId() + "--";
+	}
+	
+	
+
+	public String getCompanyNo() {
+		return companyNo;
+	}
+
+	public void setCompanyNo(String companyNo) {
+		this.companyNo = companyNo;
 	}
 
 	public String getOutOrderNo() {

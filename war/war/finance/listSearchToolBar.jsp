@@ -119,7 +119,8 @@
 						onclick="displayObj('treeBox','');" /> <!-- onblur="displayObj('treeBox','none');" 缺陷, 展开树也会触发失去焦点 -->
 
 					<html:hidden property="tranTypeGroup" value="${ulf.tranTypeGroup}"></html:hidden>
-				</td>
+					公司：<jsp:include page="../transaction/listSearchCompanyBar.jsp"></jsp:include>
+										</td>
 				<td>关键字<html:text property="keyWord" ondblclick="this.value=''"
 						styleClass="colorblue2 p_5" style="width:120px;" />
 				</td>

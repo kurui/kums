@@ -130,7 +130,7 @@
 											</html:select>
 										</td>
 										-->
-										<td>	<jsp:include page="listSearchCompanyBar.jsp"></jsp:include>
+										<td>	<jsp:include page="../transaction/listSearchCompanyBar.jsp"></jsp:include>
 										</td>
 										<td>类型：</td>
 										<td><html:select property="type"

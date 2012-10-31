@@ -66,8 +66,21 @@
 							</html:select>
 						</td>
 						<td align="center">
+						<html:select
+												property="cussentCompanyIds" value="${order.cussentCompany.id}" styleClass="colorblue2 p_5"
+												styleId="cussentCompanyId" style="width:120px;" >
+												<html:option value="0">
+										请选择
+									</html:option>
+												<c:forEach items="${companyList}" var="company" >
+													<html:option value="${company.id}" >
+														<c:out value="${company.showName}" />
+													</html:option>
+												</c:forEach>
+											</html:select>
 							<c:if test="${!empty order.cussentCompany}">
-								<c:out value="${order.cussentCompany.shortName}" />
+							<!-- 	<c:out value="${order.cussentCompany.shortName}" /> -->
+								
 							</c:if>
 							<c:if test="${!empty order.agent}">
 								&nbsp;

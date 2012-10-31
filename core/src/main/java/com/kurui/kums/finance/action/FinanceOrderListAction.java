@@ -445,6 +445,8 @@ public class FinanceOrderListAction extends BaseAction {
 			financeOrderBiz.editOrder(ulf, request);
 
 			request = loadPlatComAccountStoreForRequest(request);
+			
+			request.setAttribute("companyList", PlatComAccountStore.getAgentCompnayList());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
