@@ -60,7 +60,7 @@
 					</ul>
 
 					<span class="title"><a href="#" onclick="showUL('ulLog')">日志管理</a> </span>
-					<ul class="contents" id="ulLog" style="display: none">
+					<ul class="contents" id="ulLog" style="display: ''">
 						<li>
 							<a href="<%=path%>/system/loginloglist.do?thisAction=list&locate=2" target="mainFrame">登录日志</a>
 						</li>

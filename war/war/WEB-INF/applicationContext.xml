@@ -98,6 +98,7 @@
 				<value>com/kurui/kums/right/RoleRight.hbm.xml</value>
 				<value>com/kurui/kums/right/SysUser.hbm.xml</value>
 				<value>com/kurui/kums/right/UserRole.hbm.xml</value>
+				<value>com/kurui/kums/right/License.hbm.xml</value>
 
 				<value>com/kurui/kums/system/LoginLog.hbm.xml</value>
 				<value>com/kurui/kums/system/News.hbm.xml</value>

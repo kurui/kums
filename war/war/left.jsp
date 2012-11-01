@@ -44,7 +44,9 @@
 				</span> <span class="title"> <a
 					href="<%=path%>/finance/assetsItemList.do?thisAction=list&status=1"
 					target="mainFrame">资产项目列表</a>
-
+<span class="title"> <a
+					href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
+					target="mainFrame">授权列表</a>
 				</span>
 			</div>
 		</div>

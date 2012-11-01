@@ -52,7 +52,7 @@
 				/WEB-INF/struts-config.xml , /WEB-INF/struts-config-agent.xml, /WEB-INF/struts-config-system.xml ,
 				/WEB-INF/struts-config-transaction.xml, /WEB-INF/struts-config-market.xml, /WEB-INF/struts-config-finance.xml,
 				/WEB-INF/struts-config-right.xml, /WEB-INF/struts-config-report.xml, /WEB-INF/struts-config-upload.xml,
-				/WEB-INF/struts-config-message.xml
+				/WEB-INF/struts-config-message.xml,
 			</param-value>
 		</init-param>
 		<init-param>
