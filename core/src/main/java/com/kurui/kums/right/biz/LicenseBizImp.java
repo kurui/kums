@@ -46,8 +46,15 @@ public class LicenseBizImp implements LicenseBiz {
 		LicenseBo licenseBo=LicenseClientLogic.queryLicenseContent();
 		License license=new License();
 		license.setCompanyNo(licenseBo.getCompanyNo());
-//		license.setIssued();
-		license.setMemo(licenseBo.getMacaddress()+"==="+licenseBo.getIssued());
+		license.setIssued(licenseBo.getIssued());
+		license.setNotafter(licenseBo.getNotafter());
+		if(licenseBo.getLicenseType()=="OFFICIAL"){
+			license.setLicenseType(License.LICENSE_TYPE_1);
+		}else{
+			license.setLicenseType(License.LICENSE_TYPE_0);
+		}
+		license.setStaffNum(Long.valueOf(licenseBo.getStaffNumber()));
+		license.setMemo(licenseBo.getMacaddress());
 		return license;
 	}
 

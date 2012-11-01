@@ -38,10 +38,18 @@
 									</tr>
 									<tr>
 										<td>
-											排名
+											授权用户
 										</td>
 										<td>
-											<c:out value="${license.companyNo}"></c:out>
+											<c:out value="${license.companyNo}"></c:out>|<c:out value="${license.licenseType}"></c:out>
+										</td>
+									</tr>
+										<tr>
+										<td>
+											授权时间
+										</td>
+										<td>
+											<c:out value="${license.issued}"></c:out>|<c:out value="${license.notafter}"></c:out>
 										</td>
 									</tr>
 									<tr>
@@ -56,7 +64,7 @@
 									</tr>
 									<tr>
 										<td>
-											阅读数
+											最大用户数
 										</td>
 										<td>
 											<c:out value="${license.staffNum}"></c:out>
