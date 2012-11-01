@@ -31,6 +31,7 @@ public class LicenseAction extends BaseAction {
 		try {
 			License tempLicense = licenseBiz.getLicenseById(license.getId());
 			
+			tempLicense.setLicenseNo(license.getLicenseNo());
 			tempLicense.setCompanyNo(license.getCompanyNo());
 			tempLicense.setNotafter(DateUtil.getTimestamp(license.getUpdateDate(), "yyyy-mm-dd"));
 			tempLicense.setLicenseType(license.getLicenseType());
@@ -42,7 +43,7 @@ public class LicenseAction extends BaseAction {
 			request.setAttribute("license", tempLicense);
 
 			inf.setMessage("您已经成功更新了授权！");
-			inf.setForwardPage("/right/licenselist.do");
+			inf.setForwardPage("/right/licenseList.do");
 			inf.setParamId("thisAction");
 			inf.setParamValue("list");
 
@@ -61,6 +62,7 @@ public class LicenseAction extends BaseAction {
 		Inform inf = new Inform();
 			try {
 				License tempLicense = new License();
+				tempLicense.setLicenseNo(license.getLicenseNo());
 				tempLicense.setCompanyNo(license.getCompanyNo());
 				tempLicense.setIssued(new Timestamp(System.currentTimeMillis()));
 				tempLicense.setNotafter(DateUtil.getTimestamp(license.getUpdateDate(), "yyyy-mm-dd"));
@@ -74,7 +76,7 @@ public class LicenseAction extends BaseAction {
 				request.setAttribute("license", tempLicense);
 
 				inf.setMessage("您已经成功添加了授权！");
-				inf.setForwardPage("/right/licenselist.do");
+				inf.setForwardPage("/right/licenseList.do");
 				inf.setParamId("thisAction");
 				inf.setParamValue("list");
 			} catch (Exception ex) {

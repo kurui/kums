@@ -3,6 +3,9 @@ package com.kurui.kums.right.biz;
 import java.util.List;
 
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.license.LicenseBo;
+import com.kurui.kums.base.license.client.LicenseClientLogic;
+import com.kurui.kums.base.util.DateUtil;
 import com.kurui.kums.right.License;
 import com.kurui.kums.right.LicenseListForm;
 import com.kurui.kums.right.dao.LicenseDAO;
@@ -37,6 +40,15 @@ public class LicenseBizImp implements LicenseBiz {
 
 	public void deleteLicenseById(int id) throws AppException {
 		licenseDAO.deleteLicenseById(id);
+	}
+
+	public License getClientLicense() throws AppException {
+		LicenseBo licenseBo=LicenseClientLogic.queryLicenseContent();
+		License license=new License();
+		license.setCompanyNo(licenseBo.getCompanyNo());
+//		license.setIssued();
+		license.setMemo(licenseBo.getMacaddress()+"==="+licenseBo.getIssued());
+		return license;
 	}
 
 }

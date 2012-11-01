@@ -33,7 +33,7 @@
 											标题
 										</td>
 										<td>
-											<c:out value="${license.title}"></c:out>
+											<c:out value="${license.licenseNo}"></c:out>
 										</td>
 									</tr>
 									<tr>
@@ -41,7 +41,7 @@
 											排名
 										</td>
 										<td>
-											<c:out value="${license.rank}"></c:out>
+											<c:out value="${license.companyNo}"></c:out>
 										</td>
 									</tr>
 									<tr>
@@ -49,9 +49,9 @@
 											发布人
 										</td>
 										<td>
-											<c:out value="${license.userName}"></c:out>
+											<c:out value="${license.userNo}"></c:out>
 											|
-											<c:out value="${license.createDate}"></c:out>
+											<c:out value="${license.updateDate}"></c:out>
 										</td>
 									</tr>
 									<tr>
@@ -59,7 +59,7 @@
 											阅读数
 										</td>
 										<td>
-											<c:out value="${license.readNum}"></c:out>
+											<c:out value="${license.staffNum}"></c:out>
 										</td>
 									</tr>
 									<tr>
@@ -68,7 +68,7 @@
 											内容
 										</td>
 										<td>
-											<c:out value="${license.content}" escapeXml="false"></c:out>
+											<c:out value="${license.memo}" escapeXml="false"></c:out>
 										</td>
 									</tr>
 								</table>

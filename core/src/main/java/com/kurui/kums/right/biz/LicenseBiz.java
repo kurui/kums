@@ -17,4 +17,6 @@ public interface LicenseBiz {
 
 	public void deleteLicenseById(int id) throws AppException;
 
+	public License getClientLicense() throws AppException;
+
 }

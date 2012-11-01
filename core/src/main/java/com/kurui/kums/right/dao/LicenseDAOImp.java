@@ -17,7 +17,7 @@ public class LicenseDAOImp extends BaseDAOSupport implements LicenseDAO {
 		hql.add("from License n where 1=1");
 		
 
-		hql.add(" order by n.issued desc");
+		hql.add(" order by n.updateTime desc");
 //		System.out.println("hql===" + hql);
 		return this.list(hql, clf);
 	}

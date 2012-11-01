@@ -6,7 +6,7 @@
 
 <hibernate-mapping>
 
-	<class name="com.kurui.kums.right.License" table="news">
+	<class name="com.kurui.kums.right.License" table="License">
 
 	<id name="id" type="long" column="id">
 			<generator class="sequence">

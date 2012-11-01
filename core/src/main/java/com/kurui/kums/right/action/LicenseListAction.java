@@ -45,8 +45,10 @@ public class LicenseListAction extends BaseAction {
 		SysUser user = this.getUserByURI(request);
 
 		License license = new License();
+//		license.setLicenseType(License.LICENSE_TYPE_0);
+//		license.setStatus(License.STATUS_1);
 		license.setThisAction("insert");
-		request.setAttribute("userName", user.getUserName());
+		
 		request.setAttribute("license", license);
 		forwardPage = "editLicense";
 
@@ -121,6 +123,20 @@ public class LicenseListAction extends BaseAction {
 		return (mapping.findForward(forwardPage));
 	}
 
+	public ActionForward viewClient(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		String forwardPage = "";
+
+		License license =  licenseBiz.getClientLicense();
+
+		license.setThisAction("view");
+		request.setAttribute("license", license);
+
+		forwardPage = "viewLicense";
+		return (mapping.findForward(forwardPage));
+	}
+	
 	public SysUser getUserByURI(HttpServletRequest request) {
 		UserRightInfo uri = (UserRightInfo) request.getSession().getAttribute(
 				"URI");

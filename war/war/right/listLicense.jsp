@@ -95,6 +95,7 @@ function searchAgent(){
 											<td>
 												<input type="submit" name="button" id="button" value="查询" class="submit greenBtn" />
 											</td>
+											<td><a href="<%=path%>/right/licenseList.do?thisAction=viewClient">当前授权</a></td>
 										</tr>
 									</table>
 								</div>
@@ -151,12 +152,12 @@ function searchAgent(){
 												</html:multibox>
 											</td>
 											<td>
-												<html:link page="/license/licenseList.do?thisAction=view&id=${info.id}">
-													<c:out value="${info.title}" />
+												<html:link page="/right/licenseList.do?thisAction=view&id=${info.id}">
+													<c:out value="${info.licenseNo}" />
 												</html:link>
 											</td>
 											<td>
-												<c:out value="${info.createDate}" />
+												<c:out value="${info.issued}" />
 											</td>
 											<td>
 												<c:if test="${info.status==1}">
@@ -167,13 +168,12 @@ function searchAgent(){
 											</c:if>
 											</td>
 											<td>
-												<c:out value="${info.readNum}" />
+												<c:out value="${info.staffNum}" />
 											</td>
 											<td>
-												<c:out value="${info.rank}" />
 											</td>
 											<td>
-												<c:out value="${info.userName}" />
+												<c:out value="${info.userNo}" />
 											</td>
 
 										</tr>

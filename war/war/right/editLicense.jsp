@@ -38,22 +38,34 @@
 						</c:import>
 						<hr> <html:form action="/right/license.do">
 							<html:hidden property="id" value="${license.id}"></html:hidden>
-							<html:hidden property="thisAction"></html:hidden>
+							<html:hidden property="thisAction" value="${license.thisAction}"></html:hidden>
 							<table width="100%" cellpadding="0" cellspacing="0" border="0"
 								class="dataList">
 								<tr>
-									<td>标题</td>
-									<td><html:text property="title" name="license"
+									<td>授权编号</td>
+									<td><html:text property="licenseNo" name="license"
 											styleClass="colorblue2 p_5" style="width:300px;"></html:text>
 									</td>
 								</tr>
 								<tr>
-									<td>排名</td>
-									<td><html:text property="rank" name="license"
+									<td>公司组织编号</td>
+									<td><html:text property="companyNo" name="license"
+											styleClass="colorblue2 p_5" style="width:300px;"></html:text>
+									</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td><html:text property="memo" name="license"
 											styleClass="colorblue2 p_5"></html:text></td>
 								</tr>
 								<tr>
-									<td>是否显示</td>
+									<td>授权类型</td>
+									<td><html:radio property="licenseType" value="0" name="license">试用</html:radio>
+										<html:radio property="licenseType" value="1" name="license">正式</html:radio>
+									</td>
+								</tr>
+									<tr>
+									<td>状态</td>
 									<td><html:radio property="status" value="0" name="license">不显示</html:radio>
 										<html:radio property="status" value="1" name="license">显示</html:radio>
 									</td>
@@ -68,11 +80,7 @@
 									</td>
 
 								</tr>
-								<tr>
-									<td>内容 <html:text property="memo" name="license" />
-									</td>
-
-								</tr>
+								
 							</table>
 						</html:form>
 						<div class="clear"></div></td>
