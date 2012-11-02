@@ -104,12 +104,6 @@ public class AgentDAOImp extends BaseDAOSupport implements AgentDAO {
 					+ "%'");
 			hql.add(" or a.agentNo like '%"
 					+ agentListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.qqCode like '%"
-					+ agentListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.email like '%"
-					+ agentListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.mobilePhone like '%"
-					+ agentListForm.getContactWay().trim() + "%'");
 			hql.add(" ) ");
 		}
 		

@@ -2,6 +2,9 @@ package com.kurui.kums.base.util;
 
 
 public class KumsNoUtil extends NoDBUtil {
+	public String getAssetsItemNo() {
+		return getNewNo("AS", "yyyyMMdd", 4); // B
+	}
 	public String getBudgetNo() {
 		return getNewNo("B", "yyyyMMdd", 4); // B
 	}

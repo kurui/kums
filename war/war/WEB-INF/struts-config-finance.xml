@@ -33,6 +33,13 @@
 		<form-bean name="commission"
 			type="com.kurui.kums.finance.Commission">
 		</form-bean>
+		
+		<form-bean name="assetsItemListForm"
+			type="com.kurui.kums.finance.AssetsItemListForm">
+		</form-bean>
+		<form-bean name="assetsItem"
+			type="com.kurui.kums.finance.AssetsItem">
+		</form-bean>
 	</form-beans>
 
 	<action-mappings>
@@ -93,6 +100,8 @@
 				path="/finance/listMainOrder.jsp" />
 			<forward name="listCreditOrder"
 				path="/finance/listCreditOrder.jsp" />
+			<forward name="listFinanceForAssetsItem"
+				path="/finance/listFinanceForAssetsItem.jsp" />
 			<forward name="editCreditOrder"
 				path="/finance/editCreditOrder.jsp" />
 			<forward name="editRepayCreditOrder"
@@ -177,6 +186,34 @@
 			</forward>
 			<forward name="viewCommission"
 				path="/finance/viewCommission.jsp">
+			</forward>
+		</action>
+		
+		<action name="assetsItemListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/assetsItemList" validate="false" scope="request">
+			<forward name="listAssetsItemSTA"
+				path="/finance/listAssetsItemSTA.jsp" />
+			<forward name="listAssetsItem"
+				path="/finance/listAssetsItem.jsp" />
+			<forward name="editAssetsItem"
+				path="/finance/editAssetsItem.jsp">
+			</forward>
+			<forward name="editAssetsItemBatchReset"
+				path="/finance/editAssetsItemBatchReset.jsp">
+			</forward>
+			<forward name="viewAssetsItem"
+				path="/finance/viewAssetsItem.jsp">
+			</forward>
+		</action>
+		<action name="assetsItem" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/assetsItem" validate="false" scope="request">
+			<forward name="listAssetsItem"
+				path="/finance/listAssetsItem.jsp">
+			</forward>
+			<forward name="viewAssetsItem"
+				path="/finance/viewAssetsItem.jsp">
 			</forward>
 		</action>
 	</action-mappings>

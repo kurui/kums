@@ -53,6 +53,11 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 		if (Constant.toLong(rlf.getAgentId()) > 0) {
 			hql.add(" and a.agent.id=" + rlf.getAgentId());
 		}
+		
+		// 公司
+		if (Constant.toLong(rlf.getCompanyId()) > 0) {
+			hql.add(" and a.cussentCompany.id=" + rlf.getCompanyId());
+		}
 
 		// 多个订单状态
 		if (StringUtil.isEmpty(Constant.toString(rlf.getStatusGroup())) == false) {
@@ -458,6 +463,32 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 		return list;
 
 	}
+	
+	public List<FinanceOrder> listFinanceForAssetsItem(FinanceOrderListForm ulf)
+			throws AppException {
+		List<FinanceOrder> list = new ArrayList();
+		Hql hql = new Hql("from FinanceOrder f where 1=1 ");
+		
+		
+		String tranTypes=ulf.getTranTypes();
+		if(StringUtil.isEmpty(tranTypes)==false){
+			hql.add("and f.tranType in(" + tranTypes+")");
+		}
+		
+		hql.add("and f.id not in(select t.financeOrderId from AssetsItem t) ");
+		
+		hql.add("and f.totalAmount>10");	  
+
+		hql.add(" and f.status not in(" + FinanceOrder.STATUS_88 + " ) ");
+		
+		hql.add(" order by f.totalAmount,f.tranType desc");
+		
+	
+		return this.list(hql, ulf);
+
+	}
+	
+
 
 	public List list() throws AppException {
 		Hql hql = new Hql();

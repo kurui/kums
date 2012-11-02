@@ -27,12 +27,6 @@ public class AgentHabitDAOImp extends BaseDAOSupport implements AgentHabitDAO {
 					+ agentHabitListForm.getContactWay().trim() + "%'");
 			hql.add(" or t.agentNo like '%"
 					+ agentHabitListForm.getContactWay().trim() + "%'");
-			hql.add(" or t.qqCode like '%"
-					+ agentHabitListForm.getContactWay().trim() + "%'");
-			hql.add(" or t.email like '%"
-					+ agentHabitListForm.getContactWay().trim() + "%'");
-			hql.add(" or t.mobilePhone like '%"
-					+ agentHabitListForm.getContactWay().trim() + "%'");
 			hql.add(" ) ");
 		}
 

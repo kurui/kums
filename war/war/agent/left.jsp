@@ -34,9 +34,6 @@
 							<a href="<%=path%>/agent/agentList.do?thisAction=list&companyId=530" target="mainFrame">网购客户列表</a>
 						</li>
 						<li>
-							<a href="<%=path%>/agent/agentList.do?thisAction=listAddress" target="mainFrame">通讯录</a>
-						</li>
-						<li>
 							<a href="<%=path%>/agent/agentList.do?thisAction=listGrade" target="mainFrame">客户评级</a>
 						</li>
 						<li>
@@ -46,8 +43,16 @@
 							<a href="<%=path%>/agent/vehicleList.do?thisAction=list" target="mainFrame">车主列表</a>
 						</li>
 						<li>
-							<a href="#" target="mainFrame">客户分析</a>
+							<a href="<%=path%>/agent/agentEventList.do?thisAction=list&type=1&status=1" target="mainFrame">事件列表</a>
 						</li>
+						<li>
+							<a href="<%=path%>/agent/agentResumeList.do?thisAction=list&type=1&status=1" target="mainFrame">简历列表</a>
+						</li>
+						<li>
+							<a href="<%=path%>/agent/agentContactList.do?thisAction=list&type=1&status=1" target="mainFrame">联系信息列表</a>
+						</li>
+						
+						
 					</ul>
 					<span class="title" onClick="showUL('ulDirectAgent')"><a href="<%=path%>/agent/agentList.do?thisAction=listDirectAgent&directLevelIds=1,2,3,4,5" target="mainFrame">直销商管理</a> </span>
 					<ul id="ulDirectAgent" class="contents" style="display: none">
@@ -75,6 +80,7 @@
 						<li>
 							<a href="<%=path%>/agent/agentCoterieList.do?thisAction=list" target="mainFrame">圈中客户列表</a>
 						</li>
+							
 					</ul>
 					<span class="title" onClick="showUL('ulAgentHabit')"><a href="<%=path%>/agent/agentActionList.do?thisAction=list" target="mainFrame">客户行为洞察</a> </span>
 					<ul id="ulAgentHabit" class="contents" style="display: none">
@@ -83,6 +89,13 @@
 						</li>
 						<li>
 							<a href="<%=path%>/agent/agentHabitList.do?thisAction=list" target="mainFrame">客户习性列表</a>
+						</li>
+					</ul>
+					
+					<span class="title" onClick="showUL('ulCompany')"><a href="<%=path%>/transaction/companyList.do?thisAction=list&type=2" target="mainFrame">供应链管理</a> </span>
+					<ul id="ulCompany" class="contents" style="">
+						<li>
+							<a href="<%=path%>/transaction/companyList.do?thisAction=list&type=2" target="mainFrame">客户公司列表</a>
 						</li>
 					</ul>
 

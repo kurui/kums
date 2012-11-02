@@ -56,6 +56,8 @@ public interface FinanceOrderBiz {
 
 	public List listData(FinanceOrderListForm rlf, UserRightInfo uri)
 			throws AppException;
+	public List<FinanceOrder> listFinanceForAssetsItem(FinanceOrderListForm ulf)
+			throws AppException;
 
 	public List list() throws AppException;
 

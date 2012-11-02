@@ -39,6 +39,21 @@
 		class="com.kurui.kums.right.action.RoleRightAction" singleton="false"
 		lazy-init="default" autowire="default" dependency-check="default">
 	</bean>
+	
+	<bean name="/right/licenseList"
+		class="com.kurui.kums.right.action.LicenseListAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="licenseBiz">
+			<ref bean="licenseBiz" />
+		</property>
+	</bean>
+	<bean name="/right/license"
+		class="com.kurui.kums.right.action.LicenseAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="licenseBiz">
+			<ref bean="licenseBiz" />
+		</property>
+	</bean>
 
 	<bean id="userBiz" class="com.kurui.kums.right.biz.UserBizImp">
 		<property name="transactionManager" ref="transactionManager" />
@@ -60,6 +75,18 @@
 	</bean>
 
 	<bean id="rightDAO" class="com.kurui.kums.right.dao.RightDAOImp">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="licenseBiz" class="com.kurui.kums.right.biz.LicenseBizImp">
+		<property name="licenseDAO">
+			<ref bean="licenseDAO" />
+		</property>
+	</bean>
+	<bean id="licenseDAO" class="com.kurui.kums.right.dao.LicenseDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

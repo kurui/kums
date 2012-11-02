@@ -76,56 +76,7 @@
 												styleClass="colorblue2 p_5" style="width:20px;">女</html:radio>
 										</td>
 									</tr>
-
-									<tr>
-										<td>
-											<a href="#" onclick="showElement('contactWayBody')">联系方式</a>
-										</td>
-										<td>
-											<c:out value="${agent.mobilePhone}"></c:out>
-										</td>
-									</tr>
-									<tbody id="contactWayBody">
-										<tr>
-											<td class="lef">
-												QQ
-											</td>
-											<td style="text-align: left">
-												<html:text property="qqCode" name="agent"
-													value="${agent.qqCode}" styleClass="colorblue2 p_5"
-													style="width:200px;"></html:text>
-											</td>
-										</tr>
-										<tr>
-											<td class="lef">
-												email
-											</td>
-											<td style="text-align: left">
-												<html:text property="email" name="agent"
-													value="${agent.email}" styleClass="colorblue2 p_5"
-													style="width:200px;"></html:text>
-											</td>
-										</tr>
-										<tr>
-											<td class="lef">
-												手机号码
-											</td>
-											<td style="text-align: left">
-												<html:text property="mobilePhone" name="agent"
-													value="${agent.mobilePhone}" styleClass="colorblue2 p_5"
-													style="width:200px;"></html:text>
-											</td>
-										</tr>
-										<tr>
-											<td class="lef">
-												地址
-											</td>
-											<td style="text-align: left">
-												<html:text property="address" name="agent"
-													value="${agent.address}" styleClass="colorblue2 p_5"
-													style="width:200px;"></html:text>
-											</td>
-										</tr>
+									<tbody id="contactWayBody">										
 										<tr>
 											<td class="lef">
 												备注
@@ -137,7 +88,7 @@
 										</tr>
 										<tr>
 											<td class="lef">
-												分管部门|创建地
+												分管部门
 											</td>
 											<td style="text-align: left">
 												<html:select property="companyId" name="agent"
@@ -148,10 +99,6 @@
 														</html:option>
 													</c:forEach>
 												</html:select>
-												|
-												<html:text property="knowPlace" name="agent"
-													value="${agent.knowPlace}" styleClass="colorblue2 p_5"
-													style="width:200px;"></html:text>
 											</td>
 										</tr>
 										<tr>

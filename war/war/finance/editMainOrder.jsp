@@ -129,7 +129,7 @@
 											<html:hidden property="agentId" name="financeOrder" />
 											<html:text property="agentNo" name="financeOrder"
 												styleClass="colorblue2 p_5" style="width:200px;"
-												ondblclick="this.value='';" onkeyup="onChangeSelectAgent();" />
+												ondblclick="this.value='';"  onkeyup="onChangeSelectAgent();"   />
 
 											<input name="label" type="button" class="button1"
 												value="选择客户" onclick="selectAgent();">
@@ -372,6 +372,7 @@
 				agentStore.getBlurAgentList(agentNo,function(blurAgentList){
 					//alert("blurAgentList:"+blurAgentList);
 					if(blurAgentList!=null){
+						if(blurAgentList.length>0){					
 						for(var i=0;i<blurAgentList.length;i++){
 							var agent=blurAgentList[i];
 							if(agent!=null){					
@@ -379,8 +380,14 @@
 								info=info+agent.name+"|"+agent.typeInfo;
 								addBlurAgentRow('tableBlurAgent',info,i);
 							}							
-						}						
-					}				
+						}	
+						
+						}else{
+							displayObj("agentBox","none");	
+						}					
+					}else{
+						displayObj("agentBox","none");	
+					}			
 				});
 			}
 		}
@@ -398,7 +405,7 @@
 		displayObj("agentBox","none");	
 		addAgentId(agentId);	
 	}
-	
+
 	//====================onChange Product begin=========
 			function onChangeSelectProduct(maxRow,event){
 			$("#tableBlurProduct").empty();
@@ -408,6 +415,7 @@
 				productStore.getBlurProductList(productNo,function(blurProductList){
 					//alert("blurProductList:"+blurProductList);
 					if(blurProductList!=null){
+					if(blurProductList.length>0){
 						for(var i=0;i<blurProductList.length;i++){
 							var product=blurProductList[i];
 							if(product!=null){					
@@ -415,8 +423,15 @@
 								info=info+product.name+"|"+product.typeInfo;
 								addBlurProductRow('tableBlurProduct',info,i);
 							}							
-						}						
-					}				
+						}
+						
+						}else{
+							displayObj("productBox","none");	
+						}					
+					}else{
+						displayObj("productBox","none");	
+					}							
+									
 				});
 			}
 		}

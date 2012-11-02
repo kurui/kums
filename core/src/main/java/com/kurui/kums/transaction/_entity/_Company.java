@@ -48,6 +48,10 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 			0);
 	protected Set<ShareHolder> shareHolders = new HashSet<ShareHolder>(0);
 	protected Set<EstateDish> estateDishs = new HashSet<EstateDish>(0);
+	
+	protected Long financeCount;
+	protected Long agentCount;
+	
 
 	// Constructors
 
@@ -308,6 +312,22 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 
 	public void setShareHolders(Set<ShareHolder> shareHolders) {
 		this.shareHolders = shareHolders;
+	}
+
+	public Long getFinanceCount() {
+		return financeCount;
+	}
+
+	public void setFinanceCount(Long financeCount) {
+		this.financeCount = financeCount;
+	}
+
+	public Long getAgentCount() {
+		return agentCount;
+	}
+
+	public void setAgentCount(Long agentCount) {
+		this.agentCount = agentCount;
 	}
 
 	// end of extra code specified in the hbm.xml files

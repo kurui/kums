@@ -30,31 +30,40 @@ public class AgentCoterie extends _AgentCoterie {
 			return null;
 		}
 	}
-
+private String createDate="";
 	public String getCreateDate() {
 		String mydate = "";
+		if (createDate  != "") {
+			return createDate;
+		} else {
 		if (this.createTime != null && "".equals(createTime) == false) {
 			Date tempDate = new Date(createTime.getTime());
 			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
-		}
+		}}
 		return mydate;
 	}
-
+private String fromDate="";
 	public String getFromDate() {
 		String mydate = "";
+		if (fromDate  != "") {
+			return fromDate;
+		} else {
 		if (this.fromTime != null && "".equals(fromTime) == false) {
 			Date tempDate = new Date(fromTime.getTime());
 			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
-		}
+		}}
 		return mydate;
 	}
-
+private String expireDate="";
 	public String getExpireDate() {
 		String mydate = "";
+		if (expireDate  != "") {
+			return expireDate;
+		} else {
 		if (this.expireTime != null && "".equals(expireTime) == false) {
 			Date tempDate = new Date(expireTime.getTime());
 			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
-		}
+		}}
 		return mydate;
 	}
 

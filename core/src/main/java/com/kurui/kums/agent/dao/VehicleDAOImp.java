@@ -25,12 +25,6 @@ public class VehicleDAOImp extends BaseDAOSupport implements VehicleDAO {
 					+ vehicleListForm.getContactWay().trim() + "%'");
 			hql.add(" or a.agent.agentNo like '%"
 					+ vehicleListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.qqCode like '%"
-					+ vehicleListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.email like '%"
-					+ vehicleListForm.getContactWay().trim() + "%'");
-			hql.add(" or a.agent.mobilePhone like '%"
-					+ vehicleListForm.getContactWay().trim() + "%'");
 			hql.add(" ) ");
 		}
 

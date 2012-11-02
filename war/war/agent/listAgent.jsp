@@ -75,6 +75,17 @@
       		showSearchBarObj.style.display='none';
       	}      	
       }
+      
+      
+ 		function openResume(agentId){
+			var url="../agent/agentResumeList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
+		
+		function openContact(agentId){
+			var url="../agent/agentContactList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
 	</script>
 	</head>
 	<body>
@@ -141,10 +152,6 @@
 												</html:select>												
 											</td>
 											<td>
-												来源：
-												<html:text property="knowPlace" styleClass="colorblue2 p_5" style="width:150px;" />
-											</td>
-											<td>
 												<input type="submit" name="button" id="button" value="提交" class="submit greenBtn" />
 											</td>
 										</tr>
@@ -177,44 +184,21 @@
 												类型
 											</div>
 										</th>
-										<th>
+										<th colspan="2">
 											<div>
 												客户
 											</div>
 										</th>
-										<th>
-											<div>
-												职位
-											</div>
-										</th>
+										
 										<th>
 											<div>
 												关系
 											</div>
 										</th>
-										<th style="display: none">
-											<div>
-												QQ
-											</div>
-										</th>
-										<th>
-											<div>
-												手机
-											</div>
-										</th>
-										<th style="display: none">
-											<div>
-												居住地
-											</div>
-										</th>
+										
 										<th style="display: none">
 											<div>
 												额度|积分
-											</div>
-										</th>
-										<th>
-											<div>
-												来源
 											</div>
 										</th>
 										<th>
@@ -270,30 +254,22 @@
 													<c:out value="${agent.agentNo}" />
 													|
 													<a href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agent.id}" />"> <c:out value="${agent.name}" /> </a>
-												</div>
+													</div>
 											</td>
 											<td>
-												<c:out value="${agent.position}" />
+												<div align="left"><a href="#"  onclick="openResume(<c:out value="${agent.id}" />)">简历</a>
+													|<a href="#"  onclick="openContact(<c:out value="${agent.id}" />)">联系</a>
+												</div>
 											</td>
+											
 											<td>
 												<c:out value="${agent.stampTypeInfo}" />
 											</td>
-											<td style="display: none">
-												<c:out value="${agent.qqCode}" />
-											</td>
-											<td>
-												<c:out value="${agent.mobilePhone}" />
-											</td>
-											<td style="display: none">
-												<c:out value="${agent.shortAddress}" />
-											</td>
+											
 											<td style="display: none">
 												<c:out value="${agent.creditAmount}" />
 												|
 												<c:out value="${agent.totalIntegral}" />
-											</td>
-											<td>
-												<c:out value="${agent.knowPlace}" />
 											</td>
 											<td>
 												<c:out value="${agent.loyalIndexInfo}" />

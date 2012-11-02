@@ -469,7 +469,7 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 			Long[] tranTypes = form.getTranTypes();
 			Long[] platformIds = form.getPlatformIds();
 			Long[] companyIds = form.getCompanyIds();
-			// Long[] cussentCompanyIds=form.getCussentCompanyIds();
+			Long[] cussentCompanyIds=form.getCussentCompanyIds();
 			String[] outOrderNos = form.getOutOrderNos();
 //			Timestamp[] businessTimes = form.getBusinessTimes();
 			String[] businessDates = form.getBusinessDates();
@@ -489,6 +489,9 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 								.getPlatformById(platformIds[i]));
 						order.setCompany(companyDAO
 								.getCompanyById(companyIds[i]));
+						
+						order.setCussentCompany(companyDAO
+								.getCompanyById(cussentCompanyIds[i]));
 
 						if (order.getPlatform() == null
 								|| order.getCompany() == null) {
@@ -903,6 +906,11 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 	public List listData(FinanceOrderListForm rlf, UserRightInfo uri)
 			throws AppException {
 		return financeOrderDAO.listData(rlf, uri);
+	}
+	
+	public List<FinanceOrder> listFinanceForAssetsItem(FinanceOrderListForm ulf)
+			throws AppException{
+		return financeOrderDAO.listFinanceForAssetsItem(ulf);
 	}
 
 	public List list() throws AppException {

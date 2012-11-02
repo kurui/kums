@@ -63,7 +63,9 @@
 			<list>
 				<value>com/kurui/kums/agent/Agent.hbm.xml</value>
 				<value>com/kurui/kums/agent/AgentAccount.hbm.xml</value>
-				<value>com/kurui/kums/agent/AgentAction.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentEvent.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentContact.hbm.xml</value>
+				<value>com/kurui/kums/agent/AgentResume.hbm.xml</value>
 				<value>com/kurui/kums/agent/AgentCoterie.hbm.xml</value>
 				<value>com/kurui/kums/agent/AgentHabit.hbm.xml</value>
 				<value>com/kurui/kums/agent/AgentRelation.hbm.xml</value>
@@ -72,6 +74,8 @@
 				<value>com/kurui/kums/agent/ShareHolder.hbm.xml</value>
 				<value>com/kurui/kums/agent/Vehicle.hbm.xml</value>
 
+					
+				<value>com/kurui/kums/finance/AssetsItem.hbm.xml</value>	
 				<value>com/kurui/kums/finance/Budget.hbm.xml</value>
 				<value>com/kurui/kums/finance/BudgetOrder.hbm.xml</value>
 				<value>com/kurui/kums/finance/Commission.hbm.xml</value>
@@ -94,6 +98,7 @@
 				<value>com/kurui/kums/right/RoleRight.hbm.xml</value>
 				<value>com/kurui/kums/right/SysUser.hbm.xml</value>
 				<value>com/kurui/kums/right/UserRole.hbm.xml</value>
+				<value>com/kurui/kums/right/License.hbm.xml</value>
 
 				<value>com/kurui/kums/system/LoginLog.hbm.xml</value>
 				<value>com/kurui/kums/system/News.hbm.xml</value>

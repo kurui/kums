@@ -11,6 +11,20 @@
 		<link href="<%=path%>/_css/global.css" rel="stylesheet"
 			type="text/css" />
 		<script src="<%=path%>/_js/base/FormUtil.js" type="text/javascript"></script>
+		<script type="text/javascript" src="<%=path%>/_js/prototype/common.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript">
+		function openResume(agentId){
+			var url="../agent/agentResumeList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
+		
+		function openContact(agentId){
+			var url="../agent/agentContactList.do?thisAction=viewALL&agentId="+agentId;
+			openWindow(800,600,url);										
+		}
+		
+		</script>
 	</head>
 	<body>
 		<div id="mainContainer">
@@ -56,6 +70,11 @@
 													href="<%=path%>/agent/agentRelationList.do?thisAction=listGroupChart&agentId=<c:out value="${agent.id}" />">
 													谱系</a>
 											</c:if>
+											|<a
+													href="<%=path%>/agent/coterieList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
+													圈子</a>|<a
+													href="<%=path%>/agent/agentRelationList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
+													增加特别关系人</a>
 										</td>
 									</tr>
 									<tr>
@@ -88,14 +107,6 @@
 											<td style="text-align: left">
 												<c:out value="${agent.birthday}" />
 											</td>
-											<td class="lef">
-												民族/祖籍
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.people}" />
-												|
-												<c:out value="${agent.nativeCountry}" />
-											</td>
 										</tr>
 										<tr>
 											<td class="lef">
@@ -115,60 +126,24 @@
 											<a href="#" onclick="showElement('contactWayBody')">联系方式</a>
 										</td>
 										<td style="text-align: left" colspan="3">
-											<c:out value="${agent.mobilePhone}" />
+											
+												<a href="#" onclick="openContact(<c:out value="${agent.id}" />)">详细</a>
+										
 										</td>
 									</tr>
 									<tbody id="contactWayBody" style="display: none">
-										<tr>
-											<td class="lef">
-												QQ
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.qqCode}" />
-											</td>
-											<td class="lef">
-												Email
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.email}" />
-											</td>
-										</tr>
-										<tr>
-											<td class="lef">
-												手机
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.mobilePhone}" />
-											</td>
-											<td class="lef">
-												收货地址
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.address}" />
-											</td>
-										</tr>
+										
 									</tbody>
 									<tr>
 										<td class="lef">
-											<a href="#" onclick="showElement('workInfoBody')">职业信息</a>
+											<a href="#" onclick="showElement('workInfoBody')">简历</a>
 										</td>
-										<td style="text-align: left" colspan="3"></td>
+										<td style="text-align: left" colspan="3">
+											<a href="#" onclick="openResume(<c:out value="${agent.id}" />)" >详细</a>
+										
+										</td>
 									</tr>
-									<tbody id="workInfoBody" style="display: none">
-										<tr>
-											<td class="lef">
-												工作单位
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.workPlace}" />
-											</td>
-											<td class="lef">
-												职位
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.position}" />
-											</td>
-										</tr>
+									<tbody id="workInfoBody" >
 										<tr>
 											<td class="lef">
 												特长
@@ -312,12 +287,10 @@
 									</tr>
 									<tr>
 										<td class="lef">
-											分管部门|客户来源
+											分管部门
 										</td>
 										<td style="text-align: left">
 											<c:out value="${agent.company.name}" />
-											|
-											<c:out value="${agent.knowPlace}" />
 										</td>
 										<td class="lef">
 											状态

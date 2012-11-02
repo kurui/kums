@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-11-15 23:04:29 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.finance.AssetsItem" table="ASSETS_ITEM">
+		<id name="id" type="long">
+			<column name="ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">seq_ASSETSITEM</param>
+			</generator>
+		</id>
+		<property name="itemNo" type="string">
+			<column name="ITEM_NO" length="20" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" length="20" />
+		</property>
+		<property name="itemType" type="string">
+			<column name="item_type" length="50" />
+		</property>
+		<property name="itemCount" type="long">
+			<column name="Item_COUNT" precision="22" scale="0" />
+		</property>
+		<property name="valuation" type="big_decimal">
+			<column name="VALUATION" precision="15" scale="2" />
+		</property>
+
+		<property name="lastDeprecTime" type="java.sql.Timestamp">
+			<column name="LAST_DEPREC_TIME" length="7" />
+		</property>
+
+		<property name="areaCode" type="string">
+			<column name="AREA_CODE" length="20" />
+		</property>
+		<property name="financeOrderId" type="long">
+			<column name="FINANCE_ORDER_ID" precision="22" scale="0" />
+		</property>
+		<property name="memo" type="string">
+			<column name="MEMO" length="200" />
+		</property>
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="UPDATE_TIME" length="7" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

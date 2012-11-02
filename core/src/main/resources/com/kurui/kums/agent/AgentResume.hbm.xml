@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-10-23 19:39:09 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="com.kurui.kums.agent.AgentResume" table="AGENT_RESUME">
+        <id name="id" type="long">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="sequence">
+                <param name="sequence">seq_AGENT_RESUME</param>
+            </generator>
+        </id>
+        <many-to-one name="agent" class="com.kurui.kums.agent.Agent" fetch="select">
+            <column name="AGENT_ID" precision="22" scale="0" />
+        </many-to-one>
+         <many-to-one name="company" class="com.kurui.kums.transaction.Company" fetch="select">
+            <column name="Company_ID" precision="22" scale="0" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="CONTENT" length="100" />
+        </property>
+        <property name="position" type="string">
+            <column name="POSITION" length="30" />
+        </property>
+        <property name="beginTime" type="java.sql.Timestamp">
+            <column name="BEGIN_TIME" length="7" />
+        </property>
+        <property name="endTime" type="java.sql.Timestamp">
+            <column name="END_TIME" length="7" />
+        </property>
+        <property name="type" type="long">
+            <column name="TYPE" precision="22" scale="0" />
+        </property>
+        <property name="status" type="long">
+            <column name="STATUS" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

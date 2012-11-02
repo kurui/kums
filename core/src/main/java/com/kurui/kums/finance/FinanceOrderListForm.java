@@ -18,8 +18,10 @@ public class FinanceOrderListForm extends ListActionForm {
 
 	private long platformId = Long.valueOf(0);// 平台id
 	private long companyId = Long.valueOf(0);
+	private String companyNo="";
 
 	private long tranType = Long.valueOf(0);// 交易类型
+	private String tranTypes="";
 
 	private String statusGroup;
 
@@ -154,6 +156,19 @@ public class FinanceOrderListForm extends ListActionForm {
 		this.companyStatus = companyStatus;
 	}
 
+	
+	
+	
+	public String getCompanyNo() {
+		return companyNo;
+	}
+
+
+	public void setCompanyNo(String companyNo) {
+		this.companyNo = companyNo;
+	}
+
+
 	public String getForwardPage() {
 		return forwardPage;
 	}
@@ -281,6 +296,15 @@ public class FinanceOrderListForm extends ListActionForm {
 
 	public void setRecentlyDay(Long recentlyDay) {
 		this.recentlyDay = recentlyDay;
+	}
+	
+	public String getTranTypes() {
+		return tranTypes;
+	}
+
+
+	public void setTranTypes(String tranTypes) {
+		this.tranTypes = tranTypes;
 	}
 
 	public String getStatusGroup() {

@@ -78,14 +78,17 @@
 											</td>
 											<td>
 												<html:text property="contactWay" styleClass="colorblue2 p_5"
-													style="width:150px;" />
+													style="width:150px;" ></html:text>
 											</td>
-
 											<td>
 												<input type="submit" name="button" id="button" value="提交"
 													class="submit greenBtn" />
 											</td>
-										</tr>
+											<td>
+												<input name="label" type="button" class="button1"
+													value="返 回" onclick="window.history.back();">
+											</td>
+									</tr>
 									</table>
 								</div>
 								<table width="100%" cellpadding="0" cellspacing="0" border="0"
@@ -153,7 +156,8 @@
 												<c:out
 													value="${status.count+(vehicleListForm.intPage-1)*vehicleListForm.perPageNum}" />
 											</td>
-											<td>
+											<td  style="text-align: left">
+											<c:out value="${vehicle.agent.agentNo}" /> |
 												<a
 													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${vehicle.agent.id}" />">
 													<c:out value="${vehicle.agent.name}" /> </a>

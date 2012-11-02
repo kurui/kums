@@ -162,6 +162,34 @@
 			<ref bean="saleEventBiz" />
 		</property>
 	</bean>
+	
+		<!-- 资产项目 action  -->
+	<bean name="/finance/assetsItemList"
+		class="com.kurui.kums.finance.action.AssetsItemListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="assetsItemBiz">
+			<ref bean="assetsItemBiz" />
+		</property>
+		<property name="dataTypeBiz">
+			<ref bean="dataTypeBiz"/>
+		</property>
+	</bean>
+
+	<bean name="/finance/assetsItem"
+		class="com.kurui.kums.finance.action.AssetsItemAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="assetsItemBiz">
+			<ref bean="assetsItemBiz" />
+		</property>
+		<property name="financeOrderBiz">
+			<ref bean="financeOrderBiz"/>
+		</property>
+		<property name="noUtil">
+			<ref bean="noUtil" />
+		</property>
+	</bean>
 
 	<!-- Dao 配置-->
 	<!-- 订单表 dao、biz -->
@@ -311,6 +339,21 @@
 	</bean>
 	<bean id="budgetOrderDAO"
 		class="com.kurui.kums.finance.dao.BudgetOrderDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 资产项目表 dao、biz -->
+	<bean id="assetsItemBiz"
+		class="com.kurui.kums.finance.biz.AssetsItemBizImp">
+		<property name="assetsItemDAO">
+			<ref bean="assetsItemDAO" />
+		</property>
+	</bean>
+	<bean id="assetsItemDAO"
+		class="com.kurui.kums.finance.dao.AssetsItemDAOImp"
 		lazy-init="default" autowire="default" dependency-check="default">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />

@@ -134,16 +134,6 @@
 										</th>
 										<th>
 											<div>
-												手机
-											</div>
-										</th>
-										<th>
-											<div>
-												居住地
-											</div>
-										</th>
-										<th>
-											<div>
 												信用额度|消费积分
 											</div>
 										</th>
@@ -182,12 +172,7 @@
 													href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agent.id}" />">
 													<c:out value="${agent.name}" /> </a>
 											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.mobilePhone}" />
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.address}" />
-											</td>
+											
 											<td>
 												<c:out value="${agent.creditAmount}" />
 												|

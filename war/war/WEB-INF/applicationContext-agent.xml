@@ -178,17 +178,58 @@
 		</property>
 	</bean>
 
-	<bean name="/agent/agentActionList" class="com.kurui.kums.agent.action.AgentActionListAction" singleton="false" lazy-init="default"
+	<bean name="/agent/agentEventList" class="com.kurui.kums.agent.action.AgentEventListAction" singleton="false" lazy-init="default"
 		autowire="default" dependency-check="default">
-		<property name="agentActionBiz">
-			<ref bean="agentActionBiz" />
+		<property name="agentEventBiz">
+			<ref bean="agentEventBiz" />
 		</property>
 	</bean>
 
-	<bean name="/agent/agentAction" class="com.kurui.kums.agent.action.AgentActionAction" singleton="false" lazy-init="default" autowire="default"
+	<bean name="/agent/agentEvent" class="com.kurui.kums.agent.action.AgentEventAction" singleton="false" lazy-init="default" autowire="default"
 		dependency-check="default">
-		<property name="agentActionBiz">
-			<ref bean="agentActionBiz" />
+		<property name="agentEventBiz">
+			<ref bean="agentEventBiz" />
+		</property>
+		<property name="agentBiz">
+			<ref bean="agentBiz" />
+		</property>
+	</bean>
+
+
+	<bean name="/agent/agentResumeList" class="com.kurui.kums.agent.action.AgentResumeListAction" singleton="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="agentResumeBiz">
+			<ref bean="agentResumeBiz" />
+		</property>
+			<property name="agentBiz">
+			<ref bean="agentBiz" />
+		</property>
+	</bean>
+
+	<bean name="/agent/agentResume" class="com.kurui.kums.agent.action.AgentResumeAction" singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="agentResumeBiz">
+			<ref bean="agentResumeBiz" />
+		</property>
+		<property name="agentBiz">
+			<ref bean="agentBiz" />
+		</property>
+	</bean>
+	
+	<bean name="/agent/agentContactList" class="com.kurui.kums.agent.action.AgentContactListAction" singleton="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="agentContactBiz">
+			<ref bean="agentContactBiz" />
+		</property>
+			<property name="agentBiz">
+			<ref bean="agentBiz" />
+		</property>
+	</bean>
+
+	<bean name="/agent/agentContact" class="com.kurui.kums.agent.action.AgentContactAction" singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="agentContactBiz">
+			<ref bean="agentContactBiz" />
 		</property>
 		<property name="agentBiz">
 			<ref bean="agentBiz" />
@@ -268,13 +309,33 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 
-	<bean name="agentActionBiz" class="com.kurui.kums.agent.biz.AgentActionBizImp" singleton="false" lazy-init="default" autowire="default"
+	<bean name="agentEventBiz" class="com.kurui.kums.agent.biz.AgentEventBizImp" singleton="false" lazy-init="default" autowire="default"
 		dependency-check="default">
-		<property name="agentActionDAO">
-			<ref bean="agentActionDAO" />
+		<property name="agentEventDAO">
+			<ref bean="agentEventDAO" />
 		</property>
 	</bean>
-	<bean id="agentActionDAO" class="com.kurui.kums.agent.dao.AgentActionDAOImp" lazy-init="default" autowire="default" dependency-check="default">
+	<bean id="agentEventDAO" class="com.kurui.kums.agent.dao.AgentEventDAOImp" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+		<bean name="agentContactBiz" class="com.kurui.kums.agent.biz.AgentContactBizImp" singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="agentContactDAO">
+			<ref bean="agentContactDAO" />
+		</property>
+	</bean>
+	<bean id="agentContactDAO" class="com.kurui.kums.agent.dao.AgentContactDAOImp" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+		<bean name="agentResumeBiz" class="com.kurui.kums.agent.biz.AgentResumeBizImp" singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="agentResumeDAO">
+			<ref bean="agentResumeDAO" />
+		</property>
+	</bean>
+	<bean id="agentResumeDAO" class="com.kurui.kums.agent.dao.AgentResumeDAOImp" lazy-init="default" autowire="default" dependency-check="default">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 

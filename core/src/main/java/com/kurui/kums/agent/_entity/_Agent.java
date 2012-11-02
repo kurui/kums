@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.kurui.kums.agent.AgentContact;
+import com.kurui.kums.agent.AgentEvent;
+import com.kurui.kums.agent.AgentResume;
 import com.kurui.kums.agent.ShareHolder;
 
 /**
@@ -22,14 +25,10 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected String agentNo;
 	protected String cardNo;
 	protected String name;
-	protected String qqCode;
-	protected String address;
 	protected String stampGroup;
 	protected Long type;
 	protected String memo;
 	protected Long status;
-	protected String mobilePhone;
-	protected String position;
 	protected BigDecimal physicalAmount;
 	protected BigDecimal virtualAmount;
 	protected BigDecimal totalIntegral;
@@ -38,14 +37,8 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected Timestamp updateTime;
 	protected Long sex;
 	protected String birthday;
-	protected String nativeCountry;
 	protected String marriage;
-	protected String knowPlace;
-	protected String people;
-	protected String reside;
-	protected String workPlace;
 	protected String language;
-	protected String email;
 	protected String strongSuit;
 	protected String assetInfo;
 	protected String creditInfo;
@@ -65,21 +58,22 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 
 	protected java.util.Set financeOrders = new java.util.HashSet(0);
 	protected java.util.Set agentAccounts = new java.util.HashSet(0);
-	protected java.util.Set agentActions = new java.util.HashSet(0);
 	protected java.util.Set vehicles = new java.util.HashSet(0);
 	protected java.util.Set rootAgents = new java.util.HashSet(0);
 	protected java.util.Set relateAgents = new java.util.HashSet(0);
-	protected Set crossAgents = new HashSet(0);
-	protected Set agentCoteries = new HashSet(0);
-	protected Set<ShareHolder> shareHolders = new HashSet<ShareHolder>(0);
+	protected java.util.Set crossAgents = new HashSet(0);
+	protected java.util.Set agentCoteries = new HashSet(0);
+	protected java.util.Set shareHolders = new HashSet<ShareHolder>(0);
+	protected java.util.Set agentContacts = new HashSet<AgentContact>(0);
+	protected java.util.Set agentEvents = new HashSet<AgentEvent>(0);
+	protected java.util.Set agentResumes = new HashSet<AgentResume>(0);
 
 	// Constructors
 
 	// Property accessors
+	
+	
 
-	public java.util.Set getAgentActions() {
-		return agentActions;
-	}
 
 	public java.util.Set getRootAgents() {
 		return rootAgents;
@@ -117,22 +111,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.name = name;
 	}
 
-	public String getQqCode() {
-		return qqCode;
-	}
-
-	public void setQqCode(String qqCode) {
-		this.qqCode = qqCode;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public String getStampGroup() {
 		return stampGroup;
 	}
@@ -165,21 +143,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.status = status;
 	}
 
-	public String getMobilePhone() {
-		return mobilePhone;
-	}
-
-	public void setMobilePhone(String mobilePhone) {
-		this.mobilePhone = mobilePhone;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
+	
 
 	public BigDecimal getPhysicalAmount() {
 		return physicalAmount;
@@ -363,14 +327,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.birthday = birthday;
 	}
 
-	public String getNativeCountry() {
-		return nativeCountry;
-	}
-
-	public void setNativeCountry(String nativeCountry) {
-		this.nativeCountry = nativeCountry;
-	}
-
 	public String getMarriage() {
 		return marriage;
 	}
@@ -379,52 +335,12 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.marriage = marriage;
 	}
 
-	public String getKnowPlace() {
-		return knowPlace;
-	}
-
-	public void setKnowPlace(String knowPlace) {
-		this.knowPlace = knowPlace;
-	}
-
-	public String getPeople() {
-		return people;
-	}
-
-	public void setPeople(String people) {
-		this.people = people;
-	}
-
-	public String getReside() {
-		return reside;
-	}
-
-	public void setReside(String reside) {
-		this.reside = reside;
-	}
-
-	public String getWorkPlace() {
-		return workPlace;
-	}
-
-	public void setWorkPlace(String workPlace) {
-		this.workPlace = workPlace;
-	}
-
 	public String getLanguage() {
 		return language;
 	}
 
 	public void setLanguage(String language) {
 		this.language = language;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getStrongSuit() {
@@ -459,9 +375,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.creditAmount = creditAmount;
 	}
 
-	public void setAgentActions(java.util.Set agentActions) {
-		this.agentActions = agentActions;
-	}
 
 	public void setRootAgents(java.util.Set rootAgents) {
 		this.rootAgents = rootAgents;
@@ -482,6 +395,40 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	public void setCrossAgents(Set crossAgents) {
 		this.crossAgents = crossAgents;
 	}
+	
+	
+
+	public java.util.Set getAgentContacts() {
+		return agentContacts;
+	}
+
+	public void setAgentContacts(java.util.Set agentContacts) {
+		this.agentContacts = agentContacts;
+	}
+
+	public java.util.Set getAgentEvents() {
+		return agentEvents;
+	}
+
+	public void setAgentEvents(java.util.Set agentEvents) {
+		this.agentEvents = agentEvents;
+	}
+
+	public java.util.Set getAgentResumes() {
+		return agentResumes;
+	}
+
+	public void setAgentResumes(java.util.Set agentResumes) {
+		this.agentResumes = agentResumes;
+	}
+	
+	public Set<ShareHolder> getShareHolders() {
+		return shareHolders;
+	}
+
+	public void setShareHolders(java.util.Set shareHolders) {
+		this.shareHolders = shareHolders;
+	}
 
 	public String getCardNo() {
 		return cardNo;
@@ -499,13 +446,8 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.agentCoteries = agentCoteries;
 	}
 
-	public Set<ShareHolder> getShareHolders() {
-		return shareHolders;
-	}
 
-	public void setShareHolders(Set<ShareHolder> shareHolders) {
-		this.shareHolders = shareHolders;
-	}
+
 
 	public java.util.Set getVehicles() {
 		return vehicles;

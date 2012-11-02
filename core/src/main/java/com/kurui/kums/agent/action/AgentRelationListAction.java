@@ -1,22 +1,26 @@
 package com.kurui.kums.agent.action;
 
+import java.sql.Timestamp;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.kurui.kums.agent.Agent;
+import com.kurui.kums.agent.AgentRelation;
+import com.kurui.kums.agent.AgentRelationListForm;
+import com.kurui.kums.agent.biz.AgentBiz;
+import com.kurui.kums.agent.biz.AgentRelationBiz;
 import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.Inform;
 import com.kurui.kums.base.database.ListMenu;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.Constant;
 import com.kurui.kums.transaction.util.PlatComAccountStore;
-import com.kurui.kums.agent.AgentRelation;
-import com.kurui.kums.agent.AgentRelationListForm;
-import com.kurui.kums.agent.biz.AgentRelationBiz;
-import com.kurui.kums.agent.biz.AgentBiz;
 
 public class AgentRelationListAction extends BaseAction {
 	private AgentRelationBiz agentRelationBiz;
@@ -51,7 +55,7 @@ public class AgentRelationListAction extends BaseAction {
 		try {
 			String sql = "";
 
-			sql = "select id,agent_no||'--'||name from agent where status=1 order by know_place";
+			sql = "select id,agent_no||'--'||name from agent where status=1 order by name";
 			ListMenu agentlist = new ListMenu(sql, false);
 			request.setAttribute("agentlist", agentlist);
 
@@ -107,6 +111,15 @@ public class AgentRelationListAction extends BaseAction {
 			throws AppException {
 		AgentRelationListForm alf = (AgentRelationListForm) form;
 		AgentRelation agentRelation = new AgentRelation();
+		
+		long rootAgentId=alf.getRootAgentId();
+		if(rootAgentId>0){
+			Agent rootAgent=agentBiz.getAgentById(rootAgentId);
+			if(rootAgent!=null){
+				agentRelation.setRootAgent(rootAgent);
+			}
+		}
+		agentRelation.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
 		agentRelation.setThisAction("insert");
 		request.setAttribute("agentRelation", agentRelation);
