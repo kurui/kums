@@ -77,7 +77,7 @@
 										<td>类型：</td>
 										<td><html:select property="relationType"
 												styleClass="colorblue2 p_5" style="width:80px;">
-												<option value="">请选择</option>
+												<option value="">-请选择</option>
 												<option value="1">上下级</option>
 												<option value="11">同级</option>
 												<option value="21">密友</option>
