@@ -70,6 +70,11 @@
 													href="<%=path%>/agent/agentRelationList.do?thisAction=listGroupChart&agentId=<c:out value="${agent.id}" />">
 													谱系</a>
 											</c:if>
+											|<a
+													href="<%=path%>/agent/coterieList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
+													圈子</a>|<a
+													href="<%=path%>/agent/agentRelationList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
+													增加特别关系人</a>
 										</td>
 									</tr>
 									<tr>
@@ -101,14 +106,6 @@
 											</td>
 											<td style="text-align: left">
 												<c:out value="${agent.birthday}" />
-											</td>
-											<td class="lef">
-												民族/祖籍
-											</td>
-											<td style="text-align: left">
-												<c:out value="${agent.people}" />
-												|
-												<c:out value="${agent.nativeCountry}" />
 											</td>
 										</tr>
 										<tr>

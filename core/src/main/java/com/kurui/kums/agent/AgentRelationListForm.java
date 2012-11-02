@@ -12,6 +12,7 @@ public class AgentRelationListForm extends ListActionForm {
 	private static final long serialVersionUID = 1L;
 	public long id = Long.valueOf(0);
 	public long agentId = Long.valueOf(0);
+	public long rootAgentId=Long.valueOf(0);
 
 
 	public Long relationType=Long.valueOf(0);
@@ -47,6 +48,16 @@ public class AgentRelationListForm extends ListActionForm {
 
 	public void setAgentId(long agentId) {
 		this.agentId = agentId;
+	}
+	
+	
+
+	public long getRootAgentId() {
+		return rootAgentId;
+	}
+
+	public void setRootAgentId(long rootAgentId) {
+		this.rootAgentId = rootAgentId;
 	}
 
 	public long getId() {

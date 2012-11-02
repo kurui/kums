@@ -37,9 +37,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected Timestamp updateTime;
 	protected Long sex;
 	protected String birthday;
-	protected String nativeCountry;
 	protected String marriage;
-	protected String people;
 	protected String language;
 	protected String strongSuit;
 	protected String assetInfo;
@@ -329,14 +327,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.birthday = birthday;
 	}
 
-	public String getNativeCountry() {
-		return nativeCountry;
-	}
-
-	public void setNativeCountry(String nativeCountry) {
-		this.nativeCountry = nativeCountry;
-	}
-
 	public String getMarriage() {
 		return marriage;
 	}
@@ -344,15 +334,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	public void setMarriage(String marriage) {
 		this.marriage = marriage;
 	}
-
-	public String getPeople() {
-		return people;
-	}
-
-	public void setPeople(String people) {
-		this.people = people;
-	}
-
 
 	public String getLanguage() {
 		return language;

@@ -85,9 +85,7 @@ public class AgentAction extends BaseAction {
 
 				agent.setSex(Constant.toLong(agentForm.getSex()));
 				agent.setBirthday(agentForm.getBirthday());
-				agent.setNativeCountry(agentForm.getNativeCountry());
 				agent.setMarriage(agentForm.getMarriage());
-				agent.setPeople(agentForm.getPeople());
 				agent.setLanguage(agentForm.getLanguage());
 				agent.setStrongSuit(agentForm.getStrongSuit());
 				agent.setAssetInfo(agentForm.getAssetInfo());
@@ -176,9 +174,7 @@ public class AgentAction extends BaseAction {
 
 					agent.setSex(Constant.toLong(agentForm.getSex()));
 					agent.setBirthday(agentForm.getBirthday());
-					agent.setNativeCountry(agentForm.getNativeCountry());
 					agent.setMarriage(agentForm.getMarriage());
-					agent.setPeople(agentForm.getPeople());
 					agent.setLanguage(agentForm.getLanguage());
 					agent.setStrongSuit(agentForm.getStrongSuit());
 					agent.setAssetInfo(agentForm.getAssetInfo());

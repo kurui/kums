@@ -3,11 +3,11 @@ package com.kurui.kums.agent;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.kurui.kums.agent._entity._Agent;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.DateUtil;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.transaction.util.DataTypeStore;
-import com.kurui.kums.agent._entity._Agent;
 
 public class Agent extends _Agent {
 	private static final long serialVersionUID = 1L;
@@ -54,11 +54,14 @@ public class Agent extends _Agent {
 			stampGroupItem = StringUtil.getSplitString(this.stampGroup, ",");
 			if (stampGroupItem != null) {
 				for (int i = 0; i < stampGroupItem.length; i++) {
-					Long item = Constant.toLong(stampGroupItem[i]);
-					String itemInfo = getStampTypeInfoByValue(item);
-					if (itemInfo != "") {
-						info += itemInfo + ",";
+					if(StringUtil.isEmpty(stampGroupItem[i])==false){
+						Long item = Constant.toLong(stampGroupItem[i]);
+						String itemInfo = getStampTypeInfoByValue(item);
+						if (itemInfo != "") {
+							info += itemInfo + ",";
+						}
 					}
+					
 				}
 				if (info.indexOf(",", info.length() - 1) > 1) {
 					info = info.substring(0, info.length() - 1);

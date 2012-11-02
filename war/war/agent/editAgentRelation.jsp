@@ -11,12 +11,35 @@
 		<link href="<%=path%>/_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="<%=path%>/_css/global.css" rel="stylesheet"
 			type="text/css" />
+				<c:import url="../page/importDWR.jsp"></c:import>
+		<script src="<%=path%>/_js/base/FormUtil.js" type="text/javascript"></script>
+		<script type="text/javascript" src="<%=path%>/_js/prototype/common.js"></script>
 	</head>
 	<script type="text/javascript">	
 		function add(){	
 			var thisAction =document.forms[0].thisAction.value;			   
 		    document.forms[0].action="<%=path%>/agent/agentRelation.do?thisAction="+thisAction;
 		    document.forms[0].submit();
+		}
+		
+			function addAgentId(agentId){	
+			//alert("agentId:"+agentId);		
+			if(agentId!=null){
+				document.forms[0].relateAgentId.value=agentId;	
+				agentBiz.getAgentById(agentId,function(agentObj){
+					if(agentObj!=null){
+						document.forms[0].agentNo.value=agentObj.agentNo+"|"+agentObj.name;	
+					}					
+				});
+			}
+		}		
+			
+		function selectAgent(){	
+			openWindow(800,600,'../agent/agentList.do?thisAction=selectFinanceAgent');		
+		}
+		
+		function addAgentSpeed(){	
+			openWindow(800,600,'../agent/agentList.do?thisAction=saveSpeed');		
 		}
 	</script>
 	<body>
@@ -54,9 +77,19 @@
 											对象
 										</td>
 										<td style="text-align: left">
+											<c:if test="${! empty agentRelation.relateAgent}">
 											<c:out value="${agentRelation.relateAgent.agentNo}"></c:out>
 											|
 											<c:out value="${agentRelation.relateAgent.name}"></c:out>
+											</c:if>
+											<c:if test="${ empty agentRelation.relateAgent}">
+											<html:text property="agentNo" styleClass="colorblue2 p_5"
+													readonly="true" />
+												<input name="label" type="button" class="button1"
+													value="选择客户" onclick="selectAgent();">
+												<input name="label" type="button" class="button1"
+													value="快速建档" onclick="addAgentSpeed();">
+											</c:if>
 										</td>
 									</tr>
 									<tr>
@@ -70,6 +103,12 @@
 												<html:option value="0">-请选择-</html:option>
 												<html:option value="1">上下级</html:option>
 												<html:option value="11">同级</html:option>
+												<html:option value="21">密友</html:option>
+												<html:option value="31">情侣</html:option>
+												<html:option value="35">夫妻</html:option>
+												<html:option value="38">子女</html:option>
+												<html:option value="40">亲属</html:option>
+												<html:option value="51">门生故吏</html:option>
 											</html:select>
 										</td>
 									</tr>
@@ -78,7 +117,7 @@
 											处理时间
 										</td>
 										<td style="text-align: left">
-											<html:text property="updateTime" name="agentRelation"
+											<html:text property="updateDate" name="agentRelation"
 												value="${agentRelation.updateDate}"
 												styleClass="colorblue2 p_5" style="width:200px;"></html:text>
 										</td>
@@ -88,10 +127,11 @@
 											状态
 										</td>
 										<td style="text-align: left">
-											<html:select property="accountStatus"
+											<html:select property="status"
 												value="${agentRelation.status}" name="agentRelation"
 												styleClass="colorblue2 p_5" style="width:50px;">
 												<html:option value="1">有效</html:option>
+												<html:option value="2">历史</html:option>
 												<html:option value="0">无效</html:option>
 											</html:select>
 										</td>
@@ -102,6 +142,11 @@
 										<td>
 											<html:hidden property="id" value="${agentRelation.id}"
 												name="agentRelation" />
+											<html:hidden property="rootAgentId" value="${agentRelation.rootAgent.id}"
+												name="agentRelation" />
+											<html:hidden property="relateAgentId" value="${agentRelation.relateAgent.id}"
+												name="agentRelation" />
+												
 											<html:hidden property="thisAction" name="agentRelation" />
 											
 											<input name="label" type="button" class="button1" value="返 回"

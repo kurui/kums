@@ -1,22 +1,25 @@
 package com.kurui.kums.agent.action;
 
 import java.sql.Timestamp;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionRedirect;
 
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.database.DBExecuteBatch;
-import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.right.UserRightInfo;
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentRelation;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentRelationBiz;
+import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.database.DBExecuteBatch;
+import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.right.UserRightInfo;
 
 public class AgentRelationAction extends BaseAction {
 	private AgentBiz agentBiz;
@@ -85,16 +88,22 @@ public class AgentRelationAction extends BaseAction {
 				"URI");
 		try {
 			long rootAgentId = agentRelationForm.getRootAgentId();
-			if (rootAgentId > 0) {
+			long relateAgentId = agentRelationForm.getRelateAgentId();
+			
+			if (rootAgentId > 0&&relateAgentId>0) {
 				AgentRelation agentRelation = new AgentRelation();
 				Agent rootAgent = agentBiz.getAgentById(rootAgentId);
 				agentRelation.setRootAgent(rootAgent);
-				// agentRelation.setType(agentRelationForm.getType());
+				
+				Agent relateAgent = agentBiz.getAgentById(relateAgentId);
+				agentRelation.setRelateAgent(relateAgent);
+				
+				agentRelation.setRelationType(agentRelationForm.getRelationType());
 				agentRelation.setStatus(agentRelationForm.getStatus());
-				// agentRelation.setMemo(agentRelationForm.getMemo());
+//				agentRelation.setMemo(agentRelationForm.getMemo());
 				agentRelation.setUpdateTime(new Timestamp(System
 						.currentTimeMillis()));
-				agentRelation.setUserNo(uri.getUser().getUserName());
+				agentRelation.setUserNo(uri.getUser().getUserNo());
 
 				long num = agentRelationBiz.save(agentRelation);
 
@@ -121,15 +130,29 @@ public class AgentRelationAction extends BaseAction {
 		UserRightInfo uri = (UserRightInfo) request.getSession().getAttribute(
 				"URI");
 		try {
-			if (agentRelationForm.getId() > 0) {
-				long habitId = agentRelationForm.getId();
-				if (habitId > 0) {
+			if (agentRelationForm.getId() > 0) {				
 					AgentRelation agentRelation = agentRelationBiz
-							.getAgentRelationById(habitId);
-					// agentRelation.setName(agentRelationForm.getName());
+							.getAgentRelationById(agentRelationForm.getId());
+					
+					long rootAgentId = agentRelationForm.getRootAgentId();
+					long relateAgentId = agentRelationForm.getRelateAgentId();
+					
+					if (rootAgentId > 0&&relateAgentId>0) {
+					Agent rootAgent = agentBiz.getAgentById(rootAgentId);
+					agentRelation.setRootAgent(rootAgent);
+					
+					Agent relateAgent = agentBiz.getAgentById(relateAgentId);
+					agentRelation.setRelateAgent(relateAgent);
+					
+					agentRelation.setRelationType(agentRelationForm.getRelationType());
+					agentRelation.setStatus(agentRelationForm.getStatus());
+//					agentRelation.setMemo(agentRelationForm.getMemo());
+					agentRelation.setUpdateTime(new Timestamp(System
+							.currentTimeMillis()));
+					agentRelation.setUserNo(uri.getUser().getUserNo());
 
 					long flag = agentRelationBiz.update(agentRelation);
-
+					
 					if (flag > 0) {
 						return new ActionRedirect(
 								"/agent/agentRelationList.do?thisAction=list");

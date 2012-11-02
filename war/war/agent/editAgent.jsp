@@ -39,9 +39,6 @@
 					document.forms[0].birthday.value=birthday;
 				});
 				
-				agentBiz.getAreaTextByCode(idCard,function(areaText){
-					document.forms[0].nativeCountry.value=areaText
-				});
 				
 			}
 		}
@@ -153,12 +150,6 @@
 											</td>
 										</tr>
 										<tr>
-											<td class="lef">
-												民族
-											</td>
-											<td style="text-align: left">
-												<html:text property="people" name="agent" value="${agent.people}" styleClass="colorblue2 p_5" style="width:50px;"></html:text>
-											</td>
 											<td class="lef">
 												关系特征
 											</td>
