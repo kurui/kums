@@ -75,9 +75,9 @@
 		}
 		
 		function updateAgentContact(){		
-			document.forms["editAgentResumeForm"].lastAction.value="list";
-			document.forms["editAgentResumeForm"].intPage.value="<c:out value="${agentResumeListForm.intPage}" />";
-			document.forms["editAgentResumeForm"].pageCount.value="<c:out value="${agentResumeListForm.pageCount}" />";
+			document.forms["editAgentContactForm"].lastAction.value="list";
+			document.forms["editAgentContactForm"].intPage.value="<c:out value="${agentContactListForm.intPage}" />";
+			document.forms["editAgentContactForm"].pageCount.value="<c:out value="${agentContactListForm.pageCount}" />";
 
 			trim(document.forms["editAgentContactForm"]);
 			document.forms["editAgentContactForm"].submit();
@@ -337,8 +337,11 @@
 											</html:select>
 										</td>
 										<td>
-												<html:hidden property="thisAction" value="" />
-												<html:hidden property="lastAction" value="" />
+												<html:hidden property="thisAction" value="" name="agentContact"/>
+												<html:hidden property="lastAction" value="" name="agentContact"/>
+												
+												<html:hidden property="intPage" value="" name="agentContact" />
+												<html:hidden property="pageCount" value="" name="agentContact" />
 											<input name="label" type="button" class="button1" value="保存"
 												onclick="updateAgentContact();">
 											<input name="label" type="button" class="button1" value="取消"

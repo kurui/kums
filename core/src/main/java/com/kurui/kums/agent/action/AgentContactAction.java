@@ -93,7 +93,7 @@ public class AgentContactAction extends BaseAction {
 				
 
 				if (flag > 0) {
-						String forwardUrl="/agent/agentResumeList.do?thisAction=list";
+						String forwardUrl="/agent/agentContactList.do?thisAction=list";
 					
 					if(agentContactForm.getLastAction()!=""){
 						if("viewALL".equals(agentContactForm.getLastAction())){
