@@ -44,7 +44,20 @@ public class CompanyDAOImp extends BaseDAOSupport implements CompanyDAO {
 
 		hql.add("and c.status not in(" + Company.STATES_0 + ")");// 过滤无效
 
-		hql.add(" order by c.financeCount desc,c.type,provideChain,updateTime desc");
+		if (StringUtil.isEmpty(form.getOrderBy()) ==false) {
+			if("ORDER_BY_FINANCE_COUNT".equals(form.getOrderBy())){
+				hql.add(" order by c.financeCount desc,c.type,provideChain,updateTime desc");
+			}else if("ORDER_BY_AGENT_COUNT".equals(form.getOrderBy())){
+				hql.add(" order by c.agentCount desc,c.type,provideChain,updateTime desc");
+			}else{
+				hql.add(" order by c.financeCount desc,c.type,provideChain,updateTime desc");
+			}
+			
+		}else{
+			hql.add(" order by c.financeCount desc,c.type,provideChain,updateTime desc");
+		}
+		
+		
 
 		return this.list(hql, form);
 	}

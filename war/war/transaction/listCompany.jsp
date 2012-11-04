@@ -86,7 +86,7 @@
 								<style>
 .provideChainDiv {
 	width: 250px;
-	height: 300 px;
+	height: 450 px;
 	background-color: #f5f5f5;
 	border: 1 px solid Silver;;
 	overflow: auto;
@@ -145,6 +145,18 @@
 											</td>
 											<td>
 												<html:text property="name" styleClass="colorblue2 p_5" style="width:150px;" />
+											</td>
+											<td>
+												排序：</td>
+											<td>
+												<html:select property="orderBy" styleClass="colorblue2 p_5" style="width:80px;">
+																	<html:option value="ORDER_BY_FINANCE_COUNT">
+														交易数
+													</html:option>
+													<html:option value="ORDER_BY_AGENT_COUNT">
+														管理客户数
+													</html:option>
+												</html:select>												
 											</td>
 											<td>
 												<input type="submit" name="button" id="button" value="提交" class="submit greenBtn" />
@@ -242,7 +254,13 @@
 												<c:out value="${company.memo}" />
 											</td>
 												<td>
-												<c:out value="${company.financeCount}" />--	<c:out value="${company.agentCount}" />
+											<a href="<%=path%>/finance/financeOrderList.do?thisAction=listLiveOrder&type=1&status=1&recentlyDay=&companyId=<c:out value="${company.id}" />&companyNo=<c:out value="${company.name}" />">
+													
+												<c:out value="${company.financeCount}" /></a>
+												--
+												<c:if test="${company.agentCount>0}">
+												<a href="<%=path%>/agent/agentResumeList.do?thisAction=list&type=1&status=1&companyId=<c:out value="${company.id}" />">
+													<c:out value="${company.agentCount}" /></a></c:if>
 											</td>
 											<td>
 												<c:out value="${company.statusInfo}" />

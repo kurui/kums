@@ -12,7 +12,8 @@ public class AgentResume extends _AgentResume {
 	private long agentId = Long.valueOf(0);
 	private String agentNo = "";
 
-	private long companyId = Long.valueOf(0);
+	public long companyId=Long.valueOf(0);
+	public String companyNo="";
 
 	// 類型
 	public static final long TYPE_1 = 1;// 当前
@@ -98,6 +99,9 @@ public class AgentResume extends _AgentResume {
 	}
 
 	public long getCompanyId() {
+		if(company!=null){
+			return company.getId();
+		}
 		return companyId;
 	}
 
@@ -113,4 +117,16 @@ public class AgentResume extends _AgentResume {
 		this.agentNo = agentNo;
 	}
 
+	public String getCompanyNo() {
+		if(company!=null){
+			return company.getName();
+		}
+		return companyNo;
+	}
+
+	public void setCompanyNo(String companyNo) {
+		this.companyNo = companyNo;
+	}
+
+	
 }
