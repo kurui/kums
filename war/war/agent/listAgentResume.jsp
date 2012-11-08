@@ -75,6 +75,9 @@
 			document.forms["editAgentResumeForm"].lastAction.value="list";
 			document.forms["editAgentResumeForm"].intPage.value=<c:out value="${agentResumeListForm.intPage}" />;
 			document.forms["editAgentResumeForm"].pageCount.value=<c:out value="${agentResumeListForm.pageCount}" />;
+			document.forms["editAgentResumeForm"].type.value=<c:out value="${agentResumeListForm.type}" />;
+			document.forms["editAgentResumeForm"].status.value=<c:out value="${agentResumeListForm.status}" />;
+			
 			trim(document.forms["editAgentResumeForm"]);
 			document.forms["editAgentResumeForm"].submit();
 		}
