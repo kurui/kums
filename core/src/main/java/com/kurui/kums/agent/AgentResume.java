@@ -15,22 +15,42 @@ public class AgentResume extends _AgentResume {
 	public long companyId=Long.valueOf(0);
 	public String companyNo="";
 
-	// 類型
-	public static final long TYPE_1 = 1;// 当前
-	public static final long TYPE_2 = 2;// 历史
+
+	public static final long TYPE_1 = 1;// 手机
+	public static final long TYPE_2 = 2;//固定电话
+	public static final long TYPE_11 = 11;//EMAIL
+	public static final long TYPE_12 = 12;//QQ
+	public static final long TYPE_15 = 15;//网址	
+	public static final long TYPE_21 = 21;//祖籍
+	public static final long TYPE_31 = 31;//收货地址
+	public static final long TYPE_51 = 51;//简历	
+	
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
+	public static final long STATES_2 = 2;// 历史	
 	public static final long STATES_0 = 0;// 无效
-	
 	public String getTypeInfo() {
 		if (this.getType() != null) {
 			if (this.getType() == TYPE_1) {
-				return "当前";
+				return "手机";
 			} else if (this.getType() == TYPE_2) {
-				return "历史";
-			}else {
-				return null;
+				return "固定电话";
+			}else if (this.getType() == TYPE_11) {
+				return "EMAIL";
+			}else if (this.getType() == TYPE_12) {
+				return "QQ";
+			}else if (this.getType() == TYPE_15) {
+				return "网址";
+			}else if (this.getType() == TYPE_21) {
+				return "祖籍";
+			}else if (this.getType() == TYPE_31) {
+				return "收货地址";
+			}else if (this.getType() == TYPE_51) {
+				return "简历";
+			}
+			else{
+				return "未定义";
 			}
 		} else {
 			return null;
@@ -42,9 +62,11 @@ public class AgentResume extends _AgentResume {
 		if (this.getStatus() != null) {
 			if (this.getStatus() == STATES_1) {
 				return "有效";
+			}else if (this.getStatus().intValue() == STATES_2) {
+				return "历史";
 			} else if (this.getStatus().intValue() == STATES_0) {
 				return "无效";
-			} else {
+			}else {
 				return null;
 			}
 		} else {
@@ -90,6 +112,24 @@ public class AgentResume extends _AgentResume {
 		this.endDate = endDate;
 	}
 
+	
+private String updateDate="";
+	
+	public String getUpdateDate() {
+		String mydate = "";
+		if (updateDate  != "") {
+			return updateDate;
+		} else {
+		if (this.updateTime != null && "".equals(updateTime) == false) {
+			Date tempDate = new Date(updateTime.getTime());
+			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
+		}}
+		return mydate;
+	}
+
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
+	}
 	public long getAgentId() {
 		return agentId;
 	}

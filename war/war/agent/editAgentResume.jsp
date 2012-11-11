@@ -81,13 +81,6 @@
 										</html:select></td>
 								</tr>
 								<tr>
-									<td class="lef">职务</td>
-									<td style="text-align: left"><html:text
-											property="position" name="agentResume"
-											value="${agentResume.position}" styleClass="colorblue2 p_5"
-											style="width:120px;"></html:text></td>
-								</tr>
-								<tr>
 									<td class="lef">内容</td>
 									<td style="text-align: left"><html:text property="content"
 											name="agentResume" value="${agentResume.content}"
@@ -100,7 +93,13 @@
 											value="${agentResume.type}" name="agentResume"
 											styleClass="colorblue2 p_5" style="width:100px;">
 											<html:option value="0">-请选择-</html:option>
-											<html:option value="1">默认</html:option>
+												<html:option value="1">S-手机</html:option>
+												<html:option value="2">G-固定电话</html:option>
+												<html:option value="11">EMAIL</html:option>
+												<html:option value="12">QQ</html:option>
+												<html:option value="21">Z-祖籍</html:option>
+												<html:option value="31">S-收货地址</html:option>
+												<html:option value="51">J-简历</html:option>
 										</html:select></td>
 								</tr>
 
@@ -111,6 +110,7 @@
 											name="agentResume" styleClass="colorblue2 p_5"
 											style="width:50px;">
 											<html:option value="1">有效</html:option>
+											<html:option value="2">历史</html:option>
 											<html:option value="0">无效</html:option>
 										</html:select></td>
 								</tr>

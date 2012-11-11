@@ -19,8 +19,8 @@
         <property name="content" type="string">
             <column name="CONTENT" length="100" />
         </property>
-        <property name="position" type="string">
-            <column name="POSITION" length="30" />
+        <property name="tag" type="string">
+            <column name="tag" length="30" />
         </property>
         <property name="beginTime" type="java.sql.Timestamp">
             <column name="BEGIN_TIME" length="7" />
@@ -28,6 +28,9 @@
         <property name="endTime" type="java.sql.Timestamp">
             <column name="END_TIME" length="7" />
         </property>
+             <property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="7" />
+		</property>
         <property name="type" type="long">
             <column name="TYPE" precision="22" scale="0" />
         </property>

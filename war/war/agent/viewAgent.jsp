@@ -19,10 +19,6 @@
 			openWindow(800,600,url);										
 		}
 		
-		function openContact(agentId){
-			var url="../agent/agentContactList.do?thisAction=viewALL&agentId="+agentId;
-			openWindow(800,600,url);										
-		}
 		
 		</script>
 	</head>
@@ -120,19 +116,6 @@
 											<td style="text-align: left">
 											</td>
 										</tr>
-									</tbody>
-									<tr>
-										<td class="lef">
-											<a href="#" onclick="showElement('contactWayBody')">联系方式</a>
-										</td>
-										<td style="text-align: left" colspan="3">
-											
-												<a href="#" onclick="openContact(<c:out value="${agent.id}" />)">详细</a>
-										
-										</td>
-									</tr>
-									<tbody id="contactWayBody" style="display: none">
-										
 									</tbody>
 									<tr>
 										<td class="lef">

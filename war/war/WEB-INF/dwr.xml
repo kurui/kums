@@ -24,9 +24,6 @@
 	      <create creator="spring" javascript="agentBiz">
 	      <param name="beanName" value="agentBiz"/>
 	    </create>	
-	        <create creator="spring" javascript="agentContactBiz">
-	      <param name="beanName" value="agentContactBiz"/>
-	    </create>
 	      <create creator="spring" javascript="agentResumeBiz">
 	      <param name="beanName" value="agentResumeBiz"/>
 	    </create>

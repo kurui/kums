@@ -222,7 +222,7 @@
 			//alert("cussentCompanyNo:"+cussentCompanyNo);
 				platComAccountStore.getBlurCompanyList(cussentCompanyNo,function(blurCussentCompanyList){
 					//alert("blurCussentCompanyList:"+blurCussentCompanyList);
-					if(blurCussentCompanyList!=null){
+					if(blurCussentCompanyList!=null&&blurCussentCompanyList.length>0){
 						for(var i=0;i<blurCussentCompanyList.length;i++){
 							var cussentCompany=blurCussentCompanyList[i];
 							if(cussentCompany!=null){					
@@ -232,6 +232,8 @@
 								addBlurCussentCompanyRow('tableBlurCussentCompany',info,i);
 							}							
 						}						
+					}else{
+							displayObj("cussentCompanyBox","none");	
 					}				
 				});
 			}else{

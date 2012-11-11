@@ -46,12 +46,8 @@
 							<a href="<%=path%>/agent/agentEventList.do?thisAction=list&type=1&status=1" target="mainFrame">事件列表</a>
 						</li>
 						<li>
-							<a href="<%=path%>/agent/agentResumeList.do?thisAction=list&type=1&status=1" target="mainFrame">简历列表</a>
-						</li>
-						<li>
-							<a href="<%=path%>/agent/agentContactList.do?thisAction=list&type=1&status=1" target="mainFrame">联系信息列表</a>
-						</li>
-						
+							<a href="<%=path%>/agent/agentResumeList.do?thisAction=list" target="mainFrame">简历列表</a>
+						</li>		
 						
 					</ul>
 					<span class="title" onClick="showUL('ulDirectAgent')"><a href="<%=path%>/agent/agentList.do?thisAction=listDirectAgent&directLevelIds=1,2,3,4,5" target="mainFrame">直销商管理</a> </span>

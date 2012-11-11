@@ -7,7 +7,7 @@
 <html:hidden property="companyId"  />
 <html:text property="companyNo" styleClass="colorblue2 p_5"
 	style="width:150px;" ondblclick="this.value='';"
-	onkeyup="onChangeSelectCompany();" />
+	onkeyup="onChangeSelectCompany();"  />
 <div id="companyBox" class="companyBoxDiv" style="display: none">
 	<table id="tableBlurCompany" cellpadding="0" cellspacing="0" border="0"
 		class="dataList" width="100%">

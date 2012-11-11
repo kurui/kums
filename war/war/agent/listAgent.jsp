@@ -82,10 +82,6 @@
 			openWindow(800,600,url);										
 		}
 		
-		function openContact(agentId){
-			var url="../agent/agentContactList.do?thisAction=viewALL&agentId="+agentId;
-			openWindow(800,600,url);										
-		}
 	</script>
 	</head>
 	<body>
@@ -258,7 +254,7 @@
 											</td>
 											<td>
 												<div align="left"><a href="#"  onclick="openResume(<c:out value="${agent.id}" />)">简历</a>
-													|<a href="#"  onclick="openContact(<c:out value="${agent.id}" />)">联系</a>
+													
 												</div>
 											</td>
 											

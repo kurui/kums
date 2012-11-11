@@ -23,6 +23,7 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 		if (Constant.toLong(alf.getCompanyId()) > 0) {
 			hql.add(" and r.company.id=" + alf.getCompanyId());
 		}
+		
 		if (Constant.toString(alf.getKeywords()) != "") {
 			if (Constant.toString(alf.getKeywords()) != "") {
 				hql.add(" and( ");
@@ -36,28 +37,27 @@ public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO 
 				hql.add(" ) ");
 			}
 		}
-		hql.add(" ) ");
 
-		hql.add(" or r.company.id in(select a.id from Company a where 1=1  ");
 		if (Constant.toString(alf.getKeywords()) != "") {
+		hql.add(" or r.company.id in(select a.id from Company a where 1=1  ");	
 			hql.add(" and( ");
 			hql.add(" a.name like '%" + alf.getKeywords().trim() + "%'");
-			hql.add(" ) ");
-		}
+			hql.add(" ) ");		
 		hql.add(" ) ");
+		}
 		
 		if (Constant.toString(alf.getKeywords()) != "") {
 			hql.add(" or  r.content like '%" + alf.getKeywords().trim() + "%'");
 		}
 		
 		if (Constant.toLong(alf.getType()) >0) {
-			hql.add(" and a.type="+alf.getType());
+			hql.add(" and r.type="+alf.getType());
 		}
 		if (Constant.toLong(alf.getStatus()) >0) {
-		hql.add(" and a.status="+alf.getStatus());
+		hql.add(" and r.status="+alf.getStatus());
 		}
 
-		hql.add(" order by a.type,a.status ");
+		hql.add(" order by r.type,r.status ");
 		
 		System.out.println(hql);
 		return this.list(hql, alf);

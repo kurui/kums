@@ -2,8 +2,6 @@ package com.kurui.kums.agent._entity;
 
 import java.sql.Timestamp;
 
-import com.kurui.kums.agent.Agent;
-
 // Generated 2011-9-24 12:56:38 by Hibernate Tools 3.2.2.GA
 
 /**

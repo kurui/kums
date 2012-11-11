@@ -18,8 +18,8 @@
 <script type="text/javascript" src="<%=path%>/_js/base/select.js"></script>
 <script type="text/javascript"
 	src="<%=path%>/_js/calendar/WdatePicker.js"></script>
-	
-	
+
+
 <script type="text/javascript">
 	function add(){
 	    document.forms[0].thisAction.value="save";
@@ -58,7 +58,6 @@
 						document.forms["editAgentResumeForm"].beginDate.value=agentResumeObj.beginDate;
 						document.forms["editAgentResumeForm"].endDate.value=agentResumeObj.endDate;
 						
-						document.forms["editAgentResumeForm"].position.value=agentResumeObj.position;
 						document.forms["editAgentResumeForm"].content.value=agentResumeObj.content;
 						js.select.markSelected(document.forms["editAgentResumeForm"].companyId,agentResumeObj.companyId);	
 						js.select.markSelected(document.forms["editAgentResumeForm"].type,agentResumeObj.type);
@@ -73,10 +72,10 @@
 		
 		function updateAgentResume(){	
 			document.forms["editAgentResumeForm"].lastAction.value="list";
-			document.forms["editAgentResumeForm"].intPage.value=<c:out value="${agentResumeListForm.intPage}" />;
-			document.forms["editAgentResumeForm"].pageCount.value=<c:out value="${agentResumeListForm.pageCount}" />;
-			document.forms["editAgentResumeForm"].type.value=<c:out value="${agentResumeListForm.type}" />;
-			document.forms["editAgentResumeForm"].status.value=<c:out value="${agentResumeListForm.status}" />;
+			document.forms["editAgentResumeForm"].intPage.value='<c:out value="${agentResumeListForm.intPage}" />';
+			document.forms["editAgentResumeForm"].pageCount.value='<c:out value="${agentResumeListForm.pageCount}" />';
+			document.forms["editAgentResumeForm"].type.value='<c:out value="${agentResumeListForm.type}" />';
+			document.forms["editAgentResumeForm"].status.value='<c:out value="${agentResumeListForm.status}" />';
 			
 			trim(document.forms["editAgentResumeForm"]);
 			document.forms["editAgentResumeForm"].submit();
@@ -94,7 +93,8 @@
 	<div id="mainContainer">
 		<div id="container">
 
-			<html:form action="/agent/agentResumeList.do" styleId="listAgentResumeForm">
+			<html:form action="/agent/agentResumeList.do"
+				styleId="listAgentResumeForm">
 				<html:hidden property="thisAction" />
 				<html:hidden property="lastAction" />
 				<html:hidden property="intPage" />
@@ -116,46 +116,37 @@
 								<table cellpadding="0" cellspacing="0" border="0"
 									class="searchPanel">
 									<tr>
-										<td>关键字：</td>
-										<td><html:text property="keywords"
+										<td>关键字<html:text property="keywords"
 												styleClass="colorblue2 p_5" style="width:150px;" /></td>
-										<!-- <td style="text-align: left"><html:select
-												property="companyId" styleClass="colorblue2 p_5"
-												styleId="companyId" style="width:120px;" onchange="javascript:document.forms[0].submit();">
-												<html:option value="0">
-										请选择
-									</html:option>
-												<c:forEach items="${companyList}" var="company" >
-													<html:option value="${company.id}" >
-														<c:out value="${company.showName}" />
-													</html:option>
-												</c:forEach>
-											</html:select>
-										</td>
-										-->
-										<td>	<jsp:include page="../transaction/listSearchCompanyBar.jsp"></jsp:include>
+								
+										<td><jsp:include
+												page="../transaction/listSearchCompanyBar.jsp"></jsp:include>
 										</td>
 										<td>类型：</td>
 										<td><html:select property="type"
+												onchange="document.forms[0].submit();"
 												styleClass="colorblue2 p_5" style="width:80px;">
-												<html:option value="">
-														请选择
+												<html:option value="0">
+														全部
 													</html:option>
-												<html:option value="1">
-														当前
-													</html:option><html:option value="2">
-														历史
-													</html:option>
+												<html:option value="51">J-简历</html:option>
+												<html:option value="1">S-手机</html:option>
+												<html:option value="2">G-固定电话</html:option>
+												<html:option value="11">EMAIL</html:option>
+												<html:option value="12">QQ</html:option>
+												<html:option value="21">Z-祖籍</html:option>
+												<html:option value="31">S-收货地址</html:option>
 											</html:select></td>
 										<td>状态：</td>
 										<td><html:select property="status"
 												styleClass="colorblue2 p_5" style="width:80px;">
 												<html:option value="">
-														请选择
+														全部
 													</html:option>
 												<html:option value="1">
-														有效
+														当前
 													</html:option>
+												<html:option value="2">历史</html:option>
 												<html:option value="0">
 														无效
 													</html:option>
@@ -184,9 +175,6 @@
 									</th>
 									<th>
 										<div>公司</div>
-									</th>
-									<th>
-										<div>职务</div>
 									</th>
 									<th>
 										<div>说明</div>
@@ -225,7 +213,6 @@
 										</a></td>
 
 
-										<td><c:out value="${agentResume.position}" /></td>
 										<td><c:out value="${agentResume.content}" /></td>
 
 										<td><c:out value="${agentResume.typeInfo}" /></td>
@@ -301,10 +288,10 @@
 
 
 					<tr>
-						<td style="text-align: left">
-						<html:hidden property="id"	value="" /> <html:hidden
-								property="agentId" value="" /> <html:text property="beginDate"
-								styleClass="colorblue2 p_5" style="width:100px;"
+						<td style="text-align: left"><html:hidden property="id"
+								value="" /> <html:hidden property="agentId" value="" /> <html:text
+								property="beginDate" styleClass="colorblue2 p_5"
+								style="width:100px;"
 								onfocus="WdatePicker({startDate:'%y-%M-%D',dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" />
 							- <html:text property="endDate" styleClass="colorblue2 p_5"
 								style="width:100px;"
@@ -323,31 +310,35 @@
 									</html:option>
 								</c:forEach>
 							</html:select></td>
-						<td style="text-align: left"><html:text property="position" name="agentResume"
-								styleClass="colorblue2 p_5" style="width:150px;"></html:text></td>
 
 						<td style="text-align: left"><html:text property="content"
 								styleClass="colorblue2 p_5" style="width:220px;"></html:text></td>
 
-						<td style="text-align: left"><html:select property="type"styleClass="colorblue2 p_5"
-								style="width:50px;">
-								<html:option value="0">-请选择-</html:option>
-								<html:option value="2">历史</html:option>
-								<html:option value="1">当前</html:option>
+						<td style="text-align: left"><html:select property="type"
+								styleClass="colorblue2 p_5" style="width:80px;">
+								<html:option value="">
+														全部
+													</html:option>
+								<html:option value="51">J-简历</html:option>
+								<html:option value="1">S-手机</html:option>
+								<html:option value="2">G-固定电话</html:option>
+								<html:option value="11">EMAIL</html:option>
+								<html:option value="12">QQ</html:option>
+								<html:option value="21">Z-祖籍</html:option>
+								<html:option value="31">S-收货地址</html:option>
 							</html:select> <html:select property="status" styleClass="colorblue2 p_5"
 								style="width:50px;">
-								<html:option value="1">有效</html:option>
+								<html:option value="1">当前</html:option>
+								<html:option value="2">历史</html:option>
 								<html:option value="0">无效</html:option>
 							</html:select></td>
-						<td>
-						<html:hidden property="thisAction" value="" />
-						<html:hidden property="lastAction" value="" />
-						<html:hidden property="intPage" value="" />
-						<html:hidden property="pageCount" value="" />
-						
-						<input name="label" type="button" class="button1"
-							value="保存" onclick="updateAgentResume();"> <input
-							name="label" type="button" class="button1" value="取消"
+						<td><html:hidden property="thisAction" value="" /> <html:hidden
+								property="lastAction" value="" /> <html:hidden
+								property="intPage" value="" /> <html:hidden
+								property="pageCount" value="" /> <input name="label"
+							type="button" class="button1" value="保存"
+							onclick="updateAgentResume();"> <input name="label"
+							type="button" class="button1" value="取消"
 							onclick="cancelEditAgentResume();"></td>
 					</tr>
 				</table>

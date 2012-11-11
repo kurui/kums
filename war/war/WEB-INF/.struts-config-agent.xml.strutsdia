@@ -401,35 +401,6 @@
  <PROCESS-ITEM NAME="page41" PATH="/agent/viewAgentEvent.jsp"
   SHAPE="240,7889,0,0" SUBTYPE="jsp" TITLE="viewAgentEvent.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>
- <PROCESS-ITEM ID="#agent#agentContact" NAME="action20"
-  PATH="/agent/agentContact" SHAPE="272,9217,0,0" TITLE="agentContact"
-  TYPE="action" model-entity="StrutsProcessItem">
-  <PROCESS-ITEM-OUTPUT ID="listAgentContact" NAME="forward0"
-   PATH="/agent/listAgentContact.jsp" TARGET="page16"
-   TITLE="listAgentContact" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
-  <PROCESS-ITEM-OUTPUT ID="editAgentContact" NAME="forward1"
-   PATH="/agent/editAgentContact.jsp" TARGET="page17"
-   TITLE="editAgentContact" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
-  <PROCESS-ITEM-OUTPUT ID="viewAgentContactALL" NAME="forward2"
-   PATH="/agent/viewAgentContactALL.jsp" TARGET="page45"
-   TITLE="viewAgentContactALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
- </PROCESS-ITEM>
- <PROCESS-ITEM ID="#agent#agentContactList" NAME="action21"
-  PATH="/agent/agentContactList" SHAPE="288,9217,0,0"
-  TITLE="agentContactListForm" TYPE="action" model-entity="StrutsProcessItem">
-  <PROCESS-ITEM-OUTPUT ID="listAgentContact" NAME="forward1"
-   PATH="/agent/listAgentContact.jsp" TARGET="page16"
-   TITLE="listAgentContact" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
-  <PROCESS-ITEM-OUTPUT ID="editAgentContact" NAME="forward2"
-   PATH="/agent/editAgentContact.jsp" TARGET="page17"
-   TITLE="editAgentContact" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
-  <PROCESS-ITEM-OUTPUT ID="viewAgentContact" NAME="forward0"
-   PATH="/agent/viewAgentContact.jsp" TARGET="page18"
-   TITLE="viewAgentContact" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
-  <PROCESS-ITEM-OUTPUT ID="viewAgentContactALL" NAME="forward3"
-   PATH="/agent/viewAgentContactALL.jsp" TARGET="page45"
-   TITLE="viewAgentContactALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
- </PROCESS-ITEM>
  <PROCESS-ITEM ID="#agent#agentResume" NAME="action22"
   PATH="/agent/agentResume" SHAPE="304,9217,0,0" TITLE="agentResume"
   TYPE="action" model-entity="StrutsProcessItem">
@@ -459,15 +430,6 @@
    PATH="/agent/viewAgentResumeALL.jsp" TARGET="page46"
    TITLE="viewAgentResumeALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="page16" PATH="/agent/listAgentContact.jsp"
-  SHAPE="480,9217,0,0" SUBTYPE="jsp" TITLE="listAgentContact.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
- <PROCESS-ITEM NAME="page17" PATH="/agent/editAgentContact.jsp"
-  SHAPE="480,9329,0,0" SUBTYPE="jsp" TITLE="editAgentContact.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
- <PROCESS-ITEM NAME="page18" PATH="/agent/viewAgentContact.jsp"
-  SHAPE="704,9217,0,0" SUBTYPE="jsp" TITLE="viewAgentContact.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
  <PROCESS-ITEM NAME="page42" PATH="/agent/listAgentResume.jsp"
   SHAPE="512,9441,0,0" SUBTYPE="jsp" TITLE="listAgentResume.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>

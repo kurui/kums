@@ -19,8 +19,8 @@ public class AgentResumeListForm extends ListActionForm {
 	public String content= "";
 	public Timestamp updateDate;
 	public String userNo= "";
-	public Long type=Long.valueOf(1);
-	public Long status=Long.valueOf(1);
+	public Long type=Long.valueOf(0);
+	public Long status;
 
 	public String keywords = "";
 

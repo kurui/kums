@@ -58,7 +58,6 @@
 						document.forms["editAgentResumeForm"].beginDate.value=agentResumeObj.beginDate;
 						document.forms["editAgentResumeForm"].endDate.value=agentResumeObj.endDate;
 						
-						document.forms["editAgentResumeForm"].position.value=agentResumeObj.position;
 						document.forms["editAgentResumeForm"].content.value=agentResumeObj.content;
 						js.select.markSelected(document.forms["editAgentResumeForm"].companyId,agentResumeObj.companyId);	
 						js.select.markSelected(document.forms["editAgentResumeForm"].type,agentResumeObj.type);
@@ -260,9 +259,6 @@
 										<div>公司</div>
 									</th>
 									<th>
-										<div>职务</div>
-									</th>
-									<th>
 										<div>说明</div>
 									</th>
 									<th>
@@ -298,8 +294,6 @@
 												<c:out value="${agentResume.company.name}" />
 										</a></td>
 
-
-										<td><c:out value="${agentResume.position}" /></td>
 										<td><c:out value="${agentResume.content}" /></td>
 
 										<td><c:out value="${agentResume.typeInfo}" /></td>

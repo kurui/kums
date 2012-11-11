@@ -19,10 +19,11 @@ public class _AgentResume extends org.apache.struts.action.ActionForm implements
 	protected long id;
 	protected Agent agent;
 	protected Company company;
+	protected String tag="";
 	protected String content="";
-	protected String position="";
 	protected Timestamp beginTime;
 	protected Timestamp endTime;
+	protected Timestamp updateTime;
 	protected Long type;
 	protected Long status;
 
@@ -57,6 +58,16 @@ public class _AgentResume extends org.apache.struts.action.ActionForm implements
 		this.company = company;
 	}
 
+	
+	
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
 	public String getContent() {
 
 		return this.content;
@@ -64,15 +75,6 @@ public class _AgentResume extends org.apache.struts.action.ActionForm implements
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public String getPosition() {
-
-		return this.position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
 	}
 
 	public Timestamp getBeginTime() {
@@ -91,6 +93,16 @@ public class _AgentResume extends org.apache.struts.action.ActionForm implements
 
 	public void setEndTime(Timestamp endTime) {
 		this.endTime = endTime;
+	}
+	
+	
+
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	public Long getType() {

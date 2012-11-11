@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.kurui.kums.agent.AgentContact;
 import com.kurui.kums.agent.AgentEvent;
 import com.kurui.kums.agent.AgentResume;
 import com.kurui.kums.agent.ShareHolder;
@@ -64,7 +63,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected java.util.Set crossAgents = new HashSet(0);
 	protected java.util.Set agentCoteries = new HashSet(0);
 	protected java.util.Set shareHolders = new HashSet<ShareHolder>(0);
-	protected java.util.Set agentContacts = new HashSet<AgentContact>(0);
 	protected java.util.Set agentEvents = new HashSet<AgentEvent>(0);
 	protected java.util.Set agentResumes = new HashSet<AgentResume>(0);
 
@@ -396,16 +394,6 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.crossAgents = crossAgents;
 	}
 	
-	
-
-	public java.util.Set getAgentContacts() {
-		return agentContacts;
-	}
-
-	public void setAgentContacts(java.util.Set agentContacts) {
-		this.agentContacts = agentContacts;
-	}
-
 	public java.util.Set getAgentEvents() {
 		return agentEvents;
 	}

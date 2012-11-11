@@ -49,7 +49,6 @@ public class AgentResumeAction extends BaseAction {
 					agentResume.setCompany(company);
 				}			
 
-				agentResume.setPosition(agentResumeForm.getPosition());
 				agentResume.setContent(agentResumeForm.getContent());
 
 				Timestamp beginTime=DateUtil.getTimestamp(agentResumeForm.getBeginDate(), "yyyy-MM-dd");
@@ -99,7 +98,6 @@ public class AgentResumeAction extends BaseAction {
 					agentResume.setCompany(company);
 				}			
 
-				agentResume.setPosition(agentResumeForm.getPosition());
 				agentResume.setContent(agentResumeForm.getContent());
 
 				Timestamp beginTime=DateUtil.getTimestamp(agentResumeForm.getBeginDate(), "yyyy-MM-dd");

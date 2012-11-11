@@ -22,7 +22,6 @@
 				document.forms["editAgentResumeForm"].id.value="";
 				document.forms["editAgentResumeForm"].agentId.value="<c:out value="${agent.id}"/>";
 				
-				document.forms["editAgentResumeForm"].position.value="";
 				document.forms["editAgentResumeForm"].content.value="";	
 				
 				js.select.markSelected(document.forms["editAgentResumeForm"].type,2);	
@@ -42,16 +41,13 @@
 						
 						document.forms["editAgentResumeForm"].beginDate.value=agentResumeObj.beginDate;
 						document.forms["editAgentResumeForm"].endDate.value=agentResumeObj.endDate;
-						document.forms["editAgentResumeForm"].position.value=agentResumeObj.position;
 						document.forms["editAgentResumeForm"].content.value=agentResumeObj.content;
 						
 						//js.select.markSelected(document.forms["editAgentResumeForm"].companyId,agentResumeObj.companyId);	
 						//alert(agentResumeObj.companyNo);
 						document.forms["editAgentResumeForm"].companyId.value=agentResumeObj.companyId;
 						document.forms["editAgentResumeForm"].companyNo.value=agentResumeObj.companyNo;
-						
-						
-						
+
 						js.select.markSelected(document.forms["editAgentResumeForm"].type,agentResumeObj.type);
 						js.select.markSelected(document.forms["editAgentResumeForm"].status,agentResumeObj.status);	
 						
@@ -93,11 +89,6 @@
 			openWindow(800,600,url);										
 		}
 		
-		function openContact(agentId){
-			var url="../agent/agentContactList.do?thisAction=viewALL&agentId="+agentId;
-			openWindow(800,600,url);										
-		}
-		
 
 	</script>
 </head>
@@ -113,9 +104,6 @@
 					</th>
 					<th>
 						<div>公司/组织</div>
-					</th>
-					<th>
-						<div>职务</div>
 					</th>
 					<th>
 						<div>说明</div>
@@ -153,20 +141,27 @@
 							</html:select></td>-->
 							<td>	<jsp:include page="../transaction/listSearchCompanyBar.jsp"></jsp:include>
 										</td>
-						<td style="text-align: left"><html:text property="position"
-								styleClass="colorblue2 p_5" style="width:150px;"></html:text></td>
+					
 
 						<td style="text-align: left"><html:text property="content"
 								styleClass="colorblue2 p_5" style="width:220px;"></html:text></td>
 
 						<td style="text-align: left"><html:select property="type"
-								styleClass="colorblue2 p_5" style="width:50px;">
-								<html:option value="0">-请选择-</html:option>
-								<html:option value="1">当前</html:option>
-								<html:option value="2">历史</html:option>								
+								styleClass="colorblue2 p_5" style="width:80px;">
+								<html:option value="">
+														全部
+													</html:option>
+												<html:option value="51">J-简历</html:option>
+												<html:option value="1">S-手机</html:option>
+												<html:option value="2">G-固定电话</html:option>
+												<html:option value="11">EMAIL</html:option>
+												<html:option value="12">QQ</html:option>
+												<html:option value="21">Z-祖籍</html:option>
+												<html:option value="31">S-收货地址</html:option>							
 							</html:select> <html:select property="status" styleClass="colorblue2 p_5"
 								style="width:50px;">
-								<html:option value="1">有效</html:option>
+								<html:option value="1">当前</html:option>
+								<html:option value="2">历史</html:option>
 								<html:option value="0">无效</html:option>
 							</html:select></td>
 						<td>
@@ -210,8 +205,7 @@
 									</td>
 									<td colspan="9"><c:out value="${agent.agentNo}" />|<a
 										href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agent.id}"/>">
-											<c:out value="${agent.name}" /> </a> &nbsp;	<a href="#"  onclick="openContact(<c:out value="${agent.id}" />)">联系信息</a>
-									</a></td>
+											<c:out value="${agent.name}" /> </a></td>
 								</tr>
 								<c:forEach var="agentResume" items="${agentResumeList}"
 									varStatus="status">
@@ -220,16 +214,15 @@
 												value="${agentResume.id}" onclick="checkItem(this, 'sele')"></html:multibox>
 										</td>
 										<td><c:out value="${status.count}" /></td>
+											<td><c:out value="${agentResume.typeInfo}" /></td>
+											<td><c:out value="${agentResume.content}" /></td>
 										<td><c:out value="${agentResume.beginDate}" /></td>
 										<td><c:out value="${agentResume.endDate}" /></td>
 										<td><a
 											href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${agentResume.company.id}"/>">
 												<c:out value="${agentResume.company.name}" />
 										</a></td>
-
-										<td><c:out value="${agentResume.content}" /></td>
-										<td><c:out value="${agentResume.position}" /></td>
-										<td><c:out value="${agentResume.typeInfo}" /></td>
+																		
 										<td><c:out value="${agentResume.statusInfo}" /></td>
 										<td><a
 											href="<%=path%>/agent/agentResumeList.do?thisAction=view&id=<c:out value="${agentResume.id}" />">查看</a>

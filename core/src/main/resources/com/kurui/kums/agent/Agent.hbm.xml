@@ -120,12 +120,6 @@
 			<one-to-many class="com.kurui.kums.finance.Commission" />
 		</set>
 
-		<set name="agentContacts" inverse="true">
-            <key>
-                <column name="AGENT_ID" precision="22" scale="0" />
-            </key>
-            <one-to-many class="com.kurui.kums.agent.AgentContact" />
-        </set>
         <set name="agentEvents" inverse="true">
             <key>
                 <column name="AGENT_ID" precision="22" scale="0" />
