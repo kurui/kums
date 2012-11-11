@@ -49,9 +49,6 @@
 									<td class="lef">公司</td>
 									<td style="text-align: left"><c:out
 											value="${agentResume.company.name}" /></td>
-									<td class="lef">职务</td>
-									<td style="text-align: left"><c:out
-											value="${agentResume.position}" /></td>
 								</tr>
 								<tr>
 									<td class="lef">内容</td>
