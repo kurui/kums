@@ -67,6 +67,7 @@
 			<forward name="listDirectAgent" path="/agent/listDirectAgent.jsp" />
 			<forward name="editAgent" path="/agent/editAgent.jsp" />
 			<forward name="viewAgent" path="/agent/viewAgent.jsp" />
+			<forward name="viewAgentReport" path="/agent/viewAgentReport.jsp" />
 
 			<forward name="sendMessage" path="/agent/editSendMessage.jsp" />
 			<forward name="listAgentSelect" path="/agent/listAgentSelect.jsp" />

@@ -6,7 +6,7 @@ import java.util.List;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.finance.FinanceOrder;
 
-public class Balance extends Report {
+public class Balance extends BusinessReport {
 
 	/**
 	 * 

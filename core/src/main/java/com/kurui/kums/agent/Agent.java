@@ -87,6 +87,11 @@ public class Agent extends _Agent {
 		}
 	}
 
+	public String getTypeInfo(Long type){
+		this.type=type;
+		return getTypeInfo();
+	}
+	
 	public String getTypeInfo() {
 		if (this.getType() != null) {
 			if (this.getType().intValue() == TYPE_1) {
@@ -127,6 +132,11 @@ public class Agent extends _Agent {
 		return DataTypeStore.getDataTypeNameByNo(tightIndex + "");
 	}
 
+	public String getSexInfo(Long sex) {
+		this.sex=sex;
+		return getSexInfo();
+	}
+	
 	public String getSexInfo() {
 		if (this.getSex() != null) {
 			if (this.getSex().intValue() == SEX_1) {

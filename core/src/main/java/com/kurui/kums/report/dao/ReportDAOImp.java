@@ -2,23 +2,24 @@ package com.kurui.kums.report.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.Query;
 
+import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.database.BaseDAOSupport;
 import com.kurui.kums.base.database.Hql;
-import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.finance.FinanceOrder;
-import com.kurui.kums.report.OrderStatement;
-import com.kurui.kums.report.Report;
-import com.kurui.kums.right.UserStore;
 import com.kurui.kums.finance.Statement;
+import com.kurui.kums.report.BusinessReport;
+import com.kurui.kums.report.OrderStatement;
+import com.kurui.kums.right.UserStore;
 
 public class ReportDAOImp extends BaseDAOSupport implements ReportDAO {	
 
 	
-	public List getOrderStatementList(Report report)throws AppException{
+	public List getOrderStatementList(BusinessReport report)throws AppException{
 		Hql hql=new Hql();
 		hql.addHql(getOrderStatementListHql(report));		
 		
@@ -50,7 +51,7 @@ public class ReportDAOImp extends BaseDAOSupport implements ReportDAO {
 		return list;
 	}
 	
-	public Hql getOrderStatementListHql(Report report) throws AppException {
+	public Hql getOrderStatementListHql(BusinessReport report) throws AppException {
 		Hql hql = new Hql();
 		hql.add(" select new com.kurui.kums.finance.OrderStatement(b");
 		
@@ -58,7 +59,7 @@ public class ReportDAOImp extends BaseDAOSupport implements ReportDAO {
 		
 		hql.add(")");
 		
-		if(Constant.toLong(report.getReportType()).compareTo(Report.ReportType11)==0){
+		if(Constant.toLong(report.getReportType()).compareTo(BusinessReport.ReportType11)==0){
 			String satementSubType=Statement.SUBTYPE_11+","+Statement.SUBTYPE_21;
 			hql.addHql(getOrderListHqlByStatementDate(report,satementSubType));
 		}else{
@@ -68,7 +69,7 @@ public class ReportDAOImp extends BaseDAOSupport implements ReportDAO {
 		return hql;
 	}
 
-	public Hql getOrderListHql(Report report) throws AppException {
+	public Hql getOrderListHql(BusinessReport report) throws AppException {
 		Hql hql = new Hql();
 		hql.add(" from financeOrder b  where exists(select distinct orderGroup.id  ");
 		hql.add(" from financeOrder a where 1=1");
@@ -156,7 +157,7 @@ public class ReportDAOImp extends BaseDAOSupport implements ReportDAO {
 		return hql;
 	}
 	
-	public Hql getOrderListHqlByStatementDate(Report report,String statementSubType) throws AppException {
+	public Hql getOrderListHqlByStatementDate(BusinessReport report,String statementSubType) throws AppException {
 		Hql hql = new Hql();
 		hql.add(" from financeOrder b  where exists(select distinct orderGroup.id  ");
 		hql.add("from financeOrder a where 1=1");
@@ -255,7 +256,7 @@ public class ReportDAOImp extends BaseDAOSupport implements ReportDAO {
 		return hql;
 	}
 
-	public void printSelectedPlatformAcount(Report report) {
+	public void printSelectedPlatformAcount(BusinessReport report) {
 		if (report != null) {
 			String[] salePlatformIds = report.getSalePlatformIds();
 			String[] receiveAccountIds = report.getReceiveAccountIds();

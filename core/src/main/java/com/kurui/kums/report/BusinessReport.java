@@ -1,6 +1,6 @@
 package com.kurui.kums.report;
 
-public class Report extends org.apache.struts.action.ActionForm implements
+public class BusinessReport extends org.apache.struts.action.ActionForm implements
 		Cloneable {
 	/**
 	 * 
@@ -47,7 +47,7 @@ public class Report extends org.apache.struts.action.ActionForm implements
 
 	private String[] optHead = new String[100];
 
-	public Report() {
+	public BusinessReport() {
 
 	}
 

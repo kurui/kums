@@ -135,6 +135,9 @@
   <PROCESS-ITEM-OUTPUT ID="listDirectAgent" NAME="forward9"
    PATH="/agent/listDirectAgent.jsp" TARGET="page8"
    TITLE="listDirectAgent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentReport" NAME="forward8"
+   PATH="/agent/viewAgentReport.jsp" TARGET="page16"
+   TITLE="viewAgentReport" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM ID="#agent#directLevelList" NAME="action10"
   PATH="/agent/directLevelList" SHAPE="32,5617,0,0"
@@ -444,5 +447,8 @@
   TYPE="page" model-entity="StrutsProcessItem"/>
  <PROCESS-ITEM NAME="page46" PATH="/agent/viewAgentResumeALL.jsp"
   SHAPE="512,9553,0,0" SUBTYPE="jsp" TITLE="viewAgentResumeALL.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page16" PATH="/agent/viewAgentReport.jsp"
+  SHAPE="240,1617,0,0" SUBTYPE="jsp" TITLE="viewAgentReport.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>
 </PROCESS>

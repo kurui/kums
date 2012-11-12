@@ -2,19 +2,21 @@ package com.kurui.kums.report.action;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.file.FileUtil;
 import com.kurui.kums.base.file.report.DownLoadFile;
 import com.kurui.kums.base.util.DateUtil;
-import com.kurui.kums.base.file.FileUtil;
-import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.report.BusinessReport;
 import com.kurui.kums.report.biz.ReportBiz;
-import com.kurui.kums.report.Report;
 import com.kurui.kums.transaction.biz.PaymentToolBiz;
 
 public class ReportAction extends BaseAction {
@@ -27,7 +29,7 @@ public class ReportAction extends BaseAction {
 	public ActionForward downloadLiveReport(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws AppException {
-		Report report = (Report) form;
+		BusinessReport report = (BusinessReport) form;
 		if (report != null) {
 			ArrayList<ArrayList<Object>> lists = null;
 			Long reportType = report.getReportType();
@@ -73,7 +75,7 @@ public class ReportAction extends BaseAction {
 	public ActionForward downloadSaleReport(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws AppException {
-		Report report = (Report) form;
+		BusinessReport report = (BusinessReport) form;
 		if (report != null) {
 			ArrayList<ArrayList<Object>> lists = null;
 			Long reportType = report.getReportType();

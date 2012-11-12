@@ -2,29 +2,34 @@ package com.kurui.kums.agent.action;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.util.RegularUtil;
-import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.message.SMUtil;
-import com.kurui.kums.base.Constant;
-import com.kurui.kums.finance.FinanceOrder;
-import com.kurui.kums.finance.biz.FinanceOrderBiz;
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentListForm;
-import com.kurui.kums.transaction.util.DataTypeStore;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.util.AgentStore;
+import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.message.SMUtil;
+import com.kurui.kums.base.util.RegularUtil;
+import com.kurui.kums.finance.FinanceOrder;
+import com.kurui.kums.finance.biz.FinanceOrderBiz;
+import com.kurui.kums.report.biz.AgentReportBiz;
+import com.kurui.kums.transaction.util.DataTypeStore;
+import com.kurui.kums.transaction.util.PlatComAccountStore;
 
 public class AgentListAction extends BaseAction {
 	private AgentBiz agentBiz;
+	private AgentReportBiz agentReportBiz;
+	
 	private FinanceOrderBiz financeOrderBiz;
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
@@ -45,6 +50,21 @@ public class AgentListAction extends BaseAction {
 		}
 		request.setAttribute("agentListForm", agentListForm);
 		return mapping.findForward("listAgent");
+	}
+	
+	public ActionForward viewAgentReport(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		AgentListForm agentListForm = (AgentListForm) form;
+		if (agentListForm == null) {
+			agentListForm = new AgentListForm();
+		}
+		try {
+			request = agentReportBiz.viewReport(agentListForm,request);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mapping.findForward("viewAgentReport");
 	}
 
 	/**
@@ -368,6 +388,12 @@ public class AgentListAction extends BaseAction {
 
 	public void setAgentBiz(AgentBiz agentBiz) {
 		this.agentBiz = agentBiz;
+	}
+	
+	
+
+	public void setAgentReportBiz(AgentReportBiz agentReportBiz) {
+		this.agentReportBiz = agentReportBiz;
 	}
 
 	public void setFinanceOrderBiz(FinanceOrderBiz financeOrderBiz) {

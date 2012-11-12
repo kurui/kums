@@ -10,6 +10,9 @@
 		<property name="agentBiz">
 			<ref bean="agentBiz" />
 		</property>
+		<property name="agentReportBiz">
+			<ref bean="agentReportBiz" />
+		</property>
 		<property name="financeOrderBiz">
 			<ref bean="financeOrderBiz" />
 		</property>
@@ -262,8 +265,18 @@
 			<ref bean="areaCodeDAO"/>
 		</property>
 	</bean>
-
 	<bean id="agentDAO" class="com.kurui.kums.agent.dao.AgentDAOImp" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+
+	</bean>
+	
+	<bean name="agentReportBiz" class="com.kurui.kums.report.biz.AgentReportBizImp" singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="agentReportDAO">
+			<ref bean="agentReportDAO" />
+		</property>
+	</bean>
+	<bean id="agentReportDAO" class="com.kurui.kums.report.dao.AgentReportDAOImp" lazy-init="default" autowire="default" dependency-check="default">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 
 	</bean>

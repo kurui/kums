@@ -150,6 +150,9 @@
 											<td>
 												<input type="submit" name="button" id="button" value="提交" class="submit greenBtn" />
 											</td>
+											<td>
+											<a href="<%=path%>/agent/agentList.do?thisAction=viewAgentReport">统计</a>
+											</td>
 										</tr>
 										<tr>
 											<td colspan="3"></td>
