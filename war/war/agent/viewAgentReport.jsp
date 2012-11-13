@@ -10,17 +10,9 @@
 	<head>
 		<link href="../_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" language="javascript"
-			src="../_js/jquery-1.3.2.min.js"></script>
-		<script src="../_js/prototype/common.js" type="text/javascript"></script>
-		<script type="text/javascript" src="<%=path%>/_js/base/FormUtil.js"></script>
-		<script type="text/javascript"
-			src="<%=path%>/_js/calendar/WdatePicker.js"></script>
+
 		<script type="text/javascript">
-	function exportReport(){
-	    document.forms[0].thisAction.value="save";
-	    document.forms[0].submit();
-	}
+
 	</script>
 	</head>
 	<body>
@@ -50,26 +42,6 @@
 										class="searchPanel">
 										<tr>
 											<td>
-												<input name="label" type="button" class="button1"
-													value="导 出" onclick="exportReport();">
-											</td>
-											<td>
-												<html:text property="startDate" styleClass="colorblue2 p_5"
-													style="width:120px;"
-													onfocus="WdatePicker({startDate:'%y-%M-%D 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})"
-													readonly="true" />
-											</td>
-											<td>
-												<html:text property="endDate" styleClass="colorblue2 p_5"
-													style="width:120px;"
-													onfocus="WdatePicker({startDate:'%y-%M-%D 23:59:59',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})"
-													readonly="true" />
-											</td>
-											<td>
-												<input type="submit" name="button" id="button" value="提交"
-													class="submit greenBtn" />
-											</td>
-											<td>
 											</td>
 										</tr>
 									</table>
@@ -78,11 +50,57 @@
 									class="dataList">
 									<tr>
 										<th colspan="2">
-											性别
+											客户级别-性别
 										</th>
+										<th colspan="2">
+											关联公司分布
+										</th>
+										
 									</tr>
 									<tr>
 										<td valign="top">
+										<table width="100%" cellpadding="0" cellspacing="0"
+												border="0" class="dataList">
+												<tr>
+													<th width="60">
+														<div>
+															行号
+														</div>
+													</th>
+													<th>
+														<div>
+															客户级别
+														</div>
+													</th>
+													<th>
+														<div>
+															数量
+														</div>
+													</th>
+													
+													<th>
+														<div>
+															百分比
+														</div>
+													</th>
+												</tr>
+												<c:forEach var="data" items="${typeList}"
+													varStatus="status">
+													<tr>
+														<td>
+															<c:out value="${status.count}" />
+														</td>
+														<td>
+															<c:out value="${data.itemName}" />
+														</td>
+														<td>
+															<c:out value="${data.itemValue}" />
+														</td>
+														<td>
+														</td>
+													</tr>
+												</c:forEach>
+											</table>
 											<table width="100%" cellpadding="0" cellspacing="0"
 												border="0" class="dataList">
 												<tr>
@@ -107,17 +125,17 @@
 														</div>
 													</th>
 												</tr>
-												<c:forEach var="sexData" items="${sexList}"
+												<c:forEach var="data" items="${sexList}"
 													varStatus="status">
 													<tr>
 														<td>
 															<c:out value="${status.count}" />
 														</td>
 														<td>
-															<c:out value="${sexData.itemName}" />
+															<c:out value="${data.itemName}" />
 														</td>
 														<td>
-															<c:out value="${sexData.itemValue}" />
+															<c:out value="${data.itemValue}" />
 														</td>
 													</tr>
 												</c:forEach>
@@ -134,40 +152,92 @@
 													</th>
 													<th>
 														<div>
-															科目编号
+															客户级别
 														</div>
 													</th>
 													<th>
 														<div>
-															科目全名
+															性别
 														</div>
 													</th>
 													<th>
 														<div>
-															累计总额
+															数量
+														</div>
+													</th>
+													
+													<th>
+														<div>
+															百分比
 														</div>
 													</th>
 												</tr>
-												<c:forEach var="balance" items="${rightList}"
+												<c:forEach var="data" items="${typeSexList}"
+													varStatus="status">
+													<tr>
+														<td >
+															<c:out value="${status.count}" />
+														</td>
+														<td>
+															<c:out value="${data.typeInfo}" />
+														</td>
+														<td>
+															<c:out value="${data.sexInfo}" />
+														</td>
+														<td>
+															<c:out value="${data.itemValue}" />
+														</td>
+														<td>
+														</td>
+													</tr>
+												</c:forEach>
+											</table>
+										</td>
+										<td valign="top">
+										<table width="100%" cellpadding="0" cellspacing="0"
+												border="0" class="dataList">
+												<tr>
+													<th width="60">
+														<div>
+															行号
+														</div>
+													</th>
+													<th>
+														<div>
+															公司
+														</div>
+													</th>
+													<th>
+														<div>
+															数量
+														</div>
+													</th>
+													
+													<th>
+														<div>
+															百分比
+														</div>
+													</th>
+												</tr>
+												<c:forEach var="data" items="${companyList}"
 													varStatus="status">
 													<tr>
 														<td>
 															<c:out value="${status.count}" />
 														</td>
 														<td>
-															<c:out value="${balance.itemKey}" />
+															<c:out value="${data.companyName}" />
 														</td>
 														<td>
-															<c:out value="${balance.itemName}" />
+															<c:out value="${data.itemValue}" />
 														</td>
 														<td>
-															<c:out value="${balance.itemAmount}" />
 														</td>
 													</tr>
 												</c:forEach>
 											</table>
-										</td>
-									</tr>
+											</td>
+										</tr>
 								</table>
 								<div class="clear"></div>
 

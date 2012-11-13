@@ -9,4 +9,9 @@ public interface AgentReportDAO {
 	public List<AgentReport> getSexList() throws AppException ;
 
 	public List<AgentReport> getTypeList() throws AppException;
+	
+	public List<AgentReport> getTypeSexList() throws AppException;	
+	
+	public List<AgentReport> getCompanyList() throws AppException;
+
 }

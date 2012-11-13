@@ -146,7 +146,7 @@ public class Agent extends _Agent {
 			} else if (this.getSex().intValue() == SEX_0) {
 				return "未知";
 			} else {
-				return null;
+				return "未定义"+this.getSex();
 			}
 		} else {
 			return null;
