@@ -56,14 +56,17 @@ public class AgentReportDAOImp extends BaseDAOSupport implements AgentReportDAO 
 	public List<AgentReport> getCompanyList() throws AppException {
 		List<AgentReport> list = new ArrayList<AgentReport>();
 		Hql hql = new Hql();
-		hql.add("select new com.kurui.kums.report.AgentReport( c.id,c.name,P.tc,'COMPANY' ) from ");
-hql.add("company c,");
-hql.add("(");
-hql.add(" select t.company.id  cid,count(*) tc from AgentResume t where t.status=1 and t.type=51 group by t.companyId ");
-hql.add(" ) P ");
-hql.add(" where c.id=P.cid order by P.tc desc ");
+//		hql.add("select new com.kurui.kums.report.AgentReport( c.id,c.name,P.tc,'COMPANY' ) from ");
+//hql.add("company c,");
+//hql.add("(");
+//hql.add(" select t.company.id  cid,count(*) tc from AgentResume t where t.status=1 and t.type=51 group by t.companyId ");
+//hql.add(" ) P ");
+//hql.add(" where c.id=P.cid order by P.tc desc ");
+		
+		hql.add("select new com.kurui.kums.report.AgentReport(c.id,c.name,c.agentCount,'COMPANY' )");		
+		hql.add(" from Company c where c.agentCount>1 order by c.agentCount desc ");
 
-
+System.out.println(hql);
 
 		Query query = this.getQuery(hql);
 		if (query != null) {
@@ -74,11 +77,5 @@ hql.add(" where c.id=P.cid order by P.tc desc ");
 		}
 		return list;
 	}
-	
-//	select c.id,c.name,P.tc from 
-//    company c,(
-//    select t.company_id,count(*) tc from agent_resume t where  t.status=1 group by t.company_id ) P
-//    where c.id=P.company_id
-//    order by P.tc desc
-;
+
 }

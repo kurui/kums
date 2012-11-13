@@ -4,7 +4,9 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.base.util.StringUtil;
 
 public class AgentReport extends CommonReport {
-	
+
+
+
 	private Long sex;
 	private String sexInfo;
 	private Long type;
@@ -101,5 +103,20 @@ public class AgentReport extends CommonReport {
 	}
 
 	
+	public Long getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 	
 }
