@@ -14,7 +14,7 @@ import com.kurui.kums.agent.AgentAccount;
 import com.kurui.kums.agent.AgentAccountListForm;
 import com.kurui.kums.agent.biz.AgentAccountBiz;
 import com.kurui.kums.agent.biz.AgentBiz;
-import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.transaction.Account;
 import com.kurui.kums.transaction.PaymentTool;

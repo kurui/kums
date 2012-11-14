@@ -3,7 +3,7 @@ package com.kurui.kums.transaction;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.transaction._entity._AccountCheck;
 
 public class AccountCheck extends _AccountCheck {

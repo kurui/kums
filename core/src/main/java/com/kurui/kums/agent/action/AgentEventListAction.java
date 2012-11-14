@@ -13,9 +13,9 @@ import org.apache.struts.action.ActionMapping;
 import com.kurui.kums.agent.AgentEvent;
 import com.kurui.kums.agent.AgentEventListForm;
 import com.kurui.kums.agent.biz.AgentEventBiz;
-import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.transaction.util.PlatComAccountStore;
 

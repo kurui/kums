@@ -4,7 +4,7 @@ import javax.servlet.ServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 import com.kurui.kums.base.util.StringUtil;
 
 public class RoleListForm extends ListActionForm {

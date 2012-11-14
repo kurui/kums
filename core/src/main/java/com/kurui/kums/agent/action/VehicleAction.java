@@ -10,8 +10,8 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.Vehicle;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.VehicleBiz;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 
 public class VehicleAction extends BaseAction {

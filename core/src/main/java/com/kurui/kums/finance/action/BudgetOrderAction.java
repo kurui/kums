@@ -9,8 +9,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionRedirect;
 
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.Budget;
 import com.kurui.kums.finance.BudgetOrder;

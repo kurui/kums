@@ -13,9 +13,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 
-import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.file.FileUtil;
 
 public class UploadAction extends BaseAction {

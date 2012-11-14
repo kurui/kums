@@ -2,14 +2,13 @@ package com.kurui.kums.finance.dao;
 
 import java.util.List;
 
-import com.kurui.kums.base.database.BaseDAO;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.FinanceOrderListForm;
 import com.kurui.kums.finance.OrderGroup;
 import com.kurui.kums.right.UserRightInfo;
 
-public interface FinanceOrderDAO extends BaseDAO {
+public interface FinanceOrderDAO  {
 
 	public FinanceOrder getFinanceOrderByStatementId(long statementId)
 			throws AppException;

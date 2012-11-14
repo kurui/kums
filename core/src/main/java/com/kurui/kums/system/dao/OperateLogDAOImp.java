@@ -4,8 +4,8 @@ import java.util.List;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.Hql;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.system.OperateLog;
 import com.kurui.kums.system.OperateLogListForm;

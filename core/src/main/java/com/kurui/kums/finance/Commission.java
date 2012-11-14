@@ -1,7 +1,7 @@
 package com.kurui.kums.finance;
 
 import java.util.Date;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.finance._entity._Commission;
 
 public class Commission extends _Commission {

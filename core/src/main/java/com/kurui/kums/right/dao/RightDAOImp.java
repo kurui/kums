@@ -1,10 +1,13 @@
 package com.kurui.kums.right.dao;
 
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.SelectDataBean;
+
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.jdbc.SelectDataBean;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.right.UserRightInfo;
 

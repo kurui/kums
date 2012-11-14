@@ -2,7 +2,7 @@ package com.kurui.kums.system;
 
 import java.util.Date;
 
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.system._entity._LoginLog;
 
 public class LoginLog extends _LoginLog {

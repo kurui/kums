@@ -7,7 +7,7 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentListForm;
 import com.kurui.kums.agent.dao.AgentDAO;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.base.util.IdCardUtil;
 import com.kurui.kums.transaction.dao.AreaCodeDAO;
 

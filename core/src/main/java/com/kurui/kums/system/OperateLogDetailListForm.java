@@ -1,6 +1,6 @@
 package com.kurui.kums.system;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 public class OperateLogDetailListForm extends ListActionForm {
 	/**

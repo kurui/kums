@@ -2,11 +2,11 @@ package com.kurui.kums.finance.dao;
 
 import java.util.List;
 
-import com.kurui.kums.base.database.BaseDAO;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.Budget;
 import com.kurui.kums.finance.BudgetListForm;
-public interface BudgetDAO extends BaseDAO {
+
+public interface BudgetDAO {
 
 	public Budget getBudgetById(long airtickeOrderId) throws AppException;
 

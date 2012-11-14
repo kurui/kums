@@ -1,19 +1,21 @@
 package com.kurui.kums.right.action;
 
 import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.database.DBExecuteBatch;
-import com.kurui.kums.base.database.SelectDataBean;
-import com.kurui.kums.base.database.ListMenu;
 import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.database.jdbc.DBExecuteBatch;
+import com.kurui.kums.base.database.jdbc.SelectDataBean;
+import com.kurui.kums.base.database.jdbc.app.example.ListMenu;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.right.Role;
 import com.kurui.kums.right.RoleListForm;
 import com.kurui.kums.right.RoleRightForm;

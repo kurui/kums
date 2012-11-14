@@ -46,7 +46,7 @@
   <classpathentry kind="var" path="M2_REPO/jfree/jfreechart/1.0.11/jfreechart-1.0.11.jar"/>
   <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/jexcelapi/jxl/2.4.2/jxl-2.4.2.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/kurui/kums-base/2.1.0/kums-base-2.1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/kurui/kums-base/2.1.2/kums-base-2.1.2.jar"/>
   <classpathentry kind="src" path="/kums-core"/>
   <classpathentry kind="var" path="M2_REPO/org/saxpath/kurui-saxpath/1.0/kurui-saxpath-1.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar"/>

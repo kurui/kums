@@ -6,8 +6,8 @@ import org.hibernate.Query;
 import com.kurui.kums.transaction.CompanyAccount;
 import com.kurui.kums.transaction.CompanyAccountListForm;
 import com.kurui.kums.agent.AgentAccount;
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.Hql;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.Constant;
 

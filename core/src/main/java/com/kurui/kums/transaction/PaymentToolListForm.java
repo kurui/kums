@@ -1,6 +1,6 @@
 package com.kurui.kums.transaction;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 public class PaymentToolListForm extends ListActionForm {
 

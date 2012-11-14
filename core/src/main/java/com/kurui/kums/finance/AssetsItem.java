@@ -3,7 +3,7 @@ package com.kurui.kums.finance;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.finance._entity._AssetsItem;
 import com.kurui.kums.transaction.util.DataTypeStore;
 

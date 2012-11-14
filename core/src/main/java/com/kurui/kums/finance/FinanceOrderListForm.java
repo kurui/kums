@@ -1,8 +1,8 @@
 package com.kurui.kums.finance;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 
 public class FinanceOrderListForm extends ListActionForm {
 	/**

@@ -2,7 +2,7 @@ package com.kurui.kums.agent;
 
 import java.util.Date;
 import com.kurui.kums.agent._entity._AgentCoterie;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 
 public class AgentCoterie extends _AgentCoterie {
 

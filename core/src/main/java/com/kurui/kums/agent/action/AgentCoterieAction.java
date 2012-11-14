@@ -16,8 +16,8 @@ import com.kurui.kums.agent.Coterie;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentCoterieBiz;
 import com.kurui.kums.agent.biz.CoterieBiz;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.right.UserRightInfo;
 

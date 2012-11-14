@@ -1,6 +1,6 @@
 package com.kurui.kums.right.util;
 
-import com.kurui.kums.base.database.SelectDataBean;
+import com.kurui.kums.base.database.jdbc.SelectDataBean;
 import com.kurui.kums.right.Role;
 
 import org.apache.log4j.Logger;

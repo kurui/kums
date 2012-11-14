@@ -8,8 +8,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.kurui.kums.agent.biz.AgentBiz;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.Commission;
 import com.kurui.kums.finance.CommissionListForm;

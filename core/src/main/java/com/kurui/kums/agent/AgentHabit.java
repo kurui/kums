@@ -3,7 +3,7 @@ package com.kurui.kums.agent;
 import java.util.Date;
 
 import com.kurui.kums.agent._entity._AgentHabit;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 
 public class AgentHabit extends _AgentHabit {
 

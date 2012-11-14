@@ -1,6 +1,6 @@
 package com.kurui.kums.finance;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 public class OrderDetailListForm extends ListActionForm {
 

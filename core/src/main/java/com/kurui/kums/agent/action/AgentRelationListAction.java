@@ -15,11 +15,11 @@ import com.kurui.kums.agent.AgentRelation;
 import com.kurui.kums.agent.AgentRelationListForm;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentRelationBiz;
-import com.kurui.kums.base.BaseAction;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.database.ListMenu;
+import com.kurui.kums.base.database.jdbc.app.example.ListMenu;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.transaction.util.PlatComAccountStore;
 
 public class AgentRelationListAction extends BaseAction {

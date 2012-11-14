@@ -1,6 +1,6 @@
 package com.kurui.kums.market;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.market.util.PriceIndexStore;

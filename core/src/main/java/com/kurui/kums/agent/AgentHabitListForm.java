@@ -2,7 +2,7 @@ package com.kurui.kums.agent;
 
 import java.sql.Timestamp;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 public class AgentHabitListForm extends ListActionForm {
 

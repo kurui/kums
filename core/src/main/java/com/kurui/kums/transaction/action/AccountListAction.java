@@ -10,10 +10,10 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionRedirect;
 
 import com.kurui.kums.base.file.report.DownLoadFile;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.file.FileUtil;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.transaction.Account;
 import com.kurui.kums.transaction.AccountListForm;

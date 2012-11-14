@@ -2,13 +2,15 @@ package com.kurui.kums.agent.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.Query;
+
 import com.kurui.kums.agent.AgentAccount;
 import com.kurui.kums.agent.AgentAccountListForm;
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.Hql;
-import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
+import com.kurui.kums.base.exception.AppException;
 
 public class AgentAccountDAOImp extends BaseDAOSupport implements
 		AgentAccountDAO {

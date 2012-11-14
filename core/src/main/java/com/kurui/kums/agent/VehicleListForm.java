@@ -1,6 +1,6 @@
 package com.kurui.kums.agent;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 public class VehicleListForm extends ListActionForm {
 

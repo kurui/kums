@@ -2,7 +2,7 @@ package com.kurui.kums.system;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionMapping;
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 public class NewsListForm extends ListActionForm {
 	private static final long serialVersionUID = 1L;

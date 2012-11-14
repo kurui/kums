@@ -2,7 +2,7 @@ package com.kurui.kums.transaction;
 
 import java.util.Date;
 
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.base.util.PingYin;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.transaction._entity._Platform;

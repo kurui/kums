@@ -4,8 +4,8 @@ import java.util.List;
 import org.hibernate.Query;
 import com.kurui.kums.system.News;
 import com.kurui.kums.system.NewsListForm;
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.Hql;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 
 public class NewsDAOImp extends BaseDAOSupport implements NewsDAO {

@@ -5,13 +5,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
+
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentListForm;
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.DBExecuteBean;
-import com.kurui.kums.base.database.Hql;
-import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
+import com.kurui.kums.base.database.jdbc.DBExecuteBean;
+import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.FinanceOrder;
 
 public class AgentDAOImp extends BaseDAOSupport implements AgentDAO {

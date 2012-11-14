@@ -4,14 +4,15 @@ import javax.jms.JMSException;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.http.ServletUtil;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.external.http.server.ServletUtil;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.message.Message;
 import com.kurui.kums.message.biz.MessageBiz;
 import com.kurui.kums.message.jms.jboss.queues.HelloQueue;

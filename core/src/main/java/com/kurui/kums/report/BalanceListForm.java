@@ -1,6 +1,6 @@
 package com.kurui.kums.report;
 
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 /**
  * 资金流水

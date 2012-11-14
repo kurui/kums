@@ -2,7 +2,7 @@ package com.kurui.kums.market;
 
 import java.util.Date;
 
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.market._entity._EstateDish;
 
 public class EstateDish extends _EstateDish {

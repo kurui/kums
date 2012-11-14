@@ -6,7 +6,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.system.OperateLogListForm;
 import com.kurui.kums.system.biz.OperateLogBiz;

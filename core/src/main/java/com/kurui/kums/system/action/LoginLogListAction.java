@@ -3,7 +3,7 @@ package com.kurui.kums.system.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kurui.kums.base.BaseAction;
+import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.system.LoginLogListForm;
 import com.kurui.kums.system.biz.LoginLogBiz;

@@ -2,12 +2,12 @@ package com.kurui.kums.right.dao;
 
 import java.util.List;
 
-import com.kurui.kums.base.database.BaseDAO;
+import com.kurui.kums.base.database.hibernate.BaseDAO;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.right.SysUser;
 import com.kurui.kums.right.UserListForm;
 
-public interface UserDAO extends BaseDAO {
+public interface UserDAO  {
 	public SysUser login(String userNo, String userPassword)
 			throws AppException;
 

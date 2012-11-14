@@ -21,9 +21,9 @@ import com.kurui.kums.right.UserRightInfo;
 import com.kurui.kums.transaction.DataType;
 import com.kurui.kums.transaction.biz.DataTypeBiz;
 import com.kurui.kums.transaction.util.PlatComAccountStore;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.PerformListener;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
+import com.kurui.kums.base.threads.listener.PerformListener;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.Constant;
 

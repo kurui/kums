@@ -6,7 +6,7 @@
 
 	<filter>
 		<filter-name>Set Character Encoding</filter-name>
-		<filter-class>com.kurui.kums.base.filters.SetCharacterEncodingFilter</filter-class>
+		<filter-class>com.kurui.kums.base.servlet.filters.SetCharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -68,7 +68,7 @@
 
 	<servlet>
 		<servlet-name>in</servlet-name>
-		<servlet-class>com.kurui.kums.base.TimestampInit</servlet-class>
+		<servlet-class>com.kurui.kums.base.struts.TimestampInit</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

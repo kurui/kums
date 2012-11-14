@@ -2,7 +2,7 @@ package com.kurui.kums.right;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionMapping;
-import com.kurui.kums.base.ListActionForm;
+import com.kurui.kums.base.struts.ListActionForm;
 
 public class LicenseListForm extends ListActionForm {
 	private static final long serialVersionUID = 1L;

@@ -5,8 +5,8 @@ import java.util.Date;
 
 import com.kurui.kums.agent._entity._Agent;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.util.DateUtil;
 import com.kurui.kums.base.util.StringUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.transaction.util.DataTypeStore;
 
 public class Agent extends _Agent {

@@ -14,11 +14,11 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentRelation;
 import com.kurui.kums.agent.AgentRelationListForm;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.Hql;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.file.XmlUtil_jdom;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 
 public class AgentRelationDAOImp extends BaseDAOSupport implements
 		AgentRelationDAO {

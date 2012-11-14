@@ -14,10 +14,10 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentEvent;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentEventBiz;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.right.UserRightInfo;
 
 public class AgentEventAction extends BaseAction {

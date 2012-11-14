@@ -5,7 +5,7 @@ import java.util.List;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.license.LicenseBo;
 import com.kurui.kums.base.license.client.LicenseClientLogic;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.right.License;
 import com.kurui.kums.right.LicenseListForm;
 import com.kurui.kums.right.dao.LicenseDAO;

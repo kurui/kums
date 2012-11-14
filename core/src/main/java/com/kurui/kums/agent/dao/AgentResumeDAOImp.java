@@ -8,8 +8,8 @@ import org.hibernate.Query;
 import com.kurui.kums.agent.AgentResume;
 import com.kurui.kums.agent.AgentResumeListForm;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.Hql;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 
 public class AgentResumeDAOImp extends BaseDAOSupport implements AgentResumeDAO {

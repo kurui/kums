@@ -11,8 +11,8 @@ import com.kurui.kums.system.NewsListForm;
 import com.kurui.kums.system.biz.NewsBiz;
 import com.kurui.kums.right.SysUser;
 import com.kurui.kums.right.UserRightInfo;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 
 public class NewsListAction extends BaseAction {

@@ -2,12 +2,11 @@ package com.kurui.kums.system.dao;
 
 import java.util.List;
 
-import com.kurui.kums.base.database.BaseDAO;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.system.OperateLog;
 import com.kurui.kums.system.OperateLogListForm;
 
-public interface OperateLogDAO extends BaseDAO {
+public interface OperateLogDAO  {
 
 	public List list(OperateLogListForm tslf) throws AppException;
 

@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.hibernate.Query;
 
-import com.kurui.kums.base.database.BaseDAOSupport;
-import com.kurui.kums.base.database.Hql;
+import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
+import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.finance.AssetsItem;

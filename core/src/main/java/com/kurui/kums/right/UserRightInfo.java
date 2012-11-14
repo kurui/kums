@@ -1,6 +1,6 @@
 package com.kurui.kums.right;
 
-import com.kurui.kums.base.right.BaseRightInfo;
+import com.kurui.kums.base.database.jdbc.app.right.BaseRightInfo;
 
 public class UserRightInfo extends BaseRightInfo {
 	private static final long serialVersionUID = 1L;

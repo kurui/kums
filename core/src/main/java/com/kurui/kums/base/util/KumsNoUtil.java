@@ -1,5 +1,7 @@
 package com.kurui.kums.base.util;
 
+import com.kurui.kums.base.database.hibernate.app.NoDBUtil;
+
 
 public class KumsNoUtil extends NoDBUtil {
 	public String getAssetsItemNo() {

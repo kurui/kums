@@ -2,7 +2,7 @@ package com.kurui.kums.right;
 
 import java.util.Date;
 
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.right._entity._License;
 
 public class License extends _License {

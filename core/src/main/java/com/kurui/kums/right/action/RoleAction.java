@@ -2,14 +2,15 @@ package com.kurui.kums.right.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.database.DBExecuteBean;
+import com.kurui.kums.base.database.jdbc.DBExecuteBean;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.right.Role;
 
 public class RoleAction extends BaseAction {

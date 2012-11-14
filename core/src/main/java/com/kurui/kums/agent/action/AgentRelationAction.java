@@ -14,11 +14,10 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentRelation;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentRelationBiz;
-import com.kurui.kums.base.BaseAction;
-import com.kurui.kums.base.Inform;
-import com.kurui.kums.base.database.DBExecuteBatch;
+import com.kurui.kums.base.database.jdbc.DBExecuteBatch;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.util.DateUtil;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.right.UserRightInfo;
 
 public class AgentRelationAction extends BaseAction {

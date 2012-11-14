@@ -1,6 +1,6 @@
 package com.kurui.kums.right;
 
-import com.kurui.kums.base.database.SelectDataBean;
+import com.kurui.kums.base.database.jdbc.SelectDataBean;
 import com.kurui.kums.right._entity._Role;
 
 public class Role extends _Role {

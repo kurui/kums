@@ -1,6 +1,6 @@
 package com.kurui.kums.report.dao;
 
-import com.kurui.kums.base.database.Hql;
+import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.Statement;
 
