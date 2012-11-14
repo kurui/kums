@@ -93,7 +93,7 @@
 	</bean>
 
 	<bean id="baseRightInfo"
-		class="com.kurui.kums.base.right.BaseRightInfo">
+		class="com.kurui.kums.base.database.jdbc.app.right.BaseRightInfo">
 		<property name="list">
 			<list>
 				<value>agent*.b</value>
