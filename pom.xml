@@ -5,9 +5,7 @@
 	<artifactId>kums</artifactId>
 	<packaging>pom</packaging>
 	<name>KUMS Root Project</name>
-	<version>2.1.0</version>
-	<!-- <parent> <artifactId>root</artifactId> <groupId>com.kurui</groupId> 
-		<version>2.1.0</version> </parent> -->
+	<version>2.3.0</version>
 	<properties>
 		<source.version>1.5</source.version>
 		<encoding>UTF-8</encoding>

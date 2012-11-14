@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.kurui</groupId>
-		<version>2.1.0</version>
+		<version>2.3.0</version>
 		<artifactId>kums</artifactId>
 	</parent>
 	<groupId>com.kurui</groupId>
 	<artifactId>kums-core</artifactId>
 	<packaging>jar</packaging>
 	<name>KUMS Core Logic and EJB Layer</name>
-	<version>2.1.0</version>
+	<version>2.3.0</version>
 	<description>Core logic and EJB layer</description>
 	<build>
 		<plugins>
@@ -203,7 +203,7 @@
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-base</artifactId>
-			<version>2.1.0</version>
+			<version>2.1.2</version>
 		</dependency>
 		<!-- 
 		<dependency>

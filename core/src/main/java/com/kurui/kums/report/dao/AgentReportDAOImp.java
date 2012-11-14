@@ -66,7 +66,7 @@ public class AgentReportDAOImp extends BaseDAOSupport implements AgentReportDAO 
 		hql.add("select new com.kurui.kums.report.AgentReport(c.id,c.name,c.agentCount,'COMPANY' )");		
 		hql.add(" from Company c where c.agentCount>1 order by c.agentCount desc ");
 
-System.out.println(hql);
+//System.out.println(hql);
 
 		Query query = this.getQuery(hql);
 		if (query != null) {

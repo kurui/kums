@@ -67,7 +67,7 @@ public class AgentResume extends _AgentResume {
 			} else if (this.getStatus().intValue() == STATES_0) {
 				return "无效";
 			}else {
-				return null;
+				return "未定义";
 			}
 		} else {
 			return null;
