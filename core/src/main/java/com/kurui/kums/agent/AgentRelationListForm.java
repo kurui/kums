@@ -15,9 +15,9 @@ public class AgentRelationListForm extends ListActionForm {
 	public long rootAgentId=Long.valueOf(0);
 
 
-	public Long relationType=Long.valueOf(0);
+	public Long relationType;
 	public Timestamp updateDate;
-	public Long status=Long.valueOf(0);
+	public Long status;
 	public String userNo= "";
 
 	public String contactWay = "";

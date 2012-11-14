@@ -78,9 +78,9 @@
 											</td>
 											<td>
 												<html:select property="platformName" styleClass="colorblue2 p_5" style="width:150px;">
-													<option value="">
+													<html:option value="">
 														请选择
-													</option>
+													</html:option>
 													<c:forEach items="${platformList}" var="platform">
 														<html:option value="${platform.id}">
 															<c:out value="${platform.showName}" />
@@ -93,7 +93,7 @@
 											</td>
 											<td>
 												<html:select property="companyName" styleClass="colorblue2 p_5" style="width:150px;">
-													<option value="">
+													<html:option value="">
 														请选择
 													</option>
 													<c:forEach items="${companyList}" var="company">
@@ -110,13 +110,13 @@
 											</td>
 											<td>
 												<html:select property="accountName" styleClass="colorblue2 p_5" style="width:150px;">
-													<option value="">
+													<html:option value="">
 														请选择
-													</option>
+													</html:option>
 													<c:forEach items="${accountList}" var="account">
 														<html:option value="${account.id}">
 															<c:out value="${account.showName}" />
-														</html:option>
+														</html:html:option>
 													</c:forEach>
 												</html:select>
 											</td>

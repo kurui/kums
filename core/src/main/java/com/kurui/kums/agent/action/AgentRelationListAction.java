@@ -90,19 +90,19 @@ public class AgentRelationListAction extends BaseAction {
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
-		AgentRelationListForm arlf = (AgentRelationListForm) form;
+		AgentRelationListForm agentRelationListForm = (AgentRelationListForm) form;
 
-		if (arlf == null) {
-			arlf = new AgentRelationListForm();
+		if (agentRelationListForm == null) {
+			agentRelationListForm = new AgentRelationListForm();
 		}
 		try {
 			List<AgentRelation> agentRelationList = agentRelationBiz
-					.list(arlf);
-			arlf.setList(agentRelationList);
+					.list(agentRelationListForm);
+			agentRelationListForm.setList(agentRelationList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("arlf", arlf);
+		request.setAttribute("agentRelationListForm", agentRelationListForm);
 		return mapping.findForward("listAgentRelation");
 	}
 

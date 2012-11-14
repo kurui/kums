@@ -71,9 +71,9 @@
 										<tr>
 											<td>
 												<html:select property="paymentToolId" styleClass="colorblue2 p_5" style="width:120px;">
-													<option value="">
+													<html:option value="">
 														支付工具
-													</option>
+													</html:option>
 													<c:forEach items="${paymentToolList}" var="p">
 														<html:option value="${p.id}">
 															<c:out value="${p.name}" />

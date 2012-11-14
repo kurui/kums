@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Query;
+import org.hsqldb.lib.StringUtil;
 import org.jdom.Document;
 import org.jdom.Element;
 
@@ -137,7 +138,7 @@ public class AgentRelationDAOImp extends BaseDAOSupport implements
 			hql.add(" and a.status=" + alf.getStatus());
 		}
 
-		hql.add(" order by a.rootAgent.id ");
+		hql.add(" order by a.relationType desc,a.rootAgent.id ");
 
 		// System.out.println(hql);
 

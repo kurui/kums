@@ -75,25 +75,25 @@
 										<td><html:text property="contactWay"
 												styleClass="colorblue2 p_5" style="width:150px;" /></td>
 										<td>类型：</td>
-										<td><html:select property="relationType"
+										<td><html:select property="relationType" 
 												styleClass="colorblue2 p_5" style="width:80px;">
-												<option value="">请选择</option>
-												<option value="1">上下级</option>
-												<option value="11">同级</option>
-												<option value="21">密友</option>
-												<option value="31">情侣</option>
-												<option value="35">夫妻</option>
-												<option value="38">子女</option>
-												<option value="40">亲属</option>
-												<option value="51">门生故吏</option>
+												<html:option value="">请选择</html:option>
+												<html:option value="1">上下级</html:option>
+												<html:option value="11">同级</html:option>
+												<html:option value="21">密友</html:option>
+												<html:option value="31">情侣</html:option>
+												<html:option value="35">夫妻</html:option>
+												<html:option value="38">子女</html:option>
+												<html:option value="40">亲属</html:option>
+												<html:option value="51">门生故吏</html:option>
 											</html:select></td>
 										<td>状态：</td>
 										<td><html:select property="status"
 												styleClass="colorblue2 p_5" style="width:80px;">
-												<option value="">全部</option>
-												<option value="1">有效</option>
-												<option value="2">历史</option>
-												<option value="0">无效</option>
+												<html:option value="">全部</html:option>
+												<html:option value="1">有效</html:option>
+												<html:option value="2">历史</html:option>
+												<html:option value="0">无效</html:option>
 											</html:select></td>
 										<td><input type="submit" name="button" id="button"
 											value="提交" class="submit greenBtn" /></td>
@@ -119,14 +119,14 @@
 										<div>关系</div>
 									</th>
 									<th>
+										<div>状态</div>
+									</th>
+									<th>
 										<div>处理人</div>
 									</th>
 									<th>
 										<div>处理时间</div>
-									</th>
-									<th>
-										<div>状态</div>
-									</th>
+									</th>									
 									<th>
 										<div>操作</div>
 									</th>
@@ -151,9 +151,21 @@
 										</a></td>
 										<td><c:out value="${agentRelation.relationTypeInfo}" />
 										</td>
+										<td>
+											<c:out value="${agentRelation.statusInfo}" />
+											<c:if test="${agentRelation.status==1}">
+												<html:image page="/_img/1.gif"></html:image>
+											</c:if>
+											<c:if test="${agentRelation.status==2}">
+													<html:image page="/_img/NO.gif"></html:image>
+												</c:if>
+											<c:if test="${agentRelation.status==0}">
+												<html:image page="/_img/c.gif"></html:image>
+											</c:if>
+										</td>
 										<td><c:out value="${agentRelation.userName}" /></td>
 										<td><c:out value="${agentRelation.updateDate}" /></td>
-										<td><c:out value="${agentRelation.statusInfo}" /></td>
+										
 										<td><a
 											href="<%=path%>/agent/agentRelationList.do?thisAction=view&id=<c:out value="${agentRelation.id}" />">
 												查看</a>| <a

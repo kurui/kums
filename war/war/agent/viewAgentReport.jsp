@@ -131,7 +131,16 @@
 												varStatus="status">
 												<tr>
 													<td><c:out value="${status.count}" /></td>
-													<td><c:out value="${data.typeInfo}" /></td>
+										
+													<c:choose>
+														<c:when test="${status.count%3==1}">
+															<td rowspan="3"><c:out value="${data.typeInfo}" /></td>
+														</c:when>
+														<c:otherwise>
+															
+														</c:otherwise>
+													</c:choose>
+														
 													<td><c:out value="${data.sexInfo}" /></td>
 													<td><c:out value="${data.itemValue}" /></td>
 													<td></td>
