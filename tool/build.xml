@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="kums-tool" default="copy-class-to-war-project" basedir=".">
+
+	<property name="project.root" value="F:/project/kums" />
+	<property name="project.core.root" value="${project.root}/core" />
+	<property name="project.war.root" value="${project.root}/war" />
+		
+	<property name="core.classes.dir" value="${project.core.root}/target/classes" />
+	<property name="war.classes.dir" location="${project.war.root}/war/WEB-INF/classes" />
+
+	<!-- Class path, lib-->
+	<path id="classpath">
+		<pathelement location="${lib.dir}/commons-httpclient-3.0.jar" />
+	</path>
+
+	<!-- Prepare -->
+	<target name="deldir">
+		<delete dir="${war.classes.dir}" />
+	</target>
+	<target name="mkdir" depends="deldir">
+		<mkdir dir="${war.classes.dir}" />
+	</target>
+
+	<target name="copy-class-to-war-project" depends="mkdir">
+		<copy todir="${war.classes.dir}" includeEmptyDirs="no"
+			description="copy classes">
+			<fileset dir="${core.classes.dir}" />
+		</copy>
+	</target>
+
+
+</project>
