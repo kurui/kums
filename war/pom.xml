@@ -11,7 +11,61 @@
 	<packaging>war</packaging>
 	<version>2.3.0</version>
 	<name>KUMS WAR</name>
-	<description>web user interface</description>
+	<description>web resources</description>
+
+	<build>
+		<finalName>kums</finalName>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<!-- <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
+				</resource> -->
+		</resources>
+		<outputDirectory>target/webapp/WEB-INF/classes</outputDirectory>
+		<plugins>
+			<!-- If you want to use the target/web.xml file mergewebxml produces, 
+				tell the war plugin to use it. Also, exclude what you want from the final 
+				artifact here. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webappDirectory>target/webapp</webappDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+					<!-- <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> -->
+					<packagingExcludes>asm-1.5.3.jar,asm-attrs-1.5.3.jar,cglib-2.1_3.jar,icu*.jar,jdom-1.0.jar,jdom-1.1.jar,gnujaxp-1.0.0.jar</packagingExcludes>
+
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
+				<configuration> <source>${source.version}</source> <target>${source.version}</target> 
+				<encoding>${encoding}</encoding> </configuration> </plugin> <plugin> <groupId>org.codehaus.mojo</groupId> 
+				<artifactId>build-helper-maven-plugin</artifactId> <version>1.5</version> 
+				<executions> <execution> <id>add-source</id> <phase>generate-sources</phase> 
+				<goals> <goal>add-source</goal> </goals> <configuration> <sources> <source>src/main/java-user</source> 
+				<source>src/main/java-rewards</source> </sources> </configuration> </execution> 
+				</executions> </plugin> -->
+
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>war/WEB-INF/classes</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	
 
 	<dependencies>
 		<dependency>
@@ -34,7 +88,7 @@
 			<artifactId>struts-legacy</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jstl</artifactId>
@@ -42,21 +96,11 @@
 		</dependency>
 
 		<!-- -->
-
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-core</artifactId>
 			<version>2.3.0</version>
 		</dependency>
-
-     <!-- 
-		<dependency>
-			<groupId>com.kurui</groupId>
-			<artifactId>kums-model</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-	-->
-
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-base</artifactId>
@@ -69,77 +113,4 @@
 		<name>Kurui</name>
 		<url>http://www.kurui.com</url>
 	</organization>
-
-	<build>
-		<finalName>kums-war</finalName>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<resources>
-			<!-- <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
-				</resource> -->
-		</resources>
-		<outputDirectory>war/WEB-INF/classes</outputDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.5</version>
-				<executions>
-					<execution>
-						<id>add-source</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>src/main/java-user</source>
-								<source>src/main/java-rewards</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- If you want to use the target/web.xml file mergewebxml produces, 
-				tell the war plugin to use it. Also, exclude what you want from the final 
-				artifact here. -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<webappDirectory>war</webappDirectory>
-					<webXml>war/WEB-INF/web.xml</webXml>
-					<!-- <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> -->
-					<packagingExcludes>asm-1.5.3.jar,asm-attrs-1.5.3.jar,cglib-2.1_3.jar,icu*.jar,jdom-1.0.jar,jdom-1.1.jar,gnujaxp-1.0.0.jar</packagingExcludes>
-
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>war/WEB-INF/classes</directory>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${source.version}</source>
-					<target>${source.version}</target>
-					<encoding>${encoding}</encoding>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
 </project>

@@ -12,9 +12,36 @@
 	<packaging>ear</packaging>
 	<name>KUMS Application EAR</name>
 	<description>KUMS Application EAR</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<defaultJavaBundleDir>lib/</defaultJavaBundleDir>
+					<packagingExcludes>asm*.jar</packagingExcludes>
+					<packagingExcludes>jdom-1.0.jar,jdom-1.1.jar</packagingExcludes>
+					<modules>
+						<!-- Configuring names of artifacts in EAR -->
+						<!-- -->
+						<webModule>
+							<groupId>com.kurui</groupId>
+							<artifactId>kums-war</artifactId>
+							<contextRoot>/kums</contextRoot>
 
+							<bundleFileName>kums-war.war</bundleFileName>
+
+						</webModule>
+
+					</modules>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 	<dependencies>
-	<!--  -->
+		<!-- -->
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-war</artifactId>
@@ -27,13 +54,7 @@
 			<artifactId>kums-core</artifactId>
 			<version>2.3.0</version>
 		</dependency>
-<!-- 
-		<dependency>
-			<groupId>com.kurui</groupId>
-			<artifactId>kums-model</artifactId>
-			<version>2.1.0</version>
-		</dependency>
--->
+
 		<dependency>
 			<groupId>com.kurui</groupId>
 			<artifactId>kums-base</artifactId>
@@ -57,38 +78,10 @@
 			<artifactId>slf4j-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
-
 	</dependencies>
 	<organization>
 		<name>Kurui</name>
 		<url>http://corp.kurui.com</url>
 	</organization>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-ear-plugin</artifactId>
-				<configuration>
-					<defaultJavaBundleDir>lib/</defaultJavaBundleDir>
-					<packagingExcludes>asm*.jar</packagingExcludes>
-		<packagingExcludes>jdom-1.0.jar,jdom-1.1.jar</packagingExcludes>
-					<modules> 
-					<!-- Configuring names of artifacts in EAR -->
-					<!-- -->
-						<webModule>
-							<groupId>com.kurui</groupId>
-							<artifactId>kums-war</artifactId>
-							<contextRoot>/kums</contextRoot>
-							
-							<bundleFileName>kums-war.war</bundleFileName>
-							
-						</webModule>
-						 
-					</modules>
 
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>

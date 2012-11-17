@@ -57,7 +57,7 @@ public class AgentReportDAOImp extends BaseDAOSupport implements AgentReportDAO 
 		List<AgentReport> list = new ArrayList<AgentReport>();
 		Hql hql = new Hql();
 //		hql.add("select new com.kurui.kums.report.AgentReport( c.id,c.name,P.tc,'COMPANY' ) from ");
-//hql.add("company c,");
+//hql.add(" Company c,");
 //hql.add("(");
 //hql.add(" select t.company.id  cid,count(*) tc from AgentResume t where t.status=1 and t.type=51 group by t.companyId ");
 //hql.add(" ) P ");
