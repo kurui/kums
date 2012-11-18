@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionRedirect;
+
 import com.kurui.kums.system.News;
 import com.kurui.kums.system.biz.NewsBiz;
 import com.kurui.kums.right.SysUser;
@@ -35,12 +37,8 @@ public class NewsAction extends BaseAction {
 			newsBiz.updateInfo(tempNews);
 			request.setAttribute("news", tempNews);
 
-			inf.setMessage("您已经成功更新了新闻！");
-			inf.setForwardPage("/information/newslist.do");
-			inf.setParamId("thisAction");
-			inf.setParamValue("view");
-			inf.setParamId("id");
-			inf.setParamValue(tempNews.getId()+"");
+			String forwardUrl="/information/newsList.do?thisAction=view&id="+tempNews.getId();
+			return new ActionRedirect(forwardUrl);
 			
 
 		} catch (Exception ex) {
@@ -53,7 +51,6 @@ public class NewsAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {		
 		News news = (News) form;
-		String forwardPage = "";
 		
 		Inform inf = new Inform();
 			try {
@@ -70,14 +67,11 @@ public class NewsAction extends BaseAction {
 				newsBiz.save(tempNews);
 				request.setAttribute("news", tempNews);
 
-				inf.setMessage("您已经成功添加了新闻！");
-				inf.setForwardPage("/information/newslist.do");
-				inf.setParamId("thisAction");
-				inf.setParamValue("view");
-				inf.setParamId("id");
-				inf.setParamValue(tempNews.getId()+"");
+				String forwardUrl="/information/newsList.do?thisAction=view&id="+tempNews.getId();
+				return new ActionRedirect(forwardUrl);
 			} catch (Exception ex) {
 				inf.setMessage("添加新闻出错！错误信息是：" + ex.getMessage());
+				inf.setBack(true);
 			}
 		return forwardInformPage(inf, mapping, request);
 	}
