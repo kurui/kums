@@ -29,7 +29,10 @@
 
 
 	</properties>
+
 	<build>
+
+		<!--管理plugin,让子Pom决定是否引用，引用时无需version -->
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -58,9 +61,39 @@
 					<artifactId>maven-eclipse-plugin</artifactId>
 					<version>2.8</version>
 				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>${source.version}</source>
+						<target>${source.version}</target>
+						<encoding>${encoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.8</version>
+					<configuration>
+						<show>private</show>
+						<nohelp>true</nohelp>
+					</configuration>
+				</plugin>
+				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId> 
+					<version>2.8</version> <configuration> <stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile> 
+					<show>public</show> </configuration> </plugin> -->
+
+				<!-- 热部署 与Jetty配合 -->
+				<!-- <plugin> <groupId>org.zeroturnaround</groupId> <artifactId>javarebel-maven-plugin</artifactId> 
+					<executions> <execution> <id>generate-rebel-xml</id> <phase>process-resources</phase> 
+					<goals> <goal>generate</goal> </goals> </execution> </executions> <configuration> 
+					<downloadJavadocs>true</downloadJavadocs> </configuration> <version>1.0.5</version> 
+					</plugin> -->
 			</plugins>
 		</pluginManagement>
-
 	</build>
 	<reporting>
 		<plugins>
@@ -72,6 +105,13 @@
 		</plugins>
 	</reporting>
 	<description>KUMS Root Project</description>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-release</id>
+			<url>http://localhost:8081/nexus/content/repositories/kums-public-repository/</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencyManagement>
 		<dependencies>
@@ -198,5 +238,28 @@
 		<!-- <module>ear</module> -->
 
 	</modules>
+
+	<organization>
+		<name>kurui .Ltd</name>
+		<url>http://kurui.iteye.com</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>yanrui</id>
+			<name>YanRui</name>
+			<email>zijingshanke@yahoo.com.cn</email>
+			<url>http://kurui.iteye.com</url>
+			<organization>kurui .Ltd</organization>
+			<organizationUrl>http://kurui.iteye.com</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+			<properties>
+				<picUrl>http://kurui.iteye.com</picUrl>
+			</properties>
+		</developer>
+	</developers>
 
 </project>

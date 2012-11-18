@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion><!--maven2.0必须是这样写，现在是maven2唯一支持的版本-->
 	<parent>
 		<groupId>com.kurui</groupId>
 		<version>2.3.0</version>
@@ -9,41 +9,20 @@
 	<groupId>com.kurui</groupId>
 	<artifactId>kums-core</artifactId>
 	<packaging>jar</packaging>
-	<name>KUMS Core Logic and EJB Layer</name>
+	<name>KUMS Core Logic </name>
 	<version>2.3.0</version>
-	<description>Core logic and EJB layer</description>
+	<description>Core logic</description>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${source.version}</source>
-					<target>${source.version}</target>
-					<encoding>${encoding}</encoding>
-				</configuration>
-			</plugin>
-		
-		<!-- 热部署 与Jetty配合 -->
-				<plugin>
-				<groupId>org.zeroturnaround</groupId>
-				<artifactId>javarebel-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>generate-rebel-xml</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
-				<version>1.0.5</version>
 			</plugin>
 		</plugins>
 	</build>
+
+
+
 	<dependencies>
 		<dependency>
 			<groupId>com.ibm.icu</groupId>
@@ -51,14 +30,14 @@
 			<version>2.6.1</version>
 			<scope>optional</scope>
 		</dependency>
-		
-			<dependency>
+
+		<dependency>
 			<groupId>gnujaxp</groupId>
 			<artifactId>gnujaxp</artifactId>
 			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-	
+
 
 		<!-- Hibernate STARTS -->
 		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-entitymanager</artifactId> 
@@ -74,14 +53,8 @@
 			<version>1.0.11</version>
 		</dependency>
 
-<!--  
-		<dependency>
-			<groupId>gnujaxp</groupId>
-			<artifactId>gnujaxp</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
--->
+		<!-- <dependency> <groupId>gnujaxp</groupId> <artifactId>gnujaxp</artifactId> 
+			<version>1.0.0</version> <scope>provided</scope> </dependency> -->
 
 		<dependency>
 			<groupId>net.jmge</groupId>
