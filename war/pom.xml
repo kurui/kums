@@ -42,7 +42,7 @@
 					</archive>
 				</configuration>
 			</plugin>
-			
+
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
 				<configuration> <source>${source.version}</source> <target>${source.version}</target> 
 				<encoding>${encoding}</encoding> </configuration> </plugin> <plugin> <groupId>org.codehaus.mojo</groupId> 
@@ -63,8 +63,18 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.zeroturnaround</groupId>
+				<artifactId>javarebel-maven-plugin</artifactId>
+			</plugin>
+
 		</plugins>
-	</build>	
+	</build>
 
 	<dependencies>
 		<dependency>

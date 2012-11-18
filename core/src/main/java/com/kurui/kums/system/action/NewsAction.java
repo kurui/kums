@@ -38,7 +38,10 @@ public class NewsAction extends BaseAction {
 			inf.setMessage("您已经成功更新了新闻！");
 			inf.setForwardPage("/information/newslist.do");
 			inf.setParamId("thisAction");
-			inf.setParamValue("list");
+			inf.setParamValue("view");
+			inf.setParamId("id");
+			inf.setParamValue(tempNews.getId()+"");
+			
 
 		} catch (Exception ex) {
 			inf.setMessage("更新新闻出错！错误信息是：" + ex.getMessage());
@@ -70,7 +73,9 @@ public class NewsAction extends BaseAction {
 				inf.setMessage("您已经成功添加了新闻！");
 				inf.setForwardPage("/information/newslist.do");
 				inf.setParamId("thisAction");
-				inf.setParamValue("list");
+				inf.setParamValue("view");
+				inf.setParamId("id");
+				inf.setParamValue(tempNews.getId()+"");
 			} catch (Exception ex) {
 				inf.setMessage("添加新闻出错！错误信息是：" + ex.getMessage());
 			}
