@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
-<beans default-lazy-init="false" default-autowire="no" default-dependency-check="none">
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" lazy-init="default" autowire="default"
+<beans default-lazy-init="false" default-autowire="no"
+	default-dependency-check="none">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" lazy-init="default" autowire="default"
 		dependency-check="default">
-		<!--  oracle 10g  -->
+		<!-- oracle 10g -->
 		<property name="driverClassName">
 			<value>${driverClassName}</value>
 		</property>
@@ -43,21 +45,20 @@
 		</property>
 	</bean>
 
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" lazy-init="default" autowire="default"
-		dependency-check="default">
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+		lazy-init="default" autowire="default" dependency-check="default">
 		<property name="dataSource">
 			<ref local="dataSource" />
 		</property>
-		<property name="lobHandler" ref="lobHandler" />
+		<!--  <property name="lobHandler" ref="lobHandler" />-->
+		
+		<property name="lobHandler" ref="oracleLobHandler" />
+
 
 		<!-- JBoss识别不了，怪哉 -->
-		<!-- 
-			<property name="mappingLocations">
-			<list>
-			<value>classpath*:_config/hbm/com/kurui/kums/**/*.hbm.xml</value>
-			</list>
-			</property>
-		-->
+		<!-- <property name="mappingLocations"> <list> <value>classpath*:_config/hbm/com/kurui/kums/**/*.hbm.xml</value> 
+			</list> </property> -->
 
 		<property name="mappingResources">
 			<list>
@@ -73,8 +74,8 @@
 				<value>com/kurui/kums/agent/ShareHolder.hbm.xml</value>
 				<value>com/kurui/kums/agent/Vehicle.hbm.xml</value>
 
-					
-				<value>com/kurui/kums/finance/AssetsItem.hbm.xml</value>	
+
+				<value>com/kurui/kums/finance/AssetsItem.hbm.xml</value>
 				<value>com/kurui/kums/finance/Budget.hbm.xml</value>
 				<value>com/kurui/kums/finance/BudgetOrder.hbm.xml</value>
 				<value>com/kurui/kums/finance/Commission.hbm.xml</value>
@@ -113,6 +114,8 @@
 				<value>com/kurui/kums/transaction/PaymentTool.hbm.xml</value>
 				<value>com/kurui/kums/transaction/PlatComAccount.hbm.xml</value>
 				<value>com/kurui/kums/transaction/Platform.hbm.xml</value>
+				
+				<value>com/kurui/kums/transaction/ImageLibrary.hbm.xml</value>
 			</list>
 		</property>
 
@@ -130,14 +133,15 @@
 		</property>
 	</bean>
 
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager" lazy-init="default" autowire="default"
-		dependency-check="default">
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		lazy-init="default" autowire="default" dependency-check="default">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 
-	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" lazy-init="default" autowire="default"
-		dependency-check="default">
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate"
+		lazy-init="default" autowire="default" dependency-check="default">
 		<property name="sessionFactory" ref="sessionFactory" />
 		<property name="fetchSize" value="20" />
 		<property name="cacheQueries">
@@ -145,23 +149,40 @@
 		</property>
 	</bean>
 
-	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true" />
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+		lazy-init="true" >
+		 
+	</bean>
 
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:kums.properties" />
-		<!--
-			使用locations属性定义多个配置文件
-			<property name="locations">
-			<list>
-			<value>classpath:config/maxid.properties</value>
-			<value>classpath:config/jdoserver.properties</value>
-			</list>
-			</property>
-		-->
+		<!-- 使用locations属性定义多个配置文件 <property name="locations"> <list> <value>classpath:config/maxid.properties</value> 
+			<value>classpath:config/jdoserver.properties</value> </list> </property> -->
 
 	</bean>
 
-	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+	<!-- 配置nativeJdbcExtractor -->
+	<bean id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+
+
+	<!--配置oracleLobHandler -->
+	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler"
+		lazy-init="true">
+		<property name="nativeJdbcExtractor">
+			<ref bean="nativeJdbcExtractor" />
+		</property>
+	</bean>
+
+	<!-- ======================================================================= -->
+
+
+
+
+
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
 		<property name="transactionManager" ref="transactionManager" />
 		<property name="transactionAttributes">
 			<props>
@@ -171,11 +192,12 @@
 		</property>
 	</bean>
 
-	<bean id="bizAOP" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+	<bean id="bizAOP"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="beanNames">
 			<list>
 				<value>*Biz</value>
-				
+
 			</list>
 		</property>
 		<property name="interceptorNames">
