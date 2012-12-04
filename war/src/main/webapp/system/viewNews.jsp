@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html-el.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/c.tld" prefix="c"%>
+<%
+	String path = request.getContextPath();
+%>
 <html>
 	<head>
 		<title>main</title>
@@ -69,9 +72,24 @@
 										</td>
 									</tr>
 								</table>
+								<table width="100%" style="margin-top: 5px;">
+									<tr>
+										<td align="center">
+											<html:hidden property="selectedItems" value="${news.id}" />
+											<html:hidden property="thisAction" name="news" />
+											<input name="label" type="button" class="button1" value="新 增"
+												onclick="add();">
+											<input name="label" type="button" class="button1" value="返 回"
+												onclick="window.history.back();">
+
+											<input name="label" type="button" class="button1" value="修 改"
+												onclick="edit();">
+
+										</td>
+
+									</tr>
+								</table>
 							</html:form>
-							<input type="button" value="返 回" class="button1"
-								onclick="window.history.back();" />
 							<div class="clear"></div>
 						</td>
 						<td width="10" class="tbrr"></td>
@@ -85,4 +103,15 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		function add(){		   
+		    document.forms[0].action="<%=path%>/information/newsList.do?thisAction=save";
+		    document.forms[0].submit();
+		}
+		
+		function edit(){
+		    document.forms[0].action="<%=path%>/information/newsList.do?thisAction=edit";
+		    document.forms[0].submit();
+		}
+	</script>
 </html>

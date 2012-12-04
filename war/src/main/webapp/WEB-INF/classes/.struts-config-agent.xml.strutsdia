@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="#agent#coterieList" NAME="action0"
+  PATH="/agent/coterieList" SHAPE="32,17,0,0" TITLE="coterieListForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewCoterie" NAME="forward0"
+   PATH="/agent/viewCoterie.jsp" TARGET="page0" TITLE="viewCoterie"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listCoterie" NAME="forward1"
+   PATH="/agent/listCoterie.jsp" TARGET="page1" TITLE="listCoterie"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editCoterie" NAME="forward2"
+   PATH="/agent/editCoterie.jsp" TARGET="page2" TITLE="editCoterie"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#vehicleList" NAME="action1"
+  PATH="/agent/vehicleList" SHAPE="32,449,0,0" TITLE="vehicleListForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewVehicle" NAME="forward0"
+   PATH="/agent/viewVehicle.jsp" TARGET="page3" TITLE="viewVehicle"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listVehicle" NAME="forward1"
+   PATH="/agent/listVehicle.jsp" TARGET="page4" TITLE="listVehicle"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editVehicle" NAME="forward2"
+   PATH="/agent/editVehicle.jsp" TARGET="page5" TITLE="editVehicle"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#vehicle" NAME="action2" PATH="/agent/vehicle"
+  SHAPE="32,625,0,0" TITLE="vehicle" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listVehicle" NAME="forward0"
+   PATH="/agent/listVehicle.jsp" TARGET="page4" TITLE="listVehicle"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editVehicle" NAME="forward1"
+   PATH="/agent/editVehicle.jsp" TARGET="page5" TITLE="editVehicle"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agent" NAME="action3" PATH="/agent/agent"
+  SHAPE="32,881,0,0" TITLE="agent" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewAgentSpeed" NAME="forward0"
+   PATH="/agent/viewAgentSpeed.jsp" TARGET="page6"
+   TITLE="viewAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgent" NAME="forward1"
+   PATH="/agent/listAgent.jsp" TARGET="page7" TITLE="listAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listDirectAgent" NAME="forward2"
+   PATH="/agent/listDirectAgent.jsp" TARGET="page8"
+   TITLE="listDirectAgent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentContactALL" NAME="forward3"
+   PATH="/agent/viewAgentContactALL.jsp" TARGET="page45"
+   TITLE="viewAgentContactALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentHabitList" NAME="action4"
+  PATH="/agent/agentHabitList" SHAPE="32,3601,0,0"
+  TITLE="agentHabitListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewAgentHabit" NAME="forward0"
+   PATH="/agent/viewAgentHabit.jsp" TARGET="page9"
+   TITLE="viewAgentHabit" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentHabit" NAME="forward1"
+   PATH="/agent/listAgentHabit.jsp" TARGET="page10"
+   TITLE="listAgentHabit" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentHabit" NAME="forward2"
+   PATH="/agent/editAgentHabit.jsp" TARGET="page11"
+   TITLE="editAgentHabit" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentRelation" NAME="action5"
+  PATH="/agent/agentRelation" SHAPE="32,4033,0,0" TITLE="agentRelation"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listAgentRelation" NAME="forward0"
+   PATH="/agent/listAgentRelation.jsp" TARGET="page12"
+   TITLE="listAgentRelation" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentRelation" NAME="forward1"
+   PATH="/agent/editAgentRelation.jsp" TARGET="page13"
+   TITLE="editAgentRelation" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentCoterie" NAME="action6"
+  PATH="/agent/agentCoterie" SHAPE="32,4753,0,0" TITLE="agentCoterie"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="editAgentCoterie" NAME="forward0"
+   PATH="/agent/editAgentCoterie.jsp" TARGET="page14"
+   TITLE="editAgentCoterie" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentCoterie" NAME="forward1"
+   PATH="/agent/listAgentCoterie.jsp" TARGET="page15"
+   TITLE="listAgentCoterie" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#shareHolderList" NAME="action8"
+  PATH="/agent/shareHolderList" SHAPE="32,1057,0,0"
+  TITLE="shareHolderListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewShareHolder" NAME="forward0"
+   PATH="/agent/viewShareHolder.jsp" TARGET="page19"
+   TITLE="viewShareHolder" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentSpeed" NAME="forward1"
+   PATH="/agent/viewAgentSpeed.jsp" TARGET="page6"
+   TITLE="viewAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentSelect" NAME="forward2"
+   PATH="/agent/listAgentSelect.jsp" TARGET="page20"
+   TITLE="listAgentSelect" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentSpeed" NAME="forward3"
+   PATH="/agent/editAgentSpeed.jsp" TARGET="page21"
+   TITLE="editAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listShareHolder" NAME="forward4"
+   PATH="/agent/listShareHolder.jsp" TARGET="page22"
+   TITLE="listShareHolder" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editShareHolder" NAME="forward5"
+   PATH="/agent/editShareHolder.jsp" TARGET="page23"
+   TITLE="editShareHolder" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentList" NAME="action9"
+  PATH="/agent/agentList" SHAPE="32,1505,0,0" TITLE="agentListForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="sendMessage" NAME="forward0"
+   PATH="/agent/editSendMessage.jsp" TARGET="page24" TITLE="sendMessage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listGrade" NAME="forward1"
+   PATH="/agent/listAgentGrade.jsp" TARGET="page25" TITLE="listGrade"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentSpeed" NAME="forward2"
+   PATH="/agent/viewAgentSpeed.jsp" TARGET="page6"
+   TITLE="viewAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentSelect" NAME="forward3"
+   PATH="/agent/listAgentSelect.jsp" TARGET="page20"
+   TITLE="listAgentSelect" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentSpeed" NAME="forward4"
+   PATH="/agent/editAgentSpeed.jsp" TARGET="page21"
+   TITLE="editAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgent" NAME="forward5"
+   PATH="/agent/viewAgent.jsp" TARGET="page26" TITLE="viewAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgent" NAME="forward6"
+   PATH="/agent/listAgent.jsp" TARGET="page7" TITLE="listAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgent" NAME="forward7"
+   PATH="/agent/editAgent.jsp" TARGET="page27" TITLE="editAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listDirectAgent" NAME="forward9"
+   PATH="/agent/listDirectAgent.jsp" TARGET="page8"
+   TITLE="listDirectAgent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentReport" NAME="forward8"
+   PATH="/agent/viewAgentReport.jsp" TARGET="page16"
+   TITLE="viewAgentReport" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#directLevelList" NAME="action10"
+  PATH="/agent/directLevelList" SHAPE="32,5617,0,0"
+  TITLE="directLevelListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewDirectLevel" NAME="forward0"
+   PATH="/agent/viewDirectLevel.jsp" TARGET="page29"
+   TITLE="viewDirectLevel" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editDirectLevel" NAME="forward1"
+   PATH="/agent/editDirectLevel.jsp" TARGET="page30"
+   TITLE="editDirectLevel" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listDirectLevel" NAME="forward2"
+   PATH="/agent/listDirectLevel.jsp" TARGET="page31"
+   TITLE="listDirectLevel" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentHabit" NAME="action12"
+  PATH="/agent/agentHabit" SHAPE="32,3777,0,0" TITLE="agentHabit"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listAgentHabit" NAME="forward0"
+   PATH="/agent/listAgentHabit.jsp" TARGET="page10"
+   TITLE="listAgentHabit" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentHabit" NAME="forward1"
+   PATH="/agent/editAgentHabit.jsp" TARGET="page11"
+   TITLE="editAgentHabit" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#coterie" NAME="action13" PATH="/agent/coterie"
+  SHAPE="32,193,0,0" TITLE="coterie" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listCoterie" NAME="forward0"
+   PATH="/agent/listCoterie.jsp" TARGET="page1" TITLE="listCoterie"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editCoterie" NAME="forward1"
+   PATH="/agent/editCoterie.jsp" TARGET="page2" TITLE="editCoterie"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentAccountList" NAME="action14"
+  PATH="/agent/agentAccountList" SHAPE="32,2129,0,0"
+  TITLE="agentAccountListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewAgentSpeed" NAME="forward0"
+   PATH="/agent/viewAgentSpeed.jsp" TARGET="page6"
+   TITLE="viewAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentSelect" NAME="forward1"
+   PATH="/agent/listAgentSelect.jsp" TARGET="page20"
+   TITLE="listAgentSelect" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentAccount" NAME="forward2"
+   PATH="/agent/listAgentAccount.jsp" TARGET="page32"
+   TITLE="listAgentAccount" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentSpeed" NAME="forward3"
+   PATH="/agent/editAgentSpeed.jsp" TARGET="page21"
+   TITLE="editAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentAccount" NAME="forward4"
+   PATH="/agent/viewAgentAccount.jsp" TARGET="page33"
+   TITLE="viewAgentAccount" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgent" NAME="forward5"
+   PATH="/agent/viewAgent.jsp" TARGET="page26" TITLE="viewAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgent" NAME="forward6"
+   PATH="/agent/listAgent.jsp" TARGET="page7" TITLE="listAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgent" NAME="forward7"
+   PATH="/agent/editAgent.jsp" TARGET="page27" TITLE="editAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentAccount" NAME="forward8"
+   PATH="/agent/editAgentAccount.jsp" TARGET="page34"
+   TITLE="editAgentAccount" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentContactALL" NAME="forward9"
+   PATH="/agent/viewAgentContactALL.jsp" TARGET="page45"
+   TITLE="viewAgentContactALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#shareHolder" NAME="action15"
+  PATH="/agent/shareHolder" SHAPE="32,1329,0,0" TITLE="shareHolder"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewShareHolder" NAME="forward0"
+   PATH="/agent/viewShareHolder.jsp" TARGET="page19"
+   TITLE="viewShareHolder" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentSpeed" NAME="forward1"
+   PATH="/agent/viewAgentSpeed.jsp" TARGET="page6"
+   TITLE="viewAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listShareHolder" NAME="forward2"
+   PATH="/agent/listShareHolder.jsp" TARGET="page22"
+   TITLE="listShareHolder" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentRelationList" NAME="action16"
+  PATH="/agent/agentRelationList" SHAPE="32,4177,0,0"
+  TITLE="agentRelationListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listAgentRelation" NAME="forward0"
+   PATH="/agent/listAgentRelation.jsp" TARGET="page12"
+   TITLE="listAgentRelation" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentGroup" NAME="forward1"
+   PATH="/agent/editAgentGroup.jsp" TARGET="page35"
+   TITLE="editAgentGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentRelation" NAME="forward2"
+   PATH="/agent/editAgentRelation.jsp" TARGET="page13"
+   TITLE="editAgentRelation" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentGroup" NAME="forward3"
+   PATH="/agent/listAgentGroup.jsp" TARGET="page36"
+   TITLE="listAgentGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentRelation" NAME="forward4"
+   PATH="/agent/viewAgentRelation.jsp" TARGET="page37"
+   TITLE="viewAgentRelation" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentCoterieList" NAME="action17"
+  PATH="/agent/agentCoterieList" SHAPE="32,4897,0,0"
+  TITLE="agentCoterieListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="editAgentCoterie" NAME="forward0"
+   PATH="/agent/editAgentCoterie.jsp" TARGET="page14"
+   TITLE="editAgentCoterie" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentCoterie" NAME="forward1"
+   PATH="/agent/viewAgentCoterie.jsp" TARGET="page38"
+   TITLE="viewAgentCoterie" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgentCoterie" NAME="forward2"
+   PATH="/agent/listAgentCoterie.jsp" TARGET="page15"
+   TITLE="listAgentCoterie" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentAccount" NAME="action18"
+  PATH="/agent/agentAccount" SHAPE="32,2497,0,0" TITLE="agentAccount"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewAgentSpeed" NAME="forward0"
+   PATH="/agent/viewAgentSpeed.jsp" TARGET="page6"
+   TITLE="viewAgentSpeed" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentAccount" NAME="forward1"
+   PATH="/agent/viewAgentAccount.jsp" TARGET="page33"
+   TITLE="viewAgentAccount" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgenAccountt" NAME="forward2"
+   PATH="/agent/listAgentAccount.jsp" TARGET="page32"
+   TITLE="listAgenAccountt" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listAgent" NAME="forward3"
+   PATH="/agent/listAgent.jsp" TARGET="page7" TITLE="listAgent"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#directLevel" NAME="action19"
+  PATH="/agent/directLevel" SHAPE="32,5793,0,0" TITLE="directLevel"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="editDirectLevel" NAME="forward0"
+   PATH="/agent/editDirectLevel.jsp" TARGET="page30"
+   TITLE="editDirectLevel" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listDirectLevel" NAME="forward1"
+   PATH="/agent/listDirectLevel.jsp" TARGET="page31"
+   TITLE="listDirectLevel" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page0" PATH="/agent/viewCoterie.jsp"
+  SHAPE="272,34,0,0" SUBTYPE="jsp" TITLE="viewCoterie.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page1" PATH="/agent/listCoterie.jsp"
+  SHAPE="272,210,0,0" SUBTYPE="jsp" TITLE="listCoterie.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page2" PATH="/agent/editCoterie.jsp"
+  SHAPE="272,354,0,0" SUBTYPE="jsp" TITLE="editCoterie.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page3" PATH="/agent/viewVehicle.jsp"
+  SHAPE="272,466,0,0" SUBTYPE="jsp" TITLE="viewVehicle.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page4" PATH="/agent/listVehicle.jsp"
+  SHAPE="272,642,0,0" SUBTYPE="jsp" TITLE="listVehicle.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page5" PATH="/agent/editVehicle.jsp"
+  SHAPE="272,786,0,0" SUBTYPE="jsp" TITLE="editVehicle.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page6" PATH="/agent/viewAgentSpeed.jsp"
+  SHAPE="304,898,0,0" SUBTYPE="jsp" TITLE="viewAgentSpeed.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page7" PATH="/agent/listAgent.jsp"
+  SHAPE="304,2834,0,0" SUBTYPE="jsp" TITLE="listAgent.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page8" PATH="/agent/listDirectAgent.jsp"
+  SHAPE="304,3394,0,0" SUBTYPE="jsp" TITLE="listDirectAgent.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page9" PATH="/agent/viewAgentHabit.jsp"
+  SHAPE="272,3618,0,0" SUBTYPE="jsp" TITLE="viewAgentHabit.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page10" PATH="/agent/listAgentHabit.jsp"
+  SHAPE="272,3794,0,0" SUBTYPE="jsp" TITLE="listAgentHabit.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page11" PATH="/agent/editAgentHabit.jsp"
+  SHAPE="272,3938,0,0" SUBTYPE="jsp" TITLE="editAgentHabit.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page12" PATH="/agent/listAgentRelation.jsp"
+  SHAPE="304,4050,0,0" SUBTYPE="jsp" TITLE="listAgentRelation.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page13" PATH="/agent/editAgentRelation.jsp"
+  SHAPE="304,4434,0,0" SUBTYPE="jsp" TITLE="editAgentRelation.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page14" PATH="/agent/editAgentCoterie.jsp"
+  SHAPE="272,4770,0,0" SUBTYPE="jsp" TITLE="editAgentCoterie.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page15" PATH="/agent/listAgentCoterie.jsp"
+  SHAPE="272,5090,0,0" SUBTYPE="jsp" TITLE="listAgentCoterie.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page19" PATH="/agent/viewShareHolder.jsp"
+  SHAPE="304,1074,0,0" SUBTYPE="jsp" TITLE="viewShareHolder.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page20" PATH="/agent/listAgentSelect.jsp"
+  SHAPE="304,1522,0,0" SUBTYPE="jsp" TITLE="listAgentSelect.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page21" PATH="/agent/editAgentSpeed.jsp"
+  SHAPE="304,2146,0,0" SUBTYPE="jsp" TITLE="editAgentSpeed.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page22" PATH="/agent/listShareHolder.jsp"
+  SHAPE="304,1346,0,0" SUBTYPE="jsp" TITLE="listShareHolder.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page23" PATH="/agent/editShareHolder.jsp"
+  SHAPE="304,3506,0,0" SUBTYPE="jsp" TITLE="editShareHolder.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page24" PATH="/agent/editSendMessage.jsp"
+  SHAPE="304,1922,0,0" SUBTYPE="jsp" TITLE="editSendMessage.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page25" PATH="/agent/listAgentGrade.jsp"
+  SHAPE="304,2034,0,0" SUBTYPE="jsp" TITLE="listAgentGrade.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page26" PATH="/agent/viewAgent.jsp"
+  SHAPE="304,2946,0,0" SUBTYPE="jsp" TITLE="viewAgent.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page27" PATH="/agent/editAgent.jsp"
+  SHAPE="304,3058,0,0" SUBTYPE="jsp" TITLE="editAgent.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page29" PATH="/agent/viewDirectLevel.jsp"
+  SHAPE="272,5634,0,0" SUBTYPE="jsp" TITLE="viewDirectLevel.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page30" PATH="/agent/editDirectLevel.jsp"
+  SHAPE="272,5810,0,0" SUBTYPE="jsp" TITLE="editDirectLevel.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page31" PATH="/agent/listDirectLevel.jsp"
+  SHAPE="272,5954,0,0" SUBTYPE="jsp" TITLE="listDirectLevel.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page32" PATH="/agent/listAgentAccount.jsp"
+  SHAPE="304,2514,0,0" SUBTYPE="jsp" TITLE="listAgentAccount.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page33" PATH="/agent/viewAgentAccount.jsp"
+  SHAPE="304,2722,0,0" SUBTYPE="jsp" TITLE="viewAgentAccount.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page34" PATH="/agent/editAgentAccount.jsp"
+  SHAPE="304,3170,0,0" SUBTYPE="jsp" TITLE="editAgentAccount.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page35" PATH="/agent/editAgentGroup.jsp"
+  SHAPE="304,4194,0,0" SUBTYPE="jsp" TITLE="editAgentGroup.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page36" PATH="/agent/listAgentGroup.jsp"
+  SHAPE="304,4546,0,0" SUBTYPE="jsp" TITLE="listAgentGroup.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page37" PATH="/agent/viewAgentRelation.jsp"
+  SHAPE="304,4658,0,0" SUBTYPE="jsp" TITLE="viewAgentRelation.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page38" PATH="/agent/viewAgentCoterie.jsp"
+  SHAPE="272,4914,0,0" SUBTYPE="jsp" TITLE="viewAgentCoterie.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#agent#agentEventList" NAME="action7"
+  PATH="/agent/agentEventList" SHAPE="32,7665,0,0"
+  TITLE="agentEventListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listAgentEvent" NAME="forward0"
+   PATH="/agent/listAgentEvent.jsp" TARGET="page39"
+   TITLE="listAgentEvent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentEvent" NAME="forward1"
+   PATH="/agent/editAgentEvent.jsp" TARGET="page40"
+   TITLE="editAgentEvent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentEvent" NAME="forward2"
+   PATH="/agent/viewAgentEvent.jsp" TARGET="page41"
+   TITLE="viewAgentEvent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentEvent" NAME="action11"
+  PATH="/agent/agentEvent" SHAPE="32,7633,0,0" TITLE="agentEvent"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listAgentEvent" NAME="forward0"
+   PATH="/agent/listAgentEvent.jsp" TARGET="page39"
+   TITLE="listAgentEvent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentEvent" NAME="forward1"
+   PATH="/agent/editAgentEvent.jsp" TARGET="page40"
+   TITLE="editAgentEvent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page39" PATH="/agent/listAgentEvent.jsp"
+  SHAPE="240,7777,0,0" SUBTYPE="jsp" TITLE="listAgentEvent.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page40" PATH="/agent/editAgentEvent.jsp"
+  SHAPE="448,7665,0,0" SUBTYPE="jsp" TITLE="editAgentEvent.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page41" PATH="/agent/viewAgentEvent.jsp"
+  SHAPE="240,7889,0,0" SUBTYPE="jsp" TITLE="viewAgentEvent.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#agent#agentResume" NAME="action22"
+  PATH="/agent/agentResume" SHAPE="304,9217,0,0" TITLE="agentResume"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listAgentResume" NAME="forward0"
+   PATH="/agent/listAgentResume.jsp" TARGET="page42"
+   TITLE="listAgentResume" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentResume" NAME="forward1"
+   PATH="/agent/editAgentResume.jsp" TARGET="page43"
+   TITLE="editAgentResume" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentResumeALL" NAME="forward2"
+   PATH="/agent/viewAgentResumeALL.jsp" TARGET="page46"
+   TITLE="viewAgentResumeALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#agent#agentResumeList" NAME="action23"
+  PATH="/agent/agentResumeList" SHAPE="32,9489,0,0"
+  TITLE="agentResumeListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listAgentResume" NAME="forward1"
+   PATH="/agent/listAgentResume.jsp" TARGET="page42"
+   TITLE="listAgentResume" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editAgentResume" NAME="forward2"
+   PATH="/agent/editAgentResume.jsp" TARGET="page43"
+   TITLE="editAgentResume" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentResume" NAME="forward0"
+   PATH="/agent/viewAgentResume.jsp" TARGET="page44"
+   TITLE="viewAgentResume" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewAgentResumeALL" NAME="forward3"
+   PATH="/agent/viewAgentResumeALL.jsp" TARGET="page46"
+   TITLE="viewAgentResumeALL" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page42" PATH="/agent/listAgentResume.jsp"
+  SHAPE="512,9441,0,0" SUBTYPE="jsp" TITLE="listAgentResume.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page43" PATH="/agent/editAgentResume.jsp"
+  SHAPE="720,9329,0,0" SUBTYPE="jsp" TITLE="editAgentResume.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page44" PATH="/agent/viewAgentResume.jsp"
+  SHAPE="240,9489,0,0" SUBTYPE="jsp" TITLE="viewAgentResume.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page45" PATH="/agent/viewAgentContactALL.jsp"
+  SHAPE="912,9217,0,0" SUBTYPE="jsp" TITLE="viewAgentContactALL.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page46" PATH="/agent/viewAgentResumeALL.jsp"
+  SHAPE="512,9553,0,0" SUBTYPE="jsp" TITLE="viewAgentResumeALL.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page16" PATH="/agent/viewAgentReport.jsp"
+  SHAPE="240,1617,0,0" SUBTYPE="jsp" TITLE="viewAgentReport.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+</PROCESS>
