@@ -18,8 +18,8 @@
 <link href="<%=path%>/_css/global.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" language="javascript"
 	src="<%=path%>/_js/jquery-1.3.2.min.js"></script>
-	<script src="<%=path%>/_js/prototype/common.js" type="text/javascript"></script>
-		<script src="<%=path%>/_js/base/FormUtil.js" type="text/javascript"></script>
+<script src="<%=path%>/_js/prototype/common.js" type="text/javascript"></script>
+<script src="<%=path%>/_js/base/FormUtil.js" type="text/javascript"></script>
 <script type="text/javascript" language="javascript"
 	src="<%=path%>/_js/goto.js"></script>
 
@@ -46,13 +46,14 @@
 					target="mainFrame">客户公司列表</a>
 				</span> <span class="title"> <a
 					href="<%=path%>/finance/assetsItemList.do?thisAction=list&status=1"
-					target="mainFrame">资产项目列表</a>
-<span class="title"> <a
-					href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
-					target="mainFrame">授权列表</a>
-					</span>
-					<span class="title">
-					<a href="#" onclick="selectAttachment()">上传</a>
+					target="mainFrame">资产项目列表</a> <span class="title"> <a
+						href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
+						target="mainFrame">授权列表</a>
+				</span> <span class="title"> <a href="#"
+						onclick="selectAttachment()">上传</a>
+				</span><span class="title"> <a
+						href="<%=path%>/library/imageLibraryList.do?thisAction=list"
+						target="mainFrame">图片列表</a>
 				</span>
 			</div>
 		</div>

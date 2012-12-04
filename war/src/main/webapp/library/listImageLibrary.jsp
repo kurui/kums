@@ -50,7 +50,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/market/apartmentList.do">
+				<html:form action="/library/imageLibraryList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -65,8 +65,8 @@
 							<td width="10" class="tbll"></td>
 							<td valign="top" class="body">
 								<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
-									<c:param name="title1" value="地产事业部" />
-									<c:param name="title2" value="物业单元列表" />
+									<c:param name="title1" value="核心服务库" />
+									<c:param name="title2" value="图片列表" />
 								</c:import>
 
 								<div id="searchBarObj" class="searchBar">
@@ -74,43 +74,10 @@
 										class="searchPanel">
 										<tr>
 											<td>
-												<html:text property="name" name="apartmentListForm"
+												<html:text property="name" name="imageLibraryListForm"
 													styleClass="colorblue2 p_5" style="width: 150px;" />
 											</td>
-											<td>
-												<html:select property="estateDishId"
-													value="${apartment.estateDish.id}" name="apartment"
-													styleClass="colorblue2 p_5" style="width:100px;">
-													<html:option value="0">
-														楼盘
-													</html:option>
-													<c:forEach items="${estateDishList}" var="estateDish">
-														<html:option value="${estateDish.id}">
-															<c:out value="${estateDish.name}" />
-														</html:option>
-													</c:forEach>
-												</html:select>
-											</td>
-											<td>
-												<html:select property="transactionType"
-													name="apartmentListForm" styleClass="colorblue2 p_5"
-													style="width:80px;">
-													<html:option value="0">交易类型</html:option>
-													<html:option value="1">出售</html:option>
-													<html:option value="11">求购</html:option>
-													<html:option value="21">出租</html:option>
-													<html:option value="31">求租</html:option>
-												</html:select>
-											</td>
-											<td>
-												<html:select property="businessType"
-													name="apartmentListForm" styleClass="colorblue2 p_5"
-													style="width:50px;">
-													<html:option value="0">用途</html:option>
-													<html:option value="1">住宅</html:option>
-													<html:option value="11">商业</html:option>
-												</html:select>
-											</td>
+											
 											<td>
 												开始:
 												<html:text property="startDate" styleClass="colorblue2 p_5"
@@ -126,12 +93,9 @@
 													readonly="true" />
 											</td>
 											<td>
-												<html:select property="orderBy" name="apartmentListForm"
+												<html:select property="orderBy" name="imageLibraryListForm"
 													styleClass="colorblue2 p_5" style="width:80px;">
 													<html:option value="0">排序</html:option>
-													<html:option value="snatchTime">按时间</html:option>
-													<html:option value="estateDish">按楼盘</html:option>
-													<html:option value="connection">按联系方式</html:option>
 												</html:select>
 											</td>
 											<td>
@@ -157,55 +121,19 @@
 										</th>
 										<th>
 											<div>
-												楼盘
+												图片
 											</div>
 										</th>
 										<th>
 											<div>
-												物业单元
+												说明
 											</div>
 										</th>
 										<th>
 											<div>
-												交易
+												查看
 											</div>
-										</th>
-										<th>
-											<div>
-												用途
-											</div>
-										</th>
-										<th>
-											<div>
-												户型| 面积
-											</div>
-										</th>
-
-										<th>
-											<div>
-												报价时间
-											</div>
-										</th>
-										<th>
-											<div>
-												报价
-											</div>
-										</th>
-										<th>
-											<div>
-												均价
-											</div>
-										</th>
-										<th>
-											<div>
-												业主|联系人|联系方式
-											</div>
-										</th>
-										<th>
-											<div>
-												类型
-											</div>
-										</th>
+										</th>										
 										<th>
 											<div>
 												状态
@@ -217,64 +145,32 @@
 											</div>
 										</th>
 									</tr>
-									<c:forEach var="apartment" items="${apartmentListForm.list}"
+									<c:forEach var="imageLibrary" items="${imageLibraryListForm.list}"
 										varStatus="status">
 										<tr>
 											<td>
 												<html:multibox property="selectedItems"
-													value="${apartment.id}"></html:multibox>
+													value="${imageLibrary.id}"></html:multibox>
 											</td>
 											<td>
 												<c:out
-													value="${status.count+(apartmentListForm.intPage-1)*apartmentListForm.perPageNum}" />
+													value="${status.count+(imageLibraryListForm.intPage-1)*imageLibraryListForm.perPageNum}" />
+											</td>
+											<td>
+												<c:out value="${imageLibrary.name}" />
+											</td>
+											<td>
+												<c:out value="${imageLibrary.memo}" />
+											</td>
+											<td>
+												<c:out value="${imageLibrary.typeInfo}" />
+											</td>
+											<td>
+												<c:out value="${imageLibrary.statusInfo}" />
 											</td>
 											<td>
 												<a
-													href="<%=path%>/market/estateDishList.do?thisAction=view&id=<c:out value="${apartment.estateDish.id}" />">
-													<c:out value="${apartment.estateDish.name}" /> </a>
-											</td>
-											<td>
-												<a
-													href="<%=path%>/market/apartmentList.do?thisAction=view&id=<c:out value="${apartment.id}" />">
-													<c:out value="${apartment.no}" /> </a> |
-												<c:out value="${apartment.name}" />
-											</td>
-											<td>
-												<c:out value="${apartment.transactionTypeInfo}" />
-											</td>
-											<td>
-												<c:out value="${apartment.businessTypeInfo}" />
-											</td>
-											<td style="text-align: right">
-												<c:out value="${apartment.houseType}" />
-												|
-												<c:out value="${apartment.area}" />
-											</td>
-											<td>
-												<c:out value="${apartment.snatchDate}" />
-											</td>
-											<td style="text-align: right">
-												<c:out value="${apartment.quotePrice}" />
-											</td>
-											<td style="text-align: right">
-												<c:out value="${apartment.averageAreaPrice}" />
-											</td>
-											<td style="text-align: right">
-												<c:out value="${apartment.owner}" />
-												|
-												<c:out value="${apartment.linkman}" />
-												|
-												<c:out value="${apartment.connection}" />
-											</td>
-											<td>
-												<c:out value="${apartment.typeInfo}" />
-											</td>
-											<td>
-												<c:out value="${apartment.statusInfo}" />
-											</td>
-											<td>
-												<a
-													href="<%=path%>/market/apartmentList.do?thisAction=save&estateDishId=<c:out value="${apartment.estateDish.id}" />">新增</a>
+													href="<%=path%>/market/imageLibraryList.do?thisAction=save" >新增</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -294,7 +190,7 @@
 										<td align="right">
 											<div>
 												共有记录&nbsp;
-												<c:out value="${apartmentListForm.totalRowCount}"></c:out>
+												<c:out value="${imageLibraryListForm.totalRowCount}"></c:out>
 												&nbsp;条&nbsp;&nbsp;&nbsp;&nbsp; [
 												<a href="JavaScript:turnToPage(document.forms[0],0)">首页</a>
 												|
@@ -304,9 +200,9 @@
 												|
 												<a href="JavaScript:turnToPage(document.forms[0],3)"> 末页</a>]
 												页数:
-												<c:out value="${apartmentListForm.intPage}" />
+												<c:out value="${imageLibraryListForm.intPage}" />
 												/
-												<c:out value="${apartmentListForm.pageCount}" />
+												<c:out value="${imageLibraryListForm.pageCount}" />
 												]
 											</div>
 										</td>

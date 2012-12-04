@@ -5,10 +5,10 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.kurui.kums.library.ImageLibrary" table="ImageLibrary">
+	<class name="com.kurui.kums.library.ImageLibrary" table="Image_Library">
 		<id name="id" type="long" column="id">
 			<generator class="sequence">
-				<param name="sequence">seq_ImageLibrary</param>
+				<param name="sequence">seq_Image_Library</param>
 			</generator>
 		</id>
 		<property name="name" column="name" type="string" not-null="false"
