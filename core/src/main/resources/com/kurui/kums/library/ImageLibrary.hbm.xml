@@ -5,7 +5,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.kurui.kums.transaction.ImageLibrary" table="ImageLibrary">
+	<class name="com.kurui.kums.library.ImageLibrary" table="ImageLibrary">
 		<id name="id" type="long" column="id">
 			<generator class="sequence">
 				<param name="sequence">seq_ImageLibrary</param>

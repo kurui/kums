@@ -18,8 +18,11 @@
 <link href="<%=path%>/_css/global.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" language="javascript"
 	src="<%=path%>/_js/jquery-1.3.2.min.js"></script>
+	<script src="<%=path%>/_js/prototype/common.js" type="text/javascript"></script>
+		<script src="<%=path%>/_js/base/FormUtil.js" type="text/javascript"></script>
 <script type="text/javascript" language="javascript"
 	src="<%=path%>/_js/goto.js"></script>
+
 </head>
 <body>
 	<div id="mainContainer">
@@ -47,6 +50,9 @@
 <span class="title"> <a
 					href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
 					target="mainFrame">授权列表</a>
+					</span>
+					<span class="title">
+					<a href="#" onclick="selectAttachment()">上传</a>
 				</span>
 			</div>
 		</div>
@@ -54,5 +60,12 @@
 			<span class="btn"></span>
 		</div>
 	</div>
+	<script>
+		function selectAttachment() {
+				var _url = "./library/editImageLibrary.jsp";
+				openWindow(580,220,_url);	
+			
+		}
+	</script>
 </body>
 </html>

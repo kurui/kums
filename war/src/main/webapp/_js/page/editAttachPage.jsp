@@ -5,19 +5,26 @@
 	<head>
 		<TITLE>上传附件</TITLE>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="../_css/css.css" rel="stylesheet" type="text/css">
 		<script src="../_js/prototype.js" type="text/javascript"></script>
 		<script src="../_js/prototype/common.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../_js/jquery-1.3.2.min.js"></script>
 
 		<script language="javascript">
- function submitForm() {
-    if (valid())    {
+
+ function submitForm()
+ {
+    if (valid())
+    {
       document.forms[0].thisAction.value="add";
   	  document.forms[0].submit();	
   	}
  }
  
- function valid() {
-   if(document.forms[0].uploadFile.value=="")   {
+ function valid()
+ {
+   if(document.forms[0].uploadFile.value=="")
+   {
      alert("附件名不能为空！");
      document.forms[0].uploadFile.focus();
      return false;
@@ -27,12 +34,14 @@
  }
  
  
- function del() {
+ function del()
+ {
    document.forms[0].thisAction.value="delete";
    document.forms[0].submit();	
  }
  
- function finish() {
+ function finish()
+ {
   var tempAttach=document.getElementById('div_attachment').innerHTML.replace(/<.+?>/gim,'');
   var listAttachName=document.forms[0].listAttachName.value;
   var listAttachNum='<c:out value="${uf.listAttachNum}"/>';
@@ -61,11 +70,12 @@
 	</head>
 
 	<body class="body_m">
-		<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
-			<c:param name="title1" value="上传附件" />
-		</c:import>
-<!--  -->
-		<html:form method="post" action="/upload/upload" enctype="multipart/form-data">
+
+		<c:import url="/page/mainTitle.jsp?title=上传附件" charEncoding="UTF-8" />
+
+
+		<html:form method="post" action="/upload/upload"
+			enctype="multipart/form-data">
 			<html:hidden property="thisAction" value="editattach" />
 			<html:hidden property="path" />
 			<html:hidden property="listAttachName" />

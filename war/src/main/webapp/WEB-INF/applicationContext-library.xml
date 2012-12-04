@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false" default-autowire="no"
+	default-dependency-check="none">
+
+	
+
+	<bean name="/library/imageLibraryList"
+		class="com.kurui.kums.library.action.ImageLibraryListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="imageLibraryBiz">
+			<ref bean="imageLibraryBiz" />
+		</property>
+	</bean>
+
+	<bean name="/library/imageLibrary"
+		class="com.kurui.kums.library.action.ImageLibraryAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="imageLibraryBiz">
+			<ref bean="imageLibraryBiz" />
+		</property>
+		<property name="sysInitBiz">
+			<ref bean="sysInitBiz" />
+		</property>
+	</bean>
+
+	
+	<!--
+		/////////////////////////Biz、Dao//////////////////////////////////
+	-->
+	
+
+	<bean name="imageLibraryBiz"
+		class="com.kurui.kums.library.biz.ImageLibraryBizImp" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="imageLibraryDAO">
+			<ref bean="imageLibraryDAO" />
+		</property>
+	</bean>
+	<bean id="imageLibraryDAO"
+		class="com.kurui.kums.library.dao.ImageLibraryDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+	
+</beans>

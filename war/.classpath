@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/webapp/esb"/>
-	<classpathentry excluding="esb/|transaction/|system/|workflow/|WEB-INF/|_img/|right/|demo/|_js/|page/|market/|finance/|_xml/|message/|report/|_css/|agent/" kind="src" path="src/main/webapp"/>
+	<classpathentry kind="src" path="src/main/webapp/library"/>
+	<classpathentry excluding="esb/|transaction/|system/|workflow/|WEB-INF/|_img/|right/|demo/|_js/|page/|market/|finance/|_xml/|message/|report/|_css/|agent/|library/" kind="src" path="src/main/webapp"/>
 	<classpathentry kind="src" path="src/main/webapp/transaction"/>
 	<classpathentry kind="src" path="src/main/webapp/system"/>
 	<classpathentry kind="src" path="src/main/webapp/workflow"/>

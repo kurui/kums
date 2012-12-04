@@ -5,14 +5,19 @@ import java.util.ArrayList;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.upload.FormFile;
 
-public class UploadForm extends ActionForm {
-	private FormFile uploadFile;
-	private int objId = 0;
-	private String path = "";
-	private String thisAction = "";
-	private String fileKey = "";
-	private String listAttachName = "listattch";
-	private ArrayList listAttach = new ArrayList();
+public class UploadForm extends ActionForm implements Cloneable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected FormFile uploadFile;
+	protected int objId = 0;
+	protected String path = "";
+	protected String thisAction = "";
+	protected String fileKey = "";
+	protected String listAttachName = "listattch";
+	protected ArrayList listAttach = new ArrayList();
 
 	public String getListAttachName() {
 		return listAttachName;
@@ -79,4 +84,15 @@ public class UploadForm extends ActionForm {
 	public void setFileKey(String fileKey) {
 		this.fileKey = fileKey;
 	}
+
+	public Object clone() {
+		Object o = null;
+		try {
+			o = super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return o;
+	}
+
 }

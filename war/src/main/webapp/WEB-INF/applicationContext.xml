@@ -115,7 +115,7 @@
 				<value>com/kurui/kums/transaction/PlatComAccount.hbm.xml</value>
 				<value>com/kurui/kums/transaction/Platform.hbm.xml</value>
 				
-				<value>com/kurui/kums/transaction/ImageLibrary.hbm.xml</value>
+				<value>com/kurui/kums/library/ImageLibrary.hbm.xml</value>
 			</list>
 		</property>
 
@@ -215,4 +215,5 @@
 	<import resource="applicationContext-right.xml" />
 	<import resource="applicationContext-system.xml" />
 	<import resource="applicationContext-transaction.xml" />
+	<import resource="applicationContext-library.xml" />
 </beans>

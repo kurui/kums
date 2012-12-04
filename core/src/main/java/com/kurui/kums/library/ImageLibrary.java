@@ -1,13 +1,16 @@
-package com.kurui.kums.transaction;
+package com.kurui.kums.library;
 
 import java.util.Date;
 
+import org.apache.struts.upload.FormFile;
+
 import com.kurui.kums.base.util.time.DateUtil;
-import com.kurui.kums.transaction._entity._ImageLibrary;
+import com.kurui.kums.library._entity._ImageLibrary;
 
 public class ImageLibrary extends _ImageLibrary {
 	private static final long serialVersionUID = 1L;
 
+	protected FormFile uploadFile;
 
 	// 类型
 	public static final long TYPE_1 = 1;// 默认
@@ -53,6 +56,14 @@ public class ImageLibrary extends _ImageLibrary {
 			mydate = DateUtil.getDateString(tempDate, "yyyy-MM-dd");
 		}
 		return mydate;
+	}
+
+	public FormFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(FormFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 	

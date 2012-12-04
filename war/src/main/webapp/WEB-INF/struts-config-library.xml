@@ -1,0 +1,38 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="uploadForm" type="com.kurui.kums.upload.UploadForm" />
+
+		<form-bean name="imageLibraryListForm"
+			type="com.kurui.kums.library.ImageLibraryListForm">
+		</form-bean>
+		<form-bean name="imageLibrary" type="com.kurui.kums.library.ImageLibrary">
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<action name="uploadForm" parameter="thisAction"
+			type="com.kurui.kums.upload.UploadAction" path="/upload/upload"
+			validate="false" scope="request">
+
+			<forward name="editattachpage" path="/page/editAttach.jsp">
+			</forward>
+			<forward name="editattachpagesingle" path="/page/editAttach_Single.jsp">
+			</forward>
+		</action>
+
+		<action name="imageLibraryListForm" path="/library/imageLibraryList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
+			<forward name="editImageLibrary" path="/library/editImageLibrary.jsp" />
+			<forward name="viewImageLibrary" path="/library/viewImageLibrary.jsp" />
+		</action>
+		<action name="imageLibrary" path="/library/imageLibrary"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
+			<forward name="editImageLibrary" path="/library/editImageLibrary.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
