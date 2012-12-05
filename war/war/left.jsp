@@ -49,8 +49,7 @@
 					target="mainFrame">资产项目列表</a> <span class="title"> <a
 						href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
 						target="mainFrame">授权列表</a>
-				</span> <span class="title"> <a href="#"
-						onclick="selectAttachment()">上传</a>
+				</span> <span class="title"> <a href="<%=path%>/library/imageLibraryList.do?thisAction=save" target="mainFrame">上传</a>
 				</span><span class="title"> <a
 						href="<%=path%>/library/imageLibraryList.do?thisAction=list"
 						target="mainFrame">图片列表</a>

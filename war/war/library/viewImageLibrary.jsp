@@ -39,11 +39,19 @@
 										<td style="text-align: left">
 											<c:out value="${imageLibrary.name}" />											
 										</td>
-									</tr>
+											<td class="lef">
+											更新时间
+										</td>
+										<td style="text-align: left">
+											<c:out value="${imageLibrary.updateDate}" />
+										</td>
+									</tr>					
+									
 									<tr>
-									
-									
-									
+										<td style="text-align: left" colspan="4">
+											<img  src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
+										</td>
+									</tr>	
 									<tr>
 										<td class="lef">
 											备注
@@ -65,16 +73,7 @@
 										<td style="text-align: left">
 											<c:out value="${imageLibrary.statusInfo}" />
 										</td>
-									</tr>
-									<tr>
-										<td class="lef">
-											更新时间
-										</td>
-										<td style="text-align: left">
-											<c:out value="${imageLibrary.updateDate}" />
-										</td>
-									</tr>
-									
+									</tr>									
 								</table>
 								<table width="100%" style="margin-top: 5px;">
 									<tr>

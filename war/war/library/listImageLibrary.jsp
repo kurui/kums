@@ -170,7 +170,7 @@
 											</td>
 											<td>
 												<a
-													href="<%=path%>/market/imageLibraryList.do?thisAction=save" >新增</a>
+													href="<%=path%>/library/imageLibraryList.do?thisAction=view&id=<c:out value="${imageLibrary.id}" />" >查看</a>
 											</td>
 										</tr>
 									</c:forEach>

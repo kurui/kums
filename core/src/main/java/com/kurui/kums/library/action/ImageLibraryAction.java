@@ -62,7 +62,7 @@ public class ImageLibraryAction extends BaseAction {
 
 			// close the stream
 			theForm.setThisAction("");
-			request.setAttribute("uf", theForm);
+			request.setAttribute("imageLibrary", theForm);
 			return "editImageLibrary";
 		} catch (Exception ex) {
 			Inform inf = new Inform();
