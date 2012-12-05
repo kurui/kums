@@ -2,5 +2,5 @@
 /target
 /bin
 
-/src/main/webapp/WEB-INF/classes
-/src/main/webapp/upload
+/war/WEB-INF/classes
+/war/upload

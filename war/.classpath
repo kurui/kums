@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/webapp/esb"/>
-	<classpathentry kind="src" path="src/main/webapp/library"/>
-	<classpathentry excluding="esb/|transaction/|system/|workflow/|WEB-INF/|_img/|right/|demo/|_js/|page/|market/|finance/|_xml/|message/|report/|_css/|agent/|library/" kind="src" path="src/main/webapp"/>
-	<classpathentry kind="src" path="src/main/webapp/transaction"/>
-	<classpathentry kind="src" path="src/main/webapp/system"/>
-	<classpathentry kind="src" path="src/main/webapp/workflow"/>
-	<classpathentry kind="src" path="src/main/webapp/WEB-INF"/>
-	<classpathentry kind="src" path="src/main/webapp/_img"/>
-	<classpathentry kind="src" path="src/main/webapp/right"/>
-	<classpathentry kind="src" path="src/main/webapp/demo"/>
-	<classpathentry kind="src" path="src/main/webapp/_js"/>
-	<classpathentry kind="src" path="src/main/webapp/page"/>
-	<classpathentry kind="src" path="src/main/webapp/market"/>
-	<classpathentry kind="src" path="src/main/webapp/finance"/>
-	<classpathentry kind="src" path="src/main/webapp/_xml"/>
-	<classpathentry kind="src" path="src/main/webapp/message"/>
-	<classpathentry kind="src" path="src/main/webapp/report"/>
-	<classpathentry kind="src" path="src/main/webapp/_css"/>
-	<classpathentry kind="src" path="src/main/webapp/agent"/>
+	<classpathentry kind="src" path="war/library"/>
+	<classpathentry kind="src" path="war/system"/>
+	<classpathentry kind="src" path="war/agent"/>
+	<classpathentry kind="src" path="war/right"/>
+	<classpathentry kind="src" path="war/market"/>
+	<classpathentry kind="src" path="war/workflow"/>
+	<classpathentry kind="src" path="war/transaction"/>
+	<classpathentry kind="src" path="war/finance"/>
+	<classpathentry kind="src" path="war/WEB-INF"/>
+	<classpathentry kind="src" path="war/message"/>
+	<classpathentry kind="src" path="war/report"/>
+	<classpathentry kind="src" path="war/page"/>
 	<classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar"/>

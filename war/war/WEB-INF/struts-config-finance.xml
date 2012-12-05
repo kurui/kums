@@ -1,0 +1,220 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by ccggyy2002 (Delphi) -->
+
+<struts-config>
+	<form-beans>
+		<form-bean name="budgetListForm"
+			type="com.kurui.kums.finance.BudgetListForm" />
+		<form-bean name="budget" type="com.kurui.kums.finance.Budget" />
+
+		<form-bean name="budgetOrderListForm"
+			type="com.kurui.kums.finance.BudgetOrderListForm" />
+		<form-bean name="budgetOrder"
+			type="com.kurui.kums.finance.BudgetOrder" />
+
+		<form-bean name="financeOrderListForm"
+			type="com.kurui.kums.finance.FinanceOrderListForm" />
+		<form-bean name="financeOrder"
+			type="com.kurui.kums.finance.FinanceOrder" />
+
+		<form-bean name="orderDetailListForm"
+			type="com.kurui.kums.finance.OrderDetailListForm" />
+		<form-bean name="orderDetail"
+			type="com.kurui.kums.finance.OrderDetail" />
+
+		<form-bean name="statementListForm"
+			type="com.kurui.kums.finance.StatementListForm" />
+		<form-bean name="statement"
+			type="com.kurui.kums.finance.Statement" />
+
+		<form-bean name="commissionListForm"
+			type="com.kurui.kums.finance.CommissionListForm">
+		</form-bean>
+		<form-bean name="commission"
+			type="com.kurui.kums.finance.Commission">
+		</form-bean>
+		
+		<form-bean name="assetsItemListForm"
+			type="com.kurui.kums.finance.AssetsItemListForm">
+		</form-bean>
+		<form-bean name="assetsItem"
+			type="com.kurui.kums.finance.AssetsItem">
+		</form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<action name="budgetListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/budgetList" validate="false" scope="request">
+			<forward name="listBudget" path="/finance/listBudget.jsp" />
+			<forward name="viewBudget" path="/finance/viewBudget.jsp" />
+			<forward name="editBudget" path="/finance/editBudget.jsp" />
+		</action>
+
+		<action name="budget" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/budget" validate="false" scope="request">
+			<forward name="addBudget" path="/finance/addBudget.jsp" />
+			<forward name="editBudget" path="/finance/editBudget.jsp" />
+			<forward name="viewBudget" path="/finance/viewBudget.jsp" />
+		</action>
+
+		<action name="budgetOrderListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/budgetOrderList" validate="false" scope="request">
+			<forward name="listBudgetOrder"
+				path="/finance/listBudgetOrder.jsp" />
+			<forward name="viewBudgetOrder"
+				path="/finance/viewBudgetOrder.jsp" />
+			<forward name="editBudgetOrder"
+				path="/finance/editBudgetOrder.jsp" />
+		</action>
+
+		<action name="budgetOrder" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/budgetOrder" validate="false" scope="request">
+			<forward name="addBudgetOrder"
+				path="/finance/addBudgetOrder.jsp" />
+			<forward name="editBudgetOrder"
+				path="/finance/editBudgetOrder.jsp" />
+		</action>
+
+
+		<!-- 订单 action -->
+		<action name="financeOrderListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/financeOrderList" validate="false" scope="request">
+			<forward name="listFinanceOrder"
+				path="/finance/listFinanceOrder.jsp" />
+			<forward name="processing" path="/finance/processing.jsp" />
+			<forward name="view" path="/finance/viewFinanceOrder.jsp" />
+			<forward name="editOrderMemo"
+				path="/finance/editOrderMemo.jsp" />
+			<forward name="editFinanceOrder"
+				path="/finance/editFinanceOrder.jsp" />
+			<forward name="listLiveOrder"
+				path="/finance/listLiveOrder.jsp" />
+			<forward name="listLiveOrderChart"
+				path="/finance/listLiveOrderChart.jsp" />
+			<forward name="listMainOrder"
+				path="/finance/listMainOrder.jsp" />
+			<forward name="listCreditOrder"
+				path="/finance/listCreditOrder.jsp" />
+			<forward name="listFinanceForAssetsItem"
+				path="/finance/listFinanceForAssetsItem.jsp" />
+			<forward name="editCreditOrder"
+				path="/finance/editCreditOrder.jsp" />
+			<forward name="editRepayCreditOrder"
+				path="/finance/editRepayCreditOrder.jsp" />
+			<forward name="editLiveOrder"
+				path="/finance/editLiveOrder.jsp" />
+			<forward name="editMainOrder"
+				path="/finance/editMainOrder.jsp" />
+		</action>
+
+		<action name="financeOrder" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/financeOrder" validate="false" scope="request">
+			<forward name="addFinanceOrder"
+				path="/finance/addFinanceOrder.jsp" />
+			<forward name="editFinanceOrder"
+				path="/finance/editFinanceOrder.jsp" />
+		</action>
+
+		<!-- 订单明细表 action  -->
+		<action name="orderDetailListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/orderDetailList" validate="false" scope="request">
+			<forward name="listOrderDetail"
+				path="/finance/listOrderDetail.jsp" />
+			<forward name="viewOrderDetail"
+				path="/finance/viewOrderDetail.jsp" />
+			<forward name="editOrderDetail"
+				path="/finance/editOrderDetail.jsp" />
+		</action>
+
+		<action name="orderDetail" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/orderDetail" validate="false" scope="request">
+			<forward name="addOrderDetail"
+				path="/finance/addOrderDetail.jsp" />
+			<forward name="editOrderDetail"
+				path="/finance/editOrderDetail.jsp" />
+		</action>
+
+		<!-- 结算表 action  -->
+		<action name="statementListForm" path="/finance/statementList"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listStatement"
+				path="/finance/listStatement.jsp" />
+			<forward name="viewFinanceOrder"
+				path="/finance/viewFinanceOrder.jsp" />
+			<forward name="editStatement"
+				path="/finance/editStatement.jsp" />
+			<forward name="viewStatement"
+				path="/finance/viewStatement.jsp" />
+			<forward name="listStatementManage"
+				path="/finance/listStatementManage.jsp" />
+		</action>
+
+		<action name="statement" path="/finance/statement"
+			parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+		</action>
+
+		<!-- 佣金明细表 List-->
+		<action name="commissionListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/commissionList" validate="false" scope="request">
+			<forward name="listCommission"
+				path="/finance/listCommission.jsp" />
+			<forward name="editCommission"
+				path="/finance/editCommission.jsp">
+			</forward>
+			<forward name="viewCommission"
+				path="/finance/viewCommission.jsp">
+			</forward>
+		</action>
+		<action name="commission" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/commission" validate="false" scope="request">
+			<forward name="listCommission"
+				path="/finance/listCommission.jsp">
+			</forward>
+			<forward name="viewCommission"
+				path="/finance/viewCommission.jsp">
+			</forward>
+		</action>
+		
+		<action name="assetsItemListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/assetsItemList" validate="false" scope="request">
+			<forward name="listAssetsItemSTA"
+				path="/finance/listAssetsItemSTA.jsp" />
+			<forward name="listAssetsItem"
+				path="/finance/listAssetsItem.jsp" />
+			<forward name="editAssetsItem"
+				path="/finance/editAssetsItem.jsp">
+			</forward>
+			<forward name="editAssetsItemBatchReset"
+				path="/finance/editAssetsItemBatchReset.jsp">
+			</forward>
+			<forward name="viewAssetsItem"
+				path="/finance/viewAssetsItem.jsp">
+			</forward>
+		</action>
+		<action name="assetsItem" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/finance/assetsItem" validate="false" scope="request">
+			<forward name="listAssetsItem"
+				path="/finance/listAssetsItem.jsp">
+			</forward>
+			<forward name="viewAssetsItem"
+				path="/finance/viewAssetsItem.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+</struts-config>
