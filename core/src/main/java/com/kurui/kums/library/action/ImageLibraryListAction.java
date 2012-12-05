@@ -1,5 +1,6 @@
 package com.kurui.kums.library.action;
 
+import java.io.OutputStream;
 import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,11 +46,41 @@ public class ImageLibraryListAction extends BaseAction {
 			Long imageLibraryId = imageLibraryListForm.getId();
 			ImageLibrary imageLibrary = imageLibraryBiz.getImageLibraryById(imageLibraryId);
 			request.setAttribute("imageLibrary", imageLibrary);
+			
+//			OutputStream out=response.getOutputStream();
+//			byte[] buf=imageLibrary.getContent();
+//			out.write(buf);
+//			out.flush();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		forwardPage = "viewImageLibrary";
 		return mapping.findForward(forwardPage);
+
+	}
+	
+	public ActionForward viewImage(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		String forwardPage = "";
+		ImageLibraryListForm imageLibraryListForm = (ImageLibraryListForm) form;
+		try {
+			Long imageLibraryId = imageLibraryListForm.getId();
+			ImageLibrary imageLibrary = imageLibraryBiz.getImageLibraryById(imageLibraryId);
+			request.setAttribute("imageLibrary", imageLibrary);
+			
+			OutputStream out=response.getOutputStream();
+			byte[] buf=imageLibrary.getContent();
+			out.write(buf);
+			out.flush();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		forwardPage = "viewImageLibrary";
+//		return mapping.findForward(forwardPage);
+		return null;
 
 	}
 

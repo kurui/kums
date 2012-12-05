@@ -42,16 +42,13 @@ public class ImageLibraryAction extends BaseAction {
 
 			// only write files out that are less than 1MB
 			if (file.getFileSize() < (4 * 1024000)) {
-				InputStream stream = file.getInputStream();		
-				
+				InputStream in = file.getInputStream();						
 				 
-				byte[] buf = new byte[10240];  
-				int len;  
-				while((len = stream.read(buf)) > 0)  
-				{  
-					imageLibrary.setContent(buf);
-				}  
-				stream.close();  
+				byte[] buf = new byte[in.available()];  
+				in.read(buf); //将文件读入byte[]
+				imageLibrary.setContent(buf);
+				
+				in.close();  
 				
 				imageLibraryBiz.save(imageLibrary);
 

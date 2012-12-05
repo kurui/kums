@@ -33,6 +33,7 @@
 			validate="false" scope="request">
 			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
 			<forward name="editImageLibrary" path="/library/editImageLibrary.jsp" />
+			<forward name="viewImageLibrary" path="/library/viewImageLibrary.jsp" />
 		</action>
 	</action-mappings>
 </struts-config>
