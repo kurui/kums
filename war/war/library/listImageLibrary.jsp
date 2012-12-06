@@ -130,6 +130,9 @@
 											</div>
 										</th>
 										<th>
+											<div>略图</div>
+										</th>
+										<th>
 											<div>
 												查看
 											</div>
@@ -161,6 +164,10 @@
 											</td>
 											<td>
 												<c:out value="${imageLibrary.memo}" />
+											</td>
+											<td>
+													<img width="50" height="50"  src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
+										
 											</td>
 											<td>
 												<c:out value="${imageLibrary.typeInfo}" />

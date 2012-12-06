@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionRedirect;
 import org.apache.struts.upload.FormFile;
 
+import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.library.ImageLibrary;
 import com.kurui.kums.library.biz.ImageLibraryBiz;
+import com.kurui.kums.transaction.Company;
 
 public class ImageLibraryAction extends BaseAction {
 	private ImageLibraryBiz imageLibraryBiz;
 
-	public ActionForward add(ActionMapping mapping, ActionForm form,
+	public ActionForward insert(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 		ImageLibrary theForm = (ImageLibrary) form;
 
@@ -63,7 +66,7 @@ public class ImageLibraryAction extends BaseAction {
 			// close the stream
 			theForm.setThisAction("");
 			request.setAttribute("imageLibrary", theForm);
-			return "editImageLibrary";
+			return "viewImageLibrary";
 		} catch (Exception ex) {
 			Inform inf = new Inform();
 			inf.setMessage("上传异常:" + ex);
@@ -72,6 +75,30 @@ public class ImageLibraryAction extends BaseAction {
 			return "inform";
 		}
 
+	}
+	
+	public ActionForward update(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)throws AppException {
+		ImageLibrary theForm = (ImageLibrary) form;
+
+		long imageLibraryId=theForm.getId();
+		ImageLibrary imageLibrary=imageLibraryBiz.getImageLibraryById(imageLibraryId);
+		
+		imageLibrary.setName(theForm.getName());
+		imageLibrary.setMemo(theForm.getMemo());
+		imageLibrary.setType(ImageLibrary.TYPE_1);
+		imageLibrary.setStatus(ImageLibrary.STATES_1);
+		imageLibrary.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+
+		return redirect(imageLibrary);
+	}
+	
+	public ActionRedirect redirect(ImageLibrary imageLibrary) {
+		ActionRedirect redirect = new ActionRedirect(
+				"/library/imageLibraryList.do");
+		redirect.addParameter("thisAction", "view");
+		redirect.addParameter("id", imageLibrary.getId());
+		return redirect;
 	}
 
 	public void setImageLibraryBiz(ImageLibraryBiz imageLibraryBiz) {

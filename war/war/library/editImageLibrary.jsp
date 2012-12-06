@@ -18,8 +18,11 @@
 
 <script>
  function submitForm() {
-    if (valid()){
-      document.forms[0].thisAction.value="add";
+ 	if(document.forms[0].thisAction.value=="insert"){
+ 		if (valid()){
+  	  		document.forms[0].submit();	
+  	  	}
+  	}else{  	
   	  document.forms[0].submit();	
   	}
  }
