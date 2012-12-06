@@ -12,7 +12,9 @@ public class ImageLibraryListForm extends ListActionForm {
 	private long id = Long.valueOf(0);
 	private String name = "";
 
-
+	private int width;
+	private int height;
+	
 
 
 	public long getId() {
@@ -30,6 +32,24 @@ public class ImageLibraryListForm extends ListActionForm {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+	
+	
 
 	
 }

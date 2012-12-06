@@ -22,6 +22,7 @@ import javax.imageio.stream.FileImageOutputStream;
 import javax.imageio.stream.MemoryCacheImageInputStream;
 import net.jmge.gif.Gif89Encoder;
 
+import com.gif4j.GifEncoder;
 import com.kurui.kums.base.exception.AppException;
 import com.sun.imageio.plugins.bmp.BMPImageReader;
 import com.sun.imageio.plugins.gif.GIFImageReader;
@@ -176,5 +177,44 @@ public class ImageUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 *  扩展：输出图片
+	 * @param content  适用于BLOB
+	 * @param height
+	 * @param width
+	 * @param out=HttpServletResponse.getOutputStream();
+	 * @throws IOException
+	 */
+	public static void printImageLibrary(byte[] content, int height, int width,
+			OutputStream out) throws IOException {
+		BufferedImage img = ImageUtil.readImage(content);
+		int h = img.getHeight();
+		int w = img.getWidth();
+
+		if(height==0&&width==0){
+			//按原图输出
+		}else{
+//			按比例输出
+			if (h >= height && w >= width) {
+				int nw = width;
+				int nh = (nw * h) / w;
+				if (nh > height) {
+					nh = height;
+					nw = (nh * w) / h;
+				}			
+				
+				BufferedImage dest = new BufferedImage(nw, nh,
+						BufferedImage.TYPE_4BYTE_ABGR);
+				dest.getGraphics().drawImage(img, 0, 0, nw, nh, null);
+				GifEncoder.encode(dest, out);			
+			}
+		}
+		
+
+		out.write(content);
+		out.flush();
+		out.close();
 	}
 }

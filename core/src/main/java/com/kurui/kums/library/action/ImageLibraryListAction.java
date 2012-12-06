@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.kurui.kums.base.chart.ImageUtil;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
@@ -28,12 +29,13 @@ public class ImageLibraryListAction extends BaseAction {
 			imageLibraryListForm = new ImageLibraryListForm();
 		}
 		try {
-			imageLibraryListForm.setList(imageLibraryBiz.list(imageLibraryListForm));
+			imageLibraryListForm.setList(imageLibraryBiz
+					.list(imageLibraryListForm));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		request.setAttribute("imageLibraryListForm", imageLibraryListForm);
-				
+
 		return mapping.findForward("listImageLibrary");
 	}
 
@@ -44,7 +46,8 @@ public class ImageLibraryListAction extends BaseAction {
 		ImageLibraryListForm imageLibraryListForm = (ImageLibraryListForm) form;
 		try {
 			Long imageLibraryId = imageLibraryListForm.getId();
-			ImageLibrary imageLibrary = imageLibraryBiz.getImageLibraryById(imageLibraryId);
+			ImageLibrary imageLibrary = imageLibraryBiz
+					.getImageLibraryById(imageLibraryId);
 			request.setAttribute("imageLibrary", imageLibrary);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,33 +55,34 @@ public class ImageLibraryListAction extends BaseAction {
 		forwardPage = "viewImageLibrary";
 		return mapping.findForward(forwardPage);
 	}
-	
-	//输出图片
+
+	// 输出图片
 	public ActionForward viewImage(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
-		ImageLibraryListForm imageLibraryListForm = (ImageLibraryListForm) form;
+		ImageLibraryListForm listForm = (ImageLibraryListForm) form;
 		try {
 			response.setContentType("image/jpeg");
-			
-			long imageLibraryId = imageLibraryListForm.getId();
-			if(imageLibraryId>0){
-				ImageLibrary imageLibrary = imageLibraryBiz.getImageLibraryById(imageLibraryId);
-				if(imageLibrary!=null){
-					OutputStream out=response.getOutputStream();
-					byte[] buf=imageLibrary.getContent();
-					out.write(buf);
-					out.flush();	
-					out.close();
-					
-					//扩展：输出按比例的缩略图
-				}	
+
+			long imageLibraryId = listForm.getId();
+			if (imageLibraryId > 0) {
+				ImageLibrary imageLibrary = imageLibraryBiz
+						.getImageLibraryById(imageLibraryId);
+				if (imageLibrary != null) {
+					OutputStream out = response.getOutputStream();
+					byte[] content = imageLibrary.getContent();
+
+					ImageUtil.printImageLibrary(content, listForm.getHeight(), listForm.getWidth(), out);
+
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
+	
 
 	public ActionForward save(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -87,14 +91,13 @@ public class ImageLibraryListAction extends BaseAction {
 
 		ImageLibrary imageLibrary = new ImageLibrary();
 		imageLibrary.setThisAction("insert");
-	
+
 		imageLibrary.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 		imageLibrary.setType(ImageLibrary.TYPE_1);
 		imageLibrary.setStatus(ImageLibrary.STATES_1);
-		
+
 		request.setAttribute("imageLibrary", imageLibrary);
-		
-		
+
 		String forwardPage = "editImageLibrary";
 
 		return mapping.findForward(forwardPage);
@@ -111,7 +114,8 @@ public class ImageLibraryListAction extends BaseAction {
 		}
 
 		if (imageLibraryId > 0) {
-			ImageLibrary imageLibrary = imageLibraryBiz.getImageLibraryById(imageLibraryId);
+			ImageLibrary imageLibrary = imageLibraryBiz
+					.getImageLibraryById(imageLibraryId);
 			imageLibrary.setThisAction("update");
 			request.setAttribute("imageLibrary", imageLibrary);
 			imageLibrary.setType(ImageLibrary.TYPE_1);
@@ -119,11 +123,9 @@ public class ImageLibraryListAction extends BaseAction {
 		} else {
 			request.setAttribute("imageLibrary", new ImageLibrary());
 		}
-		
+
 		return mapping.findForward("editImageLibrary");
 	}
-
-
 
 	public ActionForward delete(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -149,6 +151,5 @@ public class ImageLibraryListAction extends BaseAction {
 	public void setImageLibraryBiz(ImageLibraryBiz imageLibraryBiz) {
 		this.imageLibraryBiz = imageLibraryBiz;
 	}
-
 
 }

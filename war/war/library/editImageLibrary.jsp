@@ -40,10 +40,10 @@
 </head>
 
 <body>
-	
+
 	<html:form method="post" action="/library/imageLibrary.do"
 		enctype="multipart/form-data">
-		<html:hidden property="thisAction" value="editImageLibrary" />
+		<html:hidden property="thisAction" />
 		<div id="mainContainer">
 			<div id="container">
 				<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -54,49 +54,50 @@
 					</tr>
 					<tr>
 						<td width="10" class="tbll"></td>
-						<td valign="top" class="body">
-<c:import url="../page/mainTitle.jsp" charEncoding="UTF-8">
-		<c:param name="title1" value="核心资源库" />
-		<c:param name="title2" value="编辑图片" />
-	</c:import>
+						<td valign="top" class="body"><c:import
+								url="../page/mainTitle.jsp" charEncoding="UTF-8">
+								<c:param name="title1" value="核心资源库" />
+								<c:param name="title2" value="编辑图片" />
+							</c:import>
 							<hr>
 							<table width="100%" cellpadding="0" cellspacing="0" border="0"
 								class="dataList">
 								<tr>
 									<td class="lef">名称</td>
-									<td style="text-align: left"><html:text property="name" name="imageLibrary"
-											styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-									</td>
+									<td style="text-align: left"><html:text property="name"
+											name="imageLibrary" styleClass="colorblue2 p_5"
+											style="width:200px;"></html:text></td>
 								</tr>
 								<c:if test="${imageLibrary.thisAction=='insert'}">
-								<tr>
-									<td class="lef">选择上传图片</td>
-									<td style="text-align: left"><html:file
-											property="uploadFile" name="imageLibrary" styleClass="colorblue2 p_5" size="40" />
-								</tr>
+									<tr>
+										<td class="lef">选择上传图片</td>
+										<td style="text-align: left"><html:file
+												property="uploadFile" name="imageLibrary"
+												styleClass="colorblue2 p_5" size="40" />
+									</tr>
 								</c:if>
 								<c:if test="${imageLibrary.thisAction=='update'}">
-								<tr>
-										<td style="text-align: left" colspan="2">
-											<img  src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
-										</td>	</tr>
+									<tr>
+										<td style="text-align: left" colspan="2"><img
+											src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
+										</td>
+									</tr>
 								</c:if>
 								<tr>
 									<td class="lef">说明</td>
-									<td style="text-align: left"><html:text property="memo" name="imageLibrary"
-											styleClass="colorblue2 p_5" style="width:200px;"></html:text>
-									</td>
+									<td style="text-align: left"><html:text property="memo"
+											name="imageLibrary" styleClass="colorblue2 p_5"
+											style="width:200px;"></html:text></td>
 								</tr>
 								<tr>
-									<td colspan="2"><input type="button" class="button1" value="返 回"
-										onclick="window.history.back();"> <input name="label"
-										type="button" class="button1" value="完 成"
+									<td colspan="2"><input type="button" class="button1"
+										value="返 回" onclick="window.history.back();"> <input
+										name="label" type="button" class="button1" value="完 成"
 										onclick="submitForm();">
 								</tr>
 							</table>
-							
-							<div class="clear"></div>
-						</td>
+
+							<div class="clear"></div></td>
 						<td width="10" class="tbrr"></td>
 					</tr>
 					<tr>
@@ -108,6 +109,6 @@
 			</div>
 		</div>
 	</html:form>
-	
+
 </body>
 </html>

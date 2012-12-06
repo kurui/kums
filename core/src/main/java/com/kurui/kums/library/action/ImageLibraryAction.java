@@ -17,7 +17,6 @@ import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.library.ImageLibrary;
 import com.kurui.kums.library.biz.ImageLibraryBiz;
-import com.kurui.kums.transaction.Company;
 
 public class ImageLibraryAction extends BaseAction {
 	private ImageLibraryBiz imageLibraryBiz;
@@ -42,17 +41,15 @@ public class ImageLibraryAction extends BaseAction {
 		FormFile file = theForm.getUploadFile();
 
 		try {
-
 			// only write files out that are less than 1MB
 			if (file.getFileSize() < (4 * 1024000)) {
 				InputStream in = file.getInputStream();						
 				 
 				byte[] buf = new byte[in.available()];  
 				in.read(buf); //将文件读入byte[]
-				imageLibrary.setContent(buf);
-				
 				in.close();  
 				
+				imageLibrary.setContent(buf);
 				imageLibraryBiz.save(imageLibrary);
 
 			} else {
@@ -65,7 +62,7 @@ public class ImageLibraryAction extends BaseAction {
 
 			// close the stream
 			theForm.setThisAction("");
-			request.setAttribute("imageLibrary", theForm);
+			request.setAttribute("imageLibrary", imageLibrary);
 			return "viewImageLibrary";
 		} catch (Exception ex) {
 			Inform inf = new Inform();

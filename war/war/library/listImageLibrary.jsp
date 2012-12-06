@@ -166,7 +166,7 @@
 												<c:out value="${imageLibrary.memo}" />
 											</td>
 											<td>
-													<img width="50" height="50"  src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
+													<img width="50" height="50"  src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&height=50&width=50&id=<c:out value="${imageLibrary.id}" />">
 										
 											</td>
 											<td>
