@@ -239,7 +239,7 @@
 									</td>
 									<td style="text-align: right;"><c:out
 											value="${assetsItemListForm.totalValue1}" /> &nbsp;</td>
-									<td colspan="4">
+									<td colspan="5">
 										<div align="center"></div>
 									</td>
 								</tr>

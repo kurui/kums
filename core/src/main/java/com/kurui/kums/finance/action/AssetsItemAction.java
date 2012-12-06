@@ -65,11 +65,7 @@ public class AssetsItemAction extends BaseAction {
 			}
 
 			inf.setMessage("设置资产项目成功");
-			inf.setForwardPage("/finance/assetsItemList.do");
-			inf.setParamId("thisAction");
-			inf.setParamValue("list");
-			inf.setParamId("status");
-			inf.setParamValue(AssetsItem.STATES_1 + "");
+			inf.setForwardPage("/finance/assetsItemList.do?thisAction=list&status="+AssetsItem.STATES_1+"&itemType="+assetsItemForm.getType());
 			inf.setClose(true);
 
 		} catch (Exception e) {
@@ -128,9 +124,7 @@ public class AssetsItemAction extends BaseAction {
 			}
 
 			inf.setMessage("转存资产项目成功");
-			inf.setForwardPage("/finance/assetsItemList.do");
-			inf.setParamId("thisAction");
-			inf.setParamValue("list");
+			inf.setForwardPage("/finance/assetsItemList.do?thisAction=list");
 			inf.setClose(true);
 
 		} catch (Exception e) {
@@ -218,6 +212,8 @@ public class AssetsItemAction extends BaseAction {
 									+ assetsItemForm.getIntPage();
 							forwardUrl += "&pageCount="
 									+ assetsItemForm.getPageCount();
+							forwardUrl += "&itemType="
+									+ assetsItemForm.getItemType();
 						}
 					}
 

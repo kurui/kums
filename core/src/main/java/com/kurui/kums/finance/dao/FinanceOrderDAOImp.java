@@ -477,11 +477,11 @@ public class FinanceOrderDAOImp extends BaseDAOSupport implements
 		
 		hql.add("and f.id not in(select t.financeOrderId from AssetsItem t) ");
 		
-		hql.add("and f.totalAmount>10");	  
+//		hql.add("and f.totalAmount>10");	  
 
 		hql.add(" and f.status not in(" + FinanceOrder.STATUS_88 + " ) ");
 		
-		hql.add(" order by f.totalAmount,f.tranType desc");
+		hql.add(" order by f.totalAmount desc");
 		
 	
 		return this.list(hql, ulf);
