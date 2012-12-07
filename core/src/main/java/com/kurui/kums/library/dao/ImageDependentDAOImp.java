@@ -34,10 +34,10 @@ public class ImageDependentDAOImp extends BaseDAOSupport implements
 	
 	public List listViewImageLibrary(ImageLibraryListForm plf) throws AppException {
 		Hql hql = new Hql();
-		hql.add("from ImageDependent p where 1=1 and p.status="
+		hql.add("select p.imageLibrary from ImageDependent p where 1=1 and p.status="
 				+ ImageDependent.STATES_1);
 		if (StringUtil.isEmpty(plf.getTableName())==false) {
-			hql.add(" and p.tableName="+plf.getTableName());
+			hql.add(" and p.tableName='"+plf.getTableName()+"'");
 		}
 		
 		if (plf.getRowId()>0) {
@@ -46,6 +46,7 @@ public class ImageDependentDAOImp extends BaseDAOSupport implements
 
 		hql.add(" order by  p.updateTime desc ");
 
+		System.out.println(hql);
 		return this.list(hql, plf);
 	}
 	
@@ -72,13 +73,33 @@ public class ImageDependentDAOImp extends BaseDAOSupport implements
 		} else
 			throw new IllegalArgumentException("id isn't a valid argument.");
 	}
+	
+	/**
+	 * 封面图片
+	 * */
+	public ImageLibrary getCoverImageLibraryByRowId(String tableName,long rowId) throws AppException {
+		ImageLibrary imageLibrary = null;
+		Hql hql = new Hql();
+		hql.add("select p.imageLibrary from ImageDependent p where 1=1 ");
+		hql.add(" and p.tableName='" + tableName+"'");
+		hql.add(" and p.rowId=" + rowId);
+		hql.add(" and p.type="+ImageDependent.TYPE_2);//封面
+		
+		Query query = this.getQuery(hql);
+		if (query != null) {
+			List<ImageLibrary> list = query.list();
+			if (list != null && list.size() > 0) {
+				return list.get(0);
+			}
+		}
+		return imageLibrary;
+	}
 
 	public ImageDependent getImageDependentById(long id) throws AppException {
 		ImageDependent imageDependent = null;
 		Hql hql = new Hql();
 		hql.add("from ImageDependent p where p.id=" + id);
 		Query query = this.getQuery(hql);
-		ImageDependent ImageDependent = null;
 		if (query != null) {
 			List<ImageDependent> list = query.list();
 			if (list != null && list.size() > 0) {

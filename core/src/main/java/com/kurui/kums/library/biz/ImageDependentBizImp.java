@@ -45,6 +45,10 @@ public class ImageDependentBizImp implements ImageDependentBiz {
 	public ImageDependent getImageDependentById(long imageDependentId) throws AppException {
 		return imageDependentDAO.getImageDependentById(imageDependentId);
 	}
+	
+	public ImageLibrary getCoverImageLibraryByRowId(String tableName,long rowId) throws AppException{
+		return imageDependentDAO.getCoverImageLibraryByRowId(tableName, rowId);
+	}
 
 	public List<ImageDependent> getImageDependentList() throws AppException {
 		return imageDependentDAO.getImageDependentList();

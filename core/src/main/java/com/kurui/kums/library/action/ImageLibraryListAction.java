@@ -40,8 +40,8 @@ public class ImageLibraryListAction extends BaseAction {
 
 		return mapping.findForward("listImageLibrary");
 	}
-	
-	//相册视图
+
+	// 相册视图
 	public ActionForward listView(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
@@ -86,24 +86,31 @@ public class ImageLibraryListAction extends BaseAction {
 			response.setContentType("image/jpeg");
 
 			long imageLibraryId = listForm.getId();
+			ImageLibrary imageLibrary = null;
 			if (imageLibraryId > 0) {
-				ImageLibrary imageLibrary = imageLibraryBiz
+				imageLibrary = imageLibraryBiz
 						.getImageLibraryById(imageLibraryId);
-				if (imageLibrary != null) {
-					OutputStream out = response.getOutputStream();
-					byte[] content = imageLibrary.getContent();
+			}
+			
+			long rowId = listForm.getRowId();
+			if (rowId > 0) {
+				imageLibrary = imageDependentBiz.getCoverImageLibraryByRowId(listForm.getTableName(), rowId);
+			}
 
-					ImageUtil.printImageLibrary(content, listForm.getHeight(), listForm.getWidth(), out);
+			if (imageLibrary != null) {
+				OutputStream out = response.getOutputStream();
+				byte[] content = imageLibrary.getContent();
 
-				}
+				ImageUtil.printImageLibrary(content, listForm.getHeight(),
+						listForm.getWidth(), out);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	//保存图片——关联业务表
+
+	// 保存图片——关联业务表
 	public ActionForward saveDependent(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
@@ -114,7 +121,7 @@ public class ImageLibraryListAction extends BaseAction {
 
 		imageLibrary.setTableName(listForm.getTableName());
 		imageLibrary.setRowId(listForm.getRowId());
-		
+
 		imageLibrary.setType(ImageLibrary.TYPE_1);
 		imageLibrary.setStatus(ImageLibrary.STATES_1);
 
@@ -124,8 +131,6 @@ public class ImageLibraryListAction extends BaseAction {
 
 		return mapping.findForward(forwardPage);
 	}
-
-	
 
 	public ActionForward save(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -145,7 +150,6 @@ public class ImageLibraryListAction extends BaseAction {
 
 		return mapping.findForward(forwardPage);
 	}
-	
 
 	public ActionForward edit(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -199,7 +203,5 @@ public class ImageLibraryListAction extends BaseAction {
 	public void setImageDependentBiz(ImageDependentBiz imageDependentBiz) {
 		this.imageDependentBiz = imageDependentBiz;
 	}
-	
-	
 
 }

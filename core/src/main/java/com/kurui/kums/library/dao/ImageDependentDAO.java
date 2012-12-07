@@ -20,6 +20,8 @@ public interface ImageDependentDAO {
 	public long update(ImageDependent ImageDependent) throws AppException;
 
 	public ImageDependent getImageDependentById(long imageDependentId) throws AppException;
+	
+	public ImageLibrary getCoverImageLibraryByRowId(String tableName,long rowId) throws AppException;
 
 	public List<ImageDependent> getImageDependentList() throws AppException;
 

@@ -14,6 +14,7 @@ public class ImageLibrary extends _ImageLibrary {
 
 	// 类型
 	public static final long TYPE_1 = 1;// 默认
+	
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效

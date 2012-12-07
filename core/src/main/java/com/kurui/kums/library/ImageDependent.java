@@ -14,6 +14,7 @@ public class ImageDependent extends _ImageDependent {
 	
 	// 类型
 	public static final long TYPE_1 = 1;// 默认
+	public static final long TYPE_2 = 2;// 封面
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
@@ -24,7 +25,9 @@ public class ImageDependent extends _ImageDependent {
 		if (this.getType() != null) {
 			if (this.getType().intValue() == TYPE_1) {
 				return "默认";
-			} else {
+			}else if (this.getType().intValue() == TYPE_2) {
+				return "封面";
+			}  else {
 				return null;
 			}
 		} else {

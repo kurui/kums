@@ -9,9 +9,13 @@ import com.kurui.kums.library.ImageLibrary;
 import com.kurui.kums.library.ImageLibraryListForm;
 
 public interface ImageDependentBiz {
+	
+	public List listViewImageLibrary(ImageLibraryListForm plf) throws AppException;
+	public List<ImageLibrary> getImageLibraryList(String tableName,long rowId)
+			throws AppException;
+	public ImageLibrary getCoverImageLibraryByRowId(String tableName,long rowId) throws AppException;
 
 	public List list(ImageDependentListForm form) throws AppException;
-	public List listViewImageLibrary(ImageLibraryListForm plf) throws AppException;
 
 	public void delete(long id) throws AppException;
 
@@ -22,6 +26,7 @@ public interface ImageDependentBiz {
 	public long update(ImageDependent imageDependent) throws AppException;
 
 	public ImageDependent getImageDependentById(long imageDependentId) throws AppException;
+	
 
 	public List<ImageDependent> getImageDependentList() throws AppException;
 
@@ -30,7 +35,7 @@ public interface ImageDependentBiz {
 	public List<ImageDependent> getImageDependentList(String tableName,long rowId)
 			throws AppException;
 
-	public List<ImageLibrary> getImageLibraryList(String tableName,long rowId)
-			throws AppException;
+
+
 
 }
