@@ -16,10 +16,12 @@ import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.library.ImageLibrary;
 import com.kurui.kums.library.ImageLibraryListForm;
+import com.kurui.kums.library.biz.ImageDependentBiz;
 import com.kurui.kums.library.biz.ImageLibraryBiz;
 
 public class ImageLibraryListAction extends BaseAction {
 	private ImageLibraryBiz imageLibraryBiz;
+	private ImageDependentBiz imageDependentBiz;
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -37,6 +39,25 @@ public class ImageLibraryListAction extends BaseAction {
 		request.setAttribute("imageLibraryListForm", imageLibraryListForm);
 
 		return mapping.findForward("listImageLibrary");
+	}
+	
+	//相册视图
+	public ActionForward listView(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		ImageLibraryListForm imageLibraryListForm = (ImageLibraryListForm) form;
+		if (imageLibraryListForm == null) {
+			imageLibraryListForm = new ImageLibraryListForm();
+		}
+		try {
+			imageLibraryListForm.setList(imageDependentBiz
+					.listViewImageLibrary(imageLibraryListForm));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("imageLibraryListForm", imageLibraryListForm);
+
+		return mapping.findForward("listViewImageLibrary");
 	}
 
 	public ActionForward view(ActionMapping mapping, ActionForm form,
@@ -81,6 +102,28 @@ public class ImageLibraryListAction extends BaseAction {
 		}
 		return null;
 	}
+	
+	//保存图片——关联业务表
+	public ActionForward saveDependent(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		ImageLibraryListForm listForm = (ImageLibraryListForm) form;
+
+		ImageLibrary imageLibrary = new ImageLibrary();
+		imageLibrary.setThisAction("insertDependent");
+
+		imageLibrary.setTableName(listForm.getTableName());
+		imageLibrary.setRowId(listForm.getRowId());
+		
+		imageLibrary.setType(ImageLibrary.TYPE_1);
+		imageLibrary.setStatus(ImageLibrary.STATES_1);
+
+		request.setAttribute("imageLibrary", imageLibrary);
+
+		String forwardPage = "editImageLibrary";
+
+		return mapping.findForward(forwardPage);
+	}
 
 	
 
@@ -102,6 +145,7 @@ public class ImageLibraryListAction extends BaseAction {
 
 		return mapping.findForward(forwardPage);
 	}
+	
 
 	public ActionForward edit(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -151,5 +195,11 @@ public class ImageLibraryListAction extends BaseAction {
 	public void setImageLibraryBiz(ImageLibraryBiz imageLibraryBiz) {
 		this.imageLibraryBiz = imageLibraryBiz;
 	}
+
+	public void setImageDependentBiz(ImageDependentBiz imageDependentBiz) {
+		this.imageDependentBiz = imageDependentBiz;
+	}
+	
+	
 
 }

@@ -71,6 +71,9 @@
 													圈子</a>|<a
 													href="<%=path%>/agent/agentRelationList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
 													增加特别关系人</a>
+													|<a
+													href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=agent&rowId=<c:out value="${agent.id}" />">
+													增加相片</a>
 										</td>
 									</tr>
 									<tr>

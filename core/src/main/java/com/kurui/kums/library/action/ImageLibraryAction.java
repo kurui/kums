@@ -15,11 +15,14 @@ import org.apache.struts.upload.FormFile;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
+import com.kurui.kums.library.ImageDependent;
 import com.kurui.kums.library.ImageLibrary;
+import com.kurui.kums.library.biz.ImageDependentBiz;
 import com.kurui.kums.library.biz.ImageLibraryBiz;
 
 public class ImageLibraryAction extends BaseAction {
 	private ImageLibraryBiz imageLibraryBiz;
+	private ImageDependentBiz imageDependentBiz;
 
 	public ActionForward insert(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
@@ -34,6 +37,37 @@ public class ImageLibraryAction extends BaseAction {
 		
 		String forwardPage = this.saveFile(theForm,imageLibrary, request);
 
+		return mapping.findForward(forwardPage);
+	}
+	
+	//保存图片和业务表的关联
+	public ActionForward insertDependent(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		ImageLibrary theForm = (ImageLibrary) form;
+
+		ImageLibrary imageLibrary=new ImageLibrary();
+		imageLibrary.setName(theForm.getName());
+		imageLibrary.setMemo(theForm.getMemo());
+		imageLibrary.setType(ImageLibrary.TYPE_1);
+		imageLibrary.setStatus(ImageLibrary.STATES_1);
+		imageLibrary.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+		
+		String forwardPage = this.saveFile(theForm,imageLibrary, request);
+		
+		
+		ImageDependent imageDependent=new ImageDependent();
+		imageDependent.setImageLibrary(imageLibrary);
+		imageDependent.setTableName(theForm.getTableName());
+		imageDependent.setRowId(theForm.getRowId());
+		imageDependent.setType(ImageDependent.TYPE_1);
+		imageDependent.setStatus(ImageDependent.STATES_1);
+		imageDependent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+		try {
+			imageDependentBiz.save(imageDependent);
+		} catch (AppException e) {
+			e.printStackTrace();
+		}
+		
 		return mapping.findForward(forwardPage);
 	}
 
@@ -101,6 +135,12 @@ public class ImageLibraryAction extends BaseAction {
 	public void setImageLibraryBiz(ImageLibraryBiz imageLibraryBiz) {
 		this.imageLibraryBiz = imageLibraryBiz;
 	}
+
+	public void setImageDependentBiz(ImageDependentBiz imageDependentBiz) {
+		this.imageDependentBiz = imageDependentBiz;
+	}
+	
+	
 	
 	
 }

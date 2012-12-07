@@ -3,46 +3,57 @@
 
 <beans default-lazy-init="false" default-autowire="no"
 	default-dependency-check="none">
-
-	
-
-	<bean name="/library/imageLibraryList"
-		class="com.kurui.kums.library.action.ImageLibraryListAction"
+	<bean name="/library/imageLibraryList" class="com.kurui.kums.library.action.ImageLibraryListAction"
 		singleton="false" lazy-init="default" autowire="default"
 		dependency-check="default">
 		<property name="imageLibraryBiz">
 			<ref bean="imageLibraryBiz" />
 		</property>
+		<property name="imageDependentBiz">
+			<ref bean="imageDependentBiz" />
+		</property>
 	</bean>
 
-	<bean name="/library/imageLibrary"
-		class="com.kurui.kums.library.action.ImageLibraryAction"
+	<bean name="/library/imageLibrary" class="com.kurui.kums.library.action.ImageLibraryAction"
 		singleton="false" lazy-init="default" autowire="default"
 		dependency-check="default">
 		<property name="imageLibraryBiz">
 			<ref bean="imageLibraryBiz" />
 		</property>
+		<property name="imageDependentBiz">
+			<ref bean="imageDependentBiz" />
+		</property>
 	</bean>
 
-	
-	<!--
-		/////////////////////////Biz、Dao//////////////////////////////////
-	-->
-	
 
-	<bean name="imageLibraryBiz"
-		class="com.kurui.kums.library.biz.ImageLibraryBizImp" singleton="false"
-		lazy-init="default" autowire="default" dependency-check="default">
+	<!-- /////////////////////////Biz、Dao////////////////////////////////// -->
+
+
+	<bean name="imageLibraryBiz" class="com.kurui.kums.library.biz.ImageLibraryBizImp"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
 		<property name="imageLibraryDAO">
 			<ref bean="imageLibraryDAO" />
 		</property>
 	</bean>
-	<bean id="imageLibraryDAO"
-		class="com.kurui.kums.library.dao.ImageLibraryDAOImp"
+	<bean id="imageLibraryDAO" class="com.kurui.kums.library.dao.ImageLibraryDAOImp"
 		lazy-init="default" autowire="default" dependency-check="default">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 
 
-	
+	<bean name="imageDependentBiz" class="com.kurui.kums.library.biz.ImageDependentBizImp"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="imageDependentDAO">
+			<ref bean="imageDependentDAO" />
+		</property>
+	</bean>
+	<bean id="imageDependentDAO" class="com.kurui.kums.library.dao.ImageDependentDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+
 </beans>

@@ -116,6 +116,7 @@
 				<value>com/kurui/kums/transaction/Platform.hbm.xml</value>
 				
 				<value>com/kurui/kums/library/ImageLibrary.hbm.xml</value>
+				<value>com/kurui/kums/library/ImageDependent.hbm.xml</value>
 			</list>
 		</property>
 

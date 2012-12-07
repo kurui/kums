@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="#library#imageLibrary" NAME="action0"
+  PATH="/library/imageLibrary" SHAPE="32,17,0,0" TITLE="imageLibrary"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="editImageLibrary" NAME="forward0"
+   PATH="/library/editImageLibrary.jsp" TARGET="page0"
+   TITLE="editImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewImageLibrary" NAME="forward1"
+   PATH="/library/viewImageLibrary.jsp" TARGET="page1"
+   TITLE="viewImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listImageLibrary" NAME="forward2"
+   PATH="/library/listImageLibrary.jsp" TARGET="page2"
+   TITLE="listImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listViewImageLibrary" NAME="forward3"
+   PATH="/library/listViewImageLibrary.jsp" TARGET="page5"
+   TITLE="listViewImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#library#imageLibraryList" NAME="action1"
+  PATH="/library/imageLibraryList" SHAPE="496,17,0,0"
+  TITLE="imageLibraryListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="editImageLibrary" NAME="forward0"
+   PATH="/library/editImageLibrary.jsp" TARGET="page0"
+   TITLE="editImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewImageLibrary" NAME="forward1"
+   PATH="/library/viewImageLibrary.jsp" TARGET="page1"
+   TITLE="viewImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listImageLibrary" NAME="forward2"
+   PATH="/library/listImageLibrary.jsp" TARGET="page2"
+   TITLE="listImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listViewImageLibrary" NAME="forward3"
+   PATH="/library/listViewImageLibrary.jsp" TARGET="page5"
+   TITLE="listViewImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#upload#upload" NAME="action2" PATH="/upload/upload"
+  SHAPE="256,321,0,0" TITLE="uploadForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="editattachpagesingle" NAME="forward0"
+   PATH="/page/editAttach_Single.jsp" TARGET="page3"
+   TITLE="editattachpagesingle" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editattachpage" NAME="forward1"
+   PATH="/page/editAttach.jsp" TARGET="page4" TITLE="editattachpage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page0" PATH="/library/editImageLibrary.jsp"
+  SHAPE="736,210,0,0" SUBTYPE="jsp" TITLE="editImageLibrary.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/library/imageLibrary.do"
+   SUBTYPE="confirmed" TARGET="action0" TITLE="/library/imageLibrary.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page1" PATH="/library/viewImageLibrary.jsp"
+  SHAPE="272,34,0,0" SUBTYPE="jsp" TITLE="viewImageLibrary.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/library/imageLibraryList.do"
+   SUBTYPE="confirmed" TARGET="action1"
+   TITLE="/library/imageLibraryList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page2" PATH="/library/listImageLibrary.jsp"
+  SHAPE="736,34,0,0" SUBTYPE="jsp" TITLE="listImageLibrary.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/library/imageLibraryList.do"
+   SUBTYPE="confirmed" TARGET="action1"
+   TITLE="/library/imageLibraryList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page3" PATH="/page/editAttach_Single.jsp"
+  SHAPE="32,306,0,0" SUBTYPE="jsp" TITLE="editAttach_Single.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/upload/upload.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/upload/upload.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page4" PATH="/page/editAttach.jsp"
+  SHAPE="480,306,0,0" SUBTYPE="jsp" TITLE="editAttach.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/upload/upload.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/upload/upload.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page5" PATH="/library/listViewImageLibrary.jsp"
+  SHAPE="704,129,0,0" SUBTYPE="jsp" TITLE="listViewImageLibrary.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/library/imageLibraryList.do"
+   SUBTYPE="confirmed" TARGET="action1"
+   TITLE="/library/imageLibraryList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+</PROCESS>

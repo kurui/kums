@@ -44,6 +44,9 @@
 	<html:form method="post" action="/library/imageLibrary.do"
 		enctype="multipart/form-data">
 		<html:hidden property="thisAction" />
+		<html:hidden property="tableName" />
+		<html:hidden property="rowId" />
+		
 		<div id="mainContainer">
 			<div id="container">
 				<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -68,7 +71,7 @@
 											name="imageLibrary" styleClass="colorblue2 p_5"
 											style="width:200px;"></html:text></td>
 								</tr>
-								<c:if test="${imageLibrary.thisAction=='insert'}">
+								<c:if test="${imageLibrary.thisAction=='insert' or imageLibrary.thisAction=='insertDependent'}">
 									<tr>
 										<td class="lef">选择上传图片</td>
 										<td style="text-align: left"><html:file

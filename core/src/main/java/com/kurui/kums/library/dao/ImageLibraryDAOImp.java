@@ -6,15 +6,14 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 
-import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
 import com.kurui.kums.base.database.hibernate.Hql;
-import com.kurui.kums.base.database.jdbc.SelectDataBean;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.library.ImageLibrary;
 import com.kurui.kums.library.ImageLibraryListForm;
 
-public class ImageLibraryDAOImp extends BaseDAOSupport implements ImageLibraryDAO {
+public class ImageLibraryDAOImp extends BaseDAOSupport implements
+		ImageLibraryDAO {
 
 	static Logger logger = Logger.getLogger(ImageLibraryDAOImp.class.getName());
 
@@ -24,41 +23,16 @@ public class ImageLibraryDAOImp extends BaseDAOSupport implements ImageLibraryDA
 
 		hql.add("and p.status=" + ImageLibrary.STATES_1);
 
-			
-				hql.add(" order by  p.updateTime desc ");
-			
-		
+		hql.add(" order by  p.updateTime desc ");
 
 		return this.list(hql, plf);
 	}
 
-	public ImageLibrary getImageLibrary(long estateDishId, String dateString)
-			throws AppException {
-		ImageLibrary imageLibrary = null;
-		Hql hql = new Hql();
-		hql
-				.add("from ImageLibrary p where 1=1 and p.status="
-						+ ImageLibrary.STATES_1);
-	
-	
-		Query query = this.getQuery(hql);
-		if (query != null) {
-			List list = query.list();
-			if (list != null) {
-				if (list.size() > 0) {
-					imageLibrary = (ImageLibrary) list.get(0);
-				}
-			}
-		}
-		return imageLibrary;
-	}
-
-	
-
 	public void delete(long id) throws AppException {
 		if (id > 0) {
-			ImageLibrary ImageLibrary = (ImageLibrary) this.getHibernateTemplate().get(
-					ImageLibrary.class, new Long(id));
+			ImageLibrary ImageLibrary = (ImageLibrary) this
+					.getHibernateTemplate().get(ImageLibrary.class,
+							new Long(id));
 			this.getHibernateTemplate().delete(ImageLibrary);
 		}
 	}
@@ -126,9 +100,8 @@ public class ImageLibraryDAOImp extends BaseDAOSupport implements ImageLibraryDA
 	public List<ImageLibrary> getValidImageLibraryList() throws AppException {
 		List<ImageLibrary> list = new ArrayList<ImageLibrary>();
 		Hql hql = new Hql();
-		hql
-				.add("from ImageLibrary p where 1=1 and p.status="
-						+ ImageLibrary.STATES_1);
+		hql.add("from ImageLibrary p where 1=1 and p.status="
+				+ ImageLibrary.STATES_1);
 		Query query = this.getQuery(hql);
 		if (query != null) {
 			if (query.list() != null) {

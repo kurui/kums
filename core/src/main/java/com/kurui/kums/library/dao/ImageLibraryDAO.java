@@ -20,9 +20,6 @@ public interface ImageLibraryDAO {
 
 	public List<ImageLibrary> getImageLibraryList() throws AppException;
 
-	public ImageLibrary getImageLibrary(long dishId, String dateString)
-			throws AppException;
-
 	public List<ImageLibrary> getValidImageLibraryList() throws AppException;
 
 	public List<ImageLibrary> getImageLibraryByDishId(long dishId)

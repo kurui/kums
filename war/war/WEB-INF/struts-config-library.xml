@@ -5,10 +5,12 @@
 		<form-bean name="uploadForm" type="com.kurui.kums.upload.UploadForm" />
 
 		<form-bean name="imageLibraryListForm"
-			type="com.kurui.kums.library.ImageLibraryListForm">
-		</form-bean>
-		<form-bean name="imageLibrary" type="com.kurui.kums.library.ImageLibrary">
-		</form-bean>
+			type="com.kurui.kums.library.ImageLibraryListForm" />
+		<form-bean name="imageLibrary" type="com.kurui.kums.library.ImageLibrary" />
+		
+		<form-bean name="imageDependentListForm"
+			type="com.kurui.kums.library.ImageLibraryListForm" />
+		<form-bean name="imageLibrary" type="com.kurui.kums.library.ImageLibrary" />
 	</form-beans>
 	<action-mappings>
 		<action name="uploadForm" parameter="thisAction"
@@ -25,13 +27,15 @@
 			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
 			validate="false" scope="request">
 			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
+			<forward name="listViewImageLibrary" path="/library/listViewImageLibrary.jsp" />
 			<forward name="editImageLibrary" path="/library/editImageLibrary.jsp" />
 			<forward name="viewImageLibrary" path="/library/viewImageLibrary.jsp" />
 		</action>
 		<action name="imageLibrary" path="/library/imageLibrary"
 			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
 			validate="false" scope="request">
-			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
+			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />			
+			<forward name="listViewImageLibrary" path="/library/listViewImageLibrary.jsp" />
 			<forward name="editImageLibrary" path="/library/editImageLibrary.jsp" />
 			<forward name="viewImageLibrary" path="/library/viewImageLibrary.jsp" />
 		</action>

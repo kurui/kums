@@ -2,29 +2,24 @@ package com.kurui.kums.library;
 
 import java.util.Date;
 
-import org.apache.struts.upload.FormFile;
-
 import com.kurui.kums.base.util.time.DateUtil;
-import com.kurui.kums.library._entity._ImageLibrary;
+import com.kurui.kums.library._entity._ImageDependent;
 
-public class ImageLibrary extends _ImageLibrary {
+public class ImageDependent extends _ImageDependent {
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-
-	protected FormFile uploadFile;
-
+	
 	// 类型
 	public static final long TYPE_1 = 1;// 默认
 
 	// 状态
 	public static final long STATES_1 = 1;// 有效
 	public static final long STATES_0 = 0;// 无效
-
-
 	
-	protected String tableName;
-	protected long rowId;
 	
-
 	public String getTypeInfo() {
 		if (this.getType() != null) {
 			if (this.getType().intValue() == TYPE_1) {
@@ -60,32 +55,5 @@ public class ImageLibrary extends _ImageLibrary {
 		}
 		return mydate;
 	}
-
-	public FormFile getUploadFile() {
-		return uploadFile;
-	}
-
-	public void setUploadFile(FormFile uploadFile) {
-		this.uploadFile = uploadFile;
-	}
-
-	public String getTableName() {
-		return tableName;
-	}
-
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
-	}
-
-	public long getRowId() {
-		return rowId;
-	}
-
-	public void setRowId(long rowId) {
-		this.rowId = rowId;
-	}
-
-
-
 
 }

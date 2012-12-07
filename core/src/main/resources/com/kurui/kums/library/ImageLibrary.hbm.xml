@@ -35,6 +35,11 @@
 		<property name="memo" column="memo" type="string" not-null="false"
 			insert="true" update="true">
 		</property>
-
+		<set name="imageDependents" inverse="true">
+			<key>
+				<column name="IMAGE_LIBRARY_ID" precision="22" scale="0" />
+			</key>
+			<one-to-many class="com.kurui.kums.library.ImageDependent" />
+		</set>
 	</class>
 </hibernate-mapping>

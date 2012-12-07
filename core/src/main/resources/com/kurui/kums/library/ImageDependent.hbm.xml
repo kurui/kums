@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-10-23 19:39:09 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+	<class name="com.kurui.kums.library.ImageDependent" table="IMAGE_Dependent">
+		<id name="id" type="long">
+			<column name="ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">seq_IMAGE_Dependent</param>
+			</generator>
+		</id>
+		<many-to-one name="imageLibrary" class="com.kurui.kums.library.ImageLibrary"
+			fetch="select">
+			<column name="image_library_ID" precision="22" scale="0" />
+		</many-to-one>
+
+		<property name="tableName" type="string">
+			<column name="table_Name" length="30" />
+		</property>
+		<property name="rowId" type="long">
+			<column name="Row_ID" precision="22" scale="0" />
+		</property>
+
+		<property name="updateTime" type="java.sql.Timestamp">
+			<column name="update_time" length="7" />
+		</property>
+		<property name="type" type="long">
+			<column name="TYPE" precision="22" scale="0" />
+		</property>
+		<property name="status" type="long">
+			<column name="STATUS" precision="22" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>
