@@ -12,6 +12,10 @@ public interface ImageDependentDAO {
 
 	public List list(ImageDependentListForm imageDependentForm) throws AppException;
 	public List listViewImageLibrary(ImageLibraryListForm plf) throws AppException;
+	
+	public void updateImageLibraryTypeByRowId(String tableName,long rowId,long dependentType) throws AppException;
+
+	public void updateImageDependentType(String dependentId,long dependentType) throws AppException;
 
 	public void delete(long id) throws AppException;
 
@@ -32,4 +36,5 @@ public interface ImageDependentDAO {
 
 	public List<ImageLibrary> getImageLibraryList(String tableName,long rowId)
 			throws AppException;
+	
 }

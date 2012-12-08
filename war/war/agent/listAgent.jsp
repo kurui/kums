@@ -291,6 +291,9 @@
 												<c:if test="${!empty agent.agentHabit}">
 													<a href="<%=path%>/agent/agentHabitList.do?thisAction=save&agentId=<c:out value="${agent.id}" />">习性</a>
 												</c:if>
+												|<a
+										href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=agent&rowId=<c:out value="${agent.id}" />">
+											增加相片</a>
 											</td>
 										</tr>
 									</c:forEach>

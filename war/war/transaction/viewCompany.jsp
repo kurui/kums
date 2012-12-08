@@ -195,6 +195,11 @@
 										<td align="center">
 											<html:hidden property="selectedItems" value="${company.id}" />
 											<html:hidden property="thisAction" name="company" />
+											<a
+										href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=company&rowId=<c:out value="${company.id}" />">
+											上传图片</a> |<a
+										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&tableName=company&rowId=<c:out value="${company.id}" />">
+											所有图片</a>
 											<input name="label" type="button" class="button1" value="新 增"
 												onclick="add();">
 											<input name="label" type="button" class="button1" value="返 回"

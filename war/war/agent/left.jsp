@@ -28,7 +28,7 @@
 							<a href="<%=path%>/agent/agentList.do?thisAction=viewAgentReport" target="mainFrame">仪表盘</a>
 						</li>
 						<li>
-							<a href="<%=path%>/agent/agentList.do?thisAction=list&companyId=534" target="mainFrame">终端客户列表</a>
+							<a href="<%=path%>/agent/agentList.do?thisAction=list" target="mainFrame">客户列表</a>
 						</li>
 						<li>
 							<a href="<%=path%>/agent/agentList.do?thisAction=listGrade" target="mainFrame">客户评级</a>

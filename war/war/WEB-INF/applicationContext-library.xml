@@ -24,6 +24,14 @@
 			<ref bean="imageDependentBiz" />
 		</property>
 	</bean>
+	
+	<bean name="/library/imageDependentList" class="com.kurui.kums.library.action.ImageDependentListAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="imageDependentBiz">
+			<ref bean="imageDependentBiz" />
+		</property>
+	</bean>
 
 
 	<!-- /////////////////////////Biz、Dao////////////////////////////////// -->

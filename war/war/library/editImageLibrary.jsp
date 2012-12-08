@@ -36,6 +36,17 @@
      return true; 
    }
 }
+
+ function onchangeUploadFile() {
+ 	var filePath=document.forms[0].uploadFile.value;
+ 	//alert(filePath);
+ 	var beginIndex=filePath.lastIndexOf("\\");
+ 	var endIndex=filePath.length;
+
+ 	filePath=filePath.substr(beginIndex+1,endIndex);
+ 	
+ 	document.forms[0].name.value=filePath;
+ }
 </script>
 </head>
 
@@ -43,6 +54,7 @@
 
 	<html:form method="post" action="/library/imageLibrary.do"
 		enctype="multipart/form-data">
+		<html:hidden property="id" />
 		<html:hidden property="thisAction" />
 		<html:hidden property="tableName" />
 		<html:hidden property="rowId" />
@@ -70,33 +82,34 @@
 									<td style="text-align: left"><html:text property="name"
 											name="imageLibrary" styleClass="colorblue2 p_5"
 											style="width:200px;"></html:text></td>
+											<td class="lef">说明</td>
+									<td style="text-align: left"><html:text property="memo"
+											name="imageLibrary" styleClass="colorblue2 p_5"
+											style="width:200px;"></html:text></td>
+									<td><input type="button" class="button1"
+										value="返 回" onclick="window.history.back();"> <input
+										name="label" type="button" class="button1" value="完 成"
+										onclick="submitForm();"></td>
 								</tr>
 								<c:if test="${imageLibrary.thisAction=='insert' or imageLibrary.thisAction=='insertDependent'}">
 									<tr>
 										<td class="lef">选择上传图片</td>
 										<td style="text-align: left"><html:file
 												property="uploadFile" name="imageLibrary"
-												styleClass="colorblue2 p_5" size="40" />
+												styleClass="colorblue2 p_5" size="40" onchange="onchangeUploadFile();" />
 									</tr>
 								</c:if>
 								<c:if test="${imageLibrary.thisAction=='update'}">
 									<tr>
-										<td style="text-align: left" colspan="2"><img
+										<td style="text-align: left" colspan="5"><img
 											src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
 										</td>
 									</tr>
 								</c:if>
+								
 								<tr>
-									<td class="lef">说明</td>
-									<td style="text-align: left"><html:text property="memo"
-											name="imageLibrary" styleClass="colorblue2 p_5"
-											style="width:200px;"></html:text></td>
-								</tr>
-								<tr>
-									<td colspan="2"><input type="button" class="button1"
-										value="返 回" onclick="window.history.back();"> <input
-										name="label" type="button" class="button1" value="完 成"
-										onclick="submitForm();">
+									<td colspan="5"><input type="button" class="button1"
+										value="返 回" onclick="window.history.back();"> </td>
 								</tr>
 							</table>
 

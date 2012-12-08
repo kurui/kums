@@ -9,8 +9,8 @@
 		<form-bean name="imageLibrary" type="com.kurui.kums.library.ImageLibrary" />
 		
 		<form-bean name="imageDependentListForm"
-			type="com.kurui.kums.library.ImageLibraryListForm" />
-		<form-bean name="imageLibrary" type="com.kurui.kums.library.ImageLibrary" />
+			type="com.kurui.kums.library.ImageDependentListForm" />
+		<form-bean name="imageDependent" type="com.kurui.kums.library.ImageDependent" />
 	</form-beans>
 	<action-mappings>
 		<action name="uploadForm" parameter="thisAction"
@@ -38,6 +38,13 @@
 			<forward name="listViewImageLibrary" path="/library/listViewImageLibrary.jsp" />
 			<forward name="editImageLibrary" path="/library/editImageLibrary.jsp" />
 			<forward name="viewImageLibrary" path="/library/viewImageLibrary.jsp" />
+		</action>
+		
+		<action name="imageDependentListForm" path="/library/imageDependentList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
+			<forward name="listImageDependent" path="/library/listImageDependent.jsp" />
 		</action>
 	</action-mappings>
 </struts-config>

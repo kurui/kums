@@ -8,6 +8,7 @@ import com.kurui.kums.library.ImageDependentListForm;
 import com.kurui.kums.library.ImageLibrary;
 import com.kurui.kums.library.ImageLibraryListForm;
 import com.kurui.kums.library.dao.ImageDependentDAO;
+import com.kurui.kums.library.dao.ImageLibraryDAO;
 
 public class ImageDependentBizImp implements ImageDependentBiz {
 	private ImageDependentDAO imageDependentDAO;
@@ -58,9 +59,7 @@ public class ImageDependentBizImp implements ImageDependentBiz {
 		return imageDependentDAO.getValidImageDependentList();
 	}
 
-	public void setImageDependentDAO(ImageDependentDAO imageDependentDAO) {
-		this.imageDependentDAO = imageDependentDAO;
-	}
+
 
 	public List<ImageDependent> getImageDependentList(String tableName,
 			long rowId) throws AppException {
@@ -71,4 +70,22 @@ public class ImageDependentBizImp implements ImageDependentBiz {
 			throws AppException {
 		return imageDependentDAO.getImageLibraryList(tableName, rowId);
 	}
+
+	public void updateCoverImage(ImageLibraryListForm plf) throws AppException {
+		imageDependentDAO.updateImageLibraryTypeByRowId(plf.getTableName(), plf.getRowId(), ImageDependent.TYPE_1);
+		
+	
+		imageDependentDAO.updateImageDependentType(plf.getSelectedItems()[0]+"",ImageDependent.TYPE_2);
+		
+	}
+	
+	public void setImageDependentDAO(ImageDependentDAO imageDependentDAO) {
+		this.imageDependentDAO = imageDependentDAO;
+	}
+
+
+	
+	
+	
+	
 }

@@ -82,4 +82,21 @@
    SUBTYPE="confirmed" TARGET="action1"
    TITLE="/library/imageLibraryList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#library#imageDependentList" NAME="action3"
+  PATH="/library/imageDependentList" SHAPE="32,225,0,0"
+  TITLE="imageDependentListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listImageLibrary" NAME="forward3"
+   PATH="/library/listImageLibrary.jsp" TARGET="page2"
+   TITLE="listImageLibrary" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listImageDependent" NAME="forward0"
+   PATH="/library/listImageDependent.jsp" TARGET="page7"
+   TITLE="listImageDependent" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page7" PATH="/library/listImageDependent.jsp"
+  SHAPE="448,225,0,0" SUBTYPE="jsp" TITLE="listImageDependent.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0"
+   PATH="/library/imageDependentList.do" SUBTYPE="confirmed"
+   TARGET="action3" TITLE="/library/imageDependentList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
 </PROCESS>

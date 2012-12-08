@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionRedirect;
 
 import com.kurui.kums.base.chart.ImageUtil;
 import com.kurui.kums.base.exception.AppException;
@@ -58,6 +59,32 @@ public class ImageLibraryListAction extends BaseAction {
 		request.setAttribute("imageLibraryListForm", imageLibraryListForm);
 
 		return mapping.findForward("listViewImageLibrary");
+	}
+	
+	/**
+	 * 设置相片封面
+	 * */
+	public ActionForward updateCoverImage(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws AppException {
+		ImageLibraryListForm imageLibraryListForm = (ImageLibraryListForm) form;
+		if (imageLibraryListForm == null) {
+			imageLibraryListForm = new ImageLibraryListForm();
+		}
+		try {
+			imageDependentBiz.updateCoverImage(imageLibraryListForm);
+			String tableName=imageLibraryListForm.getTableName();
+			long rowId=imageLibraryListForm.getRowId();
+			if ("agent".equals(tableName)) {
+				return new ActionRedirect("/agent/agentList.do?thisAction=view&id="+rowId);
+			}else if ("company".equals(tableName)) {
+				return new ActionRedirect("/transaction/companyList.do?thisAction=view&id="+rowId);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listView(mapping, imageLibraryListForm, request, response);
 	}
 
 	public ActionForward view(ActionMapping mapping, ActionForm form,
@@ -143,6 +170,10 @@ public class ImageLibraryListAction extends BaseAction {
 		imageLibrary.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 		imageLibrary.setType(ImageLibrary.TYPE_1);
 		imageLibrary.setStatus(ImageLibrary.STATES_1);
+		
+		imageLibrary.setTableName(imageLibraryListForm.getTableName());
+		imageLibrary.setRowId(imageLibraryListForm.getRowId());
+
 
 		request.setAttribute("imageLibrary", imageLibrary);
 

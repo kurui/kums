@@ -23,7 +23,7 @@ public class ImageDependentDAOImp extends BaseDAOSupport implements
 
 	public List list(ImageDependentListForm plf) throws AppException {
 		Hql hql = new Hql();
-		hql.add("from ImageDependent p where 1=1");
+		hql.add(" from ImageDependent p where 1=1");
 
 		hql.add("and p.status=" + ImageDependent.STATES_1);
 
@@ -75,7 +75,31 @@ public class ImageDependentDAOImp extends BaseDAOSupport implements
 	}
 	
 	/**
-	 * 封面图片
+	 * 设置相册图片类型为普通
+	 * */
+	public void updateImageLibraryTypeByRowId(String tableName,long rowId,long dependentType) throws AppException {
+		String hql="update ImageDependent p  set p.type="+dependentType+" where 1=1 ";
+		hql+=" and p.tableName='" + tableName+"'";
+		hql+=" and p.rowId=" + rowId;
+		
+		System.out.println(hql);
+		Query query =  this.getSession().createQuery(hql);
+		int row = query.executeUpdate();
+	}
+	
+	public void updateImageDependentType(String imageLibraryId,long dependentType) throws AppException {
+		String hql="update ImageDependent p  set p.type="+dependentType+" where 1=1  ";
+		hql+=" and p.imageLibrary.id in("+imageLibraryId+")";
+		
+		System.out.println(hql);
+		Query query =  this.getSession().createQuery(hql);
+		int row = query.executeUpdate();
+	}
+	
+
+	
+	/**
+	 * 获取封面图片
 	 * */
 	public ImageLibrary getCoverImageLibraryByRowId(String tableName,long rowId) throws AppException {
 		ImageLibrary imageLibrary = null;
@@ -108,6 +132,8 @@ public class ImageDependentDAOImp extends BaseDAOSupport implements
 		}
 		return imageDependent;
 	}
+	
+
 	
 	public List<ImageLibrary> getImageLibraryList(String tableName,long rowId)
 			throws AppException {

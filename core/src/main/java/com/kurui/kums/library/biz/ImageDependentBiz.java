@@ -14,6 +14,7 @@ public interface ImageDependentBiz {
 	public List<ImageLibrary> getImageLibraryList(String tableName,long rowId)
 			throws AppException;
 	public ImageLibrary getCoverImageLibraryByRowId(String tableName,long rowId) throws AppException;
+	public void updateCoverImage(ImageLibraryListForm plf) throws AppException;
 
 	public List list(ImageDependentListForm form) throws AppException;
 

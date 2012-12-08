@@ -50,8 +50,8 @@
 						href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
 						target="mainFrame">授权列表</a>
 				</span> <span class="title"> <a
-						href="<%=path%>/library/imageLibraryList.do?thisAction=list"
-						target="mainFrame">图片列表</a>
+						href="<%=path%>/library/imageDependentList.do?thisAction=list"
+						target="mainFrame">图片库</a>
 				</span>
 			</div>
 		</div>

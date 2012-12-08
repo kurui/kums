@@ -45,22 +45,6 @@
 										<td style="text-align: left">
 											<c:out value="${imageLibrary.updateDate}" />
 										</td>
-									</tr>					
-									
-									<tr>
-										<td style="text-align: left" colspan="4">
-											<img  src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
-										</td>
-									</tr>	
-									<tr>
-										<td class="lef">
-											备注
-										</td>
-										<td style="text-align: left" colspan="3">
-											<c:out value="${imageLibrary.memo}" />
-										</td>
-									</tr>									
-									<tr>
 										<td class="lef">
 											类型
 										</td>
@@ -73,7 +57,36 @@
 										<td style="text-align: left">
 											<c:out value="${imageLibrary.statusInfo}" />
 										</td>
-									</tr>									
+										<td align="center">
+											<html:hidden property="selectedItems" value="${imageLibrary.id}" />
+											<html:hidden property="thisAction" name="imageLibrary" />
+											<input name="label" type="button" class="button1" value="新 增"
+												onclick="add();">
+											<input name="label" type="button" class="button1" value="返 回"
+												onclick="window.history.back();">
+
+											<input name="label" type="button" class="button1" value="修 改"
+												onclick="edit();">
+
+										</td>
+									</tr>		
+									<tr>
+										<td class="lef">
+											备注
+										</td>
+										<td style="text-align: left" colspan="8">
+											<c:out value="${imageLibrary.memo}" />
+										</td>
+										
+										
+									</tr>				
+									
+									<tr>
+										<td colspan="9">
+											<img  src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&id=<c:out value="${imageLibrary.id}" />">
+										</td>
+									</tr>	
+																	
 								</table>
 								<table width="100%" style="margin-top: 5px;">
 									<tr>

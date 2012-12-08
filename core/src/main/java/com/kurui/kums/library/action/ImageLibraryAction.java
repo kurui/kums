@@ -54,21 +54,27 @@ public class ImageLibraryAction extends BaseAction {
 		
 		String forwardPage = this.saveFile(theForm,imageLibrary, request);
 		
-		
-		ImageDependent imageDependent=new ImageDependent();
-		imageDependent.setImageLibrary(imageLibrary);
-		imageDependent.setTableName(theForm.getTableName());
-		imageDependent.setRowId(theForm.getRowId());
-		imageDependent.setType(ImageDependent.TYPE_1);
-		imageDependent.setStatus(ImageDependent.STATES_1);
-		imageDependent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-		try {
-			imageDependentBiz.save(imageDependent);
-		} catch (AppException e) {
-			e.printStackTrace();
+		if("inform".equals(forwardPage)){
+			return mapping.findForward(forwardPage);
+		}else{
+			ImageDependent imageDependent=new ImageDependent();
+			imageDependent.setImageLibrary(imageLibrary);
+			imageDependent.setTableName(theForm.getTableName());
+			imageDependent.setRowId(theForm.getRowId());
+			imageDependent.setType(ImageDependent.TYPE_1);
+			imageDependent.setStatus(ImageDependent.STATES_1);
+			imageDependent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+			try {
+				imageDependentBiz.save(imageDependent);
+			} catch (AppException e) {
+				e.printStackTrace();
+			}
+			return redirectListView(imageDependent);
+			
 		}
 		
-		return mapping.findForward(forwardPage);
+		
+//		return mapping.findForward(forwardPage);
 	}
 
 	private String saveFile(ImageLibrary theForm,ImageLibrary imageLibrary, HttpServletRequest request) {
@@ -114,12 +120,14 @@ public class ImageLibraryAction extends BaseAction {
 
 		long imageLibraryId=theForm.getId();
 		ImageLibrary imageLibrary=imageLibraryBiz.getImageLibraryById(imageLibraryId);
+		if(imageLibrary!=null){
+			imageLibrary.setName(theForm.getName());
+			imageLibrary.setMemo(theForm.getMemo());
+			imageLibrary.setType(ImageLibrary.TYPE_1);
+			imageLibrary.setStatus(ImageLibrary.STATES_1);
+			imageLibrary.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+		}
 		
-		imageLibrary.setName(theForm.getName());
-		imageLibrary.setMemo(theForm.getMemo());
-		imageLibrary.setType(ImageLibrary.TYPE_1);
-		imageLibrary.setStatus(ImageLibrary.STATES_1);
-		imageLibrary.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
 		return redirect(imageLibrary);
 	}
@@ -131,6 +139,17 @@ public class ImageLibraryAction extends BaseAction {
 		redirect.addParameter("id", imageLibrary.getId());
 		return redirect;
 	}
+	
+	public ActionRedirect redirectListView(ImageDependent imageDependent) {
+		ActionRedirect redirect = new ActionRedirect(
+				"/library/imageLibraryList.do");
+		redirect.addParameter("thisAction", "listView");
+		redirect.addParameter("tableName", imageDependent.getTableName());
+		redirect.addParameter("rowId", imageDependent.getRowId());
+		
+		return redirect;
+	}
+
 
 	public void setImageLibraryBiz(ImageLibraryBiz imageLibraryBiz) {
 		this.imageLibraryBiz = imageLibraryBiz;

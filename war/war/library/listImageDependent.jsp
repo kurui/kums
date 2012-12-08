@@ -19,7 +19,7 @@
 <c:import url="../page/importDWR.jsp"></c:import>
 <script type="text/javascript">
 	function add(){
-	    document.forms[0].thisAction.value="saveDependent";
+	    document.forms[0].thisAction.value="save";
 	    document.forms[0].submit();
 	}	
 	
@@ -34,35 +34,6 @@
 	    	document.forms[0].thisAction.value="edit";
 	    	document.forms[0].submit();
 	  	}
-	}
-	
-	function updateCoverImage()	{
-		if(document.forms[0].selectedItems==null){
-			alert("没有数据，无法修改！");
-		}else if (sumCheckedBox(document.forms[0].selectedItems)<1){
-	   		alert("您还没有选择数据！");
-		}else if (sumCheckedBox(document.forms[0].selectedItems)>1){
-	      	alert("您一次只能选择一个数据！");
-		}else {
-	    	document.forms[0].thisAction.value="updateCoverImage";
-	    	document.forms[0].submit();
-	  	}
-	}
-	
-	function goMainPage()	{
-		var tableName=document.forms[0].tableName.value;
-		var rowId=document.forms[0].rowId.value;
-	 	var url="";
-	 	if("agent"==tableName){
-	 		url="../agent/agentList.do?thisAction=view&id="+rowId;
-	 	}else if("company"==tableName){
-	 		url="../transaction/companyList.do?thisAction=view&id="+rowId;
-	 	}else{
-	 		alert("缺少参数");
-	 	}
-	 	
-    	window.location.href=url;
-	  	
 	}
 	
 	function del()	{	
@@ -80,16 +51,11 @@
 <body>
 	<div id="mainContainer">
 		<div id="container">
-			<html:form action="/library/imageLibraryList.do">
+			<html:form action="/library/imageDependentList.do">
 				<html:hidden property="thisAction" />
 				<html:hidden property="lastAction" />
 				<html:hidden property="intPage" />
 				<html:hidden property="pageCount" />
-
-				<html:hidden property="tableName" />
-				<html:hidden property="rowId" />
-
-
 				<table width="100%" cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<td width="10" height="10" class="tblt"></td>
@@ -101,68 +67,122 @@
 						<td valign="top" class="body"><c:import
 								url="../page/mainTitle.jsp" charEncoding="UTF-8">
 								<c:param name="title1" value="核心服务库" />
-								<c:param name="title2" value="图片橱窗" />
+								<c:param name="title2" value="图片列表" />
 							</c:import>
 
+							<div id="searchBarObj" class="searchBar">
+								<table cellpadding="0" cellspacing="0" border="0"
+									class="searchPanel">
+									<tr>
+										<td><html:text property="name"
+												name="imageDependentListForm" styleClass="colorblue2 p_5"
+												style="width: 150px;" /></td>
 
+										<td>开始: <html:text property="startDate"
+												styleClass="colorblue2 p_5" style="width:120px;"
+												onfocus="WdatePicker({startDate:'%y-%M-%D 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})"
+												readonly="true" />
+										</td>
+										<td>结束 <html:text property="endDate"
+												styleClass="colorblue2 p_5" style="width:120px;"
+												onfocus="WdatePicker({startDate:'%y-%M-%D 23:59:59',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})"
+												readonly="true" />
+										</td>
+										<td><html:select property="orderBy"
+												name="imageDependentListForm" styleClass="colorblue2 p_5"
+												style="width:80px;">
+												<html:option value="0">排序</html:option>
+											</html:select></td>
+										<td><input type="submit" name="button" id="button"
+											value="提交" class="submit greenBtn" /></td>
+									</tr>
+								</table>
+							</div>
 
 							<table width="100%" cellpadding="0" cellspacing="0" border="0"
 								class="dataList">
+								<tr>
+									<th width="60">
+										<div>&nbsp;请选择</div>
+									</th>
+									<th width="35">
+										<div>&nbsp;序号</div>
+									</th>
+									<th>
+										<div>图片</div>
+									</th>
+									<th>
+										<div>说明</div>
+									</th>
+									<th>
+										<div>略图</div>
+									</th>
+									<th>
+										<div>表名|行ID</div>
+									</th>
+									<th>
+										<div>类型</div>
+									</th>
+									<th>
+										<div>状态</div>
+									</th>
+									<th>
+										<div>操作</div>
+									</th>
+								</tr>
+								<c:forEach var="imageDependent"
+									items="${imageDependentListForm.list}" varStatus="status">
+									<tr>
+										<td><html:multibox property="selectedItems"
+												value="${imageDependent.id}"></html:multibox></td>
+										<td><c:out
+												value="${status.count+(imageDependentListForm.intPage-1)*imageDependentListForm.perPageNum}" />
+										</td>
+										<td><c:out value="${imageDependent.imageLibrary.name}" />
+										</td>
+										<td><c:out value="${imageDependent.imageLibrary.memo}" />
+										</td>
+										<td><img width="50" height="50"
+											src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&height=50&width=50&id=<c:out value="${imageDependent.imageLibrary.id}" />">
 
-								<c:forEach var="imageLibrary"
-									items="${imageLibraryListForm.list}" varStatus="status">
-									<c:out value="${status.count%5}" />
-									<c:choose>
-										<c:when test="${status.count%5==1}">
-											<tr>
-										</c:when>
-										<c:otherwise>
-										</c:otherwise>
-									</c:choose>
-									<td><img width="50" height="50"
-										src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&height=50&width=50&id=<c:out value="${imageLibrary.id}" />">
-										<br>
-									<html:multibox property="selectedItems"
-											value="${imageLibrary.id}"></html:multibox> <a
-										href="<%=path%>/library/imageLibraryList.do?thisAction=view&id=<c:out value="${imageLibrary.id}" />"><c:out
-												value="${imageLibrary.name}" /></a></td>
-									<c:choose>
-										<c:when test="${status.count%5==1}">
-											</tr>
-										</c:when>
-										<c:otherwise>
-										</c:otherwise>
-									</c:choose>
-
+										</td>
+										<td><c:out value="${imageDependent.tableName}" />|<c:out
+												value="${imageDependent.rowId}" /></td>
+										<td><c:out
+												value="${imageDependent.imageLibrary.typeInfo}" /></td>
+										<td><c:out
+												value="${imageDependent.imageLibrary.statusInfo}" /></td>
+										<td>
+										<!-- 
+										<a
+											href="<%=path%>/library/imageDependentList.do?thisAction=view&id=<c:out value="${imageDependent.id}" />">查看</a>
+										 -->
+										</td>
+									</tr>
 								</c:forEach>
 
 							</table>
 
 							<table width="100%" style="margin-top: 5px;">
 								<tr>
-									<td><input name="label"
-										type="button" class="button1" value="返回主页" onclick="goMainPage();"><input name="label" type="button" class="button1"
+									<td><input name="label" type="button" class="button1"
 										value="新 增" onclick="add();"> <input name="label"
 										type="button" class="button1" value="修 改" onclick="edit();">
 										<input name="label" type="button" class="button1" value="删 除"
-										onclick="del();"> 
-										<input name="label"
-										type="button" class="button2" value="设置为封面" onclick="updateCoverImage();">
-										
-										</td>
+										onclick="del();"></td>
 									<td align="right">
 										<div>
 											共有记录&nbsp;
-											<c:out value="${imageLibraryListForm.totalRowCount}"></c:out>
+											<c:out value="${imageDependentListForm.totalRowCount}"></c:out>
 											&nbsp;条&nbsp;&nbsp;&nbsp;&nbsp; [ <a
 												href="JavaScript:turnToPage(document.forms[0],0)">首页</a> | <a
 												href="JavaScript:turnToPage(document.forms[0],1)">上一页</a> |
 											<a href="JavaScript:turnToPage(document.forms[0],2)">下一页</a>
 											| <a href="JavaScript:turnToPage(document.forms[0],3)">
 												末页</a>] 页数:
-											<c:out value="${imageLibraryListForm.intPage}" />
+											<c:out value="${imageDependentListForm.intPage}" />
 											/
-											<c:out value="${imageLibraryListForm.pageCount}" />
+											<c:out value="${imageDependentListForm.pageCount}" />
 											]
 										</div>
 									</td>
