@@ -73,7 +73,7 @@
 											增加特别关系人</a> |<a
 										href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=agent&rowId=<c:out value="${agent.id}" />">
 											增加相片</a> |<a
-										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&tableName=agent&rowId=<c:out value="${agent.id}" />">
+										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&perPageNum=1&tableName=agent&rowId=<c:out value="${agent.id}" />">
 											所有相片</a></td>
 								</tr>
 								<tr>

@@ -85,6 +85,7 @@
 				<html:hidden property="lastAction" />
 				<html:hidden property="intPage" />
 				<html:hidden property="pageCount" />
+				<html:hidden property="perPageNum" />
 
 				<html:hidden property="tableName" />
 				<html:hidden property="rowId" />
@@ -119,12 +120,12 @@
 										<c:otherwise>
 										</c:otherwise>
 									</c:choose>
-									<td><img width="50" height="50"
-										src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&height=50&width=50&id=<c:out value="${imageLibrary.id}" />">
+									<td><img width="600" height="400" onclick="JavaScript:turnToPage(document.forms[0],2)"
+										src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&height=600&width=400&id=<c:out value="${imageLibrary.id}" />">
 										<br>
 									<html:multibox property="selectedItems"
 											value="${imageLibrary.id}"></html:multibox> <a
-										href="<%=path%>/library/imageLibraryList.do?thisAction=view&id=<c:out value="${imageLibrary.id}" />"><c:out
+										href="<%=path%>/library/imageLibraryList.do?thisAction=view&id=<c:out value="${imageLibrary.id}" />">[查看原图]<c:out
 												value="${imageLibrary.name}" /></a></td>
 									<c:choose>
 										<c:when test="${status.count%5==1}">
