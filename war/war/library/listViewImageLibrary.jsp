@@ -104,11 +104,13 @@
 								<c:param name="title1" value="核心服务库" />
 								<c:param name="title2" value="图片橱窗" />
 							</c:import>
-
-
-
 							<table width="100%" cellpadding="0" cellspacing="0" border="0"
 								class="dataList">
+								<tr>
+									<td><input name="label"
+										type="button" class="button1" value="返 回"
+										onclick="window.history.back();"> </td>
+								</tr>
 
 								<c:forEach var="imageLibrary"
 									items="${imageLibraryListForm.list}" varStatus="status">

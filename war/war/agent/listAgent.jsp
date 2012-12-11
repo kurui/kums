@@ -256,7 +256,9 @@
 													</div>
 											</td>
 											<td>
-												<div align="left"><a href="#"  onclick="openResume(<c:out value="${agent.id}" />)">简历</a>
+												<div align="left"><a href="#"  onclick="openResume(<c:out value="${agent.id}" />)">简历</a>|<a
+										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&perPageNum=1&tableName=agent&rowId=<c:out value="${agent.id}" />">
+											相册</a>
 													
 												</div>
 											</td>
@@ -291,9 +293,7 @@
 												<c:if test="${!empty agent.agentHabit}">
 													<a href="<%=path%>/agent/agentHabitList.do?thisAction=save&agentId=<c:out value="${agent.id}" />">习性</a>
 												</c:if>
-												|<a
-										href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=agent&rowId=<c:out value="${agent.id}" />">
-											增加相片</a>
+												
 											</td>
 										</tr>
 									</c:forEach>

@@ -74,7 +74,7 @@
 										href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=agent&rowId=<c:out value="${agent.id}" />">
 											增加相片</a> |<a
 										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&perPageNum=1&tableName=agent&rowId=<c:out value="${agent.id}" />">
-											所有相片</a></td>
+											相册</a></td>
 								</tr>
 								<tr>
 								</tr>

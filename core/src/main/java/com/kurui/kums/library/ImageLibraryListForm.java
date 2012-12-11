@@ -11,8 +11,8 @@ public class ImageLibraryListForm extends ListActionForm {
 
 	private long id = Long.valueOf(0);
 	private String name = "";
-	private int width;
-	private int height;
+	private int width=0;
+	private int height=0;
 	
 	protected String tableName;
 	protected long rowId;
