@@ -70,6 +70,10 @@
 						<c:if test="${err eq 'statusError'}">您的账号已经被停用！请联系管理员！</c:if>
 					</div>
 				</div>
+				<div align="center">
+			Copyright @ KR Corporation All Rights Reserved <a
+					href="<%=path%>/right/licenseList.do?thisAction=viewClient" >License</a>
+		</div>	
 			</div>
 		</form>
 	</body>

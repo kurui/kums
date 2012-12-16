@@ -46,13 +46,18 @@
 					target="mainFrame">客户公司列表</a>
 				</span> <span class="title"> <a
 					href="<%=path%>/finance/assetsItemList.do?thisAction=list&status=1"
-					target="mainFrame">资产项目列表</a> <span class="title"> <a
-						href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
-						target="mainFrame">授权列表</a>
-				</span> <span class="title"> <a
-						href="<%=path%>/library/imageDependentList.do?thisAction=list"
-						target="mainFrame">图片库</a>
+					target="mainFrame">资产项目列表</a></span> <span class="title"> <a
+					href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
+					target="mainFrame">授权列表</a>
 				</span>
+				
+				 <span class="title"> <a
+					href="<%=path%>/library/imageDependentList.do?thisAction=list"
+					target="mainFrame">图片库</a>
+				</span>
+					 <span class="title">
+							<a href="<%=path%>/agent/agentList.do?thisAction=list" target="mainFrame">客户列表</a>
+						</span>
 			</div>
 		</div>
 		<div class="closeSiseBar">

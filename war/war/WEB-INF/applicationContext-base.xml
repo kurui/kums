@@ -25,7 +25,7 @@
 				<value>message.*</value>
 				<value>user.login</value>
 				<value>newsList.listNotice</value>
-				<value>licenseList.view*</value>
+				<value>licenseList.viewClient</value>
 			</list>
 		</property>
 	</bean>
