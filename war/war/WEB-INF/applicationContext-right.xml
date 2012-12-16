@@ -92,6 +92,7 @@
 		</property>
 	</bean>
 
+<!-- 这段干什么用的？？ -->
 	<bean id="baseRightInfo"
 		class="com.kurui.kums.base.database.jdbc.app.right.BaseRightInfo">
 		<property name="list">
@@ -101,6 +102,7 @@
 				<value>transaction*.c</value>
 				<value>system*.d</value>
 				<value>system*.a</value>
+				
 			</list>
 		</property>
 	</bean>
