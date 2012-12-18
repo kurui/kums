@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="war/library"/>
+	<classpathentry kind="src" path="war/demo"/>
 	<classpathentry kind="src" path="war/system"/>
 	<classpathentry kind="src" path="war/agent"/>
 	<classpathentry kind="src" path="war/right"/>
