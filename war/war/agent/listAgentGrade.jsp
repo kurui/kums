@@ -95,6 +95,9 @@
 												<html:option value="11">
 														潜在客户
 													</html:option>
+													<html:option value="21">
+														网络客户
+													</html:option>
 											</html:select>
 											<html:select property="loyalIndex"
 												styleClass="colorblue2 p_5" style="width:80px;">
@@ -200,6 +203,9 @@
 													</html:option>
 													<html:option value="11">
 														潜在客户
+													</html:option>
+													<html:option value="21">
+														网络客户
 													</html:option>
 												</html:select>
 											</td>

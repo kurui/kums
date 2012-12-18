@@ -36,7 +36,7 @@
 						<td width="10" class="tbll"></td>
 						<td valign="top" class="body"><c:import
 								url="../page/mainTitle.jsp" charEncoding="UTF-8">
-								<c:param name="title1" value="客户管理" />
+								<c:param name="title1" value="客户管理"  />
 								<c:param name="title2" value="查看客户信息" />
 							</c:import>
 							<hr>
@@ -44,13 +44,22 @@
 								class="dataList">
 								<tr>
 
-									<td class="lef" width="100px"><c:out value="${agent.agentNo}" /> | <c:out
-											value="${agent.name}" /></td>
-									<td colspan="3" rowspan="4"><img width="50" height="50"
-										src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&height=50&width=50&tableName=agent&rowId=<c:out value="${agent.id}" />">
+									<td class="lef" ><c:out value="${agent.agentNo}" /> | <c:out value="${agent.name}" /></td>
+									<td colspan="2" rowspan="3"><img width="100" height="120"
+										src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&width=100&height=120&tableName=agent&rowId=<c:out value="${agent.id}" />">
 
 									</td>
-
+									<td colspan="1" rowspan="3">|<a
+										href="<%=path%>/agent/agentRelationList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
+											增加特别关系人</a> |<a
+										href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=agent&rowId=<c:out value="${agent.id}" />">
+											增加相片</a> |<a
+										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&perPageNum=1&tableName=agent&rowId=<c:out value="${agent.id}" />">
+											相册</a>|
+											<a
+										href="<%=path%>/agent/agentList.do?thisAction=view&id=<c:out value="${agent.id}" />">
+											刷新当前页</a>
+									</td>
 								</tr>
 								<tr>
 									<td class="lef"><c:out value="${agent.typeInfo}" /> | <c:out
@@ -68,13 +77,7 @@
 												谱系</a>
 										</c:if> |<a
 										href="<%=path%>/agent/coterieList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
-											圈子</a>|<a
-										href="<%=path%>/agent/agentRelationList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
-											增加特别关系人</a> |<a
-										href="<%=path%>/library/imageLibraryList.do?thisAction=saveDependent&tableName=agent&rowId=<c:out value="${agent.id}" />">
-											增加相片</a> |<a
-										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&perPageNum=1&tableName=agent&rowId=<c:out value="${agent.id}" />">
-											相册</a></td>
+											圈子</a></td>
 								</tr>
 								<tr>
 								</tr>
@@ -206,7 +209,7 @@
 								<tr>
 									<td class="lef">备注</td>
 									<td style="text-align: left" colspan="3"><c:out
-											value="${agent.memo}" /></td>
+											value="${agent.memo}" escapeXml="true"/></td>
 								</tr>
 								<tr>
 									<td class="lef">分管部门</td>

@@ -225,7 +225,18 @@ public class AgentAction extends BaseAction {
 				long flag = agentBiz.update(agent);
 
 				if (flag > 0) {
-					return redirectListGrade();
+					ActionRedirect redirect = new ActionRedirect(
+							"/agent/agentList.do?thisAction=listGrade");
+					redirect.addParameter("companyId", agentForm.getCompanyId());
+					redirect.addParameter("type", agentForm.getType());
+					redirect.addParameter("loyalIndex", agentForm.getLoyalIndex());
+					redirect.addParameter("friendIndex", agentForm.getFriendIndex());
+					redirect.addParameter("assetIndex", agentForm.getAssetIndex());
+					redirect.addParameter("specialIndex", agentForm.getSpecialIndex());
+					redirect.addParameter("specialIndex", agentForm.getSpecialIndex());
+					
+					
+					return redirect;
 				} else {
 					inf.setMessage("修改客户数据异常!");
 				}

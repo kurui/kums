@@ -145,6 +145,9 @@
 													<html:option value="11">
 														潜在客户
 													</html:option>
+													<html:option value="21">
+														网络客户
+													</html:option>
 												</html:select>												
 											</td>
 											<td>

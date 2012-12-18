@@ -221,7 +221,7 @@
 											备注
 										</td>
 										<td style="text-align: left" colspan="3">
-											<html:textarea property="memo" name="agent" styleClass="colorblue2 p_5" style="width:600px;height:300px" cols="10" rows="5"></html:textarea>
+											<html:textarea property="memo" name="agent" styleClass="colorblue2 p_5" style="width:600px;height:300px" cols="5" rows="5"></html:textarea>
 										</td>
 									</tr>
 									<tr>

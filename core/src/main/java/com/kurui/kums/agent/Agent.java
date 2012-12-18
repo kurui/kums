@@ -28,6 +28,7 @@ public class Agent extends _Agent {
 	public static final long TYPE_3 = 3;// 普通
 	public static final long TYPE_4 = 4;// 小客户
 	public static final long TYPE_11 = 11;// 潜在客户
+	public static final long TYPE_21 = 21;// 网络客户
 	public static final long TYPE_80 = 80;// 无
 
 	// sex
@@ -104,6 +105,8 @@ public class Agent extends _Agent {
 				return "小客户";
 			} else if (this.getType().intValue() == TYPE_11) {
 				return "潜在客户";
+			}else if (this.getType().intValue() == TYPE_21) {
+				return "网络客户";
 			} else {
 				return null;
 			}
