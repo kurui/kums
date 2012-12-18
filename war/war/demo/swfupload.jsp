@@ -10,7 +10,7 @@
 <title>SWFUpload Demos - Simple Demo</title>
 <link  rel="stylesheet" type="text/css"  href="../_css/swfupload.css"/>
 <script type="text/javascript"
-	src="<%=path%>/_js/swfupload/SWFUpload.js"></script>
+	src="<%=path%>/_js/swfupload/swfupload.js"></script>
 <script type="text/javascript"
 	src="<%=path%>/_js/swfupload/swfupload.queue.js"></script>
 <script type="text/javascript"
@@ -107,11 +107,11 @@ span.progressBar {
 </body>
 <script type="text/javascript">
 	var swfu;
-	function initSWFUpload() {
+window.onload = function () {
 	swfu = new SWFUpload({
 		upload_script : "swfupload.jsp",  //调用的上传功能
 		target : "SWFUploadTarget",
-		flash_path : "SWFUpload.swf",  //flash所在位置
+		flash_path : "swfupload.swf",  //flash所在位置
 		allowed_filesize : 30720,	// 30 MB
 		allowed_filetypes : "*.*",
 		allowed_filetypes_description : "All files...",

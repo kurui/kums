@@ -12,7 +12,7 @@
 <script type="text/javascript" src="<%=path%>/_js/swfupload/swfupload.swfobject.js"></script>
 
 <script type="text/javascript"
-	src="<%=path%>/_js/swfupload/SWFUpload.js"></script>
+	src="<%=path%>/_js/swfupload/swfupload.js"></script>
 <script type="text/javascript"
 	src="<%=path%>/_js/swfupload/swfupload.queue.js"></script>
 <script type="text/javascript"
@@ -23,7 +23,7 @@ var swfu;
 
 SWFUpload.onload = function () {
 	var settings = {
-		flash_url : "../swfupload/swfupload.swf",
+		flash_url : "swfupload.swf",
 		upload_url: "upload.php",
 		post_params: {
 			"PHPSESSID" : "NONE",
