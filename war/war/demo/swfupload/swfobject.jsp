@@ -8,22 +8,22 @@
 <html>
 <head>
 <title>SWFUpload Demos - SWFObject Demo</title>
-<link  rel="stylesheet" type="text/css"  href="../_css/swfupload.css"/>
-<script type="text/javascript" src="<%=path%>/_js/swfupload/swfupload.swfobject.js"></script>
+<link  rel="stylesheet" type="text/css"  href="<%=path%>/_css/swfupload.css"/>
+<script type="text/javascript" src="<%=path%>/_js/swfupload/swfobject/swfupload.swfobject.js"></script>
 
 <script type="text/javascript"
 	src="<%=path%>/_js/swfupload/swfupload.js"></script>
 <script type="text/javascript"
-	src="<%=path%>/_js/swfupload/swfupload.queue.js"></script>
+	src="<%=path%>/_js/swfupload/swfobject/swfupload.queue.js"></script>
 <script type="text/javascript"
-	src="<%=path%>/_js/swfupload/fileprogress.js"></script>
-<script type="text/javascript" src="<%=path%>/_js/swfupload/handlers.js"></script>
+	src="<%=path%>/_js/swfupload/swfobject/fileprogress.js"></script>
+<script type="text/javascript" src="<%=path%>/_js/swfupload/swfobject/handlers.js"></script>
 <script type="text/javascript">
 var swfu;
 
 SWFUpload.onload = function () {
 	var settings = {
-		flash_url : "swfupload.swf",
+		flash_url : "../swfupload/swfupload.swf",
 		upload_url: "upload.php",
 		post_params: {
 			"PHPSESSID" : "NONE",
