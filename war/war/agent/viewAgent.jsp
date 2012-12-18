@@ -44,7 +44,7 @@
 								class="dataList">
 								<tr>
 
-									<td class="lef"><c:out value="${agent.agentNo}" /> | <c:out
+									<td class="lef" width="100px"><c:out value="${agent.agentNo}" /> | <c:out
 											value="${agent.name}" /></td>
 									<td colspan="3" rowspan="4"><img width="50" height="50"
 										src="<%=path%>/library/imageLibraryList.do?thisAction=viewImage&height=50&width=50&tableName=agent&rowId=<c:out value="${agent.id}" />">

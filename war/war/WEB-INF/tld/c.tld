@@ -62,7 +62,7 @@
  <tag>
   <name>check</name>
   <tag-class>com.kurui.kums.base.ui.tag.URIRight</tag-class>
-  <body-content>jsp</body-content>
+  <body-content>JSP</body-content>
   <description>This tag is used to test include tool</description>
   <attribute>
    <name>code</name>

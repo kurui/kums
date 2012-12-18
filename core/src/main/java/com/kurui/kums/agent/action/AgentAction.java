@@ -188,7 +188,7 @@ public class AgentAction extends BaseAction {
 					MainTask.put(listener);
 					//
 					if (flag > 0) {
-						return redirectList();
+						return redirect(agent);
 					} else {
 						inf.setMessage("修改客户数据异常!");
 					}

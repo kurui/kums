@@ -65,6 +65,8 @@ public class AgentEventListAction extends BaseAction {
 			throws AppException {
 		AgentEventListForm alf = (AgentEventListForm) form;
 		AgentEvent agentEvent = new AgentEvent();
+		agentEvent.setStatus(AgentEvent.STATES_1);
+		agentEvent.setType(AgentEvent.TYPE_1);
 		agentEvent.setAgentNo("");
 		agentEvent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 

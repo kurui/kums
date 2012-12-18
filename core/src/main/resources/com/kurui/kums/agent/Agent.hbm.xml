@@ -167,7 +167,7 @@
 			<one-to-many class="com.kurui.kums.agent.ShareHolder" />
 		</set>
 		<many-to-one name="company"
-			class="com.kurui.kums.transaction.Company" not-null="false">
+			class="com.kurui.kums.transaction.Company" not-null="false" >
 			<column name="company_id" />
 		</many-to-one>
 

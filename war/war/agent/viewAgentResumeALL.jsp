@@ -24,7 +24,7 @@
 				
 				document.forms["editAgentResumeForm"].content.value="";	
 				
-				js.select.markSelected(document.forms["editAgentResumeForm"].type,2);	
+				js.select.markSelected(document.forms["editAgentResumeForm"].type,51);	
 				js.select.markSelected(document.forms["editAgentResumeForm"].status,1);	
 						
 				document.forms["editAgentResumeForm"].thisAction.value="insert";
