@@ -140,7 +140,7 @@
 											</td>
 											<td>
 												<a
-													href="<%=path%>/transaction/accountList.do?thisAction=view&id=<c:out value="${agentAccount.account.id}" />">
+													href="<%=path%>/library/accountList.do?thisAction=view&id=<c:out value="${agentAccount.account.id}" />">
 													<c:out value="${agentAccount.account.name}" /> </a>
 											</td>
 											<td>

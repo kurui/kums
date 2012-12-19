@@ -7,10 +7,49 @@
 		<form-bean name="imageLibraryListForm"
 			type="com.kurui.kums.library.ImageLibraryListForm" />
 		<form-bean name="imageLibrary" type="com.kurui.kums.library.ImageLibrary" />
-		
+
 		<form-bean name="imageDependentListForm"
 			type="com.kurui.kums.library.ImageDependentListForm" />
 		<form-bean name="imageDependent" type="com.kurui.kums.library.ImageDependent" />
+
+		<form-bean name="dataTypeListForm" type="com.kurui.kums.library.DataTypeListForm">
+		</form-bean>
+		<form-bean name="dataType" type="com.kurui.kums.library.DataType">
+		</form-bean>
+		<form-bean name="paymentToolListForm" type="com.kurui.kums.library.PaymentToolListForm">
+		</form-bean>
+		<form-bean name="paymentTool" type="com.kurui.kums.library.PaymentTool">
+		</form-bean>
+		<form-bean name="accountListForm" type="com.kurui.kums.library.AccountListForm">
+		</form-bean>
+		<form-bean name="account" type="com.kurui.kums.library.Account">
+		</form-bean>
+		<form-bean name="accountCheckListForm"
+			type="com.kurui.kums.library.AccountCheckListForm">
+		</form-bean>
+		<form-bean name="accountCheck" type="com.kurui.kums.library.AccountCheck">
+		</form-bean>
+		<form-bean name="companyListForm" type="com.kurui.kums.library.CompanyListForm">
+		</form-bean>
+		<form-bean name="company" type="com.kurui.kums.library.Company">
+		</form-bean>
+		<form-bean name="companyAccountListForm"
+			type="com.kurui.kums.library.CompanyAccountListForm">
+		</form-bean>
+		<form-bean name="companyAccount" type="com.kurui.kums.library.CompanyAccount">
+		</form-bean>
+		<form-bean name="platformListForm" type="com.kurui.kums.library.PlatformListForm">
+		</form-bean>
+		<form-bean name="platform" type="com.kurui.kums.library.Platform">
+		</form-bean>
+		<form-bean name="platComAccountListForm"
+			type="com.kurui.kums.library.PlatComAccountListForm">
+		</form-bean>
+		<form-bean name="platComAccount" type="com.kurui.kums.library.PlatComAccount">
+		</form-bean>
+
+		<form-bean name="news" type="com.kurui.kums.library.News" />
+		<form-bean name="newsListForm" type="com.kurui.kums.library.NewsListForm" />
 	</form-beans>
 	<action-mappings>
 		<action name="uploadForm" parameter="thisAction"
@@ -34,17 +73,153 @@
 		<action name="imageLibrary" path="/library/imageLibrary"
 			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
 			validate="false" scope="request">
-			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />			
+			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
 			<forward name="listViewImageLibrary" path="/library/listViewImageLibrary.jsp" />
 			<forward name="editImageLibrary" path="/library/editImageLibrary.jsp" />
 			<forward name="viewImageLibrary" path="/library/viewImageLibrary.jsp" />
 		</action>
-		
+
 		<action name="imageDependentListForm" path="/library/imageDependentList"
 			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
 			validate="false" scope="request">
 			<forward name="listImageLibrary" path="/library/listImageLibrary.jsp" />
 			<forward name="listImageDependent" path="/library/listImageDependent.jsp" />
+		</action>
+
+		<!-- 数据类型表 List -->
+		<action name="dataTypeListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" path="/library/dataTypeList"
+			validate="false" scope="request">
+			<forward name="listDataType" path="/library/listDataType.jsp" />
+			<forward name="editDataType" path="/library/editDataType.jsp">
+			</forward>
+			<forward name="viewDataType" path="/library/viewDataType.jsp">
+			</forward>
+		</action>
+		<action name="dataType" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" path="/library/dataType"
+			validate="false" scope="request">
+			<forward name="listDataType" path="/library/listDataType.jsp">
+			</forward>
+			<forward name="viewDataType" path="/library/viewDataType.jsp">
+			</forward>
+		</action>
+
+		<!-- 支付工具表List -->
+		<action name="paymentToolListForm" path="/library/paymentToolList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listPaymentTool" path="/library/listPaymentTool.jsp" />
+			<forward name="editpaymentTool" path="/library/editPaymentTool.jsp" />
+			<forward name="viewPaymentTool" path="/library/viewPaymentTool.jsp" />
+		</action>
+		<action name="paymentTool" path="/library/paymentTool"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listPaymentTool" path="/library/listPaymentTool.jsp" />
+		</action>
+
+		<!-- 支付账号表List -->
+		<action name="accountListForm" path="/library/accountList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listAccount" path="/library/listAccount.jsp" />
+			<forward name="editAccount" path="/library/editAccount.jsp" />
+			<forward name="viewAccount" path="/library/viewAccount.jsp" />
+			<forward name="listAccountBalance" path="/library/listAccountBalance.jsp" />
+		</action>
+
+		<action name="account" path="/library/account" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="request">
+			<forward name="listAccount" path="/library/listAccount.jsp" />
+		</action>
+
+		<!-- 帐户签到表List -->
+		<action name="accountCheckListForm" path="/library/accountCheckList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="list" path="/library/listAccountCheck.jsp" />
+			<forward name="edit" path="/library/editAccountCheck.jsp" />
+			<forward name="view" path="/library/viewAccountCheck.jsp" />
+		</action>
+		<action name="accountCheck" path="/library/accountCheck"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="list" path="/library/listAccountCheck.jsp" />
+		</action>
+
+		<!-- 公司表List -->
+		<action name="companyListForm" path="/library/companyList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listCompany" path="/library/listCompany.jsp" />
+			<forward name="editCompany" path="/library/editCompany.jsp" />
+			<forward name="viewCompany" path="/library/viewCompany.jsp" />
+		</action>
+		<action name="company" path="/library/company" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="request">
+			<forward name="listCompany" path="/library/listCompany.jsp" />
+		</action>
+
+		<action name="companyAccountListForm" path="/library/companyAccountList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listCompanyAccount" path="/library/listCompanyAccount.jsp" />
+			<forward name="editCompanyAccount" path="/library/editCompanyAccount.jsp" />
+			<forward name="viewCompanyAccount" path="/library/viewCompanyAccount.jsp" />
+		</action>
+
+		<action name="companyAccount" path="/library/companyAccount"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listCompany" path="/library/listCompany.jsp" />
+			<forward name="listCompanyAccountt" path="/library/listCompanyAccount.jsp" />
+			<forward name="viewCompanyAccount" path="/library/viewCompanyAccount.jsp" />
+
+		</action>
+
+		<!-- 交易平台表List -->
+		<action name="platformListForm" path="/library/platformList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listPlatform" path="/library/listPlatform.jsp" />
+			<forward name="editPlatform" path="/library/editPlatform.jsp" />
+			<forward name="viewPlatform" path="/library/viewPlatform.jsp" />
+		</action>
+
+		<action name="platform" path="/library/platform" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="request">
+			<forward name="listPlatform" path="/library/listPlatform.jsp" />
+		</action>
+
+		<!--平台账号表List -->
+		<action name="platComAccountListForm" path="/library/platComAccountList"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listPlatComAccount" path="/library/listPlatComAccount.jsp" />
+			<forward name="editPlatComAccount" path="/library/editPlatComAccount.jsp" />
+		</action>
+
+		<action name="platComAccount" path="/library/platComAccount"
+			parameter="thisAction" type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" scope="request">
+			<forward name="listPlatComAccount" path="/library/listPlatComAccount.jsp" />
+		</action>
+		<!-- 平台新闻 -->
+		<action name="news" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/information/news" validate="false">
+		</action>
+		<action name="newsListForm" parameter="thisAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			path="/information/newsList" validate="false">
+			<forward name="listNews" path="/library/listNews.jsp" />
+			<forward name="listNewsNotice" path="/library/listNewsNotice.jsp" />
+			<forward name="editNews" path="/library/editNews.jsp" />
+			<forward name="viewNews" path="/library/viewNews.jsp" />
 		</action>
 	</action-mappings>
 </struts-config>

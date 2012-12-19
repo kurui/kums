@@ -139,7 +139,7 @@ public class AgentDAOImp extends BaseDAOSupport implements AgentDAO {
 	public long update(Agent agent) throws AppException {
 		if (agent.getId() > 0) {
 			this.getHibernateTemplate().update(agent);
-			return agent.getId();
+			return 1;
 		} else
 			throw new IllegalArgumentException("id isn't a valid argument.");
 	}

@@ -145,6 +145,9 @@
 													<html:option value="11">
 														潜在客户
 													</html:option>
+													<html:option value="21">
+														网络客户
+													</html:option>
 												</html:select>												
 											</td>
 											<td>
@@ -238,7 +241,7 @@
 											<td>
 												<div align="left">
 													<a
-														href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${agent.company.id}" />">
+														href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${agent.company.id}" />">
 														<c:out value="${agent.company.name}" /> </a>
 												</div>
 											</td>

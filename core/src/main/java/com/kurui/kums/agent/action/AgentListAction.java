@@ -23,8 +23,8 @@ import com.kurui.kums.base.util.RegularUtil;
 import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.biz.FinanceOrderBiz;
 import com.kurui.kums.report.biz.AgentReportBiz;
-import com.kurui.kums.transaction.util.DataTypeStore;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.util.DataTypeStore;
+import com.kurui.kums.library.util.PlatComAccountStore;
 
 public class AgentListAction extends BaseAction {
 	private AgentBiz agentBiz;

@@ -1,7 +1,7 @@
 package com.kurui.kums.market;
 
 import com.kurui.kums.base.struts.ListActionForm;
-import com.kurui.kums.transaction.util.DataTypeStore;
+import com.kurui.kums.library.util.DataTypeStore;
 
 public class ProductListForm extends ListActionForm {
 

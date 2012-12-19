@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="#system#operateLoglist" NAME="action0"
+  PATH="/system/operateLoglist" SHAPE="32,17,0,0"
+  TITLE="operateLogListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listOperateLog" NAME="forward0"
+   PATH="/system/listOperateLog.jsp" TARGET="page0"
+   TITLE="listOperateLog" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#system#loginloglist" NAME="action1"
+  PATH="/system/loginloglist" SHAPE="32,129,0,0"
+  TITLE="loginlogListForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="listclientloginlog" NAME="forward0"
+   PATH="/system/listClientLoginLog.jsp" TARGET="page1"
+   TITLE="listclientloginlog" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#information#newsList" NAME="action2"
+  PATH="/information/newsList" SHAPE="32,241,0,0" TITLE="newsListForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewNews" NAME="forward0"
+   PATH="/library/viewNews.jsp" TARGET="page5" TITLE="viewNews"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listNewsNotice" NAME="forward1"
+   PATH="/library/listNewsNotice.jsp" TARGET="page4"
+   TITLE="listNewsNotice" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listNews" NAME="forward2"
+   PATH="/library/listNews.jsp" TARGET="page6" TITLE="listNews"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editNews" NAME="forward3"
+   PATH="/library/editNews.jsp" TARGET="page3" TITLE="editNews"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#information#news" NAME="action3"
+  PATH="/information/news" SHAPE="32,785,0,0" TITLE="news" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page0" PATH="/system/listOperateLog.jsp"
+  SHAPE="240,34,0,0" SUBTYPE="jsp" TITLE="listOperateLog.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/system/operateLoglist.do"
+   SUBTYPE="confirmed" TARGET="action0"
+   TITLE="/system/operateLoglist.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page1" PATH="/system/listClientLoginLog.jsp"
+  SHAPE="240,146,0,0" SUBTYPE="jsp" TITLE="listClientLoginLog.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/system/loginloglist.do"
+   SUBTYPE="confirmed" TARGET="action1" TITLE="/system/loginloglist.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page6" PATH="/library/listNews.jsp"
+  SHAPE="240,353,0,0" SUBTYPE="jsp" TITLE="listNews.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/newsList.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/information/newsList.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page4" PATH="/library/listNewsNotice.jsp"
+  SHAPE="448,241,0,0" SUBTYPE="jsp" TITLE="listNewsNotice.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/newsList.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/information/newsList.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page3" PATH="/library/editNews.jsp"
+  SHAPE="240,465,0,0" SUBTYPE="jsp" TITLE="editNews.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/news.do"
+   SUBTYPE="confirmed" TARGET="action3" TITLE="/information/news.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page5" PATH="/library/viewNews.jsp"
+  SHAPE="448,353,0,0" SUBTYPE="jsp" TITLE="viewNews.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/newsList.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/information/newsList.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+</PROCESS>

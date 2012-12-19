@@ -1,7 +1,7 @@
 package com.kurui.kums.agent._entity;
 
 import com.kurui.kums.agent.Agent;
-import com.kurui.kums.transaction.Account;
+import com.kurui.kums.library.Account;
 
 // Generated 2011-9-20 11:43:44 by Hibernate Tools 3.2.2.GA
 
@@ -15,7 +15,7 @@ public class _AgentAccount extends org.apache.struts.action.ActionForm
 	private static final long serialVersionUID = 1L;
 
 	protected long id;
-	protected com.kurui.kums.transaction.Account account;
+	protected com.kurui.kums.library.Account account;
 	protected com.kurui.kums.agent.Agent agent;
 	protected Long status;
 

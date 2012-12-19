@@ -73,6 +73,7 @@
 												<html:option value="3">普通客户</html:option>
 												<html:option value="4">小客户</html:option>
 												<html:option value="11">潜在客户</html:option>
+												<html:option value="21">网络客户</html:option>
 											</html:select>
 											|
 											<html:select property="directLevelId" value="${agent.directLevel.id}" name="agent" styleClass="colorblue2 p_5" style="width:80px;">
@@ -220,7 +221,7 @@
 											备注
 										</td>
 										<td style="text-align: left" colspan="3">
-											<html:text property="memo" name="agent" styleClass="colorblue2 p_5" style="width:800px;"></html:text>
+											<html:textarea property="memo" name="agent" styleClass="colorblue2 p_5" style="width:600px;height:300px" cols="5" rows="5"></html:textarea>
 										</td>
 									</tr>
 									<tr>

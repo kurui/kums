@@ -3,6 +3,31 @@
 
 <beans default-lazy-init="false" default-autowire="no"
 	default-dependency-check="none">
+	
+	<!-- 外部访问权限 -->
+		<bean id="KUMSconstant" class="com.kurui.kums.base.KumsConstant">
+		<property name="url">
+			<list>
+				<value>message.*</value>
+				<value>user.login</value>
+				<value>newsList.listNotice</value>
+				<value>licenseList.viewClient</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 这段干什么用的？？ -->
+	<bean id="baseRightInfo"
+		class="com.kurui.kums.base.database.jdbc.app.right.BaseRightInfo">
+		<property name="list">
+			<list>
+				<value>agent*.b</value>
+				<value>user*.a</value>
+				<value>transaction*.c</value>
+				
+			</list>
+		</property>
+	</bean>
 
 	<bean name="/user/userlist"
 		class="com.kurui.kums.right.action.UserListAction" singleton="false"
@@ -92,18 +117,5 @@
 		</property>
 	</bean>
 
-<!-- 这段干什么用的？？ -->
-	<bean id="baseRightInfo"
-		class="com.kurui.kums.base.database.jdbc.app.right.BaseRightInfo">
-		<property name="list">
-			<list>
-				<value>agent*.b</value>
-				<value>user*.a</value>
-				<value>transaction*.c</value>
-				<value>system*.d</value>
-				<value>system*.a</value>
-				
-			</list>
-		</property>
-	</bean>
+
 </beans>

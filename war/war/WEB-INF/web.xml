@@ -49,8 +49,8 @@
 		<init-param>
 			<param-name>config</param-name>
 			<param-value>
-				/WEB-INF/struts-config.xml , /WEB-INF/struts-config-agent.xml, /WEB-INF/struts-config-system.xml ,
-				/WEB-INF/struts-config-transaction.xml, /WEB-INF/struts-config-market.xml, /WEB-INF/struts-config-finance.xml,
+				/WEB-INF/struts-config.xml , /WEB-INF/struts-config-agent.xml, /WEB-INF/struts-config-monitor.xml ,
+				 /WEB-INF/struts-config-market.xml, /WEB-INF/struts-config-finance.xml,
 				/WEB-INF/struts-config-right.xml, /WEB-INF/struts-config-report.xml, /WEB-INF/struts-config-library.xml,
 				/WEB-INF/struts-config-message.xml,
 			</param-value>
@@ -119,7 +119,7 @@
 	</servlet-mapping>
 
 	<session-config>
-		<session-timeout>30</session-timeout>
+		<session-timeout>60</session-timeout>
 	</session-config>
 
 	<welcome-file-list>

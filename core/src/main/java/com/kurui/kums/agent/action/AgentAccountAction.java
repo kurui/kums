@@ -17,11 +17,11 @@ import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.threads.MainTask;
 import com.kurui.kums.base.ui.inform.Inform;
-import com.kurui.kums.system.biz.SysInitBiz;
-import com.kurui.kums.transaction.Account;
-import com.kurui.kums.transaction.PaymentTool;
-import com.kurui.kums.transaction.biz.AccountBiz;
-import com.kurui.kums.transaction.biz.PaymentToolBiz;
+import com.kurui.kums.library.biz.SysInitBiz;
+import com.kurui.kums.library.Account;
+import com.kurui.kums.library.PaymentTool;
+import com.kurui.kums.library.biz.AccountBiz;
+import com.kurui.kums.library.biz.PaymentToolBiz;
 
 public class AgentAccountAction extends BaseAction {
 	private AccountBiz accountBiz;

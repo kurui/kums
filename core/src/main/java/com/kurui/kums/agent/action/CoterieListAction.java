@@ -15,7 +15,7 @@ import com.kurui.kums.base.Constant;
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.Coterie;
 import com.kurui.kums.agent.CoterieListForm;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.util.PlatComAccountStore;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.CoterieBiz;
 

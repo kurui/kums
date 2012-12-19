@@ -14,8 +14,8 @@ import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.market.EstateDish;
 import com.kurui.kums.market.EstateDishListForm;
 import com.kurui.kums.market.biz.EstateDishBiz;
-import com.kurui.kums.transaction.Company;
-import com.kurui.kums.transaction.biz.CompanyBiz;
+import com.kurui.kums.library.Company;
+import com.kurui.kums.library.biz.CompanyBiz;
 
 public class EstateDishListAction extends BaseAction {
 	private EstateDishBiz estateDishBiz;

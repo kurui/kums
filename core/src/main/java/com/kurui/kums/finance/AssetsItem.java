@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.finance._entity._AssetsItem;
-import com.kurui.kums.transaction.util.DataTypeStore;
+import com.kurui.kums.library.util.DataTypeStore;
 
 public class AssetsItem extends _AssetsItem {
 

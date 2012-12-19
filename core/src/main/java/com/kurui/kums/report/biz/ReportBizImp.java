@@ -20,9 +20,9 @@ import com.kurui.kums.finance.FinanceOrderListForm;
 import com.kurui.kums.finance.dao.FinanceOrderDAO;
 import com.kurui.kums.report.dao.ReportDAO;
 import com.kurui.kums.right.dao.UserDAO;
-import com.kurui.kums.transaction.DataType;
-import com.kurui.kums.transaction.dao.DataTypeDAO;
-import com.kurui.kums.transaction.util.DataTypeStore;
+import com.kurui.kums.library.DataType;
+import com.kurui.kums.library.dao.DataTypeDAO;
+import com.kurui.kums.library.util.DataTypeStore;
 
 public class ReportBizImp implements ReportBiz {
 	private ReportDAO reportDAO;

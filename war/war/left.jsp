@@ -35,29 +35,21 @@
 				</span> <span class="title"><a
 					href="user/user.do?thisAction=editMyPassword&userId=<c:out value='${URI.user.userId}'/>"
 					target="mainFrame">修改我的密码</a> </span> <span class="title"><a
-					href="<%=path%>/transaction/accountCheckList.do?thisAction=list"
+					href="<%=path%>/library/accountCheckList.do?thisAction=list"
 					target="mainFrame">账户盘点</a> </span> <span class="title"><a
 					href="<%=path%>/finance/financeOrderList.do?thisAction=addLiveOrder"
 					target="mainFrame">管理费用入账</a> </span> <span class="title"> <a
 					href="<%=path%>/finance/financeOrderList.do?thisAction=listLiveOrder"
 					target="mainFrame">管理费用列表</a>
 				</span> <span class="title"> <a
-					href="<%=path%>/transaction/companyList.do?thisAction=list&type=2"
-					target="mainFrame">客户公司列表</a>
-				</span> <span class="title"> <a
 					href="<%=path%>/finance/assetsItemList.do?thisAction=list&status=1"
 					target="mainFrame">资产项目列表</a></span> <span class="title"> <a
-					href="<%=path%>/right/licenseList.do?thisAction=list&status=1"
-					target="mainFrame">授权列表</a>
+					href="<%=path%>/library/companyList.do?thisAction=list&type=2"
+					target="mainFrame">客户公司列表</a>
+				</span> <span class="title"> <a
+					href="<%=path%>/agent/agentList.do?thisAction=list"
+					target="mainFrame">客户列表</a>
 				</span>
-				
-				 <span class="title"> <a
-					href="<%=path%>/library/imageDependentList.do?thisAction=list"
-					target="mainFrame">图片库</a>
-				</span>
-					 <span class="title">
-							<a href="<%=path%>/agent/agentList.do?thisAction=list" target="mainFrame">客户列表</a>
-						</span>
 			</div>
 		</div>
 		<div class="closeSiseBar">

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [syncWithModel=true] -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.kurui.kums.library.AreaCode" table="area_Code">
+	
+		<id name="id" type="long" column="id">
+			<generator class="sequence">
+				<param name="sequence">seq_areaCode</param>
+			</generator>
+		</id>
+		<property name="name" column="name" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="areaCode" column="area_code" type="string"
+			not-null="false" insert="true" update="true">
+		</property>
+	
+	</class>
+</hibernate-mapping>

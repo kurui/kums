@@ -13,7 +13,7 @@ import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.util.PlatComAccountStore;
 import com.kurui.kums.report.CreditReport;
 import com.kurui.kums.report.CreditReportListForm;
 import com.kurui.kums.report.biz.CreditReportBiz;

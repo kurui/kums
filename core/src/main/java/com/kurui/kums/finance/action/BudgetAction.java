@@ -33,7 +33,8 @@ public class BudgetAction extends BaseAction {
 			budget.setName(pform.getName());
 			budget.setBeginTime(new Timestamp(System.currentTimeMillis()));
 			budget.setCompanyNo(pform.getCompanyNo());
-			budget.setEntryOperator(uri.getUser().getUserName());
+			budget.setUserNo(uri.getUser().getUserNo());
+			
 			// budget.setMemo(pform.getMemo());
 			budget.setType(pform.getType());
 			budget.setStatus(pform.getStatus());
@@ -64,7 +65,7 @@ public class BudgetAction extends BaseAction {
 				budget.setName(pform.getName());
 				budget.setBeginTime(new Timestamp(System.currentTimeMillis()));
 				budget.setCompanyNo(pform.getCompanyNo());
-				budget.setEntryOperator(uri.getUser().getUserName());
+				budget.setUserNo(uri.getUser().getUserNo());
 				// budget.setMemo(pform.getMemo());
 				budget.setType(pform.getType());
 				budget.setStatus(pform.getStatus());

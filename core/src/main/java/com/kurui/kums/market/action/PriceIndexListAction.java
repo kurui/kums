@@ -22,8 +22,8 @@ import com.kurui.kums.market.PriceIndexListForm;
 import com.kurui.kums.market.PriceReference;
 import com.kurui.kums.market.biz.PriceIndexBiz;
 import com.kurui.kums.market.biz.PriceReferenceBiz;
-import com.kurui.kums.transaction.Company;
-import com.kurui.kums.transaction.biz.CompanyBiz;
+import com.kurui.kums.library.Company;
+import com.kurui.kums.library.biz.CompanyBiz;
 
 public class PriceIndexListAction extends BaseAction {
 	private PriceIndexBiz priceIndexBiz;

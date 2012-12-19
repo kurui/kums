@@ -32,7 +32,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected BigDecimal virtualAmount;
 	protected BigDecimal totalIntegral;
 	protected Long grade;
-	protected String userName;
+	protected String userNo;
 	protected Timestamp updateTime;
 	protected Long sex;
 	protected String birthday;
@@ -51,7 +51,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	
 	protected String treeFileName;
 
-	protected com.kurui.kums.transaction.Company company;
+	protected com.kurui.kums.library.Company company;
 	protected com.kurui.kums.agent.DirectLevel directLevel;
 	protected com.kurui.kums.agent.AgentHabit agentHabit;
 
@@ -175,12 +175,13 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.grade = grade;
 	}
 
-	public String getUserName() {
-		return userName;
+
+	public String getUserNo() {
+		return userNo;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserNo(String userNo) {
+		this.userNo = userNo;
 	}
 
 	public Timestamp getUpdateTime() {
@@ -203,11 +204,11 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.financeOrders = financeOrders;
 	}
 
-	public com.kurui.kums.transaction.Company getCompany() {
+	public com.kurui.kums.library.Company getCompany() {
 		return this.company;
 	}
 
-	public void setCompany(com.kurui.kums.transaction.Company company) {
+	public void setCompany(com.kurui.kums.library.Company company) {
 		this.company = company;
 	}
 

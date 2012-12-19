@@ -15,8 +15,8 @@ import com.kurui.kums.finance.biz.StatementBiz;
 import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.Statement;
 import com.kurui.kums.finance.StatementListForm;
-import com.kurui.kums.transaction.Account;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.Account;
+import com.kurui.kums.library.util.PlatComAccountStore;
 
 public class StatementListAction extends BaseAction {
 	private StatementBiz statementBiz;

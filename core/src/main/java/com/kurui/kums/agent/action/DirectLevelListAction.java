@@ -13,7 +13,7 @@ import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.agent.DirectLevel;
 import com.kurui.kums.agent.DirectLevelListForm;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.util.PlatComAccountStore;
 import com.kurui.kums.agent.biz.DirectLevelBiz;
 
 public class DirectLevelListAction extends BaseAction {

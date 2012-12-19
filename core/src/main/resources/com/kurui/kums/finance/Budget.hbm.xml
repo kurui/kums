@@ -25,8 +25,8 @@
 		<property name="companyNo" type="string">
 			<column name="COMPANY_NO" length="50" />
 		</property>
-		<property name="entryOperator" type="string">
-			<column name="ENTRY_OPERATOR" length="50" />
+		<property name="userNo" type="string">
+			<column name="USER_NO" length="50" />
 		</property>
 		<property name="type" type="long">
 			<column name="TYPE" precision="22" scale="0" />

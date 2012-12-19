@@ -17,8 +17,8 @@ import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.AssetsItem;
 import com.kurui.kums.finance.AssetsItemListForm;
 import com.kurui.kums.finance.biz.AssetsItemBiz;
-import com.kurui.kums.transaction.DataType;
-import com.kurui.kums.transaction.biz.DataTypeBiz;
+import com.kurui.kums.library.DataType;
+import com.kurui.kums.library.biz.DataTypeBiz;
 
 public class AssetsItemListAction extends BaseAction {
 	private AssetsItemBiz assetsItemBiz;

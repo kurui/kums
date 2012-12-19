@@ -59,19 +59,19 @@
 		</property>
 		
 		<many-to-one name="account"
-			class="com.kurui.kums.transaction.Account" not-null="false">
+			class="com.kurui.kums.library.Account" not-null="false">
 			<column name="ACCOUNT_ID" />
 		</many-to-one>
 		<many-to-one name="company"
-			class="com.kurui.kums.transaction.Company" not-null="false">
+			class="com.kurui.kums.library.Company" not-null="false">
 			<column name="COMPANY_ID" />
 		</many-to-one>
 		<many-to-one name="cussentCompany"
-			class="com.kurui.kums.transaction.Company" not-null="false">
+			class="com.kurui.kums.library.Company" not-null="false">
 			<column name="CUSSENT_COMPANY_ID" />
 		</many-to-one>		
 		<many-to-one name="platform"
-			class="com.kurui.kums.transaction.Platform" not-null="false">
+			class="com.kurui.kums.library.Platform" not-null="false">
 			<column name="PLATFORM_ID" />
 		</many-to-one>
 		<many-to-one name="orderGroup"

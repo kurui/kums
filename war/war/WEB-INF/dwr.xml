@@ -4,7 +4,7 @@
 <dwr>
    <allow> 
 	    <create javascript="platComAccountStore" creator="new">
-	    	<param name="class" value="com.kurui.kums.transaction.util.PlatComAccountStore"></param>
+	    	<param name="class" value="com.kurui.kums.library.util.PlatComAccountStore"></param>
 	    </create>	  
 	    <create javascript="agentStore" creator="new">
 	    	<param name="class" value="com.kurui.kums.agent.util.AgentStore"></param>
@@ -45,12 +45,12 @@
 	    
 	    <convert match="org.apache.struts.action.ActionServletWrapper"  converter="bean" />   	    
 	   
-	   	<convert match="com.kurui.kums.transaction.DataType" converter="hibernate3"></convert>	    
-	    <convert match="com.kurui.kums.transaction.util.PlatComAccount" converter="hibernate3"></convert>
-	    <convert match="com.kurui.kums.transaction.Company" converter="hibernate3"></convert>
-	    <convert match="com.kurui.kums.transaction.Platform" converter="hibernate3"></convert>
-	    <convert match="com.kurui.kums.transaction.Account" converter="hibernate3"></convert>	
-	    <convert match="com.kurui.kums.transaction.PaymentTool" converter="hibernate3"></convert>	
+	   	<convert match="com.kurui.kums.library.DataType" converter="hibernate3"></convert>	    
+	    <convert match="com.kurui.kums.library.util.PlatComAccount" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.library.Company" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.library.Platform" converter="hibernate3"></convert>
+	    <convert match="com.kurui.kums.library.Account" converter="hibernate3"></convert>	
+	    <convert match="com.kurui.kums.library.PaymentTool" converter="hibernate3"></convert>	
 	    
 	    <convert match="com.kurui.kums.agent.Agent" converter="hibernate3"></convert>
 	    <convert match="com.kurui.kums.agent.DirectLevel" converter="hibernate3"></convert>

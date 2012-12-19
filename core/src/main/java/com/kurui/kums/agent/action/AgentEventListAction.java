@@ -17,7 +17,7 @@ import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.util.PlatComAccountStore;
 
 public class AgentEventListAction extends BaseAction {
 	private AgentEventBiz agentEventBiz;
@@ -65,6 +65,8 @@ public class AgentEventListAction extends BaseAction {
 			throws AppException {
 		AgentEventListForm alf = (AgentEventListForm) form;
 		AgentEvent agentEvent = new AgentEvent();
+		agentEvent.setStatus(AgentEvent.STATES_1);
+		agentEvent.setType(AgentEvent.TYPE_1);
 		agentEvent.setAgentNo("");
 		agentEvent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 

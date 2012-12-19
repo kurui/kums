@@ -56,7 +56,7 @@
 	 	if("agent"==tableName){
 	 		url="../agent/agentList.do?thisAction=view&id="+rowId;
 	 	}else if("company"==tableName){
-	 		url="../transaction/companyList.do?thisAction=view&id="+rowId;
+	 		url="../library/companyList.do?thisAction=view&id="+rowId;
 	 	}else{
 	 		alert("缺少参数");
 	 	}

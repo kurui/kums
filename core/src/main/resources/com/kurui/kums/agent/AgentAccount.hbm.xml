@@ -13,7 +13,7 @@
 		</id>
 		
 		<many-to-one name="account"
-			class="com.kurui.kums.transaction.Account" not-null="false">
+			class="com.kurui.kums.library.Account" not-null="false">
 			<column name="ACCOUNT_ID" />
 		</many-to-one>
 

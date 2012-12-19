@@ -78,7 +78,7 @@ public class ImageLibraryListAction extends BaseAction {
 			if ("agent".equals(tableName)) {
 				return new ActionRedirect("/agent/agentList.do?thisAction=view&id="+rowId);
 			}else if ("company".equals(tableName)) {
-				return new ActionRedirect("/transaction/companyList.do?thisAction=view&id="+rowId);
+				return new ActionRedirect("/library/companyList.do?thisAction=view&id="+rowId);
 			}
 			
 		} catch (Exception e) {

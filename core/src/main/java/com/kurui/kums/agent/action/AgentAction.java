@@ -14,18 +14,18 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.DirectLevel;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.DirectLevelBiz;
-import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.KumsDataStoreListener;
-import com.kurui.kums.base.threads.MainTask;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.threads.MainTask;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.util.KumsNoUtil;
 import com.kurui.kums.base.util.StringUtil;
+import com.kurui.kums.library.Company;
+import com.kurui.kums.library.biz.CompanyBiz;
+import com.kurui.kums.library.biz.SysInitBiz;
 import com.kurui.kums.right.UserRightInfo;
-import com.kurui.kums.system.biz.SysInitBiz;
-import com.kurui.kums.transaction.Company;
-import com.kurui.kums.transaction.biz.CompanyBiz;
 
 public class AgentAction extends BaseAction {
 	private AgentBiz agentBiz;
@@ -65,7 +65,7 @@ public class AgentAction extends BaseAction {
 				agent.setStatus(agentForm.getStatus());
 				agent.setMemo(agentForm.getMemo());
 				agent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-				agent.setUserName(uri.getUser().getUserName());
+				agent.setUserNo(uri.getUser().getUserNo());
 				Company company = companyBiz.getCompanyById(companyId);
 				agent.setCompany(company);
 				long directLevelId = agentForm.getDirectLevelId();
@@ -154,7 +154,7 @@ public class AgentAction extends BaseAction {
 					agent.setMemo(agentForm.getMemo());
 					agent.setUpdateTime(new Timestamp(System
 							.currentTimeMillis()));
-					agent.setUserName(uri.getUser().getUserName());
+					agent.setUserNo(uri.getUser().getUserNo());
 
 					Company company = companyBiz.getCompanyById(companyId);
 					agent.setCompany(company);
@@ -188,7 +188,7 @@ public class AgentAction extends BaseAction {
 					MainTask.put(listener);
 					//
 					if (flag > 0) {
-						return redirectList();
+						return redirect(agent);
 					} else {
 						inf.setMessage("修改客户数据异常!");
 					}
@@ -225,7 +225,18 @@ public class AgentAction extends BaseAction {
 				long flag = agentBiz.update(agent);
 
 				if (flag > 0) {
-					return redirectListGrade();
+					ActionRedirect redirect = new ActionRedirect(
+							"/agent/agentList.do?thisAction=listGrade");
+					redirect.addParameter("companyId", agentForm.getCompanyId());
+					redirect.addParameter("type", agentForm.getType());
+					redirect.addParameter("loyalIndex", agentForm.getLoyalIndex());
+					redirect.addParameter("friendIndex", agentForm.getFriendIndex());
+					redirect.addParameter("assetIndex", agentForm.getAssetIndex());
+					redirect.addParameter("specialIndex", agentForm.getSpecialIndex());
+					redirect.addParameter("specialIndex", agentForm.getSpecialIndex());
+					
+					
+					return redirect;
 				} else {
 					inf.setMessage("修改客户数据异常!");
 				}

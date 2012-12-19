@@ -118,7 +118,7 @@
 												styleClass="colorblue2 p_5" style="width:150px;" /></td>
 								
 										<td><jsp:include
-												page="../transaction/listSearchCompanyBar.jsp"></jsp:include>
+												page="../library/listSearchCompanyBar.jsp"></jsp:include>
 										</td>
 										<td>类型：</td>
 										<td><html:select property="type"
@@ -206,7 +206,7 @@
 
 										<td><c:out value="${agentResume.endDate}" /></td>
 										<td><a
-											href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${agentResume.company.id}"/>">
+											href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${agentResume.company.id}"/>">
 												<c:out value="${agentResume.company.name}" />
 										</a></td>
 

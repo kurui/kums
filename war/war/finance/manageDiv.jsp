@@ -6,7 +6,7 @@
 	    <input id="oId9" name="id" type="hidden" />
 	    <input id="groupId9" name="groupId" type="hidden" />
 	    <table>
-		   <jsp:include page="../transaction/plat2.jsp?currentObjId=9"></jsp:include>
+		   <jsp:include page="../library/plat2.jsp?currentObjId=9"></jsp:include>
 			<tr>
 			     <td><label for="password">PNR</label></td>
 			     <td><input type="text" name="pnr" id="pnr9"  class="text ui-widget-content ui-corner-all" /></td>

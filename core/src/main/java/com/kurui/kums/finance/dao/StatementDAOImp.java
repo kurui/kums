@@ -13,7 +13,7 @@ import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.finance.Statement;
 import com.kurui.kums.finance.StatementListForm;
-import com.kurui.kums.transaction.Account;
+import com.kurui.kums.library.Account;
 
 public class StatementDAOImp extends BaseDAOSupport implements StatementDAO {
 

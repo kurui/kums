@@ -14,7 +14,7 @@ import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.finance._entity._FinanceOrder;
 import com.kurui.kums.right.UserRightInfo;
 import com.kurui.kums.right.UserStore;
-import com.kurui.kums.transaction.util.DataTypeStore;
+import com.kurui.kums.library.util.DataTypeStore;
 
 public class FinanceOrder extends _FinanceOrder {
 	private static final long serialVersionUID = 1L;

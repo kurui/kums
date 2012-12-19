@@ -95,10 +95,10 @@
 						</li>
 					</ul>
 					
-					<span class="title" onClick="showUL('ulCompany')"><a href="<%=path%>/transaction/companyList.do?thisAction=list&type=2" target="mainFrame">供应链管理</a> </span>
+					<span class="title" onClick="showUL('ulCompany')"><a href="<%=path%>/library/companyList.do?thisAction=list&type=2" target="mainFrame">供应链管理</a> </span>
 					<ul id="ulCompany" class="contents" style="">
 						<li>
-							<a href="<%=path%>/transaction/companyList.do?thisAction=list&type=2" target="mainFrame">客户公司列表</a>
+							<a href="<%=path%>/library/companyList.do?thisAction=list&type=2" target="mainFrame">客户公司列表</a>
 						</li>
 					</ul>
 

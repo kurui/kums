@@ -17,8 +17,8 @@ import com.kurui.kums.right.SysUser;
 import com.kurui.kums.right.UserRightInfo;
 import com.kurui.kums.right.biz.RightBiz;
 import com.kurui.kums.right.biz.UserBiz;
-import com.kurui.kums.system.LoginLog;
-import com.kurui.kums.system.biz.LoginLogBiz;
+import com.kurui.kums.monitor.LoginLog;
+import com.kurui.kums.monitor.biz.LoginLogBiz;
 
 public class UserAction extends BaseAction {
 	private UserBiz userBiz;

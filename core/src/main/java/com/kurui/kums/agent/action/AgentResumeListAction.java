@@ -19,7 +19,7 @@ import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.util.PlatComAccountStore;
 
 public class AgentResumeListAction extends BaseAction {
 	private AgentResumeBiz agentResumeBiz;

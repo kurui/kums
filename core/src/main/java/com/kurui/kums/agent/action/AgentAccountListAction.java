@@ -16,9 +16,9 @@ import com.kurui.kums.agent.biz.AgentAccountBiz;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.transaction.Account;
-import com.kurui.kums.transaction.PaymentTool;
-import com.kurui.kums.transaction.biz.PaymentToolBiz;
+import com.kurui.kums.library.Account;
+import com.kurui.kums.library.PaymentTool;
+import com.kurui.kums.library.biz.PaymentToolBiz;
 
 public class AgentAccountListAction extends BaseAction {
 	private AgentAccountBiz agentAccountBiz;
