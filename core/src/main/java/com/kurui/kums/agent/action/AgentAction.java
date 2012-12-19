@@ -65,7 +65,7 @@ public class AgentAction extends BaseAction {
 				agent.setStatus(agentForm.getStatus());
 				agent.setMemo(agentForm.getMemo());
 				agent.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-				agent.setUserName(uri.getUser().getUserName());
+				agent.setUserNo(uri.getUser().getUserNo());
 				Company company = companyBiz.getCompanyById(companyId);
 				agent.setCompany(company);
 				long directLevelId = agentForm.getDirectLevelId();
@@ -154,7 +154,7 @@ public class AgentAction extends BaseAction {
 					agent.setMemo(agentForm.getMemo());
 					agent.setUpdateTime(new Timestamp(System
 							.currentTimeMillis()));
-					agent.setUserName(uri.getUser().getUserName());
+					agent.setUserNo(uri.getUser().getUserNo());
 
 					Company company = companyBiz.getCompanyById(companyId);
 					agent.setCompany(company);

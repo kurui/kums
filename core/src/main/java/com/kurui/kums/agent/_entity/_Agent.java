@@ -32,7 +32,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected BigDecimal virtualAmount;
 	protected BigDecimal totalIntegral;
 	protected Long grade;
-	protected String userName;
+	protected String userNo;
 	protected Timestamp updateTime;
 	protected Long sex;
 	protected String birthday;
@@ -175,12 +175,13 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.grade = grade;
 	}
 
-	public String getUserName() {
-		return userName;
+
+	public String getUserNo() {
+		return userNo;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserNo(String userNo) {
+		this.userNo = userNo;
 	}
 
 	public Timestamp getUpdateTime() {

@@ -8,6 +8,7 @@ import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.library.util.DataTypeStore;
+import com.kurui.kums.right.UserStore;
 
 public class Agent extends _Agent {
 	private static final long serialVersionUID = 1L;
@@ -190,6 +191,14 @@ public class Agent extends _Agent {
 		this.updateDate = updateDate;
 	}
 
+	public String getUserName() {
+		if (userNo != null && "".equals(userNo.trim()) == false) {
+			return UserStore.getUserNameByNo(userNo);
+		} else {
+			return "";
+		}
+	}
+	
 	public long getDirectLevelId() {
 		return directLevelId;
 	}

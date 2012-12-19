@@ -67,7 +67,6 @@ public class NewsListAction extends BaseAction {
 
 		News news = new News();
 		news.setThisAction("insert");
-		request.setAttribute("userName", user.getUserName());
 		request.setAttribute("news", news);
 		forwardPage = "editNews";
 
@@ -93,7 +92,6 @@ public class NewsListAction extends BaseAction {
 				request.setAttribute("news", news);
 			} else
 				request.setAttribute("news", new News());
-			request.setAttribute("userName", user.getUserName());
 			forwardPage = "editNews";
 		} else {
 			request.getSession().invalidate();

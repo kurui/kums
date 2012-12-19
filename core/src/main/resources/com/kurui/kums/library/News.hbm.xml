@@ -33,10 +33,9 @@
 		<property name="rank" column="rank" type="java.lang.Long"
 			not-null="false" insert="true" update="true">
 		</property>
-		<property name="userName" column="user_name" type="string"
-			not-null="false" insert="true" update="true">
+			<property name="userNo" type="string">
+			<column name="USER_NO" length="50" />
 		</property>
-
 
 
 	</class>

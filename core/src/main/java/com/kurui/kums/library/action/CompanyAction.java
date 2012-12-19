@@ -59,7 +59,7 @@ public class CompanyAction extends BaseAction {
 			company.setType(companyForm.getType());
 			company.setStatus(companyForm.getStatus());
 			company.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-			company.setUserName(uri.getUser().getUserName());
+			company.setUserNo(uri.getUser().getUserNo());
 			long num = companyBiz.save(company);
 
 			if (num > 0) {
@@ -114,7 +114,7 @@ public class CompanyAction extends BaseAction {
 				company.setStatus(companyForm.getStatus());
 				company
 						.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-				company.setUserName(uri.getUser().getUserName());
+				company.setUserNo(uri.getUser().getUserNo());
 				long flag = companyBiz.update(company);
 				// --更新静态库
 				KumsDataStoreListener listener = new KumsDataStoreListener(sysInitBiz,

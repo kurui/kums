@@ -85,7 +85,7 @@
 									<td style="text-align: left">
 										<c:out value="${budget.companyNo}" />
 										|
-										<c:out value="${budget.entryOperator}" />
+										<c:out value="${budget.userName}" />
 									</td>
 								</tr>
 								<tr>

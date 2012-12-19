@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.kurui.kums.agent.ShareHolder;
 import com.kurui.kums.market.EstateDish;
+import com.kurui.kums.right.UserStore;
 import com.kurui.kums.library.CompanyAccount;
 
 /**
@@ -40,7 +41,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected String memo;
 	protected Long status;
 	protected java.sql.Timestamp updateTime;
-	protected String userName;
+	protected String userNo;
 	protected java.util.Set financeOrders = new java.util.HashSet(0);
 	protected java.util.Set platComAccounts = new java.util.HashSet(0);
 	protected java.util.Set agents = new java.util.HashSet(0);
@@ -114,11 +115,21 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	}
 
 	public String getUserName() {
-		return this.userName;
+		if (userNo != null && "".equals(userNo.trim()) == false) {
+			return UserStore.getUserNameByNo(userNo);
+		} else {
+			return "";
+		}
+	}
+	
+	
+
+	public String getUserNo() {
+		return userNo;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserNo(String userNo) {
+		this.userNo = userNo;
 	}
 
 	public java.util.Set getFinanceOrders() {

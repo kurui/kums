@@ -35,7 +35,7 @@ public class PlatformAction extends BaseAction {
 			pform.setName(platform.getName());
 			pform.setType(platform.getType());
 			pform.setDescription(platform.getDescription());
-			pform.setUserName(uri.getUser().getUserName());
+			pform.setUserNo(uri.getUser().getUserNo());
 			pform.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 			pform.setStatus(platform.getStatus());
 			long num = platformBiz.save(pform);
@@ -72,7 +72,7 @@ public class PlatformAction extends BaseAction {
 				pform.setName(platform.getName());
 				pform.setType(platform.getType());
 				pform.setDescription(platform.getDescription());
-				pform.setUserName(uri.getUser().getUserName());
+				pform.setUserNo(uri.getUser().getUserNo());
 				pform.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 				pform.setStatus(platform.getStatus());
 				long flag = platformBiz.update(pform);

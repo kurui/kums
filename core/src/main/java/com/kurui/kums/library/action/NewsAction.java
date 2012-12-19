@@ -60,7 +60,7 @@ public class NewsAction extends BaseAction {
 				tempNews.setContent(news.getContent());
 				tempNews.setTitle(news.getTitle());
 				SysUser user = this.getUserByURI(request);
-				tempNews.setUserName(user.getUserName());
+				tempNews.setUserNo(user.getUserNo());
 				tempNews.setRank(news.getRank());
 				tempNews.setStatus(news.getStatus());
 				tempNews.setReadNum(new Long(0));

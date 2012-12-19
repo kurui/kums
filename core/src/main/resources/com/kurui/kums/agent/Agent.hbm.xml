@@ -46,8 +46,8 @@
 		<property name="grade" type="long">
 			<column name="GRADE" precision="22" scale="0" />
 		</property>
-		<property name="userName" type="string">
-			<column name="USER_NAME" length="50" />
+		<property name="userNo" type="string">
+			<column name="USER_NO" length="50" />
 		</property>
 		<property name="updateTime" type="java.sql.Timestamp">
 			<column name="update_time" length="7" />

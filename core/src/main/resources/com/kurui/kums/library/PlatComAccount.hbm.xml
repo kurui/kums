@@ -77,8 +77,8 @@ public void setIndex(int index)
 			type="java.sql.Timestamp" not-null="false" insert="true"
 			update="true">
 		</property>
-		<property name="userName" column="user_name" type="string"
-			not-null="false" insert="true" update="true">
+			<property name="userNo" type="string">
+			<column name="USER_NO" length="50" />
 		</property>
 
 

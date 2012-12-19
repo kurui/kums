@@ -167,7 +167,7 @@
 											<td>
 												<c:out value="${budget.companyNo}" />
 												|
-												<c:out value="${budget.entryOperator}" />
+												<c:out value="${budget.userName}" />
 											</td>
 											<td>
 												<c:out value="${budget.totalBudgetAmount}" />

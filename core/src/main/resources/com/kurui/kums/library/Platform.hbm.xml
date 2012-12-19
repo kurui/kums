@@ -68,8 +68,8 @@ public void setIndex(int index)
 			not-null="false" insert="true" update="true">
 		</property>
 
-		<property name="userName" column="user_name" type="string"
-			not-null="false" insert="true" update="true">
+			<property name="userNo" type="string">
+			<column name="USER_NO" length="50" />
 		</property>
 		<property name="updateTime" type="java.sql.Timestamp">
 			<column name="update_time" length="7" />

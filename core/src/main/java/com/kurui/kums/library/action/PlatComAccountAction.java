@@ -61,7 +61,7 @@ public class PlatComAccountAction extends BaseAction {
 				pComAccount.setPlatform(platform);
 				pComAccount.setUpdateTime(new Timestamp(System
 						.currentTimeMillis()));
-				pComAccount.setUserName(uri.getUser().getUserName());
+				pComAccount.setUserNo(uri.getUser().getUserNo());
 				long num = platComAccountBiz.save(pComAccount);
 				// --更新静态库
 				KumsDataStoreListener listener = new KumsDataStoreListener(
@@ -110,7 +110,7 @@ public class PlatComAccountAction extends BaseAction {
 					pComAccount.setPlatform(platform);
 					pComAccount.setUpdateTime(new Timestamp(System
 							.currentTimeMillis()));
-					pComAccount.setUserName(uri.getUser().getUserName());
+					pComAccount.setUserNo(uri.getUser().getUserNo());
 					long flag = platComAccountBiz.update(pComAccount);
 					// --更新静态库
 					KumsDataStoreListener listener = new KumsDataStoreListener(
