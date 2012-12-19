@@ -15,7 +15,7 @@
 			<column name="REFERENCE_ID" precision="22" scale="0" />
 		</many-to-one>
 		<many-to-one name="gatherCompany"
-			class="com.kurui.kums.transaction.Company" fetch="select">
+			class="com.kurui.kums.library.Company" fetch="select">
 			<column name="gather_company" precision="22" scale="0" />
 		</many-to-one>
 		<property name="price" type="big_decimal">

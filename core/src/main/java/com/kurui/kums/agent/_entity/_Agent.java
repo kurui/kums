@@ -51,7 +51,7 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	
 	protected String treeFileName;
 
-	protected com.kurui.kums.transaction.Company company;
+	protected com.kurui.kums.library.Company company;
 	protected com.kurui.kums.agent.DirectLevel directLevel;
 	protected com.kurui.kums.agent.AgentHabit agentHabit;
 
@@ -203,11 +203,11 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 		this.financeOrders = financeOrders;
 	}
 
-	public com.kurui.kums.transaction.Company getCompany() {
+	public com.kurui.kums.library.Company getCompany() {
 		return this.company;
 	}
 
-	public void setCompany(com.kurui.kums.transaction.Company company) {
+	public void setCompany(com.kurui.kums.library.Company company) {
 		this.company = company;
 	}
 

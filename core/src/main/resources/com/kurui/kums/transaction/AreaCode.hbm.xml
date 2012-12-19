@@ -5,7 +5,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.kurui.kums.transaction.AreaCode" table="area_Code">
+	<class name="com.kurui.kums.library.AreaCode" table="area_Code">
 		<meta attribute="extends">
 			org.apache.struts.action.ActionForm implements Cloneable
 		</meta>

@@ -19,8 +19,8 @@ import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.right.UserRightInfo;
-import com.kurui.kums.transaction.Company;
-import com.kurui.kums.transaction.util.PlatComAccountStore;
+import com.kurui.kums.library.Company;
+import com.kurui.kums.library.util.PlatComAccountStore;
 
 public class AgentResumeAction extends BaseAction {
 	private AgentBiz agentBiz;

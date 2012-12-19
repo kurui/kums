@@ -23,7 +23,7 @@ import com.kurui.kums.system.OperateLog;
 import com.kurui.kums.system.OperateLogDetail;
 import com.kurui.kums.system.biz.OperateLogBiz;
 import com.kurui.kums.system.biz.OperateLogDetailBiz;
-import com.kurui.kums.transaction.biz.AccountBiz;
+import com.kurui.kums.library.biz.AccountBiz;
 
 public class StatementAction extends BaseAction {
 	private StatementBiz statementBiz;

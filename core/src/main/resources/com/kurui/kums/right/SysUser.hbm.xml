@@ -99,7 +99,7 @@ public void setIndex(int index)
 				<column name="user_id" />
 			</key>
 			<one-to-many
-				class="com.kurui.kums.transaction.AccountCheck" />
+				class="com.kurui.kums.library.AccountCheck" />
 		</set>
 	</class>
 

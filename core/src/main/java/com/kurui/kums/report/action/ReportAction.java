@@ -17,7 +17,7 @@ import com.kurui.kums.base.file.report.DownLoadFile;
 import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.report.BusinessReport;
 import com.kurui.kums.report.biz.ReportBiz;
-import com.kurui.kums.transaction.biz.PaymentToolBiz;
+import com.kurui.kums.library.biz.PaymentToolBiz;
 
 public class ReportAction extends BaseAction {
 	private ReportBiz reportBiz;

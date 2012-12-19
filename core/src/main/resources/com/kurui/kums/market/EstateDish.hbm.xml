@@ -10,7 +10,7 @@
             </generator>
         </id>
         
-        <many-to-one name="company" class="com.kurui.kums.transaction.Company" fetch="select">
+        <many-to-one name="company" class="com.kurui.kums.library.Company" fetch="select">
             <column name="COMPANY_ID" precision="22" scale="0" />
         </many-to-one>
         <property name="no" type="string">

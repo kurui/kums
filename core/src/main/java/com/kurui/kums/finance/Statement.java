@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.finance._entity._Statement;
-import com.kurui.kums.transaction.Account;
+import com.kurui.kums.library.Account;
 
 public class Statement extends _Statement {
 	private static final long serialVersionUID = 1L;

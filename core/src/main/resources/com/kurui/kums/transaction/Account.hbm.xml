@@ -6,7 +6,7 @@
 
 <hibernate-mapping>
 
-	<class name="com.kurui.kums.transaction.Account" table="account">
+	<class name="com.kurui.kums.library.Account" table="account">
 
 		<meta attribute="extends">
 			org.apache.struts.action.ActionForm implements Cloneable
@@ -85,7 +85,7 @@
 			<one-to-many class="com.kurui.kums.finance.FinanceOrder" />
 		</set>
 		<many-to-one name="paymentTool"
-			class="com.kurui.kums.transaction.PaymentTool" not-null="false">
+			class="com.kurui.kums.library.PaymentTool" not-null="false">
 			<column name="pay_tool_id" />
 		</many-to-one>
 
@@ -95,7 +95,7 @@
 				<column name="account_id" />
 			</key>
 			<one-to-many
-				class="com.kurui.kums.transaction.PlatComAccount" />
+				class="com.kurui.kums.library.PlatComAccount" />
 		</set>
 		<set name="accountChecks" inverse="true"
 			cascade="all-delete-orphan">
@@ -103,7 +103,7 @@
 				<column name="account_id" />
 			</key>
 			<one-to-many
-				class="com.kurui.kums.transaction.AccountCheck" />
+				class="com.kurui.kums.library.AccountCheck" />
 		</set>
 
 		<set name="agentAccounts" inverse="true">

@@ -24,8 +24,8 @@ import com.kurui.kums.base.util.KumsNoUtil;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.right.UserRightInfo;
 import com.kurui.kums.system.biz.SysInitBiz;
-import com.kurui.kums.transaction.Company;
-import com.kurui.kums.transaction.biz.CompanyBiz;
+import com.kurui.kums.library.Company;
+import com.kurui.kums.library.biz.CompanyBiz;
 
 public class AgentAction extends BaseAction {
 	private AgentBiz agentBiz;

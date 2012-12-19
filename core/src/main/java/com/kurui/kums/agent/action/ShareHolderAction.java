@@ -17,8 +17,8 @@ import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.right.UserRightInfo;
-import com.kurui.kums.transaction.Company;
-import com.kurui.kums.transaction.biz.CompanyBiz;
+import com.kurui.kums.library.Company;
+import com.kurui.kums.library.biz.CompanyBiz;
 
 public class ShareHolderAction extends BaseAction {
 	private AgentBiz agentBiz;

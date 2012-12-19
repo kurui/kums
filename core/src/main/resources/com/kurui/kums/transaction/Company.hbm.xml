@@ -5,7 +5,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.kurui.kums.transaction.Company" table="company">
+	<class name="com.kurui.kums.library.Company" table="company">
 		<meta attribute="extends">
 			org.apache.struts.action.ActionForm implements Cloneable
 		</meta>
@@ -130,7 +130,7 @@ public void setIndex(int index) {
 				<column name="company_id" />
 			</key>
 			<one-to-many
-				class="com.kurui.kums.transaction.PlatComAccount" />
+				class="com.kurui.kums.library.PlatComAccount" />
 		</set>
 		<set name="agents" inverse="true" cascade="all-delete-orphan">
 			<key>
@@ -143,7 +143,7 @@ public void setIndex(int index) {
 				<column name="COMPANY_ID" precision="22" scale="0" />
 			</key>
 			<one-to-many
-				class="com.kurui.kums.transaction.CompanyAccount" />
+				class="com.kurui.kums.library.CompanyAccount" />
 		</set>
 		<set name="shareHolders" inverse="true">
 			<key>

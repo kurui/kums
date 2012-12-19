@@ -9,7 +9,7 @@ import com.kurui.kums.agent.dao.AgentDAO;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.base.util.IdCardUtil;
-import com.kurui.kums.transaction.dao.AreaCodeDAO;
+import com.kurui.kums.library.dao.AreaCodeDAO;
 
 public class AgentBizImp implements AgentBiz {
 	private AgentDAO agentDAO;

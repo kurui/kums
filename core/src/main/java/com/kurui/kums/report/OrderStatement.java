@@ -9,7 +9,7 @@ import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.Statement;
-import com.kurui.kums.transaction.Account;
+import com.kurui.kums.library.Account;
 
 public class OrderStatement {     	
 	private FinanceOrder order;

@@ -7,7 +7,7 @@ import com.kurui.kums.agent._entity._Agent;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.base.util.time.DateUtil;
-import com.kurui.kums.transaction.util.DataTypeStore;
+import com.kurui.kums.library.util.DataTypeStore;
 
 public class Agent extends _Agent {
 	private static final long serialVersionUID = 1L;

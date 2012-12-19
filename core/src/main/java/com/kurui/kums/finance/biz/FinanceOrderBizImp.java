@@ -35,14 +35,14 @@ import com.kurui.kums.system.OperateLog;
 import com.kurui.kums.system.OperateLogDetail;
 import com.kurui.kums.system.dao.OperateLogDAO;
 import com.kurui.kums.system.dao.OperateLogDetailDAO;
-import com.kurui.kums.transaction.Account;
-import com.kurui.kums.transaction.Company;
-import com.kurui.kums.transaction.Platform;
-import com.kurui.kums.transaction.dao.AccountDAO;
-import com.kurui.kums.transaction.dao.CompanyDAO;
-import com.kurui.kums.transaction.dao.DataTypeDAO;
-import com.kurui.kums.transaction.dao.PlatComAccountDAO;
-import com.kurui.kums.transaction.dao.PlatformDAO;
+import com.kurui.kums.library.Account;
+import com.kurui.kums.library.Company;
+import com.kurui.kums.library.Platform;
+import com.kurui.kums.library.dao.AccountDAO;
+import com.kurui.kums.library.dao.CompanyDAO;
+import com.kurui.kums.library.dao.DataTypeDAO;
+import com.kurui.kums.library.dao.PlatComAccountDAO;
+import com.kurui.kums.library.dao.PlatformDAO;
 
 public class FinanceOrderBizImp implements FinanceOrderBiz {
 	private FinanceOrderDAO financeOrderDAO;

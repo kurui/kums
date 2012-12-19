@@ -6,7 +6,7 @@
 
 <hibernate-mapping>
 
-	<class name="com.kurui.kums.transaction.Platform"
+	<class name="com.kurui.kums.library.Platform"
 		table="platform">
 
 		<meta attribute="extends">
@@ -91,7 +91,7 @@ public void setIndex(int index)
 				<column name="platform_id" />
 			</key>
 			<one-to-many
-				class="com.kurui.kums.transaction.PlatComAccount" />
+				class="com.kurui.kums.library.PlatComAccount" />
 		</set>
 	</class>
 

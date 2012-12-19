@@ -7,7 +7,7 @@
 <hibernate-mapping >
 
 <class 
-  name="com.kurui.kums.transaction.PaymentTool"
+  name="com.kurui.kums.library.PaymentTool"
 	table="payment_tool"
 >
 
@@ -104,7 +104,7 @@ public void setIndex(int index)
   		        <column name="pay_tool_id" />
           </key>
           <one-to-many 
-              class="com.kurui.kums.transaction.Account"
+              class="com.kurui.kums.library.Account"
           />
     </set>
 </class>

@@ -2,7 +2,7 @@ package com.kurui.kums.market;
 
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.market._entity._Product;
-import com.kurui.kums.transaction.util.DataTypeStore;
+import com.kurui.kums.library.util.DataTypeStore;
 
 public class Product extends _Product {
 

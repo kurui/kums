@@ -6,7 +6,7 @@
 
 <hibernate-mapping>
 
-	<class name="com.kurui.kums.transaction.AccountCheck"
+	<class name="com.kurui.kums.library.AccountCheck"
 		table="account_check">
 
 		<meta attribute="extends">
@@ -111,7 +111,7 @@ public void setIndex(int index)
 			<column name="user_id" />
 		</many-to-one>
 		<many-to-one name="account"
-			class="com.kurui.kums.transaction.Account" not-null="false">
+			class="com.kurui.kums.library.Account" not-null="false">
 
 			<column name="account_id" />
 		</many-to-one>

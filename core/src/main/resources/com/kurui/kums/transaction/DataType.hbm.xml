@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2011-8-17 9:59:24 by Hibernate Tools 3.2.2.GA -->
 <hibernate-mapping>
-	<class name="com.kurui.kums.transaction.DataType"
+	<class name="com.kurui.kums.library.DataType"
 		table="Data_Type">
 		<id name="id" type="long" column="id">
 			<generator class="sequence">
