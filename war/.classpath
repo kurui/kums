@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="war/library"/>
-	<classpathentry kind="src" path="war/esb"/>
-	<classpathentry kind="src" path="war/demo"/>
 	<classpathentry kind="src" path="war/monitor"/>
 	<classpathentry kind="src" path="war/agent"/>
 	<classpathentry kind="src" path="war/right"/>
 	<classpathentry kind="src" path="war/market"/>
 	<classpathentry kind="src" path="war/workflow"/>
 	<classpathentry kind="src" path="war/finance"/>
-	<classpathentry kind="src" path="war/WEB-INF"/>
 	<classpathentry kind="src" path="war/message"/>
 	<classpathentry kind="src" path="war/report"/>
 	<classpathentry kind="src" path="war/page"/>
+	<classpathentry kind="src" path="war/esb"/>
 	<classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar"/>
@@ -82,5 +80,5 @@
 	<classpathentry kind="var" path="M2_REPO/xerces/xmlParserAPIs/2.6.2/xmlParserAPIs-2.6.2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/xom/xom/1.0/xom-1.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="target/webapp/WEB-INF/classes"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
