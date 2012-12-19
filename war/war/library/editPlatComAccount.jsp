@@ -31,11 +31,11 @@
 					alert("你选择的数据已经存在,请重新选择!");
 					return false;
 				}else{
-				    document.forms[0].action="<%=path%>/transaction/platComAccount.do?thisAction="+thisAction;
+				    document.forms[0].action="<%=path%>/library/platComAccount.do?thisAction="+thisAction;
 				    document.forms[0].submit();
 				}
 			}else if(thisAction == "update"){
-				document.forms[0].action="<%=path%>/transaction/platComAccount.do?thisAction="+thisAction;
+				document.forms[0].action="<%=path%>/library/platComAccount.do?thisAction="+thisAction;
 				document.forms[0].submit();
 			}else{
 				return false;
@@ -47,7 +47,7 @@
 			<c:param name="title1" value="平台账号管理" />
 			<c:param name="title2" value="编辑关系" />
 		</c:import>
-		<html:form action="/transaction/platComAccount.do" method="post">
+		<html:form action="/library/platComAccount.do" method="post">
 			<div id="mainContainer">
 				<div id="container">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">

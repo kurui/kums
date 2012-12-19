@@ -48,7 +48,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/companyAccountList.do">
+				<html:form action="/library/companyAccountList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -134,7 +134,7 @@
 												<c:out value="${companyAccount.account.paymentTool.name}" />
 											</td>
 											<td>
-												<a href="<%=path%>/transaction/accountList.do?thisAction=view&id=<c:out value="${companyAccount.account.id}" />"> <c:out value="${companyAccount.account.name}" /> </a>
+												<a href="<%=path%>/library/accountList.do?thisAction=view&id=<c:out value="${companyAccount.account.id}" />"> <c:out value="${companyAccount.account.name}" /> </a>
 											</td>
 											<td>
 												<c:out value="${companyAccount.account.accountNo}" />

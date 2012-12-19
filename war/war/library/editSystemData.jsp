@@ -82,12 +82,12 @@
 										DataType
 									</td>
 									<td style="text-align: left">
-										<html:form styleId="dataTypeListForm" action="/transaction/dataTypeList.do">
+										<html:form styleId="dataTypeListForm" action="/library/dataTypeList.do">
 											<html:hidden property="thisAction" ></html:hidden>
 											<input name="label" type="button" class="button2"
 												value="更新产品树" onclick="updateProductTree();" />
 										</html:form>
-										<html:form styleId="refactorDataTypeForm" action="/transaction/dataTypeList.do">
+										<html:form styleId="refactorDataTypeForm" action="/library/dataTypeList.do">
 											<html:hidden property="thisAction" ></html:hidden>
 											<input name="label" type="button" class="button2"
 												value="重构Lft和rgt" onclick="refactorDataType();" />

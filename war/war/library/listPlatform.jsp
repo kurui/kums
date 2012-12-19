@@ -49,7 +49,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/platformList.do">
+				<html:form action="/library/platformList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -146,7 +146,7 @@
 												<c:out value="${status.count+(platformListForm.intPage-1)*platformListForm.perPageNum}" />
 											</td>
 											<td>
-												<a href="<%=path%>/transaction/platformList.do?thisAction=view&id=<c:out value="${platform.id}" />"> <c:out value="${platform.name}" /> </a>
+												<a href="<%=path%>/library/platformList.do?thisAction=view&id=<c:out value="${platform.id}" />"> <c:out value="${platform.name}" /> </a>
 											</td>
 											<td>
 												<c:out value="${platform.typeInfo}" />

@@ -20,7 +20,7 @@
 				return false;
 			}
 			var thisAction =document.forms[0].thisAction.value;			   
-		    document.forms[0].action="<%=path%>/transaction/companyAccount.do?thisAction="+thisAction;
+		    document.forms[0].action="<%=path%>/library/companyAccount.do?thisAction="+thisAction;
 		    document.forms[0].submit();
 		}
 	</script>

@@ -241,7 +241,7 @@
 											<td>
 												<div align="left">
 													<a
-														href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${agent.company.id}" />">
+														href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${agent.company.id}" />">
 														<c:out value="${agent.company.name}" /> </a>
 												</div>
 											</td>

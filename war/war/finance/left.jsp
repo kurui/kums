@@ -37,7 +37,7 @@
 								<a href="<%=path%>/market/priceReferenceList.do?thisAction=list" target="mainFrame">物价参照物列表</a>
 							</li>
 							<li>
-								<a href="../transaction/companyList.do?thisAction=list&type=2&provideChain=5100" target="mainFrame">数据采集点列表</a>
+								<a href="../library/companyList.do?thisAction=list&type=2&provideChain=5100" target="mainFrame">数据采集点列表</a>
 							</li>
 						</ul>
 					</c:check>
@@ -45,7 +45,7 @@
 						<span class="title"><a href="<%=path%>/finance/financeOrderList.do?thisAction=listMainOrder" target="mainFrame" onclick="showUL('ulAssert')">资产业务</a> </span>
 						<ul class="contents" id="ulAssert" style="display: none">
 							<li>
-								<a href="<%=path%>/transaction/accountCheckList.do?thisAction=list" target="mainFrame">账户上下班交接</a>
+								<a href="<%=path%>/library/accountCheckList.do?thisAction=list" target="mainFrame">账户上下班交接</a>
 							</li>
 							<li>
 								<a href="<%=path%>/finance/financeOrderList.do?thisAction=listMainOrder" target="mainFrame">主营业务列表</a>

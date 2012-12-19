@@ -50,7 +50,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/paymentToolList.do">
+				<html:form action="/library/paymentToolList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -131,7 +131,7 @@
 												<c:out value="${sta.count+(paymentToolListForm.intPage-1)*paymentToolListForm.perPageNum}" />
 											</td>
 											<td>
-												<a href="<%=path%>/transaction/paymentToolList.do?thisAction=view&id=<c:out value="${pay.id}" />"> <c:out value="${pay.name}" /> </a>
+												<a href="<%=path%>/library/paymentToolList.do?thisAction=view&id=<c:out value="${pay.id}" />"> <c:out value="${pay.name}" /> </a>
 											</td>
 											<td>
 												<c:out value="${pay.typeInfo}" />

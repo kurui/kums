@@ -11,17 +11,17 @@
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript">
 		function addSameLevel(){
-		    document.forms[0].action="<%=path%>/transaction/dataTypeList.do?thisAction=saveSameLevel&superNo="+<c:out value="${dataType.superNo}" />;
+		    document.forms[0].action="<%=path%>/library/dataTypeList.do?thisAction=saveSameLevel&superNo="+<c:out value="${dataType.superNo}" />;
 		    document.forms[0].submit();
 		}
 		
 		function addAppoint(){
-		    document.forms[0].action="<%=path%>/transaction/dataTypeList.do?thisAction=saveAppoint&no="+<c:out value="${dataType.no}" />;
+		    document.forms[0].action="<%=path%>/library/dataTypeList.do?thisAction=saveAppoint&no="+<c:out value="${dataType.no}" />;
 		    document.forms[0].submit();
 		}
 		
 		function edit(){
-		    document.forms[0].action="<%=path%>/transaction/dataTypeList.do?thisAction=edit";
+		    document.forms[0].action="<%=path%>/library/dataTypeList.do?thisAction=edit";
 		    document.forms[0].submit();
 		}
 		
@@ -88,7 +88,7 @@
 									<td style="text-align: left">
 										<c:if test="${!empty dataType.supDataType}">
 											<a
-												href="<%=path%>/transaction/dataTypeList.do?thisAction=view&id=<c:out value="${dataType.supDataType.id}" />">
+												href="<%=path%>/library/dataTypeList.do?thisAction=view&id=<c:out value="${dataType.supDataType.id}" />">
 												<c:out value="${dataType.supDataType.name}" /> <c:out
 													value="${dataType.supDataType.no}" /> </a> >>
 											</c:if>
@@ -115,7 +115,7 @@
 							<table width="100%" style="margin-top: 5px;">
 								<tr>
 									<td align="center">
-										<html:form action="/transaction/dataTypeList.do">
+										<html:form action="/library/dataTypeList.do">
 											<html:hidden property="selectedItems" value="${dataType.id}" />
 
 											<html:hidden property="thisAction" />
@@ -138,7 +138,7 @@
 									</td>
 								</tr>
 								<tbody id="editTable" style="display: none; width: 50%;">
-									<html:form action="/transaction/dataType.do">
+									<html:form action="/library/dataType.do">
 										<html:hidden property="id" name="dataType" />
 										<html:hidden property="thisAction" name="dataType" />
 										<html:hidden property="superNo" name="dataType" />
@@ -170,7 +170,7 @@
 									<tr>
 										<td>
 											<a
-												href="<%=path%>/transaction/dataTypeList.do?thisAction=view&id=<c:out value="${dataType.id}" />">
+												href="<%=path%>/library/dataTypeList.do?thisAction=view&id=<c:out value="${dataType.id}" />">
 												<c:out value="${dataType.name}" /> </a>
 										</td>
 										<td>
@@ -182,11 +182,11 @@
 										</td>
 										<td>
 											<a
-												href="<%=path%>/transaction/dataTypeList.do?thisAction=listSub&no=<c:out value="${dataType.no}" />">下级</a>|
+												href="<%=path%>/library/dataTypeList.do?thisAction=listSub&no=<c:out value="${dataType.no}" />">下级</a>|
 											<a
-												href="<%=path%>/transaction/dataTypeList.do?thisAction=saveSameLevel&superNo=<c:out value="${dataType.superNo}" />">新增同级</a>|
+												href="<%=path%>/library/dataTypeList.do?thisAction=saveSameLevel&superNo=<c:out value="${dataType.superNo}" />">新增同级</a>|
 											<a
-												href="<%=path%>/transaction/dataTypeList.do?thisAction=saveAppoint&no=<c:out value="${dataType.no}" />">新增下级</a>
+												href="<%=path%>/library/dataTypeList.do?thisAction=saveAppoint&no=<c:out value="${dataType.no}" />">新增下级</a>
 										</td>
 										<td>
 											<c:out value="${dataType.memo}" />

@@ -41,7 +41,7 @@
 					}
 				}
 				if(confirm('确定提交吗？')){
-					document.forms[0].action="<%=path%>/transaction/accountCheck.do?thisAction="+thisAction;
+					document.forms[0].action="<%=path%>/library/accountCheck.do?thisAction="+thisAction;
 					trim(document.forms[0]);
 		    		document.forms[0].submit();
 				}				
@@ -86,7 +86,7 @@
 				<c:set var="title3" value="编辑" />
 			</c:when>
 		</c:choose>
-		<html:form action="/transaction/accountCheck.do" method="post">
+		<html:form action="/library/accountCheck.do" method="post">
 			<div id="mainContainer">
 				<div id="container">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -122,7 +122,7 @@
 												</html:select>
 											</logic:equal>
 											<logic:equal value="checkOff" property="thisAction" name="accountCheck">
-												<a href="<%=path%>/transaction/accountList.do?thisAction=view&id=<c:out value="${accountCheck.account.id}" />"> <c:out value="${accountCheck.account.showName}" /> </a>
+												<a href="<%=path%>/library/accountList.do?thisAction=view&id=<c:out value="${accountCheck.account.id}" />"> <c:out value="${accountCheck.account.showName}" /> </a>
 											</logic:equal>
 											<logic:equal value="update" property="thisAction" name="accountCheck">
 												<html:select property="accountId" value="${accountCheck.account.id}" name="accountCheck" styleClass="colorblue2 p_5" style="width:200px;">

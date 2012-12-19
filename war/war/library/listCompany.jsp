@@ -62,7 +62,7 @@
 		</c:choose>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/companyList.do">
+				<html:form action="/library/companyList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -232,7 +232,7 @@
 											</td>
 											<td>
 												<div align="left">
-													<a href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${company.id}" />"> <c:out value="${company.shortName}" /> </a>
+													<a href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${company.id}" />"> <c:out value="${company.shortName}" /> </a>
 												</div>
 											</td>
 											<td>

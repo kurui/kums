@@ -156,7 +156,7 @@
 											</td>
 											<td style="text-align: left">
 												<a
-													href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${shareHolder.company.id}" />">
+													href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${shareHolder.company.id}" />">
 													<c:out value="${shareHolder.company.name}" /> </a>
 											</td>
 											<td>

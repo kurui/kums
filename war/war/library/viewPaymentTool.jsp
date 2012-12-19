@@ -83,11 +83,11 @@
 	</body>
 	<script type="text/javascript">
 			function add(){
-		    document.forms[0].action="<%=path%>/transaction/paymentToolList.do?thisAction=save";
+		    document.forms[0].action="<%=path%>/library/paymentToolList.do?thisAction=save";
 		    document.forms[0].submit();
 		}
 		function edit(){
-		    document.forms[0].action="<%=path%>/transaction/paymentToolList.do?thisAction=edit";
+		    document.forms[0].action="<%=path%>/library/paymentToolList.do?thisAction=edit";
 		    document.forms[0].submit();
 		}
 	</script>

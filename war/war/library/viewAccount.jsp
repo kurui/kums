@@ -15,7 +15,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/accountList.do">
+				<html:form action="/library/accountList.do">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td width="10" height="10" class="tblt"></td>
@@ -134,11 +134,11 @@
 	</body>
 	<script type="text/javascript">
 		function add(){		   
-		    document.forms[0].action="<%=path%>/transaction/accountList.do?thisAction=save";
+		    document.forms[0].action="<%=path%>/library/accountList.do?thisAction=save";
 		    document.forms[0].submit();
 		}
 		function edit(){
-		    document.forms[0].action="<%=path%>/transaction/accountList.do?thisAction=edit";
+		    document.forms[0].action="<%=path%>/library/accountList.do?thisAction=edit";
 		    document.forms[0].submit();
 		}
 	</script>

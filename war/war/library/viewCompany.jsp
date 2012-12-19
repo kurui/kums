@@ -15,7 +15,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/companyList.do">
+				<html:form action="/library/companyList.do">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td width="10" height="10" class="tblt"></td>
@@ -154,10 +154,10 @@
 										</td>
 										<td style="text-align: left" colspan="3">
 											<a
-												href="<%=path%>/transaction/companyAccountList.do?thisAction=save&companyId=<c:out value="${company.id}" />&accountType=11">增加账号</a>
+												href="<%=path%>/library/companyAccountList.do?thisAction=save&companyId=<c:out value="${company.id}" />&accountType=11">增加账号</a>
 											|
 											<a
-												href="<%=path%>/transaction/companyAccountList.do?thisAction=list&companyId=<c:out value="${company.id}" />">账号列表</a>
+												href="<%=path%>/library/companyAccountList.do?thisAction=list&companyId=<c:out value="${company.id}" />">账号列表</a>
 
 										</td>
 									</tr>
@@ -229,12 +229,12 @@
 	<script type="text/javascript">
 		function add(){		   
 		    var type=<c:out value="${company.type}" />;
-		    document.forms[0].action="<%=path%>/transaction/companyList.do?thisAction=save&type="+type;
+		    document.forms[0].action="<%=path%>/library/companyList.do?thisAction=save&type="+type;
 		    document.forms[0].submit();
 		}
 		
 		function edit(){
-		    document.forms[0].action="<%=path%>/transaction/companyList.do?thisAction=edit";
+		    document.forms[0].action="<%=path%>/library/companyList.do?thisAction=edit";
 		    document.forms[0].submit();
 		}
 	</script>

@@ -142,7 +142,7 @@
 											</td>
 											<td>
 												<div>
-													<a href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${financeOrder.cussentCompany.id}" />"> <c:out value="${financeOrder.cussentCompany.shortName}" />
+													<a href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${financeOrder.cussentCompany.id}" />"> <c:out value="${financeOrder.cussentCompany.shortName}" />
 													</a>
 												</div>
 											</td>

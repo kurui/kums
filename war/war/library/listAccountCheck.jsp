@@ -55,7 +55,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/accountCheckList.do">
+				<html:form action="/library/accountCheckList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -165,7 +165,7 @@
 												<c:out value="${status.count+(aclf.intPage-1)*aclf.perPageNum}" />
 											</td>
 											<td style="text-align: left">
-												<a href="<%=path%>/transaction/accountList.do?thisAction=view&id=<c:out value="${check.account.id}" />"> <c:out value="${check.account.name}" /> </a>
+												<a href="<%=path%>/library/accountList.do?thisAction=view&id=<c:out value="${check.account.id}" />"> <c:out value="${check.account.name}" /> </a>
 											</td>
 											<td style="text-align: right">
 												<fmt:formatNumber value="${check.checkOnAmount}" pattern="0.00" />

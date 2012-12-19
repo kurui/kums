@@ -62,7 +62,7 @@
 							<a href="<%=path%>/agent/agentAccountList.do?thisAction=list" target="mainFrame">客户账号列表</a>
 						</li>
 						<li>
-							<a href="<%=path%>/transaction/companyAccountList.do?thisAction=list" target="mainFrame">公司账号列表</a>
+							<a href="<%=path%>/library/companyAccountList.do?thisAction=list" target="mainFrame">公司账号列表</a>
 						</li>
 					</ul>
 					<span class="title"><a href="#" onclick="showUL('ulRTemplate')">模版管理</a> </span>

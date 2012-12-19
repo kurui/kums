@@ -20,7 +20,7 @@
 				return false;
 			}
 			var thisAction =document.forms[0].thisAction.value;			   
-		    document.forms[0].action="<%=path%>/transaction/platform.do?thisAction="+thisAction;
+		    document.forms[0].action="<%=path%>/library/platform.do?thisAction="+thisAction;
 		    document.forms[0].submit();
 		}		
 	</script>
@@ -29,7 +29,7 @@
 			<c:param name="title1" value="机构管理" />
 			<c:param name="title2" value="编辑平台" />
 		</c:import>
-		<html:form action="/transaction/platform.do" method="post">
+		<html:form action="/library/platform.do" method="post">
 			<div id="mainContainer">
 				<div id="container">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">

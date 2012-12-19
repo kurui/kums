@@ -18,7 +18,7 @@ String path = request.getContextPath();
 		<script src="../_js/calendar/WdatePicker.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			function exportAccountBalance(){
-				document.forms[0].action="<%=path%>/transaction/accountList.do?thisAction=downloadAccountBalance";
+				document.forms[0].action="<%=path%>/library/accountList.do?thisAction=downloadAccountBalance";
 				document.forms[0].submit();
 			}
 		</script>
@@ -27,7 +27,7 @@ String path = request.getContextPath();
 		<div id="mainContainer">
 			<div id="container">
 				<html:form
-					action="/transaction/accountList.do?thisAction=listAccountBanlance"
+					action="/library/accountList.do?thisAction=listAccountBanlance"
 					method="post">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
@@ -84,7 +84,7 @@ String path = request.getContextPath();
 											</td>
 											<td>
 												<a
-													href="<%=path%>/transaction/accountList.do?thisAction=view&id=<c:out value="${acc.id}" />">
+													href="<%=path%>/library/accountList.do?thisAction=view&id=<c:out value="${acc.id}" />">
 													<c:out value="${acc.name}" /> </a>
 											</td>
 											<td>

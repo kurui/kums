@@ -17,7 +17,7 @@
 	<script type="text/javascript">	
 		function add()		{	
 			var thisAction =document.forms[0].thisAction.value;			   
-		    document.forms[0].action="<%=path%>/transaction/dataType.do?thisAction="+thisAction;
+		    document.forms[0].action="<%=path%>/library/dataType.do?thisAction="+thisAction;
 		    document.forms[0].submit();
 		}		
 	</script>
@@ -26,7 +26,7 @@
 			<c:param name="title1" value="系统管理" />
 			<c:param name="title2" value="编辑交易类型" />
 		</c:import>
-		<html:form action="/transaction/dataType.do" method="post">
+		<html:form action="/library/dataType.do" method="post">
 			<div id="mainContainer">
 				<div id="container">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">

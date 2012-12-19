@@ -50,7 +50,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/platComAccountList.do">
+				<html:form action="/library/platComAccountList.do">
 					<html:hidden property="thisAction" />
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
@@ -190,7 +190,7 @@
 												<c:out value="${sta.count+(platComAccountListForm.intPage-1)*platComAccountListForm.perPageNum}" />
 											</td>
 											<td>
-												<a href="<%=path%>/transaction/platformList.do?thisAction=view&id=<c:out value="${pla.platform.id}" />"> <c:out value="${pla.platform.name}" /> </a>
+												<a href="<%=path%>/library/platformList.do?thisAction=view&id=<c:out value="${pla.platform.id}" />"> <c:out value="${pla.platform.name}" /> </a>
 											</td>
 											<td>
 												<c:out value="${pla.platform.typeInfo}" />
@@ -199,10 +199,10 @@
 												)
 											</td>
 											<td>
-												<a href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${pla.company.id}" />"> <c:out value="${pla.company.name}" /> </a>
+												<a href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${pla.company.id}" />"> <c:out value="${pla.company.name}" /> </a>
 											</td>
 											<td>
-												<a href="<%=path%>/transaction/accountList.do?thisAction=view&id=<c:out value="${pla.account.id}" />"> <c:out value="${pla.account.name}" /> </a>
+												<a href="<%=path%>/library/accountList.do?thisAction=view&id=<c:out value="${pla.account.id}" />"> <c:out value="${pla.account.name}" /> </a>
 											</td>
 
 											<td>

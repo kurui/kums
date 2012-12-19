@@ -80,7 +80,7 @@
 		}
 	
 	function openCompanyList(){
-   			 var url="../transaction/companyList.do?thisAction=list&type=2";
+   			 var url="../library/companyList.do?thisAction=list&type=2";
     		 openWindow(800,600,url);
  		}
  		
@@ -139,7 +139,7 @@
 									</html:option>
 								</c:forEach>
 							</html:select></td>-->
-							<td>	<jsp:include page="../transaction/listSearchCompanyBar.jsp"></jsp:include>
+							<td>	<jsp:include page="../library/listSearchCompanyBar.jsp"></jsp:include>
 										</td>
 					
 
@@ -219,7 +219,7 @@
 										<td><c:out value="${agentResume.beginDate}" /></td>
 										<td><c:out value="${agentResume.endDate}" /></td>
 										<td><a
-											href="<%=path%>/transaction/companyList.do?thisAction=view&id=<c:out value="${agentResume.company.id}"/>">
+											href="<%=path%>/library/companyList.do?thisAction=view&id=<c:out value="${agentResume.company.id}"/>">
 												<c:out value="${agentResume.company.name}" />
 										</a></td>
 																		

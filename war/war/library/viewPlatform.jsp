@@ -12,7 +12,7 @@
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript">
 		function edit(){
-		    document.forms[0].action="<%=path%>/transaction/platformList.do?thisAction=edit";
+		    document.forms[0].action="<%=path%>/library/platformList.do?thisAction=edit";
 		    document.forms[0].submit();
 		}
 	</script>
@@ -20,7 +20,7 @@
 	<body>
 		<div id="mainContainer">
 			<div id="container">
-				<html:form action="/transaction/platformList.do">
+				<html:form action="/library/platformList.do">
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td width="10" height="10" class="tblt"></td>
