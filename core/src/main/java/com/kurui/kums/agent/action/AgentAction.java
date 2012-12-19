@@ -14,18 +14,18 @@ import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.DirectLevel;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.DirectLevelBiz;
-import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.Constant;
-import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.KumsDataStoreListener;
-import com.kurui.kums.base.threads.MainTask;
 import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.threads.MainTask;
+import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.util.KumsNoUtil;
 import com.kurui.kums.base.util.StringUtil;
-import com.kurui.kums.right.UserRightInfo;
-import com.kurui.kums.system.biz.SysInitBiz;
 import com.kurui.kums.library.Company;
 import com.kurui.kums.library.biz.CompanyBiz;
+import com.kurui.kums.library.biz.SysInitBiz;
+import com.kurui.kums.right.UserRightInfo;
 
 public class AgentAction extends BaseAction {
 	private AgentBiz agentBiz;

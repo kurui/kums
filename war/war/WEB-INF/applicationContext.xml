@@ -12,6 +12,6 @@
 	<import resource="applicationContext-message.xml" />
 	<import resource="applicationContext-report.xml" />
 	<import resource="applicationContext-right.xml" />
-	<import resource="applicationContext-system.xml" />
+	<import resource="applicationContext-monitor.xml" />
 	<import resource="applicationContext-library.xml" />
 </beans>

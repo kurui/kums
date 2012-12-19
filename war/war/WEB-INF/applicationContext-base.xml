@@ -49,7 +49,7 @@
 	<bean id="taskJob"
 		class="org.springframework.scheduling.quartz.JobDetailBean">
 		<property name="jobClass">
-			<value>com.kurui.kums.system.StatementTaskJob</value>
+			<value>com.kurui.kums.library.StatementTaskJob</value>
 		</property>
 		<property name="jobDataAsMap">
 			<map>

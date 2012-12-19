@@ -2,7 +2,7 @@ package com.kurui.kums.base;
 
 import org.apache.log4j.Logger;
 
-import com.kurui.kums.system.biz.SysInitBiz;
+import com.kurui.kums.library.biz.SysInitBiz;
 
 /**
  * 监听

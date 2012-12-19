@@ -54,7 +54,7 @@
 
 					<c:check code="ss01,sa01-sa20">
 						<li>
-							<a href="system/left.jsp" target="leftFrame">系统管理</a>
+							<a href="monitor/left.jsp" target="leftFrame">系统管理</a>
 						</li>
 					</c:check>
 

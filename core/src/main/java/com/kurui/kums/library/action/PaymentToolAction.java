@@ -13,7 +13,7 @@ import com.kurui.kums.base.KumsDataStoreListener;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.threads.MainTask;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.system.biz.SysInitBiz;
+import com.kurui.kums.library.biz.SysInitBiz;
 import com.kurui.kums.library.PaymentTool;
 import com.kurui.kums.library.biz.PaymentToolBiz;
 

@@ -1,21 +1,25 @@
 package com.kurui.kums.base;
 
 import java.io.File;
-import javax.servlet.*;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import com.kurui.kums.base.chart.ChartStore;
-import com.kurui.kums.base.Constant;
-import com.kurui.kums.system.biz.SysInitBiz;
-import com.kurui.kums.system.biz.SysInitBizImp;
+import com.kurui.kums.library.biz.SysInitBiz;
+import com.kurui.kums.library.biz.SysInitBizImp;
 
 public class KumsContextListener implements ServletContextListener {
 	static Logger logger = Logger.getLogger(SysInitBizImp.class.getName());
 
 	public void contextInitialized(ServletContextEvent event) {
 		SysInitBiz sysInitBiz;
-		logger.info("init system,please waiting a few minutes.");
+		logger.info("init data,please waiting a few minutes.");
 		try {
 			contextInitPath(event);
 
@@ -26,7 +30,7 @@ public class KumsContextListener implements ServletContextListener {
 			sysInitBiz.initMainTask();
 			sysInitBiz.updateDataStore();
 		} catch (Exception ex) {
-			logger.error("init system fails... " + ex.getMessage());
+			logger.error("init data fails... " + ex.getMessage());
 		}
 	}
 
@@ -61,7 +65,7 @@ public class KumsContextListener implements ServletContextListener {
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {
-		logger.info("destroy system,please waiting a few minutes.");
+		logger.info("destroy data,please waiting a few minutes.");
 		ChartStore.deleteHistory(event);
 		// FileUtil.delAllFile(Constant.SERVLET_CHART_PATH);
 

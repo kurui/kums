@@ -3,13 +3,13 @@
 
 <beans default-lazy-init="false" default-autowire="no"
 	default-dependency-check="none">
-	
+
 	<bean id="dBCHPool" class="com.kurui.kums.base.database.jdbc.DBCHPool">
 		<property name="dataSource">
 			<ref bean="dataSource" />
 		</property>
 	</bean>
-	
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" lazy-init="default" autowire="default"
 		dependency-check="default">
@@ -58,8 +58,8 @@
 		<property name="dataSource">
 			<ref local="dataSource" />
 		</property>
-		<!--  <property name="lobHandler" ref="lobHandler" />-->
-		
+		<!-- <property name="lobHandler" ref="lobHandler" /> -->
+
 		<property name="lobHandler" ref="oracleLobHandler" />
 
 
@@ -107,11 +107,12 @@
 				<value>com/kurui/kums/right/UserRole.hbm.xml</value>
 				<value>com/kurui/kums/right/License.hbm.xml</value>
 
-				<value>com/kurui/kums/system/LoginLog.hbm.xml</value>
-				<value>com/kurui/kums/system/News.hbm.xml</value>
-				<value>com/kurui/kums/system/No.hbm.xml</value>
-				<value>com/kurui/kums/system/OperateLog.hbm.xml</value>
-				<value>com/kurui/kums/system/OperateLogDetail.hbm.xml</value>
+				<value>com/kurui/kums/monitor/LoginLog.hbm.xml</value>
+				<value>com/kurui/kums/monitor/OperateLog.hbm.xml</value>
+				<value>com/kurui/kums/monitor/OperateLogDetail.hbm.xml</value>
+
+				<value>com/kurui/kums/library/News.hbm.xml</value>
+				<value>com/kurui/kums/library/No.hbm.xml</value>
 
 				<value>com/kurui/kums/library/Account.hbm.xml</value>
 				<value>com/kurui/kums/library/AccountCheck.hbm.xml</value>
@@ -121,7 +122,7 @@
 				<value>com/kurui/kums/library/PaymentTool.hbm.xml</value>
 				<value>com/kurui/kums/library/PlatComAccount.hbm.xml</value>
 				<value>com/kurui/kums/library/Platform.hbm.xml</value>
-				
+
 				<value>com/kurui/kums/library/ImageLibrary.hbm.xml</value>
 				<value>com/kurui/kums/library/ImageDependent.hbm.xml</value>
 			</list>
@@ -158,8 +159,8 @@
 	</bean>
 
 	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"
-		lazy-init="true" >
-		 
+		lazy-init="true">
+
 	</bean>
 
 	<bean id="propertyConfigurer"
@@ -214,14 +215,4 @@
 			</list>
 		</property>
 	</bean>
-	<import resource="applicationContext-agent.xml" />
-	<import resource="applicationContext-base.xml" />
-	<import resource="applicationContext-finance.xml" />
-	<import resource="applicationContext-market.xml" />
-	<import resource="applicationContext-message.xml" />
-	<import resource="applicationContext-report.xml" />
-	<import resource="applicationContext-right.xml" />
-	<import resource="applicationContext-system.xml" />
-	<import resource="applicationContext-transaction.xml" />
-	<import resource="applicationContext-library.xml" />
 </beans>

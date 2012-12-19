@@ -49,7 +49,7 @@
 		<init-param>
 			<param-name>config</param-name>
 			<param-value>
-				/WEB-INF/struts-config.xml , /WEB-INF/struts-config-agent.xml, /WEB-INF/struts-config-system.xml ,
+				/WEB-INF/struts-config.xml , /WEB-INF/struts-config-agent.xml, /WEB-INF/struts-config-monitor.xml ,
 				 /WEB-INF/struts-config-market.xml, /WEB-INF/struts-config-finance.xml,
 				/WEB-INF/struts-config-right.xml, /WEB-INF/struts-config-report.xml, /WEB-INF/struts-config-library.xml,
 				/WEB-INF/struts-config-message.xml,

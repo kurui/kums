@@ -17,7 +17,7 @@ import com.kurui.kums.base.threads.MainTask;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.util.StringUtil;
 import com.kurui.kums.right.UserRightInfo;
-import com.kurui.kums.system.biz.SysInitBiz;
+import com.kurui.kums.library.biz.SysInitBiz;
 import com.kurui.kums.library.Company;
 import com.kurui.kums.library.biz.CompanyBiz;
 

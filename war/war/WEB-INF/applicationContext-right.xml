@@ -24,8 +24,6 @@
 				<value>agent*.b</value>
 				<value>user*.a</value>
 				<value>transaction*.c</value>
-				<value>system*.d</value>
-				<value>system*.a</value>
 				
 			</list>
 		</property>

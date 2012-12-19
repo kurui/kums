@@ -90,7 +90,7 @@ public void setIndex(int index)
 			<key>
 				<column name="user_id" />
 			</key>
-			<one-to-many class="com.kurui.kums.system.OperateLog" />
+			<one-to-many class="com.kurui.kums.monitor.OperateLog" />
 		</set>
 
 		<set name="accountChecks" inverse="true"

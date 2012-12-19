@@ -119,10 +119,21 @@
    TITLE="/transaction/dataType.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page8" PATH="/library/listDataType.jsp"
-  SHAPE="272,930,0,0" SUBTYPE="jsp" TITLE="listDataType.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+  SHAPE="272,930,0,0" SUBTYPE="jsp" TITLE="listDataType.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/dataTypeList.do"
+   SUBTYPE="confirmed" TARGET="action27"
+   TITLE="/transaction/dataTypeList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page9" PATH="/library/viewDataType.jsp"
   SHAPE="272,1074,0,0" SUBTYPE="jsp" TITLE="viewDataType.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/dataType.do"
+   SUBTYPE="confirmed" TARGET="action26"
+   TITLE="/transaction/dataType.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT NAME="link1" PATH="/transaction/dataTypeList.do"
+   SUBTYPE="confirmed" TARGET="action27"
+   TITLE="/transaction/dataTypeList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM ID="#library#dataType" NAME="action5"
   PATH="/library/dataType" SHAPE="32,913,0,0" TITLE="dataType"
   TYPE="action" model-entity="StrutsProcessItem">
@@ -151,10 +162,18 @@
   TYPE="page" model-entity="StrutsProcessItem"/>
  <PROCESS-ITEM NAME="page11" PATH="/library/listPaymentTool.jsp"
   SHAPE="272,1362,0,0" SUBTYPE="jsp" TITLE="listPaymentTool.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0"
+   PATH="/transaction/paymentToolList.do" SUBTYPE="confirmed"
+   TARGET="action28" TITLE="/transaction/paymentToolList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page12" PATH="/library/editPaymentTool.jsp"
   SHAPE="272,1474,0,0" SUBTYPE="jsp" TITLE="editPaymentTool.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/paymentTool.do"
+   SUBTYPE="confirmed" TARGET="action29"
+   TITLE="/transaction/paymentTool.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM ID="#library#paymentTool" NAME="action7"
   PATH="/library/paymentTool" SHAPE="32,1345,0,0" TITLE="paymentTool"
   TYPE="action" model-entity="StrutsProcessItem">
@@ -179,14 +198,30 @@
    TITLE="listAccountBalance" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page13" PATH="/library/editAccount.jsp"
-  SHAPE="288,1586,0,0" SUBTYPE="jsp" TITLE="editAccount.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+  SHAPE="288,1586,0,0" SUBTYPE="jsp" TITLE="editAccount.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/account.do"
+   SUBTYPE="confirmed" TARGET="action35" TITLE="/transaction/account.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page14" PATH="/library/listAccount.jsp"
-  SHAPE="288,1794,0,0" SUBTYPE="jsp" TITLE="listAccount.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+  SHAPE="288,1794,0,0" SUBTYPE="jsp" TITLE="listAccount.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/accountList.do"
+   SUBTYPE="confirmed" TARGET="action30"
+   TITLE="/transaction/accountList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page15" PATH="/library/viewAccount.jsp"
-  SHAPE="288,1906,0,0" SUBTYPE="jsp" TITLE="viewAccount.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+  SHAPE="288,1906,0,0" SUBTYPE="jsp" TITLE="viewAccount.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/accountList.do"
+   SUBTYPE="confirmed" TARGET="action30"
+   TITLE="/transaction/accountList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page16" PATH="/library/listAccountBalance.jsp"
   SHAPE="288,2018,0,0" SUBTYPE="jsp" TITLE="listAccountBalance.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/accountList.do"
+   SUBTYPE="confirmed" TARGET="action30"
+   TITLE="/transaction/accountList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM ID="#library#account" NAME="action9"
   PATH="/library/account" SHAPE="32,1777,0,0" TITLE="account"
   TYPE="action" model-entity="StrutsProcessItem">
@@ -209,10 +244,19 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page17" PATH="/library/editAccountCheck.jsp"
   SHAPE="272,2130,0,0" SUBTYPE="jsp" TITLE="editAccountCheck.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/accountCheck.do"
+   SUBTYPE="confirmed" TARGET="action31"
+   TITLE="/transaction/accountCheck.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page18" PATH="/library/listAccountCheck.jsp"
   SHAPE="272,2306,0,0" SUBTYPE="jsp" TITLE="listAccountCheck.jsp"
-  TYPE="page" model-entity="StrutsProcessItem"/>
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0"
+   PATH="/transaction/accountCheckList.do" SUBTYPE="confirmed"
+   TARGET="action32" TITLE="/transaction/accountCheckList.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page19" PATH="/library/viewAccountCheck.jsp"
   SHAPE="272,2418,0,0" SUBTYPE="jsp" TITLE="viewAccountCheck.jsp"
   TYPE="page" model-entity="StrutsProcessItem"/>
@@ -237,11 +281,23 @@
    TYPE="forward" model-entity="StrutsProcessItemOutput"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page20" PATH="/library/editCompany.jsp"
-  SHAPE="272,2530,0,0" SUBTYPE="jsp" TITLE="editCompany.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+  SHAPE="272,2530,0,0" SUBTYPE="jsp" TITLE="editCompany.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/company.do"
+   SUBTYPE="confirmed" TARGET="action33" TITLE="/transaction/company.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page21" PATH="/library/viewCompany.jsp"
-  SHAPE="272,2706,0,0" SUBTYPE="jsp" TITLE="viewCompany.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+  SHAPE="272,2706,0,0" SUBTYPE="jsp" TITLE="viewCompany.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/companyList.do"
+   SUBTYPE="confirmed" TARGET="action34"
+   TITLE="/transaction/companyList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="page22" PATH="/library/listCompany.jsp"
-  SHAPE="272,2818,0,0" SUBTYPE="jsp" TITLE="listCompany.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+  SHAPE="272,2818,0,0" SUBTYPE="jsp" TITLE="listCompany.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/transaction/companyList.do"
+   SUBTYPE="confirmed" TARGET="action34"
+   TITLE="/transaction/companyList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM ID="#library#company" NAME="action13"
   PATH="/library/company" SHAPE="32,2801,0,0" TITLE="company"
   TYPE="action" model-entity="StrutsProcessItem">
@@ -387,4 +443,75 @@
  <PROCESS-ITEM ID="#transaction#dataType" NAME="action26"
   PATH="/transaction/dataType" SHAPE="480,754,0,0" SUBTYPE="unknown"
   TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#dataTypeList" NAME="action27"
+  PATH="/transaction/dataTypeList" SHAPE="480,930,0,0" SUBTYPE="unknown"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#paymentToolList" NAME="action28"
+  PATH="/transaction/paymentToolList" SHAPE="480,1362,0,0"
+  SUBTYPE="unknown" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#paymentTool" NAME="action29"
+  PATH="/transaction/paymentTool" SHAPE="480,1586,0,0" SUBTYPE="unknown"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#accountList" NAME="action30"
+  PATH="/transaction/accountList" SHAPE="496,2018,0,0" SUBTYPE="unknown"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#accountCheck" NAME="action31"
+  PATH="/transaction/accountCheck" SHAPE="480,2242,0,0"
+  SUBTYPE="unknown" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#accountCheckList" NAME="action32"
+  PATH="/transaction/accountCheckList" SHAPE="480,2418,0,0"
+  SUBTYPE="unknown" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#company" NAME="action33"
+  PATH="/transaction/company" SHAPE="480,2642,0,0" SUBTYPE="unknown"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#companyList" NAME="action34"
+  PATH="/transaction/companyList" SHAPE="480,2818,0,0" SUBTYPE="unknown"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#transaction#account" NAME="action35"
+  PATH="/transaction/account" SHAPE="496,1698,0,0" SUBTYPE="unknown"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#information#news" NAME="action36"
+  PATH="/information/news" SHAPE="32,5393,0,0" TITLE="news"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#information#newsList" NAME="action37"
+  PATH="/information/newsList" SHAPE="32,4849,0,0" TITLE="newsListForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewNews" NAME="forward0"
+   PATH="/library/viewNews.jsp" TARGET="page31" TITLE="viewNews"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listNewsNotice" NAME="forward1"
+   PATH="/library/listNewsNotice.jsp" TARGET="page32"
+   TITLE="listNewsNotice" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listNews" NAME="forward2"
+   PATH="/library/listNews.jsp" TARGET="page33" TITLE="listNews"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editNews" NAME="forward3"
+   PATH="/library/editNews.jsp" TARGET="page34" TITLE="editNews"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page31" PATH="/library/viewNews.jsp"
+  SHAPE="288,4866,0,0" SUBTYPE="jsp" TITLE="viewNews.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/newsList.do"
+   SUBTYPE="confirmed" TARGET="action37"
+   TITLE="/information/newsList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page32" PATH="/library/listNewsNotice.jsp"
+  SHAPE="288,5074,0,0" SUBTYPE="jsp" TITLE="listNewsNotice.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/newsList.do"
+   SUBTYPE="confirmed" TARGET="action37"
+   TITLE="/information/newsList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page33" PATH="/library/listNews.jsp"
+  SHAPE="288,5186,0,0" SUBTYPE="jsp" TITLE="listNews.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/newsList.do"
+   SUBTYPE="confirmed" TARGET="action37"
+   TITLE="/information/newsList.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page34" PATH="/library/editNews.jsp"
+  SHAPE="288,5298,0,0" SUBTYPE="jsp" TITLE="editNews.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/information/news.do"
+   SUBTYPE="confirmed" TARGET="action36" TITLE="/information/news.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
 </PROCESS>

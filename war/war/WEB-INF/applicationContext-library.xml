@@ -390,6 +390,71 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 	
+	<bean name="/information/newsList"
+		class="com.kurui.kums.library.action.NewsListAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="newsBiz">
+			<ref bean="newsBiz" />
+		</property>
+	</bean>
+	<bean name="/information/news"
+		class="com.kurui.kums.library.action.NewsAction" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="newsBiz">
+			<ref bean="newsBiz" />
+		</property>
+	</bean>
+	<bean id="newsBiz" class="com.kurui.kums.library.biz.NewsBizImp">
+		<property name="newsDAO">
+			<ref bean="newsDAO" />
+		</property>
+	</bean>
+	<bean id="newsDAO" class="com.kurui.kums.library.dao.NewsDAOImp"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean name="sysInitBiz"
+		class="com.kurui.kums.library.biz.SysInitBizImp" singleton="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="platformDAO">
+			<ref bean="platformDAO" />
+		</property>
+		<property name="companyDAO">
+			<ref bean="companyDAO" />
+		</property>
+		<property name="accountDAO">
+			<ref bean="accountDAO" />
+		</property>
+		<property name="platComAccountDAO">
+			<ref bean="platComAccountDAO" />
+		</property>
+		<property name="paymentToolDAO">
+			<ref bean="paymentToolDAO" />
+		</property>
+		<property name="agentDAO">
+			<ref bean="agentDAO" />
+		</property>
+		<property name="userDAO">
+			<ref bean="userDAO" />
+		</property>
+		<property name="priceReferenceDAO">
+			<ref bean="priceReferenceDAO" />
+		</property>
+		<property name="dataTypeDAO">
+			<ref bean="dataTypeDAO" />
+		</property>
+		<property name="directLevelDAO">
+			<ref bean="directLevelDAO" />
+		</property>
+		<property name="productDAO">
+			<ref bean="productDAO" />
+		</property>
+	</bean>
+	
+	
 	<!-- 订单号生成类 -->
 		<bean id="noUtil" class="com.kurui.kums.base.util.KumsNoUtil">
 	</bean>
