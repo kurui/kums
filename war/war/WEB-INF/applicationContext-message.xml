@@ -4,8 +4,7 @@
 <beans default-lazy-init="false" default-autowire="no"
 	default-dependency-check="none">
 
-	<bean name="/message/messageList"
-		class="com.kurui.kums.message.action.MessageListAction"
+	<bean name="/message/messageList" class="com.kurui.kums.message.action.MessageListAction"
 		singleton="false" lazy-init="default" autowire="default"
 		dependency-check="default">
 		<property name="messageBiz">
@@ -13,17 +12,169 @@
 		</property>
 	</bean>
 
-	<bean name="/message/message"
-		class="com.kurui.kums.message.action.MessageAction" singleton="false"
-		lazy-init="default" autowire="default" dependency-check="default">
+	<bean name="/message/message" class="com.kurui.kums.message.action.MessageAction"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
 		<property name="messageBiz">
 			<ref bean="messageBiz" />
 		</property>
 	</bean>
 
-	<bean name="messageBiz"
-		class="com.kurui.kums.message.biz.MessageBizImp" singleton="false"
-		lazy-init="default" autowire="default" dependency-check="default">
-	
+	<bean name="messageBiz" class="com.kurui.kums.message.biz.MessageBizImp"
+		singleton="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+
 	</bean>
+
+
+	<!-- ####################################### -->
+	<!-- JMS Spring Beans -->
+	<!-- ####################################### -->
+
+	<!-- JNDI Environment Template -->
+	<bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
+		<property name="environment">
+			<props>
+				<prop key="java.naming.factory.initial">org.jnp.interfaces.NamingContextFactory</prop>
+				<prop key="java.naming.provider.url">localhost</prop>
+				<prop key="java.naming.factory.url.pkgs">org.jnp.interfaces:org.jboss.naming</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- JMS Queue Connection Factory -->
+	<bean id="internalJmsQueueConnectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>UIL2ConnectionFactory</value>
+		</property>
+	</bean>
+
+
+	<!-- ####################################### -->
+	<!-- Event -->
+	<!-- ####################################### -->
+
+	<!-- EventListener -->
+	<bean id="eventListener" class="com.kurui.kums.message.biz.EventListener">
+		<property name="messageSender">
+			<ref bean="eventSender" />
+		</property>
+		<property name="messageReceiver">
+			<ref bean="eventReceiver" />
+		</property>
+	</bean>
+
+	<bean id="eventSender" class="com.kurui.kums.message.event.EventSenderImpl">
+		<property name="jmsSender">
+			<ref bean="eventSenderJms" />
+		</property>
+	</bean>
+
+	<bean id="eventReceiver" class="com.kurui.kums.message.event.eventReceiverImpl">
+		<property name="jmsReceiver">
+			<ref bean="eventReceiverJms" />
+		</property>
+	</bean>
+
+	<bean id="eventSenderJms" class="com.kurui.kums.message.event.jms.EventSenderJms">
+		<property name="jmsTemplate">
+			<ref bean="eventJmsTemplate" />
+		</property>
+	</bean>
+
+	<bean id="eventRecevierJms" class="com.kurui.kums.message._event.jms.EventRecevierJms">
+		<property name="jmsTemplate">
+			<ref bean="eventJmsTemplate" />
+		</property>
+	</bean>
+	
+		<!-- Event JMS Queue Template -->
+	<bean id="eventJmsTemplate" class="org.springframework.jms.core.JmsTemplate102">
+		<property name="connectionFactory">
+			<ref bean="internalJmsQueueConnectionFactory" />
+		</property>
+		<property name="defaultDestination">
+			<ref bean="eventDestination" />
+		</property>
+		<property name="receiveTimeout">
+			<value>30000</value>
+		</property>
+	</bean>
+	<!--Event JMS Destination -->
+	<bean id="eventDestination" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>queue/EventRequestSendQueue</value>
+		</property>
+	</bean>
+
+
+<!-- ####################################### -->
+	<!-- Trends -->
+	<!-- ####################################### -->
+
+	<!-- TrendsListener -->
+	<bean id="trendsListener" class="com.kurui.kums.message.biz.TrendsListener">
+		<property name="messageSender">
+			<ref bean="trendsSender" />
+		</property>
+		<property name="messageReceiver">
+			<ref bean="trendsReceiver" />
+		</property>
+	</bean>
+
+	<bean id="trendsSender" class="com.kurui.kums.message.trends.TrendsSenderImpl">
+		<property name="jmsSender">
+			<ref bean="trendsSenderJms" />
+		</property>
+	</bean>
+
+	<bean id="trendsReceiver" class="com.kurui.kums.message.trends.trendsReceiverImpl">
+		<property name="jmsReceiver">
+			<ref bean="trendsReceiverJms" />
+		</property>
+	</bean>
+
+	<bean id="trendsSenderJms" class="com.kurui.kums.message.trends.jms.TrendsSenderJms">
+		<property name="jmsTemplate">
+			<ref bean="trendsJmsTemplate" />
+		</property>
+	</bean>
+
+	<bean id="trendsRecevierJms" class="com.kurui.kums.message.trends.jms.TrendsRecevierJms">
+		<property name="jmsTemplate">
+			<ref bean="trendsJmsTemplate" />
+		</property>
+	</bean>
+	
+		<!--Trends JMS Template for Receive Queue -->
+	<bean id="trendsJmsTemplate" class="org.springframework.jms.core.JmsTemplate102">
+		<property name="connectionFactory">
+			<ref bean="internalJmsQueueConnectionFactory" />
+		</property>
+		<property name="defaultDestination">
+			<ref bean="trendsDestination" />
+		</property>
+		<property name="receiveTimeout">
+			<value>30000</value>
+		</property>
+	</bean>
+	<!--Trends JMS Destination for Receive Queue -->
+	<bean id="trendsDestination" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="trendsJmsTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>queue/TrendsRequestReceiveQueue</value>
+		</property>
+	</bean>
+
+
+
+
 </beans>

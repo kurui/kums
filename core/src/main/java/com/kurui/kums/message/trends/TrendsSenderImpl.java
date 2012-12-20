@@ -1,15 +1,16 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.trends;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.kurui.kums.message.MessageResult;
+import com.kurui.kums.message.trends.jms.TrendsSenderJms;
 
-public class MessageResultSenderImpl implements MessageResultSender {
+public class TrendsSenderImpl implements TrendsSender {
 	
-	private static Log log = LogFactory.getLog(MessageResultSenderImpl.class);
+	private static Log log = LogFactory.getLog(TrendsSenderImpl.class);
 	
-	private MessageResultSenderJms jmsSender = null;	
+	private TrendsSenderJms jmsSender = null;	
 
 	
 	public void send(MessageResult result) {
@@ -24,13 +25,13 @@ public class MessageResultSenderImpl implements MessageResultSender {
 
 
 
-	public MessageResultSenderJms getJmsSender() {
+	public TrendsSenderJms getJmsSender() {
 		return jmsSender;
 	}
 
 
 
-	public void setJmsSender(MessageResultSenderJms jmsSender) {
+	public void setJmsSender(TrendsSenderJms jmsSender) {
 		this.jmsSender = jmsSender;
 	}
 

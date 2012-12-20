@@ -1,17 +1,22 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.biz;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.kurui.kums.message.BusinessEventMessage;
 import com.kurui.kums.message.MessageResult;
+import com.kurui.kums.message.event.EventReceiver;
+import com.kurui.kums.message.trends.TrendsSender;
+/**
+ * 监听业务事件消息，执行，返回处理动态
+ * 
+ * */
+public class TrendsListener {
 
-public class BusinessEventProcessService {
-
-	private static Log log = LogFactory.getLog(BusinessEventProcessService.class);
+	private static Log log = LogFactory.getLog(TrendsListener.class);
 	
-	private MessageResultSender messageSender = null;
-	private BusinessEventReceiverProcess messageReceiver = null;
+	private EventReceiver messageReceiver = null;
+	private TrendsSender messageSender = null;
 
 
 	public void processCreditRequest() {
@@ -31,19 +36,19 @@ public class BusinessEventProcessService {
 		log.debug("Done sending the loan details to credit request.");
 	}
 
-	public BusinessEventReceiverProcess getMessageReceiver() {
+	public EventReceiver getMessageReceiver() {
 		return messageReceiver;
 	}
 
-	public void setMessageReceiver(BusinessEventReceiverProcess messageReceiver) {
+	public void setMessageReceiver(EventReceiver messageReceiver) {
 		this.messageReceiver = messageReceiver;
 	}
 
-	public MessageResultSender getMessageSender() {
+	public TrendsSender getMessageSender() {
 		return messageSender;
 	}
 
-	public void setMessageSender(MessageResultSender messageSender) {
+	public void setMessageSender(TrendsSender messageSender) {
 		this.messageSender = messageSender;
 	}
 	

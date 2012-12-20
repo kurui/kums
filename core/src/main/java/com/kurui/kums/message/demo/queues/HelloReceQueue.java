@@ -1,4 +1,4 @@
-package com.kurui.kums.message.jms.jboss.queues;
+package com.kurui.kums.message.demo.queues;
 
 import java.util.Hashtable;
 import javax.jms.JMSException;

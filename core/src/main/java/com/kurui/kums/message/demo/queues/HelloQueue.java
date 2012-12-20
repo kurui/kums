@@ -1,4 +1,4 @@
-package com.kurui.kums.message.jms.jboss.queues;
+package com.kurui.kums.message.demo.queues;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -12,7 +12,7 @@ import javax.jms.TextMessage;
 import javax.jms.Session;
 import javax.jms.JMSException;
 
-import com.kurui.kums.message.jms.jboss.topics.HelloPublisher;
+import com.kurui.kums.message.demo.topics.HelloPublisher;
 
 import java.util.Hashtable;
 

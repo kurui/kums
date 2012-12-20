@@ -1,15 +1,16 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.event;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.kurui.kums.message.BusinessEventMessage;
+import com.kurui.kums.message.event.jms.EventReceiverJms;
 
-public class BusinessEventReceiverImpl implements BusinessEventReceiver {
+public class EventReceiverImpl implements EventReceiver {
 	
-	private static Log log = LogFactory.getLog(BusinessEventReceiverImpl.class);
+	private static Log log = LogFactory.getLog(EventReceiverImpl.class);
 	
-	private BusinessEventReceiverJms jmsReceiver;
+	private EventReceiverJms jmsReceiver;
 	
 	
 	public BusinessEventMessage receive() {
@@ -27,11 +28,11 @@ public class BusinessEventReceiverImpl implements BusinessEventReceiver {
 		return businessEvent;
 	}
 	
-	public BusinessEventReceiverJms getJmsReceiver() {
+	public EventReceiverJms getJmsReceiver() {
 		return this.jmsReceiver;
 	}
 	
-	public void setJmsReceiver (BusinessEventReceiverJms jmsReceiver) {
+	public void setJmsReceiver (EventReceiverJms jmsReceiver) {
 		this.jmsReceiver = jmsReceiver;
 	}
 }

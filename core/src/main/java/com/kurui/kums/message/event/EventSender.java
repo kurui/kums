@@ -1,7 +1,7 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.event;
 
 import com.kurui.kums.message.BusinessEventMessage;
 
-public interface BusinessEventSender {
+public interface EventSender {
 	public void send(BusinessEventMessage businessEventMessage);
 }

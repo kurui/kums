@@ -1,4 +1,4 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.event.jms;
 
 import javax.jms.MapMessage;
 import javax.jms.Message;
@@ -10,24 +10,12 @@ import org.springframework.jms.core.JmsTemplate;
 import com.kurui.kums.base.util.time.DateUtil;
 import com.kurui.kums.message.BusinessEventMessage;
 
-public class BusinessEventReceiverJms {
+public class EventReceiverJms {
 	
-	private static Log log = LogFactory.getLog(BusinessEventReceiverJms.class);
+	private static Log log = LogFactory.getLog(EventReceiverJms.class);
 	
 	private JmsTemplate jmsTemplate;
 
-	/**
-	 * @return Returns the jmsTemplate.
-	 */
-	public JmsTemplate getJmsTemplate() {
-		return jmsTemplate;
-	}
-	/**
-	 * @param jmsTemplate The jmsTemplate to set.
-	 */
-	public void setJmsTemplate(JmsTemplate jmsTemplate) {
-		this.jmsTemplate = jmsTemplate;
-	}
 	
 	public BusinessEventMessage receiveMessage() {
 		Message msg = jmsTemplate.receive();
@@ -47,5 +35,18 @@ public class BusinessEventReceiverJms {
 		}
 		
 		return businessEvent;
+	}
+	
+	/**
+	 * @return Returns the jmsTemplate.
+	 */
+	public JmsTemplate getJmsTemplate() {
+		return jmsTemplate;
+	}
+	/**
+	 * @param jmsTemplate The jmsTemplate to set.
+	 */
+	public void setJmsTemplate(JmsTemplate jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
 	}
 }

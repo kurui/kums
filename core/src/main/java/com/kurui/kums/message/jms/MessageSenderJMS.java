@@ -1,4 +1,4 @@
-package com.kurui.kums.message.service.jboss;
+package com.kurui.kums.message.jms;
 
 import java.util.Hashtable;
 
@@ -17,6 +17,10 @@ import javax.naming.NamingException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+/**
+ *作用还不清楚
+ * 
+ * */
 public class MessageSenderJMS {
 
 	private static Log log = LogFactory.getLog(MessageSenderJMS.class);

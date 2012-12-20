@@ -1,19 +1,18 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.trends;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.kurui.kums.message.MessageResult;
+import com.kurui.kums.message.trends.jms.TrendsReceiverJms;
 
-public class MessageResultReceiverImpl implements MessageResultReceiver {
+public class TrendsReceiverImpl implements TrendsReceiver {
 	
-	private static Log log = LogFactory.getLog(MessageResultReceiverImpl.class);
+	private static Log log = LogFactory.getLog(TrendsReceiverImpl.class);
 	
-	private MessageResultReceiver jmsReceiver;
+	private TrendsReceiverJms jmsReceiver;
 	
-
-	
-	public MessageResult receiveMessage() {
+	public MessageResult receive() {
 		MessageResult messageResult = new MessageResult();
 		try {
 			log.debug("MessageReceiverImpl started");
@@ -28,22 +27,12 @@ public class MessageResultReceiverImpl implements MessageResultReceiver {
 		return messageResult;
 	}
 
-
-
-	public MessageResultReceiver getJmsReceiver() {
+	public TrendsReceiverJms getJmsReceiver() {
 		return jmsReceiver;
 	}
 
-
-
-	public void setJmsReceiver(MessageResultReceiver jmsReceiver) {
+	public void setJmsReceiver(TrendsReceiverJms jmsReceiver) {
 		this.jmsReceiver = jmsReceiver;
 	}
-
-
-
-
-
-	
 	
 }

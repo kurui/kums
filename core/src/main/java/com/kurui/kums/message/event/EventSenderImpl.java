@@ -1,15 +1,16 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.event;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.kurui.kums.message.BusinessEventMessage;
+import com.kurui.kums.message.event.jms.EventSenderJms;
 
-public class BusinessEventSenderImpl implements BusinessEventSender {
+public class EventSenderImpl implements EventSender {
 	
-	private static Log log = LogFactory.getLog(BusinessEventSenderImpl.class);
+	private static Log log = LogFactory.getLog(EventSenderImpl.class);
 	
-	private BusinessEventSenderJms jmsSender = null;
+	private EventSenderJms jmsSender = null;
 	
 	
 	

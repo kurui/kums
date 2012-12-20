@@ -1,4 +1,4 @@
-package com.kurui.kums.message.service;
+package com.kurui.kums.message.event.jms;
 
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
@@ -10,43 +10,45 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
-import com.kurui.kums.message.MessageResult;
+import com.kurui.kums.message.BusinessEventMessage;
 
 /**
- * @author Administrator
+ * @author yanrui
  */
-public class MessageResultSenderJms {
+public class EventSenderJms {
 
-	private static Log log = LogFactory
-			.getLog(MessageResultSenderJms.class);
+	private static Log log = LogFactory.getLog(EventSenderJms.class);
 
 	private JmsTemplate jmsTemplate;
 
-	public void sendMessage(final MessageResult messageResult) {
+
+
+	public void sendMessage(final BusinessEventMessage businessEvent) {
 		jmsTemplate.send(new MessageCreator() {
 			public Message createMessage(Session session) throws JMSException {
 
+				log.debug("Creating the message from loan parameters.");
+
 				MapMessage mapMessage = session.createMapMessage();
-				mapMessage.setLong("requestId", messageResult.getRequestId());
-				mapMessage.setString("content", messageResult.getContent());
-				mapMessage.setBoolean("success", messageResult.isSuccess());
-				log.info("jms template send message result ..");
+				mapMessage.setLong("requestId",businessEvent.getRequestId());
+				mapMessage.setString("author",businessEvent.getAuthor());
+				mapMessage.setString("content",businessEvent.getContent());
+				mapMessage.setString("updateDate",businessEvent.getUpdateDate());
+
 				return mapMessage;
 			}
 		});
-
 	}
-
+	
+	
 	/**
 	 * @return Returns the jmsTemplate.
 	 */
 	public JmsTemplate getJmsTemplate() {
 		return jmsTemplate;
 	}
-
 	/**
-	 * @param jmsTemplate
-	 *            The jmsTemplate to set.
+	 * @param jmsTemplate The jmsTemplate to set.
 	 */
 	public void setJmsTemplate(JmsTemplate jmsTemplate) {
 		this.jmsTemplate = jmsTemplate;
