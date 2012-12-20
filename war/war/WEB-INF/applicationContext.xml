@@ -6,7 +6,6 @@
 	<!-- 数据库连接、关系映射、事务配置 -->
 	<import resource="applicationContext-orm.xml" />
 	<import resource="applicationContext-agent.xml" />
-	<import resource="applicationContext-base.xml" />
 	<import resource="applicationContext-finance.xml" />
 	<import resource="applicationContext-market.xml" />
 	<import resource="applicationContext-message.xml" />
@@ -14,4 +13,58 @@
 	<import resource="applicationContext-right.xml" />
 	<import resource="applicationContext-monitor.xml" />
 	<import resource="applicationContext-library.xml" />
+	
+	<bean id="theFilter"
+		class="com.kurui.kums.base.servlet.filters.SetCharacterEncodingFilter">
+		<property name="urls">
+			<list>
+				<value>/page/mainTitle.jsp</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+
+	<bean id="taskJobScheduler"
+		class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail">
+			<ref bean="taskJob" />
+		</property>
+		<!-- 延时1s 执行任务 --> 
+		<property name="startDelay">
+			<value>1000</value>
+		</property>
+		<!-- 任务执行周期 10s --> 
+		<property name="repeatInterval">
+			<value>100000</value>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="autoStartup">
+			<value>true</value>
+		</property>
+
+		<property name="triggers">
+			<list>
+				<ref bean="taskJobScheduler" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="taskJob"
+		class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.kurui.kums.library.StatementTaskJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="statementBiz">
+					<ref bean="statementBiz" />
+				</entry>
+			</map>
+		</property>
+	</bean>
 </beans>
