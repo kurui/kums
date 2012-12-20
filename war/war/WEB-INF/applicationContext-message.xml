@@ -73,7 +73,7 @@
 		</property>
 	</bean>
 
-	<bean id="eventReceiver" class="com.kurui.kums.message.event.eventReceiverImpl">
+	<bean id="eventReceiver" class="com.kurui.kums.message.event.EventReceiverImpl">
 		<property name="jmsReceiver">
 			<ref bean="eventReceiverJms" />
 		</property>
@@ -85,7 +85,7 @@
 		</property>
 	</bean>
 
-	<bean id="eventRecevierJms" class="com.kurui.kums.message._event.jms.EventRecevierJms">
+	<bean id="eventReceiverJms" class="com.kurui.kums.message.event.jms.EventReceiverJms">
 		<property name="jmsTemplate">
 			<ref bean="eventJmsTemplate" />
 		</property>
@@ -134,7 +134,7 @@
 		</property>
 	</bean>
 
-	<bean id="trendsReceiver" class="com.kurui.kums.message.trends.trendsReceiverImpl">
+	<bean id="trendsReceiver" class="com.kurui.kums.message.trends.TrendsReceiverImpl">
 		<property name="jmsReceiver">
 			<ref bean="trendsReceiverJms" />
 		</property>
@@ -146,7 +146,7 @@
 		</property>
 	</bean>
 
-	<bean id="trendsRecevierJms" class="com.kurui.kums.message.trends.jms.TrendsRecevierJms">
+	<bean id="trendsReceiverJms" class="com.kurui.kums.message.trends.jms.TrendsReceiverJms">
 		<property name="jmsTemplate">
 			<ref bean="trendsJmsTemplate" />
 		</property>

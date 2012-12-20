@@ -148,10 +148,16 @@
 			<artifactId>commons-codec</artifactId>
 		</dependency>
 
+		<!-- Message JBoss MQ -->
 		<dependency>
-				<groupId>commons-lang</groupId>
-				<artifactId>commons-lang</artifactId>
-			</dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jnp</groupId>
+			<artifactId>jnpserver</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 		<!-- Test Scope ENDS -->
 		<dependency>
