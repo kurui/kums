@@ -30,7 +30,7 @@ public class TrendsSenderJms {
 				mapMessage.setLong("requestId", messageResult.getRequestId());
 				mapMessage.setString("content", messageResult.getContent());
 				mapMessage.setBoolean("success", messageResult.isSuccess());
-				log.info("jms template send message result ..");
+				log.debug("jms template send message result ..");
 				return mapMessage;
 			}
 		});

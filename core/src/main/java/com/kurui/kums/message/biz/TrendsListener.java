@@ -20,20 +20,18 @@ public class TrendsListener {
 
 
 	public void processBusinessEventLogRequest() {
-		log.debug("processCreditRequest called.");
+		log.debug("processBusinessEventLogRequest called.");
 		
-		BusinessEventMessage notice = eventReceiver.receive();
+		BusinessEventMessage notice = eventReceiver.receive();		
+		log.debug("======="+notice.getAuthor()+":"+notice.getContent()+"--"+notice.getUpdateTime());
 		
 		MessageResult messageResult = new MessageResult();
 		messageResult.setRequestId(notice.getRequestId());
 		messageResult.setContent(notice.getContent());
 		messageResult.setSuccess(true);
-		
-	
-		
 		messageSender.send(messageResult);
 		
-		log.debug("Done sending the loan details to credit request.");
+		log.debug("++++++Done sending the result to the event_log request.");
 	}
 
 

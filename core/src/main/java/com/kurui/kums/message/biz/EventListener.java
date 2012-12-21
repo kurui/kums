@@ -18,11 +18,11 @@ public class EventListener {
 	private EventReceiver messageReceiver = null;
 
 	public void sendRequest(BusinessEventMessage businessEventMessage) {
-		log.debug("sendAUSCreditRequest called.");
+		log.debug("sendEventLogRequest called.");
 
 		messageSender.send(businessEventMessage);
 
-		log.debug("Done sending the loan details to credit request.");
+		log.debug("Done sending the loan details to event_log request.");
 	}
 
 	public EventSender getMessageSender() {
