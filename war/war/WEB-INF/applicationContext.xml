@@ -8,9 +8,9 @@
 	<import resource="applicationContext-agent.xml" />
 	<import resource="applicationContext-finance.xml" />
 	<import resource="applicationContext-market.xml" />
-	<!-- 
+	<!-- -->
 	<import resource="applicationContext-message.xml" />
-	 -->
+	 
 	<import resource="applicationContext-report.xml" />
 	<import resource="applicationContext-right.xml" />
 	<import resource="applicationContext-monitor.xml" />

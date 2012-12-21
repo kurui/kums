@@ -24,4 +24,18 @@ public class EventSenderImpl implements EventSender {
 		}
 	}
 
+
+
+	public EventSenderJms getJmsSender() {
+		return jmsSender;
+	}
+
+
+
+	public void setJmsSender(EventSenderJms jmsSender) {
+		this.jmsSender = jmsSender;
+	}
+	
+	
+
 }

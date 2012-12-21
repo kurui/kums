@@ -15,14 +15,14 @@ public class TrendsListener {
 
 	private static Log log = LogFactory.getLog(TrendsListener.class);
 	
-	private EventReceiver messageReceiver = null;
+	private EventReceiver eventReceiver = null;
 	private TrendsSender messageSender = null;
 
 
-	public void processCreditRequest() {
+	public void processBusinessEventLogRequest() {
 		log.debug("processCreditRequest called.");
 		
-		BusinessEventMessage notice = messageReceiver.receive();
+		BusinessEventMessage notice = eventReceiver.receive();
 		
 		MessageResult messageResult = new MessageResult();
 		messageResult.setRequestId(notice.getRequestId());
@@ -36,13 +36,19 @@ public class TrendsListener {
 		log.debug("Done sending the loan details to credit request.");
 	}
 
-	public EventReceiver getMessageReceiver() {
-		return messageReceiver;
+
+
+	public EventReceiver getEventReceiver() {
+		return eventReceiver;
 	}
 
-	public void setMessageReceiver(EventReceiver messageReceiver) {
-		this.messageReceiver = messageReceiver;
+
+
+	public void setEventReceiver(EventReceiver eventReceiver) {
+		this.eventReceiver = eventReceiver;
 	}
+
+
 
 	public TrendsSender getMessageSender() {
 		return messageSender;
