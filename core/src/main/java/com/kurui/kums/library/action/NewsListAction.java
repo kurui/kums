@@ -132,6 +132,8 @@ public class NewsListAction extends BaseAction {
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		News news = (News) newsBiz.getNewsById(id);
+		news.setReadNum(news.getReadNum()+1);
+		newsBiz.save(news);
 
 		news.setThisAction("view");
 		request.setAttribute("news", news);

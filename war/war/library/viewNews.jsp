@@ -77,6 +77,9 @@
 										<td align="center">
 											<html:hidden property="selectedItems" value="${news.id}" />
 											<html:hidden property="thisAction" name="news" />
+											
+											<input name="label" type="button" class="button1" value="返回首页"
+												onclick="listNotice();">
 											<input name="label" type="button" class="button1" value="新 增"
 												onclick="add();">
 											<input name="label" type="button" class="button1" value="返 回"
@@ -105,7 +108,12 @@
 	</body>
 	<script type="text/javascript">
 		function add(){		   
-		    document.forms[0].action="<%=path%>/information/newsList.do?thisAction=save";
+		    document.forms[0].action="<%=path%>/information/newsList.do?thisAction=add";
+		    document.forms[0].submit();
+		}
+		
+		function listNotice(){		   
+		    document.forms[0].action="<%=path%>/information/newsList.do?thisAction=listNotice";
 		    document.forms[0].submit();
 		}
 		
