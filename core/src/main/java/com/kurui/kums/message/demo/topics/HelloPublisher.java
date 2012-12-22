@@ -1,4 +1,4 @@
-package com.kurui.kums.message.jms.jboss.topics;
+package com.kurui.kums.message.demo.topics;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

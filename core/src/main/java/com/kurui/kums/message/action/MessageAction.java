@@ -15,8 +15,8 @@ import com.kurui.kums.base.struts.BaseAction;
 import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.message.Message;
 import com.kurui.kums.message.biz.MessageBiz;
-import com.kurui.kums.message.jms.jboss.queues.HelloQueue;
-import com.kurui.kums.message.jms.jboss.topics.HelloPublisher;
+import com.kurui.kums.message.demo.queues.HelloQueue;
+import com.kurui.kums.message.demo.topics.HelloPublisher;
 
 public class MessageAction extends BaseAction {
 	private MessageBiz messageBiz;

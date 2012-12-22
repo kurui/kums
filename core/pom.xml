@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion><!--maven2.0必须是这样写，现在是maven2唯一支持的版本-->
+	<modelVersion>4.0.0</modelVersion><!--maven2.0必须是这样写，现在是maven2唯一支持的版本 -->
 	<parent>
 		<groupId>com.kurui</groupId>
 		<version>2.3.0</version>
@@ -18,13 +18,13 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
-			
-			
+
+
 		</plugins>
-		
-		
+
+
 	</build>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>com.ibm.icu</groupId>
@@ -142,12 +142,22 @@
 			<artifactId>truelicense-xml</artifactId>
 			<version>1.31</version>
 		</dependency>
+
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.3</version>
 		</dependency>
 
+		<!-- Message JBoss MQ -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jnp</groupId>
+			<artifactId>jnpserver</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 		<!-- Test Scope ENDS -->
 		<dependency>
