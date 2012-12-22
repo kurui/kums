@@ -16,11 +16,16 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	protected long id;
 	protected String title;
 	protected String content;
-	protected java.sql.Timestamp createTime;
+
 	protected Long readNum;
+	protected Long type;
 	protected Long status;
 	protected Long rank;
+	
 	protected String userNo;
+	
+	protected java.sql.Timestamp createTime;
+	protected java.sql.Timestamp updateTime;
 
 	// Constructors
 
@@ -56,6 +61,22 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 
 	public void setCreateTime(java.sql.Timestamp createTime) {
 		this.createTime = createTime;
+	}
+
+	public Long getType() {
+		return type;
+	}
+
+	public void setType(Long type) {
+		this.type = type;
+	}
+
+	public java.sql.Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(java.sql.Timestamp updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	public Long getReadNum() {

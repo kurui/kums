@@ -29,10 +29,14 @@
 					<td width="10" class="tbll"></td>
 					<td valign="top" class="body"><c:if
 							test="${news.thisAction eq 'update'}">
-							<c:import url="../page/mainTitle.jsp?title1=新闻发布&title2=修改新闻"
+							<c:import url="../page/mainTitle.jsp?title1=消息服务&title2=修改新闻"
 								charEncoding="UTF-8" />
-						</c:if> <c:if test="${news.thisAction eq 'insert'}">
-							<c:import url="../page/mainTitle.jsp?title1=新闻发布&title2=添加新闻"
+						</c:if> <c:if test="${news.thisAction eq 'insert' && news.type ==1 }">
+							<c:import url="../page/mainTitle.jsp?title1=消息服务&title2=添加新闻"
+								charEncoding="UTF-8" />
+								</c:if>
+								<c:if test="${news.thisAction eq 'insert'&& news.type==20}">
+							<c:import url="../page/mainTitle.jsp?title1=消息服务&title2=我有话说"
 								charEncoding="UTF-8" />
 						</c:if>
 						<hr> <html:form action="/information/news.do">
@@ -58,8 +62,8 @@
 								</tr>
 								<tr>
 									<td>是否显示</td>
-									<td><html:radio property="status" value="0" name="news">不显示</html:radio>
-										<html:radio property="status" value="1" name="news">显示</html:radio>
+									<td><html:radio property="status" value="2" name="news">暂不显示</html:radio>
+										<html:radio property="status" value="1" name="news">正常</html:radio>
 									</td>
 								</tr>
 								<tr>

@@ -15,6 +15,7 @@
 
 		<script>
 function add(){
+    document.forms[0].type.value="1";
     document.forms[0].thisAction.value="add";
     document.forms[0].submit();
 }
@@ -82,12 +83,8 @@ function searchAgent(){
 									<table cellpadding="0" cellspacing="0" border="0" class="searchPanel">
 										<tr>
 											<td>
-												标题：
-												<html:text property="title" style="width:150px;" styleClass="colorblue2 p_5" />
-											</td>
-											<td>
-												发布人：
-												<html:text property="userName" style="width:150px;" styleClass="colorblue2 p_5" />
+												关键字：
+												<html:text property="keywords" style="width:150px;" styleClass="colorblue2 p_5" />
 											</td>
 											<td>
 												<input type="submit" name="button" id="button" value="查询" class="submit greenBtn" />

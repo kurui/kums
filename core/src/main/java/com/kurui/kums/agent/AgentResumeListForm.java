@@ -22,15 +22,7 @@ public class AgentResumeListForm extends ListActionForm {
 	public Long type=Long.valueOf(0);
 	public Long status;
 
-	public String keywords = "";
 
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
 
 	public long getAgentId() {
 		return agentId;

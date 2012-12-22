@@ -38,17 +38,12 @@
 						target="mainFrame">流程监控</a></li>
 				</ul>
 
-				<span class="title"><a href="#"
-					onclick="showUL('ulInformation')">新闻服务</a> </span>
-				<ul class="contents" id="ulInformation" style="">
-					<li><a
-						href="<%=path%>/information/newsList.do?thisAction=list"
-						target="mainFrame">新闻列表</a></li>
-				</ul>
-
 				<span class="title"><a href="#" onclick="showUL('ulMessage')">消息服务</a>
 				</span>
 				<ul class="contents" id="ulMessage">
+				<li><a
+						href="<%=path%>/information/newsList.do?thisAction=list&type=1"
+						target="mainFrame">新闻列表</a></li>
 					<li><a
 						href="<%=path%>/message/messageList.do?thisAction=listBaseCase"
 						target="mainFrame">测试用例列表</a></li>

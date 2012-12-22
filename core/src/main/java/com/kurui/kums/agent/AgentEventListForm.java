@@ -20,16 +20,6 @@ public class AgentEventListForm extends ListActionForm {
 	public Long type=Long.valueOf(1);
 	public Long status=Long.valueOf(1);
 
-	public String keywords = "";
-
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
-
 	public long getAgentId() {
 		return agentId;
 	}

@@ -20,11 +20,11 @@
 		<property name="content" column="content" type="string"
 			not-null="false" insert="true" update="true">
 		</property>
-		<property name="createTime" column="create_time"
-			type="java.sql.Timestamp" not-null="false" insert="true"
-			update="true">
-		</property>
+	
 		<property name="readNum" column="read_num" type="java.lang.Long"
+			not-null="false" insert="true" update="true">
+		</property>
+		<property name="type" column="type" type="java.lang.Long"
 			not-null="false" insert="true" update="true">
 		</property>
 		<property name="status" column="status" type="java.lang.Long"
@@ -35,6 +35,15 @@
 		</property>
 			<property name="userNo" type="string">
 			<column name="USER_NO" length="50" />
+		</property>
+		
+			<property name="createTime" column="create_time"
+			type="java.sql.Timestamp" not-null="false" insert="true"
+			update="true">
+		</property>
+			<property name="updateTime" column="update_time"
+			type="java.sql.Timestamp" not-null="false" insert="true"
+			update="true">
 		</property>
 
 

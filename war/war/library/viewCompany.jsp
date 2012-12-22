@@ -9,8 +9,7 @@
 		<title>main</title>
 		<link href="../_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript">
-	</script>
+		<script type="text/javascript" src="<%=path%>/_js/base/FormUtil.js"></script>
 	</head>
 	<body>
 		<div id="mainContainer">
@@ -200,6 +199,9 @@
 											上传图片</a> |<a
 										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&perPageNum=1&tableName=company&rowId=<c:out value="${company.id}" />">
 											所有图片</a>
+											
+											<input name="label" type="button" class="button1" value="客户列表"
+												onclick="listAgent();" id="btnListAgent">
 											<input name="label" type="button" class="button1" value="新 增"
 												onclick="add();">
 											<input name="label" type="button" class="button1" value="返 回"
@@ -236,6 +238,13 @@
 		function edit(){
 		    document.forms[0].action="<%=path%>/library/companyList.do?thisAction=edit";
 		    document.forms[0].submit();
+		}
+		
+		function listAgent(){	
+			if(setSubmitButtonDisable("btnListAgent")){	   
+		    	document.forms[0].action="<%=path%>/agent/agentList.do?thisAction=list";
+		    	document.forms[0].submit();
+		    }
 		}
 	</script>
 </html>

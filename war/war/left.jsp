@@ -31,7 +31,7 @@
 			<div class="sideBarItem webAdmin">
 				<span class="title"> <a
 					href="<%=path%>/information/newsList.do?thisAction=listNotice"
-					target="mainFrame">系统公告</a>
+					target="mainFrame">消息栏</a>
 				</span> <span class="title"><a
 					href="user/user.do?thisAction=editMyPassword&userId=<c:out value='${URI.user.userId}'/>"
 					target="mainFrame">修改我的密码</a> </span> <span class="title"><a

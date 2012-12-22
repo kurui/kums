@@ -32,14 +32,15 @@ public class NewsAction extends BaseAction {
 			tempNews.setContent(news.getContent());
 			tempNews.setTitle(news.getTitle());
 			tempNews.setRank(news.getRank());
+			tempNews.setType(news.getType());
 			tempNews.setStatus(news.getStatus());
-			tempNews.setCreateTime(new Timestamp(System.currentTimeMillis()));
+			tempNews.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 			newsBiz.updateInfo(tempNews);
 			request.setAttribute("news", tempNews);
 
-			String forwardUrl="/information/newsList.do?thisAction=view&id="+tempNews.getId();
+			String forwardUrl = "/information/newsList.do?thisAction=view&id="
+					+ tempNews.getId();
 			return new ActionRedirect(forwardUrl);
-			
 
 		} catch (Exception ex) {
 			inf.setMessage("更新新闻出错！错误信息是：" + ex.getMessage());
@@ -49,33 +50,35 @@ public class NewsAction extends BaseAction {
 
 	public ActionForward insert(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
-			throws AppException {		
+			throws AppException {
 		News news = (News) form;
-		
-		Inform inf = new Inform();
-			try {
-				News tempNews = new News();
-				tempNews
-						.setCreateTime(new Timestamp(System.currentTimeMillis()));
-				tempNews.setContent(news.getContent());
-				tempNews.setTitle(news.getTitle());
-				SysUser user = this.getUserByURI(request);
-				tempNews.setUserNo(user.getUserNo());
-				tempNews.setRank(news.getRank());
-				tempNews.setStatus(news.getStatus());
-				tempNews.setReadNum(new Long(0));
-				newsBiz.save(tempNews);
-				request.setAttribute("news", tempNews);
 
-				String forwardUrl="/information/newsList.do?thisAction=view&id="+tempNews.getId();
-				return new ActionRedirect(forwardUrl);
-			} catch (Exception ex) {
-				inf.setMessage("添加新闻出错！错误信息是：" + ex.getMessage());
-				inf.setBack(true);
-			}
+		Inform inf = new Inform();
+		try {
+			News tempNews = new News();
+			tempNews.setCreateTime(new Timestamp(System.currentTimeMillis()));
+			tempNews.setUpdateTime(tempNews.getCreateTime());
+			tempNews.setContent(news.getContent());
+			tempNews.setTitle(news.getTitle());
+			SysUser user = this.getUserByURI(request);
+			tempNews.setUserNo(user.getUserNo());
+			tempNews.setRank(news.getRank());
+			tempNews.setType(news.getType());
+			tempNews.setStatus(news.getStatus());
+			tempNews.setReadNum(new Long(0));
+			newsBiz.save(tempNews);
+			request.setAttribute("news", tempNews);
+
+			String forwardUrl = "/information/newsList.do?thisAction=view&id="
+					+ tempNews.getId();
+			return new ActionRedirect(forwardUrl);
+		} catch (Exception ex) {
+			inf.setMessage("添加新闻出错！错误信息是：" + ex.getMessage());
+			inf.setBack(true);
+		}
 		return forwardInformPage(inf, mapping, request);
 	}
-	
+
 	public SysUser getUserByURI(HttpServletRequest request) {
 		UserRightInfo uri = (UserRightInfo) request.getSession().getAttribute(
 				"URI");

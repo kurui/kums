@@ -43,7 +43,7 @@ public class NewsListAction extends BaseAction {
 		return mapping.findForward(forwardPage);
 	}
 	
-	
+	//动态栏
 	public ActionForward listNotice(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
@@ -52,8 +52,18 @@ public class NewsListAction extends BaseAction {
 		if (nlf == null)
 			nlf = new NewsListForm();
 
+		nlf.setType(News.TYPE_1);
 		List list = newsBiz.getNews(nlf);
-		nlf.setList(list);
+		request.setAttribute("newsList", list);
+		
+		nlf.setType(News.TYPE_10);
+		list = newsBiz.getNews(nlf);
+		request.setAttribute("eventList", list);
+		
+		nlf.setType(News.TYPE_20);
+		list = newsBiz.getNews(nlf);
+		request.setAttribute("suggestList", list);
+		
 		request.setAttribute("nlf", nlf);
 		forwardPage = "listNewsNotice";
 		return mapping.findForward(forwardPage);
@@ -62,11 +72,15 @@ public class NewsListAction extends BaseAction {
 	public ActionForward add(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws AppException {
+		NewsListForm nlf = (NewsListForm) form;
 		String forwardPage = "";
 		SysUser user = this.getUserByURI(request);
 
-		News news = new News();
+		News news = new News();		
 		news.setThisAction("insert");
+		news.setType(nlf.getType());
+		
+		
 		request.setAttribute("news", news);
 		forwardPage = "editNews";
 

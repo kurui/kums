@@ -6,12 +6,23 @@ import com.kurui.kums.base.struts.ListActionForm;
 
 public class NewsListForm extends ListActionForm {
 	private static final long serialVersionUID = 1L;
+
+	private int id = 0;
+
 	private String title = "";
 	private String content = "";
-	private Long status = new Long(0);
-	private Long rank = new Long(0);
+	private Long type;
+	private Long status;
+	private Long rank;
 	private String userName = "";
-	private int id = 0;
+
+	public Long getType() {
+		return type;
+	}
+
+	public void setType(Long type) {
+		this.type = type;
+	}
 
 	public String getTitle() {
 		return title;
