@@ -80,6 +80,9 @@ extends org.apache.struts.action.ActionForm implements Cloneable {
 	}
 
 	public Long getReadNum() {
+		if(readNum==null){
+			return Long.valueOf(0);
+		}
 		return this.readNum;
 	}
 

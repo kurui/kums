@@ -106,8 +106,8 @@
 										<td><c:out value="${status.count}" /></td>
 										<td><html:link
 												page="/information/newsList.do?thisAction=view&id=${info.id}">
-												<c:out value="${info.title}" />
-											</html:link></td>
+
+											</html:link> <c:out value="${info.content}" escapeXml="false" /></td>
 										<td><c:out value="${info.createDate}" /></td>
 									</tr>
 								</c:forEach>
