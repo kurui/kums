@@ -28,6 +28,16 @@
 	position: absolute;
 	z-index: 3;
 }
+
+.cussentProductBoxDiv {
+	width: 200px;
+	height: 250 px;
+	background-color: #f5f5f5;
+	border: 1 px solid Silver;;
+	overflow: auto;
+	position: absolute;
+	z-index: 3;
+}
 </style>
 <script type="text/javascript">
 	function addCussentCompanyId(rowId,cussentCompanyIdValue){		
@@ -40,6 +50,19 @@
 					companyBiz.getCompanyById(cussentCompanyIdValue,function(cussentCompany){
 						document.getElementById("cussentCompanyName"+rowId).value=cussentCompany.name;	
 						document.getElementById("cussentCompanyId"+rowId).value=cussentCompany.id;					
+				});
+			}
+		}	
+	function addCussentProductId(rowId,cussentProductIdValue){		
+			var rowObj=document.getElementById("cussentProductId"+rowId);	
+			if(rowObj==null){
+				alert("rowObj is null..rowId:"+rowId+"--cussentProductIdValue:"+cussentProductIdValue);
+			}else{				
+				rowObj.value=cussentProductIdValue;
+				//alert("getProductById-"+cussentProductIdValue);			
+					productBiz.getProductById(cussentProductIdValue,function(cussentProduct){
+						document.getElementById("cussentProductName"+rowId).value=cussentProduct.name;	
+						document.getElementById("cussentProductId"+rowId).value=cussentProduct.id;					
 				});
 			}
 		}	
@@ -83,16 +106,19 @@
 										<td>
 											<a href="#" onclick="setSameValue('cussentCompanyIds');setSameValue('cussentCompanyNames');">同一单位</a>
 										</td>
-										<td></td>
+										<td>
+											<input name="label" type="button" class="button1" value="新增明细" onclick="addRow('table1');">
+										</td>
 										<td>
 											<a href="#" onclick="setSameSelectValue('tranTypeSelectObj');">同一科目</a>
 										</td>
 										<td>
-											<input name="label" type="button" class="button1" value="新增明细" onclick="addRow('table1');">
-
+											<input type="text" name="outOrderNos" onclick="this.value='';" onmouseout="if(this.value==''){this.value='账单号'}" class="colorblue2 p_5"	style="width:150px;" value="账单号" />
+			<input name="label" type="button" id="addLiveOrderButton" class="button1" value="保 存" onclick="addLiveOrder();" onkeypress="keypressAddLiveOrder(event);">
+											
 										</td>
 										<td>
-											<input name="label" type="button" id="addLiveOrderButton" class="button1" value="保 存" onclick="addLiveOrder();" onkeypress="keypressAddLiveOrder(event);">
+											<input name="label" type="button" class="button1" value="新增明细" onclick="addRow('table1');">											
 										</td>
 										<td>
 											<a href="#" onclick="setSameValue('businessDates');">同一天</a>
@@ -104,6 +130,9 @@
 								</table>
 								<div id="cussentCompanyBox" class="cussentCompanyBoxDiv" style="display: none">
 									<table id="tableBlurCussentCompany" cellpadding="0" cellspacing="0" border="0" class="dataList" width="90%"></table>
+								</div>
+								<div id="cussentProductBox" class="cussentProductBoxDiv" style="display: none">
+									<table id="tableBlurCussentProduct" cellpadding="0" cellspacing="0" border="0" class="dataList" width="90%"></table>
 								</div>
 								<div class="clear"></div>
 							</td>
@@ -139,7 +168,7 @@
 		}
 		
 		var  maxRow=11;   
-		var rowHeadHtml="<tr><th><div>往来单位</div></th><th><div>账单号</div></th><th><div>科目</div></th>";
+		var rowHeadHtml="<tr><th><div>往来单位</div></th><th><div>产品</div></th><th><div>科目</div></th>";
 			rowHeadHtml+="<th><div>金额</div></th><th><div>备注</div></th>";
 			rowHeadHtml+="<th><div>入账日期</div></th><th><div>操作</div></th></tr>";
 		function addRow(tableId){
@@ -151,7 +180,12 @@
 			rowHtml+="<input type='text' name='cussentCompanyNames' id='cussentCompanyName"+maxRow+"' class='colorblue2 p_5'	style='width:150px;'";
 			rowHtml+=" ondblclick='this.value='';' onkeyup='onChangeSelectCussentCompany("+maxRow+",event);'  /><a href='#' onclick='selectCussentCompany("+maxRow+")'>选择</a>";
 			rowHtml+="</td>";
-			rowHtml+="<td><input type='text' name='outOrderNos' class='colorblue2 p_5'	style='width:150px;' /></td>";
+				rowHtml+="<td>";
+			rowHtml+="<input type='hidden' name='cussentProductIds' id='cussentProductId"+maxRow+"' style='width:30px;' />";
+			rowHtml+="<input type='text' name='cussentProductNames' id='cussentProductName"+maxRow+"' value='考虑如何与OrderDetail融合' class='colorblue2 p_5'	style='width:150px;'";
+			rowHtml+=" ondblclick='this.value='';' onkeyup='onChangeSelectCussentProduct("+maxRow+",event);'  /><a href='#' onclick='selectCussentProduct("+maxRow+")'>选择</a>";
+			rowHtml+="</td>";
+			
 			rowHtml+="<td><select id='tranTypeSelectObj"+maxRow+"' name='tranTypes' class='colorblue2 p_5'	style='width:100px;' >";
 			rowHtml+="<option value='0' >-请选择-</option>";		
 			rowHtml+="</select></td>";			
@@ -266,6 +300,62 @@
 		//alert(rowId+"---"+cussentCompanyId);
 		displayObj("cussentCompanyBox","none");	
 		addCussentCompanyId(rowId,cussentCompanyId);	
+	}
+	
+	
+	//====================onChange CussentProduct begin=========
+		function onChangeSelectCussentProduct(maxRow,event){			
+			$("#tableBlurCussentProduct").empty();
+			drawCussentProductDiv(event);
+			var cussentProductNo=document.getElementById("cussentProductName"+maxRow).value;
+			if(cussentProductNo!=null){
+			//alert("cussentProductNo:"+cussentProductNo);
+				productStore.getBlurProductList(cussentProductNo,function(blurCussentProductList){
+					//alert("blurCussentProductList:"+blurCussentProductList);
+					if(blurCussentProductList!=null&&blurCussentProductList.length>0){
+						for(var i=0;i<blurCussentProductList.length;i++){
+							var cussentProduct=blurCussentProductList[i];
+							if(cussentProduct!=null){					
+								var info="<a href='#' onclick='confirmSelectCussentProduct("+maxRow+","+cussentProduct.id+");'>";
+								info=info+cussentProduct.name+"</a><br/>";								
+								//alert(info);
+								addBlurCussentProductRow('tableBlurCussentProduct',info,i);
+							}							
+						}						
+					}else{
+							displayObj("cussentProductBox","none");	
+					}				
+				});
+			}else{
+				alert("cussentProductNo is null");
+			}
+		}
+		
+		function drawCussentProductDiv(event){
+			var mX = event.x ? event.x : event.pageX; 
+			var mY = event.y ? event.y : event.pageY; 			
+		
+			//alert("x,y:"+mX+"--"+mY);
+			
+			document.getElementById("cussentProductBox").style.left=mX-25;   
+    		document.getElementById("cussentProductBox").style.top=mY+30;    
+			displayObj("cussentProductBox","");	
+			
+		}
+		
+		function addBlurCussentProductRow(tableId,info,maxRow){
+			var tableObj= $("#"+tableId);
+			var rowHtml="";		
+			rowHtml+="<tr id='row"+maxRow+"' >";
+			rowHtml+="<td>"+info+"</td>";	
+			rowHtml+="</tr>";
+			tableObj.append(rowHtml);  		
+		}
+		
+	function confirmSelectCussentProduct(rowId,cussentProductId){
+		//alert(rowId+"---"+cussentProductId);
+		displayObj("cussentProductBox","none");	
+		addCussentProductId(rowId,cussentProductId);	
 	}
 	
 	</script>

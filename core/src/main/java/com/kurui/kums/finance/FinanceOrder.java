@@ -17,6 +17,14 @@ import com.kurui.kums.right.UserStore;
 import com.kurui.kums.library.util.DataTypeStore;
 
 public class FinanceOrder extends _FinanceOrder {
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+
 	private static final long serialVersionUID = 1L;
 	private String forwardPage;
 	private long groupId;
@@ -29,6 +37,7 @@ public class FinanceOrder extends _FinanceOrder {
 	private Long agentId = Long.valueOf(0);
 	private String agentNo = "";
 	private String agentName = "";
+	private Long productId=Long.valueOf(0);
 	private String businessDate = "";
 	private String maturityDate = "";
 	private Long operateLogType = Long.valueOf(0);

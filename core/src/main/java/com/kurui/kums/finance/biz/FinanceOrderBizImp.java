@@ -69,7 +69,7 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 
 		if (form != null) {
 			Long[] cussentCompanyIds = form.getCussentCompanyIds();
-			String[] outOrderNos = form.getOutOrderNos();
+			Long[] productIds = form.getProductIds();
 			BigDecimal[] totalAmounts = form.getTotalAmounts();
 			Long[] tranTypes = form.getTranTypes();
 			String[] memos = form.getMemos();
@@ -78,7 +78,7 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 			if (totalAmounts != null && totalAmounts.length > 0) {
 				for (int i = 0; i < totalAmounts.length; i++) {
 					Long cussentCompanyId = cussentCompanyIds[i];
-					String outOrderNo = outOrderNos[i];
+//					Long productId=productIds[i];
 					BigDecimal totalAmount = totalAmounts[i];
 					Long tranType = tranTypes[i];
 					String memo = memos[i];
@@ -92,7 +92,7 @@ public class FinanceOrderBizImp implements FinanceOrderBiz {
 					} else {
 						form.setCussentCompany(null);
 					}
-					form.setOutOrderNo(outOrderNo);
+//					form.setProductId(productId);
 					form.setTotalAmount(totalAmount);
 					form.setTranType(tranType);
 					form.setMemo(memo);
