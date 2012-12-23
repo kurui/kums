@@ -252,7 +252,7 @@
 			 var htmlContent="";
 			 var provideChain="<c:out value='${company.provideChain}' />";
 		
-			 dataTypeBiz.getSubDataTypeList(53,function(dataTypeList){			 
+			 dataTypeBiz.getSubDataTypeList(51,function(dataTypeList){			 
 				for(var i=0;i<dataTypeList.length;i++){	
 					var dataTypeNo=dataTypeList[i].no;	
 					var dataTypeName=dataTypeList[i].name;		

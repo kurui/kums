@@ -81,7 +81,11 @@ public class DataTypeAction extends BaseAction {
 				dataType.setStatus(pform.getStatus());
 
 				long flag = dataTypeBiz.update(dataType);
-
+				// --更新静态库
+				KumsDataStoreListener listener = new KumsDataStoreListener(sysInitBiz,
+						"DataType");
+				MainTask.put(listener);
+				// ---------
 				if (flag > 0) {
 					return redirect(dataType);
 				} else {

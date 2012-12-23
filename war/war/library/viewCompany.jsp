@@ -137,6 +137,7 @@
 										</td>
 										<td style="text-align: left" colspan="3">
 											<c:out value="${company.provideChainInfo}" />
+																	
 										</td>
 									</tr>
 									<tr>
