@@ -1,7 +1,9 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html-el.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/c.tld" prefix="c"%>
-
+<%
+	String path = request.getContextPath();
+%>
 <c:if test="${URI==null}">
 	<script language="JavaScript">
    	top.location="login.jsp" 
@@ -13,7 +15,7 @@
 		<title>酷睿天下集团信息平台</title>
 		<link href="_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="_css/global.css" rel="stylesheet" type="text/css" />
-		<link href="http://192.168.150.10:8080/kums/_img/kurui/KR-HD.gif" rel="shortcut icon" /> 
+		<link href="<%=path%>/_img/kurui/KR-French.gif" rel="shortcut icon" /> 
 		<script src="_js/common.js" type="text/javascript"></script>
 		<script language="JavaScript">
 <!-- 

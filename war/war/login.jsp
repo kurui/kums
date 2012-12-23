@@ -38,7 +38,7 @@
 				</div>
 				 -->
 				 <div id="divTitle">
-					KR Corporation Platform
+					KR Corporation 
 				</div>
 				<div id="divKR_HD" style="display: none"></div>
 			

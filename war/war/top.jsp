@@ -20,7 +20,7 @@
 		<div id="header">
 			<div class="logo">
 				<!-- -->
-				<img src="./_img/kurui/kuruiLogo2.png" alt="酷睿天下" class="imgLogo" />
+				<img src="./_img/kurui/KR-French.gif" alt="酷睿天下" class="imgLogo" />
 				<span class="sysTitle">酷睿天下集团信息平台</span>
 			</div>
 			<div class="mainNav">

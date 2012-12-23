@@ -47,6 +47,7 @@
 							<c:if test="${news.thisAction eq 'insert'}">
 								<html:hidden property="thisAction" value="insert"></html:hidden>
 							</c:if>
+								<html:hidden property="type"  name="news"></html:hidden>
 							<table width="100%" cellpadding="0" cellspacing="0" border="0"
 								class="dataList">
 								<tr>
@@ -63,7 +64,7 @@
 								<tr>
 									<td>是否显示</td>
 									<td><html:radio property="status" value="2" name="news">暂不显示</html:radio>
-										<html:radio property="status" value="1" name="news">正常</html:radio>
+										<html:radio property="status" value="1" name="news" >正常</html:radio>
 									</td>
 								</tr>
 								<tr>

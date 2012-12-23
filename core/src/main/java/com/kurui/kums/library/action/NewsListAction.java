@@ -79,6 +79,7 @@ public class NewsListAction extends BaseAction {
 		News news = new News();		
 		news.setThisAction("insert");
 		news.setType(nlf.getType());
+		news.setStatus(News.STATUS_1);
 		
 		
 		request.setAttribute("news", news);
