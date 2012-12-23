@@ -28,7 +28,7 @@ img {
 	width: 532px;
 	height: 339px;
 	overflow: hidden;
-	background: url( ../_img/login_05.png);
+	background: url( ../_img/login_06.png);
 	margin: 150px auto 0 auto;
 }
 
@@ -53,6 +53,8 @@ img {
 	z-index: 3;
 	top: 1%;
 }
+
+
 
 #divUser,#divPassword,#divCode {
 	width: 302px;

@@ -7,10 +7,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>欢迎登录酷睿天下集团信息平台</title>
+		<title>KR Corporation Platform</title>
 		<link href="<%=path%>/_css/login.css" rel="stylesheet" type="text/css" />
-		<link  href="http://192.168.150.10:8080/kums/_img/kurui/KR-HD.gif" rel="shortcut icon"/> 
-		<script src="<%=path%>/_js/common.js" type="text/javascript"></script>
+		<link  href="<%=path%>/_img/kurui/KR-French.gif" rel="shortcut icon"/> 
+		<script src="<%=path%>/_js/prototype/common.js" type="text/javascript"></script>
 		<script language="JavaScript">
 		if (self!=top){
 		   top.location=self.location;
@@ -28,14 +28,21 @@
 		 }
 	</script>
 	</head>
-	<body onload="document.forms[0].userNo.focus();">
+	<body onload="document.forms[0].rand.focus();">
 		<form id="uf" action="<%=path%>/user/user.do?thisAction=login"
 			method="post">
 			<div id="div05">
+			<!-- 
 				<div id="divTitle">
 					酷睿天下集团信息平台
 				</div>
+				 -->
+				 <div id="divTitle">
+					KR Corporation Platform
+				</div>
 				<div id="divKR_HD" style="display: none"></div>
+			
+				
 				<div id="divUser">
 					<span>登录账号：</span>
 					<div class="bg0">
