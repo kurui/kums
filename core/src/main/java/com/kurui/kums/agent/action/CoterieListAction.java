@@ -53,12 +53,35 @@ public class CoterieListAction extends BaseAction {
 		CoterieListForm coterieListForm = (CoterieListForm) form;
 		try {
 			long coterieId = Constant.toLong(coterieListForm.getId());
+			List<Agent> agentList = agentCoterieBiz
+					.getAgentListByCoterieId(coterieId);
+			request.setAttribute("agentList", agentList);
+			
+			
 			Coterie coterie = coterieBiz.getCoterieById(coterieId);
 			request.setAttribute("coterie", coterie);
-			
-			List<Agent> agentList=agentCoterieBiz.getAgentListByCoterieId(coterieId);
-			request.setAttribute("agentList", agentList);
 
+		
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		forwardPage = "viewCoterie";
+		return mapping.findForward(forwardPage);
+	}
+
+	// 删除成员
+	public ActionForward deleteAgentMember(ActionMapping mapping,
+			ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws AppException {
+		String forwardPage = "";
+		CoterieListForm coterieListForm = (CoterieListForm) form;
+		try {
+			long coterieId = coterieListForm.getSelectedItems()[0];
+			if (coterieId > 0) {
+				agentCoterieBiz.deleteAgentCoterie(coterieId);
+			}
+			return view(mapping, coterieListForm, request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -120,8 +143,8 @@ public class CoterieListAction extends BaseAction {
 			inf.setMessage("缺少coterieId");
 			return forwardInformPage(inf, mapping, request);
 		}
-		request.setAttribute("companyList", PlatComAccountStore
-				.getGroupCompnayList());
+		request.setAttribute("companyList",
+				PlatComAccountStore.getGroupCompnayList());
 		return mapping.findForward("editCoterie");
 	}
 
@@ -160,5 +183,4 @@ public class CoterieListAction extends BaseAction {
 		this.agentCoterieBiz = agentCoterieBiz;
 	}
 
-	
 }

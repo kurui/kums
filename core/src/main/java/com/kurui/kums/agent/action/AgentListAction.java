@@ -215,6 +215,10 @@ public class AgentListAction extends BaseAction {
 		agentListForm.setList(agentBiz.list(agentListForm));
 		agentListForm.setThisAction("selectFinanceAgent");
 		request.setAttribute("agentListForm", agentListForm);
+		
+		request.setAttribute("companyList", PlatComAccountStore
+				.getGroupCompnayList());
+		
 		forwardPage = "listAgentSelect";
 		return (mapping.findForward(forwardPage));
 	}

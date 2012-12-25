@@ -11,6 +11,7 @@ public class CoterieListForm extends ListActionForm {
 
 	public long id = Long.valueOf(0);
 	public long rootAgentId = Long.valueOf(0);
+	
 
 	public String contactWay = "";
 

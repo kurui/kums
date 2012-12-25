@@ -124,6 +124,16 @@
 											value="${coterie.id}" />;
     		 window.location.href=url;
  		}
+ 		function delAgentCoterie(){	
+	 if(document.forms[0].selectedItems==null){
+		alert("没有数据，无法修改！");
+	 }else if (sumCheckedBox(document.forms[0].selectedItems)<1){
+	    alert("您还没有选择数据！");
+	 }else if(confirm("您真的要删除选择的这些数据吗？")){
+	    document.forms[0].thisAction.value="delete";
+	    document.forms[0].submit();
+	 }
+	}	
 		</script>
 </body>
 </html>

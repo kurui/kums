@@ -33,7 +33,9 @@ public class AgentCoterieDAOImp extends BaseDAOSupport implements
 	public List<Agent> getAgentListByCoterieId(long coterieId)
 			throws AppException {
 		Hql hql = new Hql();
-		hql.add(" select a.subAgent from AgentCoterie a where a.coterie.id=" + coterieId);
+		hql.add(" select t.subAgent from AgentCoterie t where t.coterie.id=" + coterieId);
+		hql.add(" and t.status="+AgentCoterie.STATES_1);
+		
 		Query query = this.getQuery(hql);
 		List<Agent> list=new ArrayList<Agent>();
 		if (query != null) {
