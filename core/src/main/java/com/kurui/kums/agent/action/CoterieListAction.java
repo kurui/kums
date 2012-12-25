@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.kurui.kums.agent.Agent;
+import com.kurui.kums.agent.AgentCoterie;
 import com.kurui.kums.agent.Coterie;
 import com.kurui.kums.agent.CoterieListForm;
 import com.kurui.kums.agent.biz.AgentBiz;
@@ -98,17 +99,10 @@ public class CoterieListAction extends BaseAction {
 		if (agentId > 0) {
 			Agent agent = agentBiz.getAgentById(agentId);
 			if (agent != null) {
-				Coterie coterie = null;
-				Set<Coterie> coterieSet = agent.getAgentCoteries();
-
-				if (coterieSet.size() > 0) {
-					coterie = coterieSet.iterator().next();
-					coterie.setThisAction("update");
-				} else {
-					coterie = new Coterie();
+				Coterie coterie = new Coterie();
 					coterie.setThisAction("insert");
 					coterie.setRootAgent(agent);
-				}
+				
 				request.setAttribute("coterie", coterie);
 			} else {
 				inf.setMessage("Agent为空");

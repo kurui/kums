@@ -87,23 +87,29 @@
 											<td>
 												<html:select property="type" styleClass="colorblue2 p_5"
 													style="width:80px;">
-													<html:option value="">
+												<html:option value="0">
 														请选择
 													</html:option>
-													<html:option value="1">
+													<html:option value="5">
+														SVIP客户
+													</html:option>
+													<html:option value="10">
 														VIP客户
 													</html:option>
-													<html:option value="2">
+													<html:option value="30">
 														主要客户
 													</html:option>
-													<html:option value="3">
+													<html:option value="35">
 														普通客户
 													</html:option>
-													<html:option value="4">
+													<html:option value="41">
 														小客户
 													</html:option>
-													<html:option value="11">
+													<html:option value="110">
 														潜在客户
+													</html:option>
+													<html:option value="121">
+														网络客户
 													</html:option>
 												</html:select>
 											</td>

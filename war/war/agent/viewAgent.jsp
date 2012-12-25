@@ -76,7 +76,7 @@
 												href="<%=path%>/agent/agentRelationList.do?thisAction=listGroupChart&agentId=<c:out value="${agent.id}" />">
 												谱系</a>
 										</c:if> |<a
-										href="<%=path%>/agent/coterieList.do?thisAction=save&rootAgentId=<c:out value="${agent.id}" />">
+										href="<%=path%>/agent/coterieList.do?thisAction=list&rootAgentId=<c:out value="${agent.id}" />">
 											圈子</a></td>
 								</tr>
 								<tr>
