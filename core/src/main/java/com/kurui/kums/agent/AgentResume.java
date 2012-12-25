@@ -61,7 +61,7 @@ public class AgentResume extends _AgentResume {
 	public String getStatusInfo() {
 		if (this.getStatus() != null) {
 			if (this.getStatus() == STATES_1) {
-				return "有效";
+				return "当前";
 			}else if (this.getStatus().intValue() == STATES_2) {
 				return "历史";
 			} else if (this.getStatus().intValue() == STATES_0) {

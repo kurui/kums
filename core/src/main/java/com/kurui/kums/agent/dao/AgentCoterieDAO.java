@@ -2,12 +2,16 @@ package com.kurui.kums.agent.dao;
 
 import java.util.List;
 
+import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentCoterie;
 import com.kurui.kums.agent.AgentCoterieListForm;
 import com.kurui.kums.base.exception.AppException;
 
 public interface AgentCoterieDAO {
 	public List list(AgentCoterieListForm agentListForm) throws AppException;
+	
+	public List<Agent> getAgentListByCoterieId(long coterieId)
+			throws AppException;
 
 	public void delete(long id) throws AppException;
 

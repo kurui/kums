@@ -201,8 +201,8 @@
 										href="<%=path%>/library/imageLibraryList.do?thisAction=listView&perPageNum=1&tableName=company&rowId=<c:out value="${company.id}" />">
 											所有图片</a>
 											
-											<input name="label" type="button" class="button1" value="客户列表"
-												onclick="listAgent();" id="btnListAgent">
+											<input name="label" type="button" class="button1" value="公司列表"
+												onclick="listCompany();" id="btnListCompany">
 											<input name="label" type="button" class="button1" value="新 增"
 												onclick="add();">
 											<input name="label" type="button" class="button1" value="返 回"
@@ -241,9 +241,9 @@
 		    document.forms[0].submit();
 		}
 		
-		function listAgent(){	
-			if(setSubmitButtonDisable("btnListAgent")){	   
-		    	document.forms[0].action="<%=path%>/agent/agentList.do?thisAction=list";
+		function listCompany(){	
+			if(setSubmitButtonDisable("btnListCompany")){	   
+		    	document.forms[0].action="<%=path%>/library/companyList.do?thisAction=list";
 		    	document.forms[0].submit();
 		    }
 		}

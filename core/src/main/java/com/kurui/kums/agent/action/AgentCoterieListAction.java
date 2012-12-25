@@ -1,23 +1,26 @@
 package com.kurui.kums.agent.action;
 
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.struts.BaseAction;
-import com.kurui.kums.base.ui.inform.Inform;
-import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.Constant;
+import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentCoterie;
 import com.kurui.kums.agent.AgentCoterieListForm;
 import com.kurui.kums.agent.Coterie;
-import com.kurui.kums.library.util.PlatComAccountStore;
 import com.kurui.kums.agent.biz.AgentBiz;
 import com.kurui.kums.agent.biz.AgentCoterieBiz;
 import com.kurui.kums.agent.biz.CoterieBiz;
+import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
+import com.kurui.kums.library.util.PlatComAccountStore;
 
 public class AgentCoterieListAction extends BaseAction {
 	private AgentBiz agentBiz;
@@ -54,6 +57,9 @@ public class AgentCoterieListAction extends BaseAction {
 			AgentCoterie agentCoterie = agentCoterieBiz
 					.getAgentCoterieById(agentCoterieId);
 			request.setAttribute("agentCoterie", agentCoterie);
+			
+			
+		
 
 		} catch (Exception e) {
 			e.printStackTrace();

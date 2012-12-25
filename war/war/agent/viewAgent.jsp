@@ -222,9 +222,14 @@
 							</table>
 							<table width="100%" style="margin-top: 5px;">
 								<tr>
-									<td align="center" colspan="4"><input name="label"
-										type="button" class="button1" value="返 回"
+									<td align="center" colspan="4">
+									<input name="label"
+										type="button" class="button1" value="客户列表"
+										onclick="goAgentList();"> <input name="label"
+										type="button" class="button1" value="上一步"
 										onclick="window.history.back();"> <input name="label"
+										type="button" class="button1" value="个人主页"
+										onclick="goMainPage();"> <input name="label"
 										type="button" class="button1" value="新 增" onclick="add();">
 										<input name="label" type="button" class="button1" value="编 辑"
 										onclick="edit(<c:out value='${agent.id}' />);"> <input
@@ -261,7 +266,14 @@
  		 	 var url="../agent/agent.do?thisAction=updateStatistic&id="+id;
     		 window.location.href=url;
  		}
- 		
+ 		function goAgentList(){
+   			 var url="../agent/agentList.do?thisAction=list";
+    		 window.location.href=url;
+ 		}
+ 		function goMainPage(){
+   			 var url="../agent/agentList.do?thisAction=view&id="+<c:out value="${agent.id}" />;
+    		 window.location.href=url;
+ 		}
 		</script>
 </body>
 </html>

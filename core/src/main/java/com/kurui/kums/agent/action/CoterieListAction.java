@@ -2,26 +2,30 @@ package com.kurui.kums.agent.action;
 
 import java.util.List;
 import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.kurui.kums.base.struts.BaseAction;
-import com.kurui.kums.base.ui.inform.Inform;
-import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.Constant;
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.Coterie;
 import com.kurui.kums.agent.CoterieListForm;
-import com.kurui.kums.library.util.PlatComAccountStore;
 import com.kurui.kums.agent.biz.AgentBiz;
+import com.kurui.kums.agent.biz.AgentCoterieBiz;
 import com.kurui.kums.agent.biz.CoterieBiz;
+import com.kurui.kums.base.Constant;
+import com.kurui.kums.base.exception.AppException;
+import com.kurui.kums.base.struts.BaseAction;
+import com.kurui.kums.base.ui.inform.Inform;
+import com.kurui.kums.library.util.PlatComAccountStore;
 
 public class CoterieListAction extends BaseAction {
 	private AgentBiz agentBiz;
 	private CoterieBiz coterieBiz;
+	private AgentCoterieBiz agentCoterieBiz;
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -51,6 +55,9 @@ public class CoterieListAction extends BaseAction {
 			long coterieId = Constant.toLong(coterieListForm.getId());
 			Coterie coterie = coterieBiz.getCoterieById(coterieId);
 			request.setAttribute("coterie", coterie);
+			
+			List<Agent> agentList=agentCoterieBiz.getAgentListByCoterieId(coterieId);
+			request.setAttribute("agentList", agentList);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -149,4 +156,9 @@ public class CoterieListAction extends BaseAction {
 		this.coterieBiz = coterieBiz;
 	}
 
+	public void setAgentCoterieBiz(AgentCoterieBiz agentCoterieBiz) {
+		this.agentCoterieBiz = agentCoterieBiz;
+	}
+
+	
 }

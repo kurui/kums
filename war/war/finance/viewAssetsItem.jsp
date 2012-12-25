@@ -85,10 +85,16 @@
 								<table width="100%" style="margin-top: 5px;">
 									<tr>
 										<td align="center">
+										<input name="label" type="button" class="button1" value="同类列表"
+												onclick="goSameList();">
+												<input name="label" type="button" class="button1" value="返 回主页"
+												onclick="goMainList();">
+										<input name="label" type="button" class="button1" value="返 回"
+												onclick="window.history.back();">
+												
 											<input name="label" type="button" class="button1" value="新 增"
 												onclick="add();">
-											<input name="label" type="button" class="button1" value="返 回"
-												onclick="window.history.back();">
+											
 											<input name="label" type="button" class="button1" value="编 辑"
 												onclick="edit(<c:out value='${assetsItem.id}' />);">
 
@@ -117,6 +123,16 @@
    			 var url="../finance/assetsItemList.do?thisAction=edit&id="+id;
     		 window.location.href=url;
  		}
+ 		function goMainList(){
+   			 var url="../finance/assetsItemList.do?thisAction=list";
+    		 window.location.href=url;
+ 		}
+ 		
+ 		function goSameList(){
+   			 var url="../finance/assetsItemList.do?thisAction=list&itemType="+<c:out value="${assetsItem.itemType}" />;
+    		 window.location.href=url;
+ 		}
+ 		
 		</script>
 	</body>
 </html>

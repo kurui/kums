@@ -20,6 +20,7 @@
 <script type="text/javascript">
 	function add(){
 	    document.forms[0].thisAction.value="save";
+	    document.forms[0].selectedItems
 	    document.forms[0].submit();
 	}
 	

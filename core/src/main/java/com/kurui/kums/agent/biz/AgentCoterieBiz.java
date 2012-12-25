@@ -2,6 +2,7 @@ package com.kurui.kums.agent.biz;
 
 import java.util.List;
 
+import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentCoterie;
 import com.kurui.kums.agent.AgentCoterieListForm;
 import com.kurui.kums.base.exception.AppException;
@@ -9,6 +10,9 @@ import com.kurui.kums.base.exception.AppException;
 public interface AgentCoterieBiz {
 
 	public List list(AgentCoterieListForm agentCoterieListForm) throws AppException;
+	
+	public List<Agent> getAgentListByCoterieId(long coterieId)
+			throws AppException;
 
 	public long delete(long id) throws AppException;
 

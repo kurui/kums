@@ -32,18 +32,10 @@
 				<table width="100%" cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<td>
-							<table width="70%" cellpadding="0" cellspacing="0" border="0"
+							<table width="80%" cellpadding="0" cellspacing="0" border="0"
 								class="dataList">
-								<tr style="display: none">
-									<th width="35">
-										<div>&nbsp;序号</div>
-									</th>
-									<th>
-										<div>标题</div>
-									</th>
-									<th>
-										<div>更新时间</div>
-									</th>
+								<tr>
+									<th colspan="3">新闻快递</th>
 								</tr>
 								<c:forEach var="info" items="${newsList}" varStatus="status">
 									<tr>
@@ -103,7 +95,6 @@
 								</tr>
 								<c:forEach var="info" items="${eventList}" varStatus="status">
 									<tr>
-										<td><c:out value="${status.count}" /></td>
 										<td><html:link
 												page="/information/newsList.do?thisAction=view&id=${info.id}">
 
@@ -126,4 +117,3 @@
 		</tr>
 	</table>
 </body>
-</html>

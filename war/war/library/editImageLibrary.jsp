@@ -58,7 +58,7 @@
 		<html:hidden property="thisAction" />
 		<html:hidden property="tableName" />
 		<html:hidden property="rowId" />
-		
+
 		<div id="mainContainer">
 			<div id="container">
 				<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -82,21 +82,23 @@
 									<td style="text-align: left"><html:text property="name"
 											name="imageLibrary" styleClass="colorblue2 p_5"
 											style="width:200px;"></html:text></td>
-											<td class="lef">说明</td>
+									<td class="lef">说明</td>
 									<td style="text-align: left"><html:text property="memo"
 											name="imageLibrary" styleClass="colorblue2 p_5"
 											style="width:200px;"></html:text></td>
-									<td><input type="button" class="button1"
-										value="返 回" onclick="window.history.back();"> <input
-										name="label" type="button" class="button1" value="完 成"
+									<td><input type="button" class="button1" value="返 回"
+										onclick="window.history.back();"> <input name="label"
+										type="button" class="button1" value="完 成"
 										onclick="submitForm();"></td>
 								</tr>
-								<c:if test="${imageLibrary.thisAction=='insert' or imageLibrary.thisAction=='insertDependent'}">
+								<c:if
+									test="${imageLibrary.thisAction=='insert' or imageLibrary.thisAction=='insertDependent'}">
 									<tr>
 										<td class="lef">选择上传图片</td>
 										<td style="text-align: left"><html:file
 												property="uploadFile" name="imageLibrary"
-												styleClass="colorblue2 p_5" size="40" onchange="onchangeUploadFile();" />
+												styleClass="colorblue2 p_5" size="40"
+												onchange="onchangeUploadFile();" />
 									</tr>
 								</c:if>
 								<c:if test="${imageLibrary.thisAction=='update'}">
@@ -106,10 +108,12 @@
 										</td>
 									</tr>
 								</c:if>
-								
+
 								<tr>
 									<td colspan="5"><input type="button" class="button1"
-										value="返 回" onclick="window.history.back();"> </td>
+										value="返 回" onclick="window.history.back();"> <input
+										name="label" type="button" class="button1" value="完 成"
+										onclick="submitForm();"></td>
 								</tr>
 							</table>
 

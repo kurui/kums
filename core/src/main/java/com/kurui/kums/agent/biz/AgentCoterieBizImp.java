@@ -3,6 +3,7 @@ package com.kurui.kums.agent.biz;
 import java.util.List;
 
 import com.kurui.kums.agent.biz.AgentCoterieBiz;
+import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentCoterie;
 import com.kurui.kums.agent.AgentCoterieListForm;
 import com.kurui.kums.agent.dao.AgentCoterieDAO;
@@ -13,6 +14,11 @@ public class AgentCoterieBizImp implements AgentCoterieBiz {
 
 	public List list(AgentCoterieListForm agentCoterieListForm) throws AppException {
 		return agentCoterieDAO.list(agentCoterieListForm);
+	}
+	
+	public List<Agent> getAgentListByCoterieId(long coterieId)
+			throws AppException{
+		return agentCoterieDAO.getAgentListByCoterieId(coterieId);
 	}
 
 	public long delete(long id) throws AppException {

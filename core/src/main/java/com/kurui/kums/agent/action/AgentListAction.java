@@ -183,7 +183,18 @@ public class AgentListAction extends BaseAction {
 		Agent agent = new Agent();
 		agent.setThisAction("insert");
 		agent.setSex(Agent.SEX_1);
-		agent.setType(alf.getType());
+		if(alf.getType()!=0){
+			agent.setType(alf.getType());
+		}else{
+			agent.setType(Agent.TYPE_35);
+		}
+		
+		if(alf.getCompanyId()!=0){
+			agent.setCompanyId(alf.getCompanyId());
+		}else{
+			agent.setCompanyId(534);//默认
+		}
+		
 
 		request.setAttribute("agent", agent);
 

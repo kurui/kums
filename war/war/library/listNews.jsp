@@ -9,7 +9,7 @@
 		<title>main</title>
 		<link href="../_css/reset.css" rel="stylesheet" type="text/css" />
 		<link href="../_css/global.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" language="javascript" src="../_js/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript"  src="../_js/jquery-1.3.2.min.js"></script>
 		<script src="../_js/prototype/common.js" type="text/javascript"></script>
 		<script type="text/javascript" src="<%=path%>/_js/base/FormUtil.js"></script>
 
@@ -69,6 +69,8 @@ function searchAgent(){
 					<html:hidden property="lastAction" />
 					<html:hidden property="intPage" />
 					<html:hidden property="pageCount" />
+					<html:hidden property="type" />
+					
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td width="10" height="10" class="tblt"></td>

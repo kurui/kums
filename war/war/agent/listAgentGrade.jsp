@@ -77,25 +77,25 @@
 										<td>
 											<html:select property="type" styleClass="colorblue2 p_5"
 												style="width:80px;">
-												<html:option value="0">
-														综合评级
+													<html:option value="5">
+														SVIP客户
 													</html:option>
-												<html:option value="1">
+													<html:option value="10">
 														VIP客户
 													</html:option>
-												<html:option value="2">
+													<html:option value="30">
 														主要客户
 													</html:option>
-												<html:option value="3">
+													<html:option value="35">
 														普通客户
 													</html:option>
-												<html:option value="4">
+													<html:option value="41">
 														小客户
 													</html:option>
-												<html:option value="11">
+													<html:option value="110">
 														潜在客户
 													</html:option>
-													<html:option value="21">
+													<html:option value="121">
 														网络客户
 													</html:option>
 											</html:select>
@@ -269,8 +269,10 @@
 											</td>
 
 											<td>
-												<input type="submit" name="button" id="button" value="提交"
+											<input type="submit" name="button" id="button" value="提交"
 													class="submit greenBtn" />
+												<input type="button" name="button" id="button" value="重置查询"
+													class="submit greenBtn" onclick="resetSearch();"/>
 											</td>
 										</tr>
 									</table>
@@ -468,6 +470,19 @@
 	    	document.forms["listAgentForm"].submit();
 	  	}
 	}
+	
+	function resetSearch(){
+												document.forms["listAgentForm"].companyId.value="";
+												document.forms["listAgentForm"].contactWay.value="";
+												document.forms["listAgentForm"].type.value="0";
+												document.forms["listAgentForm"].loyalIndex.value="";
+												document.forms["listAgentForm"].friendIndex.value="";
+												document.forms["listAgentForm"].assetIndex.value="";
+												document.forms["listAgentForm"].specialIndex.value="";
+												document.forms["listAgentForm"].tightIndex.value="";
+												document.forms["listAgentForm"].submit();
+												
+											}
 	</script>
 	</body>
 </html>

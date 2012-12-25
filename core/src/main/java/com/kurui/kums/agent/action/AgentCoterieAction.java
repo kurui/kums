@@ -59,6 +59,8 @@ public class AgentCoterieAction extends BaseAction {
 					if (num > 0) {
 						ActionRedirect redirect = new ActionRedirect(
 								"/agent/agentCoterieList.do?thisAction=list");
+						redirect = new ActionRedirect(
+									"/agent/coterieList.do?thisAction=view&id="+coterieId);
 						return redirect;
 					} else {
 						inf.setMessage("您添加客户数据异常！");

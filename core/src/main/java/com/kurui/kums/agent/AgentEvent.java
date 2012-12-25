@@ -65,7 +65,7 @@ public class AgentEvent extends _AgentEvent {
 			if (this.updateTime != null && "".equals(updateTime) == false) {
 				Date tempDate = new Date(updateTime.getTime());
 				mydate = DateUtil
-						.getDateString(tempDate, "yyyy-MM-dd HH:mm:ss");
+						.getDateString(tempDate, "yyyy-MM-dd");
 			}
 		}
 		return mydate;

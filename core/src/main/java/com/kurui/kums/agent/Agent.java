@@ -24,12 +24,13 @@ public class Agent extends _Agent {
 	public static final long STAMP_TYPE_3 = 3;// 网友
 
 	// 类型
-	public static final long TYPE_1 = 1;// VIP
-	public static final long TYPE_2 = 2;// 主要
-	public static final long TYPE_3 = 3;// 普通
-	public static final long TYPE_4 = 4;// 小客户
-	public static final long TYPE_11 = 11;// 潜在客户
-	public static final long TYPE_21 = 21;// 网络客户
+	public static final long TYPE_5 = 5;// SVIP
+	public static final long TYPE_10 = 10;// VIP
+	public static final long TYPE_30 = 30;// 主要
+	public static final long TYPE_35 = 35;// 普通
+	public static final long TYPE_41 = 41;// 小客户
+	public static final long TYPE_110 = 110;// 潜在客户
+	public static final long TYPE_121 = 121;// 网络客户
 	public static final long TYPE_80 = 80;// 无
 
 	// sex
@@ -56,14 +57,14 @@ public class Agent extends _Agent {
 			stampGroupItem = StringUtil.getSplitString(this.stampGroup, ",");
 			if (stampGroupItem != null) {
 				for (int i = 0; i < stampGroupItem.length; i++) {
-					if(StringUtil.isEmpty(stampGroupItem[i])==false){
+					if (StringUtil.isEmpty(stampGroupItem[i]) == false) {
 						Long item = Constant.toLong(stampGroupItem[i]);
 						String itemInfo = getStampTypeInfoByValue(item);
 						if (itemInfo != "") {
 							info += itemInfo + ",";
 						}
 					}
-					
+
 				}
 				if (info.indexOf(",", info.length() - 1) > 1) {
 					info = info.substring(0, info.length() - 1);
@@ -89,24 +90,26 @@ public class Agent extends _Agent {
 		}
 	}
 
-	public String getTypeInfo(Long type){
-		this.type=type;
+	public String getTypeInfo(Long type) {
+		this.type = type;
 		return getTypeInfo();
 	}
-	
+
 	public String getTypeInfo() {
 		if (this.getType() != null) {
-			if (this.getType().intValue() == TYPE_1) {
+			if (this.getType().intValue() == TYPE_5) {
+				return "SVIP客户";
+			} else if (this.getType().intValue() == TYPE_10) {
 				return "VIP客户";
-			} else if (this.getType().intValue() == TYPE_2) {
+			} else if (this.getType().intValue() == TYPE_30) {
 				return "主要客户";
-			} else if (this.getType().intValue() == TYPE_3) {
+			} else if (this.getType().intValue() == TYPE_35) {
 				return "普通客户";
-			} else if (this.getType().intValue() == TYPE_4) {
+			} else if (this.getType().intValue() == TYPE_41) {
 				return "小客户";
-			} else if (this.getType().intValue() == TYPE_11) {
+			} else if (this.getType().intValue() == TYPE_110) {
 				return "潜在客户";
-			}else if (this.getType().intValue() == TYPE_21) {
+			} else if (this.getType().intValue() == TYPE_121) {
 				return "网络客户";
 			} else {
 				return null;
@@ -137,10 +140,10 @@ public class Agent extends _Agent {
 	}
 
 	public String getSexInfo(Long sex) {
-		this.sex=sex;
+		this.sex = sex;
 		return getSexInfo();
 	}
-	
+
 	public String getSexInfo() {
 		if (this.getSex() != null) {
 			if (this.getSex().intValue() == SEX_1) {
@@ -150,7 +153,7 @@ public class Agent extends _Agent {
 			} else if (this.getSex().intValue() == SEX_0) {
 				return "未知";
 			} else {
-				return "未定义"+this.getSex();
+				return "未定义" + this.getSex();
 			}
 		} else {
 			return null;
@@ -162,7 +165,8 @@ public class Agent extends _Agent {
 		if (this.getStatus() != null) {
 			if (this.getStatus() == STATES_1) {
 				return "有效";
-			} else if (this.getStatus().intValue() == STATES_0) {
+			}
+			else if (this.getStatus().intValue() == STATES_0) {
 				return "无效";
 			} else {
 				return null;
@@ -198,7 +202,7 @@ public class Agent extends _Agent {
 			return "";
 		}
 	}
-	
+
 	public long getDirectLevelId() {
 		return directLevelId;
 	}

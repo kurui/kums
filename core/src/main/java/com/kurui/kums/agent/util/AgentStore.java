@@ -45,11 +45,6 @@ public class AgentStore {
 	
 	
 
-	public static List<Agent> getVIPAgentList() {
-		List<Agent> agentList = getAgentListByType(Agent.TYPE_1);
-		return agentList;
-	}
-
 	public static List<Agent> getAgentListByType(long type) {
 		List<Agent> tempList = new ArrayList<Agent>();
 		for (int i = 0; i < agentList.size(); i++) {

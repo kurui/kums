@@ -2,13 +2,16 @@ package com.kurui.kums.agent.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.Query;
+
+import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentCoterie;
 import com.kurui.kums.agent.AgentCoterieListForm;
+import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.database.hibernate.BaseDAOSupport;
 import com.kurui.kums.base.database.hibernate.Hql;
 import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.base.Constant;
 
 public class AgentCoterieDAOImp extends BaseDAOSupport implements
 		AgentCoterieDAO {
@@ -25,6 +28,21 @@ public class AgentCoterieDAOImp extends BaseDAOSupport implements
 		hql.add("and a.status= " + AgentCoterie.STATES_1);
 
 		return this.list(hql, agentCoterieListForm);
+	}
+	
+	public List<Agent> getAgentListByCoterieId(long coterieId)
+			throws AppException {
+		Hql hql = new Hql();
+		hql.add(" select a.subAgent from AgentCoterie a where a.coterie.id=" + coterieId);
+		Query query = this.getQuery(hql);
+		List<Agent> list=new ArrayList<Agent>();
+		if (query != null) {
+			list = query.list();
+			if (list != null && list.size() > 0) {
+				return list;
+			}
+		}
+		return list;
 	}
 
 	public void delete(long id) throws AppException {
