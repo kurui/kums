@@ -136,7 +136,7 @@
 			displayObj("agentBox","");		
 			var agentNo=document.forms[0].agentNo.value;
 			if(agentNo!=null){
-				agentStore.getBlurAgentList(agentNo,function(blurAgentList){
+				agentBiz.getBlurAgentList(agentNo,function(blurAgentList){
 					//alert("blurAgentList:"+blurAgentList);
 					if(blurAgentList!=null){
 						for(var i=0;i<blurAgentList.length;i++){

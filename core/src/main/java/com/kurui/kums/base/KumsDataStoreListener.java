@@ -37,8 +37,6 @@ public class KumsDataStoreListener implements Runnable {
 				sysInitBiz.updatePCAStore_Company();
 			} else if (dataName == "Account") {
 				sysInitBiz.updatePCAStore_Account();
-			} else if (dataName == "Agent") {
-				sysInitBiz.updateAgentStore();
 			} else if (dataName == "Product") {
 				sysInitBiz.updateProductStore();
 			} else if (dataName == "SysUser") {

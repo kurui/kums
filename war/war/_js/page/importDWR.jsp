@@ -6,7 +6,6 @@
 <script type='text/javascript' src='<%=path%>/dwr/engine.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/util.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/platComAccountStore.js'></script>
-<script type='text/javascript' src='<%=path%>/dwr/interface/agentStore.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/productStore.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/agentBiz.js'></script>
 <script type='text/javascript' src='<%=path%>/dwr/interface/agentResumeBiz.js'></script>

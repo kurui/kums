@@ -2,32 +2,22 @@ package com.kurui.kums.library.biz;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.log4j.Logger;
-import com.kurui.kums.finance.FinanceOrder;
-import com.kurui.kums.market.PriceReference;
-import com.kurui.kums.market.Product;
-import com.kurui.kums.market.dao.PriceReferenceDAO;
-import com.kurui.kums.market.dao.ProductDAO;
-import com.kurui.kums.market.util.PriceIndexStore;
-import com.kurui.kums.market.util.ProductStore;
+
+import com.kurui.kums.agent.dao.AgentDAO;
+import com.kurui.kums.agent.dao.DirectLevelDAO;
+import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.threads.MainTask;
 import com.kurui.kums.base.threads.listener.PerformListener;
-import com.kurui.kums.base.exception.AppException;
-import com.kurui.kums.right.SysUser;
-import com.kurui.kums.right.UserStore;
-import com.kurui.kums.right.dao.UserDAO;
+import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.library.Account;
-import com.kurui.kums.agent.Agent;
-import com.kurui.kums.agent.DirectLevel;
 import com.kurui.kums.library.Company;
 import com.kurui.kums.library.DataType;
 import com.kurui.kums.library.PaymentTool;
 import com.kurui.kums.library.PlatComAccount;
 import com.kurui.kums.library.Platform;
 import com.kurui.kums.library.dao.AccountDAO;
-import com.kurui.kums.agent.dao.AgentDAO;
-import com.kurui.kums.agent.dao.DirectLevelDAO;
-import com.kurui.kums.agent.util.AgentStore;
 import com.kurui.kums.library.dao.CompanyDAO;
 import com.kurui.kums.library.dao.DataTypeDAO;
 import com.kurui.kums.library.dao.PaymentToolDAO;
@@ -35,6 +25,15 @@ import com.kurui.kums.library.dao.PlatComAccountDAO;
 import com.kurui.kums.library.dao.PlatformDAO;
 import com.kurui.kums.library.util.DataTypeStore;
 import com.kurui.kums.library.util.PlatComAccountStore;
+import com.kurui.kums.market.PriceReference;
+import com.kurui.kums.market.Product;
+import com.kurui.kums.market.dao.PriceReferenceDAO;
+import com.kurui.kums.market.dao.ProductDAO;
+import com.kurui.kums.market.util.PriceIndexStore;
+import com.kurui.kums.market.util.ProductStore;
+import com.kurui.kums.right.SysUser;
+import com.kurui.kums.right.UserStore;
+import com.kurui.kums.right.dao.UserDAO;
 
 public class SysInitBizImp implements SysInitBiz {
 
@@ -70,10 +69,6 @@ public class SysInitBizImp implements SysInitBiz {
 
 			updatePlatComAccountStore();
 			new PerformListener("update platComAccount", a);
-
-			long c = System.currentTimeMillis();
-			updateAgentStore();
-			new PerformListener("update agent", c);
 
 			long d = System.currentTimeMillis();
 			updateProductStore();
@@ -139,11 +134,11 @@ public class SysInitBizImp implements SysInitBiz {
 			FinanceOrder.TRAN_TYPE_GROUP_1300 = DataTypeStore
 					.getDataTypeGroup("1300");
 
-			buildDataTypeTree();
-			
-			buildProvideChainTree();
-			
-			buildManageExpenseTree();
+//			buildDataTypeTree();
+//			
+//			buildProvideChainTree();
+//			
+//			buildManageExpenseTree();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,7 +153,7 @@ public class SysInitBizImp implements SysInitBiz {
 				PriceIndexStore.priceReferenceList = priceReferenceList;
 			}
 
-			buildReferenceTree();
+//			buildReferenceTree();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -193,23 +188,6 @@ public class SysInitBizImp implements SysInitBiz {
 		try {
 			dataTypeDAO.buildProvideChainTree();
 		} catch (AppException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void updateAgentStore() {
-		try {
-			List<Agent> agentList = agentDAO.getValidAgentList();
-			if (agentList != null) {
-				AgentStore.agentList = agentList;
-			}
-
-			List<DirectLevel> directLevelList = directLevelDAO
-					.getValidDirectLevelList();
-			if (agentList != null) {
-				AgentStore.directLevelList = directLevelList;
-			}
-		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
+import org.hsqldb.lib.StringUtil;
 
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentListForm;
@@ -186,7 +187,7 @@ public class AgentDAOImp extends BaseDAOSupport implements AgentDAO {
 		return list;
 	}
 
-	public List<Agent> getAgentList(Long type) throws AppException {
+	public List<Agent> getAgentListByType(Long type) throws AppException {
 		List<Agent> list = new ArrayList<Agent>();
 		Hql hql = new Hql();
 		hql.add("from Agent a where a.type=" + type);
@@ -205,6 +206,33 @@ public class AgentDAOImp extends BaseDAOSupport implements AgentDAO {
 		Hql hql = new Hql();
 		hql.add("from Agent a where 1=1 and a.status= " + Agent.STATES_1);
 		hql.add(" order by a.name ");
+		Query query = this.getQuery(hql);
+		if (query != null) {
+			list = query.list();
+			if (list != null && list.size() > 0) {
+				return list;
+			}
+		}
+		return list;
+	}
+	
+	public List<Agent> getBlurAgentList(String blur)throws AppException {
+		List<Agent> list = new ArrayList<Agent>();
+		Hql hql = new Hql();
+		hql.add("from Agent a where 1=1 and a.status= " + Agent.STATES_1);
+		if(StringUtil.isEmpty(blur)==false){
+			hql.add(" and ( ");
+			hql.add("  a.agentNo like '%"+blur+"%'");
+			hql.add("  or a.cardNo like '%"+blur+"%'");
+			hql.add("  or a.name like '%"+blur+"%'");
+			hql.add(" ) ");
+		}else{
+			return list;
+		}
+		
+		
+		hql.add(" order by a.name ");
+		
 		Query query = this.getQuery(hql);
 		if (query != null) {
 			list = query.list();
@@ -295,5 +323,7 @@ public class AgentDAOImp extends BaseDAOSupport implements AgentDAO {
 
 		}
 	}
+
+	
 
 }

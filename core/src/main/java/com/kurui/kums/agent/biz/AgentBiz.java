@@ -40,7 +40,8 @@ public interface AgentBiz {
 
 	public List<Agent> getAgentList() throws AppException;
 
-	public List<Agent> getAgentList(Long type) throws AppException;
+	public List<Agent> getAgentListByType(Long type) throws AppException;
+	public List<Agent> getBlurAgentList(String blur) throws AppException;
 
 	public List<Agent> getValidAgentList() throws AppException;
 

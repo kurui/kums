@@ -6,12 +6,12 @@
 	    <create javascript="platComAccountStore" creator="new">
 	    	<param name="class" value="com.kurui.kums.library.util.PlatComAccountStore"></param>
 	    </create>	  
-	    <create javascript="agentStore" creator="new">
-	    	<param name="class" value="com.kurui.kums.agent.util.AgentStore"></param>
-	    </create>	 
 	    <create javascript="productStore" creator="new">
 	    	<param name="class" value="com.kurui.kums.market.util.ProductStore"></param>
-	    </create>	  
+	    </create>	 
+	    
+	    
+	     
         <create creator="spring" javascript="financeOrderBiz">
 	      <param name="beanName" value="financeOrderBiz"/>
 	    </create>

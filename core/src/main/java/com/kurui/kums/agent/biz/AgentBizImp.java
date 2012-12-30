@@ -81,14 +81,20 @@ public class AgentBizImp implements AgentBiz {
 		String areaCode= IdCardUtil.getAreaCodeByIdCard(idCard);
 		return areaCodeDAO.getAreaTextByCode(areaCode);
 	}
+	
+	public List<Agent> getBlurAgentList(String blur)throws AppException{
+		return agentDAO.getBlurAgentList(blur);
+	}
 
 	public List<Agent> getAgentList() throws AppException {
 		return agentDAO.getAgentList();
 	}
 
-	public List<Agent> getAgentList(Long type) throws AppException {
-		return agentDAO.getAgentList(type);
+	public List<Agent> getAgentListByType(Long type) throws AppException {
+		return agentDAO.getAgentListByType(type);
 	}
+	
+	
 	
 	public List<Agent> getValidAgentList() throws AppException{
 		return agentDAO.getValidAgentList();

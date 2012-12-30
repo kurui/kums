@@ -8,8 +8,6 @@ public interface SysInitBiz {
 	public void updateUserStore();
 
 	public void updateDataTypeStore();
-
-	public void updateAgentStore();
 	
 	public void updateProductStore();
 

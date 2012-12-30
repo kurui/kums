@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionMapping;
 import com.kurui.kums.agent.Agent;
 import com.kurui.kums.agent.AgentListForm;
 import com.kurui.kums.agent.biz.AgentBiz;
-import com.kurui.kums.agent.util.AgentStore;
+import com.kurui.kums.agent.biz.DirectLevelBiz;
 import com.kurui.kums.base.Constant;
 import com.kurui.kums.base.exception.AppException;
 import com.kurui.kums.base.external.service.sms.SMUtil;
@@ -22,14 +22,14 @@ import com.kurui.kums.base.ui.inform.Inform;
 import com.kurui.kums.base.util.RegularUtil;
 import com.kurui.kums.finance.FinanceOrder;
 import com.kurui.kums.finance.biz.FinanceOrderBiz;
-import com.kurui.kums.report.biz.AgentReportBiz;
 import com.kurui.kums.library.util.DataTypeStore;
 import com.kurui.kums.library.util.PlatComAccountStore;
+import com.kurui.kums.report.biz.AgentReportBiz;
 
 public class AgentListAction extends BaseAction {
 	private AgentBiz agentBiz;
 	private AgentReportBiz agentReportBiz;
-	
+	private DirectLevelBiz directLevelBiz;	
 	private FinanceOrderBiz financeOrderBiz;
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
@@ -264,12 +264,11 @@ public class AgentListAction extends BaseAction {
 		return mapping.findForward("editAgent");
 	}
 
-	private HttpServletRequest loadData(HttpServletRequest request) {
+	private HttpServletRequest loadData(HttpServletRequest request) throws AppException {
 		request.setAttribute("companyList", PlatComAccountStore
 				.getGroupCompnayList());
 		request
-				.setAttribute("directLevelList", AgentStore
-						.getDirectLevelList());
+				.setAttribute("directLevelList", directLevelBiz.getDirectLevelList());
 
 		request.setAttribute("loyalIndexList", DataTypeStore
 				.getSubDataTypeList(5901));
@@ -406,6 +405,10 @@ public class AgentListAction extends BaseAction {
 	}
 	
 	
+
+	public void setDirectLevelBiz(DirectLevelBiz directLevelBiz) {
+		this.directLevelBiz = directLevelBiz;
+	}
 
 	public void setAgentReportBiz(AgentReportBiz agentReportBiz) {
 		this.agentReportBiz = agentReportBiz;
