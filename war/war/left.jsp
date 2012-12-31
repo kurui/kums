@@ -45,7 +45,7 @@
 					href="<%=path%>/finance/assetsItemList.do?thisAction=list&status=1"
 					target="mainFrame">资产项目列表</a></span> <span class="title"> <a
 					href="<%=path%>/library/companyList.do?thisAction=list&type=2"
-					target="mainFrame">客户公司列表</a>
+					target="mainFrame">机构列表</a>
 				</span> <span class="title"> <a
 					href="<%=path%>/agent/agentList.do?thisAction=list"
 					target="mainFrame">客户列表</a>

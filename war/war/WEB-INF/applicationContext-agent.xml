@@ -18,6 +18,9 @@
 		<property name="financeOrderBiz">
 			<ref bean="financeOrderBiz" />
 		</property>
+		<property name="directLevelBiz">
+			<ref bean="directLevelBiz"/>
+		</property>
 	</bean>
 
 	<bean name="/agent/agent" class="com.kurui.kums.agent.action.AgentAction"

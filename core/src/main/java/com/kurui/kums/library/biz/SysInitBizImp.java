@@ -213,8 +213,10 @@ public class SysInitBizImp implements SysInitBiz {
 				PlatComAccount pca = platComAccountList.get(i);
 				Account a = platComAccountList.get(i).getAccount();
 				pca.setAccount((Account) a.clone());
+				
 				Platform pf = platComAccountList.get(i).getPlatform();
 				pca.setPlatform((Platform) pf.clone());
+				
 				Company c = platComAccountList.get(i).getCompany();
 				pca.setCompany((Company) c.clone());
 				temPlatComAccountList.add(pca);
